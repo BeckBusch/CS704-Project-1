@@ -1,0 +1,289 @@
+reaction Stuff(: input signal manual, input signal mode, output signal O) {
+	present(mode){
+		present(manual){
+			sustain O;
+		}
+	} else {
+		sustain O;
+	}
+}
+
+Controller(
+		input signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty,request;
+		output signal pusherExtend,vacOn,armSource,armDest;
+		input Integer signal mode;
+		input signal pusherExtendM,vacOnM,armSourceM,armDestM;
+		)
+->{
+/* TODO: Write control-logic */
+	// Default
+	// Ejecting cylinder (pusher) is retracted
+	// Rotary arm is extended
+	// Vacuum is off
+	
+	/* What we need to do
+	 * 1. The arm swivels to the position “extended” if a new workpiece is requested (request).
+	 * 2. The pusher extends and pushes a workpiece out of the magazine.
+	 * 3. The pusher retracts back once it is fully extended.
+	 * 4. The arm swivels back to the position “retracted”
+	 * 5. The vacuum is switched on (wait until the workpiece is securely held, e.g. via WPgripped).
+	 * 6. The arm swivels to the position “extended”, transferring a workpiece to a pick-up zone
+	 * 7. The vacuum is switched off (wait until the workpiece is released, e.g. via !WPgripped)
+	 * 8. The arm swivels to the position “retracted” so that the cup can be picked up by other machine
+	 */
+	// Auto mode
+	{
+		while(true) {
+			
+			// wait for request
+			await(request);
+			
+			// swivel arm
+			// check arm position is at extended
+
+			
+			abort(armAtDest){
+				
+				while (true) {
+					int data = 0;
+					
+					present(mode){
+						data = (Integer)#mode;
+					}
+					
+					if(data == 0){
+						sustain armDest;
+					}
+					
+					pause;
+				}
+				
+				// sustain armDest;
+			} do {
+				int data = 0;
+
+				present(mode){
+					data = (Integer)#mode;
+				}
+				
+				if (data == 0) {
+					System.out.println("Auto mode: Swivel arm back before item arrives.");
+				} else {
+					System.out.println("Manual mode: Swivel arm back before item arrives.");
+				}
+			}
+			
+			// extend pusher
+			// check it is extended
+			abort(pusherExtended){
+				while (true) {
+					int data = 0;
+					
+					present(mode){
+						data = (Integer)#mode;
+					}
+					
+					if(data == 0){
+						sustain pusherExtend;
+					}
+					
+					pause;
+				}
+				
+				// sustain pusherExtend;
+			} do {
+				int data = 0;
+
+				present(mode){
+					data = (Integer)#mode;
+				}
+				if (data == 0) {
+					System.out.println("Auto mode: Push item.");
+				} else {
+					System.out.println("Manual mode: Push item.");
+				}
+			}
+			
+			// unextend pusher
+			await(pusherRetracted);
+			
+			// unswivel arm
+			// check arm position
+			abort(armAtSource){
+				while (true) {
+					int data = 0;
+					
+					present(mode){
+						data = (Integer)#mode;
+					}
+					
+					if(data == 0){
+						sustain armSource;
+					}
+					
+					pause;
+				}
+				
+				// sustain armSource;
+			} do {
+				int data = 0;
+
+				present(mode){
+					data = (Integer)#mode;
+				}
+				if (data == 0) {
+					System.out.println("Auto mode: Swivel arm to item.");
+				} else {
+					System.out.println("Manual mode: Swivel arm to item.");
+				}
+			}
+			
+			// turn on vacuum
+			// wait until it is gripped
+			// swivel arm to extended (again)
+			// check arm position
+			abort(armAtDest){
+				{
+
+					while (true) {
+						int data = 0;
+						present(mode){
+							data = (Integer)#mode;
+						}
+						
+						if(data == 0){
+							System.out.println("Auto mode: Turn vacuum on.");
+							sustain vacOn;
+						}
+						
+						pause;
+					}
+					
+					// sustain vacOn;
+				}
+				||
+				{
+					while (true) {
+						present(WPgripped){
+							int data = 0;
+							present(mode){
+								data = (Integer)#mode;
+							}
+							
+							if(data == 0){
+								sustain armDest;
+							}
+						
+							// sustain armDest;
+						}
+
+						pause;
+					}
+				}
+				
+				/*
+				while(true) {
+					emit vacOn;
+					present(WPgripped){
+						emit armDest;
+					} else {}
+					pause;
+				}
+				*/
+			} do {
+				int data = 0;
+
+				present(mode){
+					data = (Integer)#mode;
+				}
+				if (data == 0) {
+					System.out.println("Auto mode: Swivel item away.");
+				} else {
+					System.out.println("Manual mode: Swivel item away.");
+				}
+			}
+			
+			// vacuum off. this is automatic
+			// check it off => await(!WPgripped); maybe?
+			await(!WPgripped);
+			
+			// unswivel arm
+			// check arm position before anything else is done
+			abort(armAtSource){
+				while (true) {
+					int data = 0;
+
+					
+					present(mode){
+						data = (Integer)#mode;
+					}
+					
+					if(data == 0){
+						sustain armSource;
+					}
+					
+					pause;
+				}
+				
+				//sustain armSource;
+			} do {
+				int data = 0;
+
+				present(mode){
+					data = (Integer)#mode;
+				}
+				
+				if (data == 0) {
+					System.out.println("Auto mode: Swivel arm back.");
+				} else {
+					System.out.println("Manual mode: Swivel arm back.");
+				}
+			}
+		
+		// loop
+		}
+		
+	}
+	||
+	// Manual mode
+	{
+		// pusherExtendM,vacOnM,armSourceM,armDestM
+		// pusherExtend,vacOn,armSource,armDest
+		{
+			while (true) {
+				present(pusherExtendM){
+					emit pusherExtend;
+				}
+				pause;
+			}
+		}
+		||
+		{
+			while (true) {
+				present(vacOnM){
+					emit vacOn;
+				}
+				pause;
+			}
+		}
+		||
+		{
+			while (true) {
+				present(armSourceM){
+					emit armSource;
+				}
+				pause;
+			}
+		}
+		||
+		{
+			while (true) {
+				present(armDestM){
+					emit armDest;
+				}
+				pause;
+			}
+		}
+	}
+	
+}
