@@ -1,6 +1,8 @@
 reaction ConveyorControl(: input signal bottleAtPos1, input signal bottleLeftPos5, output signal motConveyorOnOff){
 	// initialize state machine
-	int state = 0;
+	System.out.println("Initializing state machine for conveyor controller.");
+	
+	int state = 1;
 	
 	while (true) {
 		// inputs
@@ -20,10 +22,12 @@ reaction ConveyorControl(: input signal bottleAtPos1, input signal bottleLeftPos
 		}
 		
 		// state logic
+		System.out.printf("State %d, ", state);
+		
 		switch (state) {
 		case 1:
 			dataMotConveyorOnOff = 0;
-			
+						
 			if (dataBottleLeftPos5 == 0) {
 				state = 2;
 			}
@@ -68,6 +72,8 @@ reaction ConveyorControl(: input signal bottleAtPos1, input signal bottleLeftPos
 		default:
 			break;
 		}
+		
+		System.out.printf("next state: %d, atPos1: %d, leftPos5: %d, motor: %d\n", state, dataBottleAtPos1, dataBottleLeftPos5, dataMotConveyorOnOff);
 		
 		// check outputs
 		if (dataMotConveyorOnOff == 1) {
