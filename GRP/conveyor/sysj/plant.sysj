@@ -97,7 +97,6 @@ Plant(
 		while(true){
 			present(motConveyorOnOff && enable){
 
-				System.out.println("Conveyor has been turned on.");
 				emit conveyorOn;
 				
 				emit addBottleSig;

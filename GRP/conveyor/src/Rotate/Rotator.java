@@ -12,7 +12,7 @@ public class Rotator {
 	public void rotateRotate() {
 		boolean t = slots[5];
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 4; i >= 0; i--) {
 			slots[i + 1] = slots[i]; 
 		}
 		
