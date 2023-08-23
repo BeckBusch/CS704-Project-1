@@ -18,11 +18,11 @@ public class ConveyorCD extends ClockDomain{
   private int dataBottleAtPos1_thread_1;//sysj/conveyor.sysj line: 9, column: 3
   private int dataBottleLeftPos5_thread_1;//sysj/conveyor.sysj line: 10, column: 3
   private int dataMotConveyorOnOff_thread_1;//sysj/conveyor.sysj line: 13, column: 3
-  private int S1058 = 1;
+  private int S818 = 1;
   private int S2 = 1;
-  private int S41 = 1;
-  private int S40 = 1;
-  private int S39 = 1;
+  private int S33 = 1;
+  private int S32 = 1;
+  private int S31 = 1;
   
   private int[] ends = new int[2];
   private int[] tdone = new int[2];
@@ -34,14 +34,14 @@ public class ConveyorCD extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S1058){
+      switch(S818){
         case 0 : 
-          S1058=0;
+          S818=0;
           break RUN;
         
         case 1 : 
-          S1058=2;
-          S1058=2;
+          S818=2;
+          S818=2;
           System.out.println("Initializing state machine for conveyor controller.");//sysj/conveyor.sysj line: 3, column: 2
           state_thread_1 = 1;//sysj/conveyor.sysj line: 5, column: 2
           dataBottleAtPos1_thread_1 = 0;//sysj/conveyor.sysj line: 9, column: 3
@@ -55,40 +55,38 @@ public class ConveyorCD extends ClockDomain{
               System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
               S2=1;
               if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                S41=0;
+                S33=0;
                 dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                S41=1;
-                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                  S40=0;
-                  dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                S33=1;
+                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                  S32=0;
+                  System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                   currsigs.addElement(motConveyorOnOff);
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
                 else {
-                  S40=1;
-                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                    S39=0;
-                    dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                  S32=1;
+                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                    S31=0;
+                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                     currsigs.addElement(motConveyorOnOff);
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S39=1;
-                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                    S31=1;
+                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
@@ -108,40 +106,38 @@ public class ConveyorCD extends ClockDomain{
               System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
               S2=1;
               if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                S41=0;
+                S33=0;
                 dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                S41=1;
-                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                  S40=0;
-                  dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                S33=1;
+                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                  S32=0;
+                  System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                   currsigs.addElement(motConveyorOnOff);
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
                 else {
-                  S40=1;
-                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                    S39=0;
-                    dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                  S32=1;
+                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                    S31=0;
+                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                     currsigs.addElement(motConveyorOnOff);
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S39=1;
-                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                    S31=1;
+                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
@@ -164,40 +160,38 @@ public class ConveyorCD extends ClockDomain{
               System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
               S2=1;
               if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                S41=0;
+                S33=0;
                 dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                S41=1;
-                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                  S40=0;
-                  dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                S33=1;
+                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                  S32=0;
+                  System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                   currsigs.addElement(motConveyorOnOff);
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
                 else {
-                  S40=1;
-                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                    S39=0;
-                    dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                  S32=1;
+                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                    S31=0;
+                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                     currsigs.addElement(motConveyorOnOff);
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S39=1;
-                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                    S31=1;
+                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
@@ -217,40 +211,38 @@ public class ConveyorCD extends ClockDomain{
               System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
               S2=1;
               if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                S41=0;
+                S33=0;
                 dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                 active[1]=1;
                 ends[1]=1;
                 break RUN;
               }
               else {
-                S41=1;
-                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                  S40=0;
-                  dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                S33=1;
+                if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                  S32=0;
+                  System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                  motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                   currsigs.addElement(motConveyorOnOff);
                   active[1]=1;
                   ends[1]=1;
                   break RUN;
                 }
                 else {
-                  S40=1;
-                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                    S39=0;
-                    dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                  S32=1;
+                  if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                    S31=0;
+                    motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                     currsigs.addElement(motConveyorOnOff);
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S39=1;
-                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                    S31=1;
+                    if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
@@ -282,40 +274,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -335,40 +325,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -391,40 +379,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -444,40 +430,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -496,12 +480,10 @@ public class ConveyorCD extends ClockDomain{
               }
             
             case 1 : 
-              switch(S41){
+              switch(S33){
                 case 0 : 
                   if(!bottleLeftPos5.getprestatus()){//sysj/conveyor.sysj line: 32, column: 10
-                    if(dataBottleLeftPos5_thread_1 == 0) {//sysj/conveyor.sysj line: 34, column: 33
-                      state_thread_1 = 2;//sysj/conveyor.sysj line: 35, column: 5
-                    }
+                    state_thread_1 = 2;//sysj/conveyor.sysj line: 34, column: 4
                     S2=2;
                     active[1]=1;
                     ends[1]=1;
@@ -514,19 +496,19 @@ public class ConveyorCD extends ClockDomain{
                   }
                 
                 case 1 : 
-                  switch(S40){
+                  switch(S32){
                     case 0 : 
-                      if(bottleAtPos1.getprestatus() || bottleLeftPos5.getprestatus()){//sysj/conveyor.sysj line: 43, column: 10
-                        if(dataBottleLeftPos5_thread_1 == 1 && dataBottleAtPos1_thread_1 == 0) {//sysj/conveyor.sysj line: 47, column: 58
-                          state_thread_1 = 3;//sysj/conveyor.sysj line: 48, column: 5
+                      if(bottleAtPos1.getprestatus() || bottleLeftPos5.getprestatus()){//sysj/conveyor.sysj line: 42, column: 10
+                        if(dataBottleLeftPos5_thread_1 == 1 && dataBottleAtPos1_thread_1 == 0) {//sysj/conveyor.sysj line: 46, column: 58
+                          state_thread_1 = 3;//sysj/conveyor.sysj line: 47, column: 5
                         }
-                        else {//sysj/conveyor.sysj line: 47, column: 4
-                          if(dataBottleLeftPos5_thread_1 == 0 && dataBottleAtPos1_thread_1 == 1) {//sysj/conveyor.sysj line: 51, column: 63
-                            state_thread_1 = 4;//sysj/conveyor.sysj line: 52, column: 5
+                        else {//sysj/conveyor.sysj line: 46, column: 4
+                          if(dataBottleLeftPos5_thread_1 == 0 && dataBottleAtPos1_thread_1 == 1) {//sysj/conveyor.sysj line: 50, column: 63
+                            state_thread_1 = 4;//sysj/conveyor.sysj line: 51, column: 5
                           }
-                          else {//sysj/conveyor.sysj line: 51, column: 9
-                            if(dataBottleLeftPos5_thread_1 == 1 && dataBottleAtPos1_thread_1 == 1) {//sysj/conveyor.sysj line: 55, column: 63
-                              state_thread_1 = 1;//sysj/conveyor.sysj line: 56, column: 5
+                          else {//sysj/conveyor.sysj line: 50, column: 9
+                            if(dataBottleLeftPos5_thread_1 == 1 && dataBottleAtPos1_thread_1 == 1) {//sysj/conveyor.sysj line: 54, column: 63
+                              state_thread_1 = 1;//sysj/conveyor.sysj line: 55, column: 5
                             }
                           }
                         }
@@ -536,7 +518,7 @@ public class ConveyorCD extends ClockDomain{
                         break RUN;
                       }
                       else {
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
@@ -544,19 +526,17 @@ public class ConveyorCD extends ClockDomain{
                       }
                     
                     case 1 : 
-                      switch(S39){
+                      switch(S31){
                         case 0 : 
-                          if(bottleAtPos1.getprestatus()){//sysj/conveyor.sysj line: 64, column: 10
-                            if(dataBottleAtPos1_thread_1 == 1) {//sysj/conveyor.sysj line: 68, column: 31
-                              state_thread_1 = 1;//sysj/conveyor.sysj line: 69, column: 5
-                            }
+                          if(bottleAtPos1.getprestatus()){//sysj/conveyor.sysj line: 62, column: 10
+                            state_thread_1 = 1;//sysj/conveyor.sysj line: 66, column: 4
                             S2=2;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                           else {
-                            motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                            motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                             currsigs.addElement(motConveyorOnOff);
                             active[1]=1;
                             ends[1]=1;
@@ -564,17 +544,15 @@ public class ConveyorCD extends ClockDomain{
                           }
                         
                         case 1 : 
-                          if(bottleLeftPos5.getprestatus()){//sysj/conveyor.sysj line: 77, column: 10
-                            if(dataBottleLeftPos5_thread_1 == 1) {//sysj/conveyor.sysj line: 81, column: 33
-                              state_thread_1 = 1;//sysj/conveyor.sysj line: 82, column: 5
-                            }
+                          if(bottleLeftPos5.getprestatus()){//sysj/conveyor.sysj line: 72, column: 10
+                            state_thread_1 = 1;//sysj/conveyor.sysj line: 76, column: 4
                             S2=2;
                             active[1]=1;
                             ends[1]=1;
                             break RUN;
                           }
                           else {
-                            motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                            motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                             currsigs.addElement(motConveyorOnOff);
                             active[1]=1;
                             ends[1]=1;
@@ -603,40 +581,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -656,40 +632,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -712,40 +686,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;
@@ -765,40 +737,38 @@ public class ConveyorCD extends ClockDomain{
                   System.out.printf("Entered state %d\n", state_thread_1);//sysj/conveyor.sysj line: 25, column: 3
                   S2=1;
                   if(state_thread_1 == 1){//sysj/conveyor.sysj line: 28, column: 3
-                    S41=0;
+                    S33=0;
                     dataMotConveyorOnOff_thread_1 = 0;//sysj/conveyor.sysj line: 29, column: 4
-                    System.out.print("waiting for bottle to leave pos 5 entrance.\n");//sysj/conveyor.sysj line: 31, column: 4
+                    System.out.print("Conveyor turned off.\n");//sysj/conveyor.sysj line: 31, column: 4
                     active[1]=1;
                     ends[1]=1;
                     break RUN;
                   }
                   else {
-                    S41=1;
-                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 40, column: 3
-                      S40=0;
-                      dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 41, column: 4
-                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 44, column: 5
+                    S33=1;
+                    if(state_thread_1 == 2){//sysj/conveyor.sysj line: 38, column: 3
+                      S32=0;
+                      System.out.println("Conveyor is turned on.");//sysj/conveyor.sysj line: 40, column: 4
+                      motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 43, column: 5
                       currsigs.addElement(motConveyorOnOff);
                       active[1]=1;
                       ends[1]=1;
                       break RUN;
                     }
                     else {
-                      S40=1;
-                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 61, column: 3
-                        S39=0;
-                        dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 62, column: 4
-                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 65, column: 5
+                      S32=1;
+                      if(state_thread_1 == 3){//sysj/conveyor.sysj line: 60, column: 3
+                        S31=0;
+                        motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 63, column: 5
                         currsigs.addElement(motConveyorOnOff);
                         active[1]=1;
                         ends[1]=1;
                         break RUN;
                       }
                       else {
-                        S39=1;
-                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 74, column: 3
-                          dataMotConveyorOnOff_thread_1 = 1;//sysj/conveyor.sysj line: 75, column: 4
-                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 78, column: 5
+                        S31=1;
+                        if(state_thread_1 == 4){//sysj/conveyor.sysj line: 70, column: 3
+                          motConveyorOnOff.setPresent();//sysj/conveyor.sysj line: 73, column: 5
                           currsigs.addElement(motConveyorOnOff);
                           active[1]=1;
                           ends[1]=1;

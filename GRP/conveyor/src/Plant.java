@@ -39,25 +39,25 @@ public class Plant extends ClockDomain{
   private Rotator r_thread_2;//sysj/plant.sysj line: 33, column: 3
   private boolean bottlebefore1_thread_2;//sysj/plant.sysj line: 35, column: 3
   private boolean bottleafter5_thread_2;//sysj/plant.sysj line: 36, column: 3
-  private int S7495 = 1;
-  private int S4182 = 1;
-  private int S1088 = 1;
-  private int S4214 = 1;
-  private int S4184 = 1;
-  private int S4225 = 1;
-  private int S4275 = 1;
-  private int S4233 = 1;
-  private int S4241 = 1;
-  private int S4249 = 1;
-  private int S4257 = 1;
-  private int S4265 = 1;
-  private int S4273 = 1;
+  private int S7255 = 1;
+  private int S3942 = 1;
+  private int S848 = 1;
+  private int S3974 = 1;
+  private int S3944 = 1;
+  private int S3985 = 1;
+  private int S4035 = 1;
+  private int S3993 = 1;
+  private int S4001 = 1;
+  private int S4009 = 1;
+  private int S4017 = 1;
+  private int S4025 = 1;
+  private int S4033 = 1;
   
   private int[] ends = new int[12];
   private int[] tdone = new int[12];
   
-  public void thread7518(int [] tdone, int [] ends){
-        switch(S4273){
+  public void thread7278(int [] tdone, int [] ends){
+        switch(S4033){
       case 0 : 
         active[11]=0;
         ends[11]=0;
@@ -82,8 +82,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7517(int [] tdone, int [] ends){
-        switch(S4265){
+  public void thread7277(int [] tdone, int [] ends){
+        switch(S4025){
       case 0 : 
         active[10]=0;
         ends[10]=0;
@@ -108,8 +108,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7516(int [] tdone, int [] ends){
-        switch(S4257){
+  public void thread7276(int [] tdone, int [] ends){
+        switch(S4017){
       case 0 : 
         active[9]=0;
         ends[9]=0;
@@ -134,8 +134,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7515(int [] tdone, int [] ends){
-        switch(S4249){
+  public void thread7275(int [] tdone, int [] ends){
+        switch(S4009){
       case 0 : 
         active[8]=0;
         ends[8]=0;
@@ -160,8 +160,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7514(int [] tdone, int [] ends){
-        switch(S4241){
+  public void thread7274(int [] tdone, int [] ends){
+        switch(S4001){
       case 0 : 
         active[7]=0;
         ends[7]=0;
@@ -186,8 +186,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7513(int [] tdone, int [] ends){
-        switch(S4233){
+  public void thread7273(int [] tdone, int [] ends){
+        switch(S3993){
       case 0 : 
         active[6]=0;
         ends[6]=0;
@@ -212,8 +212,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7512(int [] tdone, int [] ends){
-        switch(S4275){
+  public void thread7272(int [] tdone, int [] ends){
+        switch(S4035){
       case 0 : 
         active[5]=0;
         ends[5]=0;
@@ -221,39 +221,39 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        thread7513(tdone,ends);
-        thread7514(tdone,ends);
-        thread7515(tdone,ends);
-        thread7516(tdone,ends);
-        thread7517(tdone,ends);
-        thread7518(tdone,ends);
-        int biggest7519 = 0;
-        if(ends[6]>=biggest7519){
-          biggest7519=ends[6];
+        thread7273(tdone,ends);
+        thread7274(tdone,ends);
+        thread7275(tdone,ends);
+        thread7276(tdone,ends);
+        thread7277(tdone,ends);
+        thread7278(tdone,ends);
+        int biggest7279 = 0;
+        if(ends[6]>=biggest7279){
+          biggest7279=ends[6];
         }
-        if(ends[7]>=biggest7519){
-          biggest7519=ends[7];
+        if(ends[7]>=biggest7279){
+          biggest7279=ends[7];
         }
-        if(ends[8]>=biggest7519){
-          biggest7519=ends[8];
+        if(ends[8]>=biggest7279){
+          biggest7279=ends[8];
         }
-        if(ends[9]>=biggest7519){
-          biggest7519=ends[9];
+        if(ends[9]>=biggest7279){
+          biggest7279=ends[9];
         }
-        if(ends[10]>=biggest7519){
-          biggest7519=ends[10];
+        if(ends[10]>=biggest7279){
+          biggest7279=ends[10];
         }
-        if(ends[11]>=biggest7519){
-          biggest7519=ends[11];
+        if(ends[11]>=biggest7279){
+          biggest7279=ends[11];
         }
-        if(biggest7519 == 1){
+        if(biggest7279 == 1){
           active[5]=1;
           ends[5]=1;
           tdone[5]=1;
         }
         //FINXME code
-        if(biggest7519 == 0){
-          S4275=0;
+        if(biggest7279 == 0){
+          S4035=0;
           active[5]=0;
           ends[5]=0;
           tdone[5]=1;
@@ -263,8 +263,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7511(int [] tdone, int [] ends){
-        switch(S4225){
+  public void thread7271(int [] tdone, int [] ends){
+        switch(S3985){
       case 0 : 
         active[4]=0;
         ends[4]=0;
@@ -293,8 +293,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7510(int [] tdone, int [] ends){
-        switch(S4214){
+  public void thread7270(int [] tdone, int [] ends){
+        switch(S3974){
       case 0 : 
         active[3]=0;
         ends[3]=0;
@@ -302,11 +302,11 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S4184){
+        switch(S3944){
           case 0 : 
             if(spawnBottle.getprestatus()){//sysj/plant.sysj line: 80, column: 11
               System.out.println("Bottle has been spawned.");//sysj/plant.sysj line: 82, column: 4
-              S4184=1;
+              S3944=1;
               spawnBottleSig_1.setPresent();//sysj/plant.sysj line: 85, column: 5
               currsigs.addElement(spawnBottleSig_1);
               active[3]=1;
@@ -323,7 +323,7 @@ public class Plant extends ClockDomain{
           case 1 : 
             if(removeSpawnBottle_1.getprestatus()){//sysj/plant.sysj line: 84, column: 10
               System.out.println("Bottle has been removed from spawn.");//sysj/plant.sysj line: 88, column: 4
-              S4184=2;
+              S3944=2;
               active[3]=1;
               ends[3]=1;
               tdone[3]=1;
@@ -338,8 +338,8 @@ public class Plant extends ClockDomain{
             break;
           
           case 2 : 
-            S4184=2;
-            S4184=0;
+            S3944=2;
+            S3944=0;
             active[3]=1;
             ends[3]=1;
             tdone[3]=1;
@@ -351,8 +351,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7509(int [] tdone, int [] ends){
-        switch(S4182){
+  public void thread7269(int [] tdone, int [] ends){
+        switch(S3942){
       case 0 : 
         active[2]=0;
         ends[2]=0;
@@ -360,10 +360,10 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S1088){
+        switch(S848){
           case 0 : 
             if(!rotate.getprestatus()){//sysj/plant.sysj line: 73, column: 10
-              S1088=1;
+              S848=1;
               active[2]=1;
               ends[2]=1;
               tdone[2]=1;
@@ -376,7 +376,7 @@ public class Plant extends ClockDomain{
             break;
           
           case 1 : 
-            S1088=1;
+            S848=1;
             if(rotate.getprestatus()){//sysj/plant.sysj line: 39, column: 12
               System.out.println("Rotated.");//sysj/plant.sysj line: 40, column: 5
               r_thread_2.rotateRotate();//sysj/plant.sysj line: 41, column: 5
@@ -401,13 +401,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -417,13 +417,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -437,13 +437,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -453,13 +453,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -477,13 +477,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -493,13 +493,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -513,13 +513,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -529,13 +529,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -554,13 +554,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -570,13 +570,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -590,13 +590,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -606,13 +606,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -636,13 +636,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -652,13 +652,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -672,13 +672,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -688,13 +688,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -712,13 +712,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -728,13 +728,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -748,13 +748,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -764,13 +764,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -789,13 +789,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -805,13 +805,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -825,13 +825,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -841,13 +841,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -876,13 +876,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -892,13 +892,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -912,13 +912,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -928,13 +928,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -952,13 +952,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -968,13 +968,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -988,13 +988,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1004,13 +1004,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1029,13 +1029,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1045,13 +1045,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1065,13 +1065,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1081,13 +1081,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1111,13 +1111,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1127,13 +1127,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1147,13 +1147,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1163,13 +1163,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1187,13 +1187,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1203,13 +1203,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1223,13 +1223,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1239,13 +1239,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1264,13 +1264,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1280,13 +1280,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1300,13 +1300,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1316,13 +1316,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1348,13 +1348,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1364,13 +1364,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1384,13 +1384,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1400,13 +1400,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1424,13 +1424,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1440,13 +1440,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1460,13 +1460,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1476,13 +1476,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -1501,13 +1501,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -1517,13 +1517,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -1537,13 +1537,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -1553,13 +1553,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -1591,13 +1591,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1607,13 +1607,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1627,13 +1627,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1643,13 +1643,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1667,13 +1667,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1683,13 +1683,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1703,13 +1703,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1719,13 +1719,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1744,13 +1744,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1760,13 +1760,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1780,13 +1780,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1796,13 +1796,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1826,13 +1826,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1842,13 +1842,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1862,13 +1862,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1878,13 +1878,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1902,13 +1902,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1918,13 +1918,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1938,13 +1938,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1954,13 +1954,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1979,13 +1979,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1995,13 +1995,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2015,13 +2015,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2031,13 +2031,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2066,13 +2066,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2082,13 +2082,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2102,13 +2102,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2118,13 +2118,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2142,13 +2142,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2158,13 +2158,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2178,13 +2178,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2194,13 +2194,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2219,13 +2219,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2235,13 +2235,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2255,13 +2255,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2271,13 +2271,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2301,13 +2301,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2317,13 +2317,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2337,13 +2337,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2353,13 +2353,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2377,13 +2377,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2393,13 +2393,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2413,13 +2413,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2429,13 +2429,13 @@ public class Plant extends ClockDomain{
                             if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                               bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=0;
+                              S848=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2454,13 +2454,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2470,13 +2470,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2490,13 +2490,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2506,13 +2506,13 @@ public class Plant extends ClockDomain{
                           if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                             bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=0;
+                            S848=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2538,13 +2538,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2554,13 +2554,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2574,13 +2574,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2590,13 +2590,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2614,13 +2614,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2630,13 +2630,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2650,13 +2650,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2666,13 +2666,13 @@ public class Plant extends ClockDomain{
                         if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                           bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=0;
+                          S848=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2691,13 +2691,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2707,13 +2707,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2727,13 +2727,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2743,13 +2743,13 @@ public class Plant extends ClockDomain{
                       if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                         bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=0;
+                        S848=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2767,8 +2767,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7506(int [] tdone, int [] ends){
-        S4273=1;
+  public void thread7266(int [] tdone, int [] ends){
+        S4033=1;
     if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 132, column: 24
       before1E.setPresent();//sysj/plant.sysj line: 132, column: 40
       currsigs.addElement(before1E);
@@ -2783,8 +2783,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7505(int [] tdone, int [] ends){
-        S4265=1;
+  public void thread7265(int [] tdone, int [] ends){
+        S4025=1;
     if(bottle5_1.getprestatus()){//sysj/plant.sysj line: 126, column: 24
       bottle5E.setPresent();//sysj/plant.sysj line: 126, column: 33
       currsigs.addElement(bottle5E);
@@ -2799,8 +2799,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7504(int [] tdone, int [] ends){
-        S4257=1;
+  public void thread7264(int [] tdone, int [] ends){
+        S4017=1;
     if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 116, column: 24
       con5onE.setPresent();//sysj/plant.sysj line: 116, column: 36
       currsigs.addElement(con5onE);
@@ -2815,8 +2815,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7503(int [] tdone, int [] ends){
-        S4249=1;
+  public void thread7263(int [] tdone, int [] ends){
+        S4009=1;
     if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 114, column: 24
       con1onE.setPresent();//sysj/plant.sysj line: 114, column: 36
       currsigs.addElement(con1onE);
@@ -2831,8 +2831,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7502(int [] tdone, int [] ends){
-        S4241=1;
+  public void thread7262(int [] tdone, int [] ends){
+        S4001=1;
     if(bottleAfter5Sig_1.getprestatus()){//sysj/plant.sysj line: 112, column: 24
       after5E.setPresent();//sysj/plant.sysj line: 112, column: 41
       currsigs.addElement(after5E);
@@ -2847,8 +2847,8 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7501(int [] tdone, int [] ends){
-        S4233=1;
+  public void thread7261(int [] tdone, int [] ends){
+        S3993=1;
     if(bottleAtPos1.getprestatus()){//sysj/plant.sysj line: 110, column: 24
       bottle1E.setPresent();//sysj/plant.sysj line: 110, column: 38
       currsigs.addElement(bottle1E);
@@ -2863,42 +2863,42 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7500(int [] tdone, int [] ends){
-        S4275=1;
-    thread7501(tdone,ends);
-    thread7502(tdone,ends);
-    thread7503(tdone,ends);
-    thread7504(tdone,ends);
-    thread7505(tdone,ends);
-    thread7506(tdone,ends);
-    int biggest7507 = 0;
-    if(ends[6]>=biggest7507){
-      biggest7507=ends[6];
+  public void thread7260(int [] tdone, int [] ends){
+        S4035=1;
+    thread7261(tdone,ends);
+    thread7262(tdone,ends);
+    thread7263(tdone,ends);
+    thread7264(tdone,ends);
+    thread7265(tdone,ends);
+    thread7266(tdone,ends);
+    int biggest7267 = 0;
+    if(ends[6]>=biggest7267){
+      biggest7267=ends[6];
     }
-    if(ends[7]>=biggest7507){
-      biggest7507=ends[7];
+    if(ends[7]>=biggest7267){
+      biggest7267=ends[7];
     }
-    if(ends[8]>=biggest7507){
-      biggest7507=ends[8];
+    if(ends[8]>=biggest7267){
+      biggest7267=ends[8];
     }
-    if(ends[9]>=biggest7507){
-      biggest7507=ends[9];
+    if(ends[9]>=biggest7267){
+      biggest7267=ends[9];
     }
-    if(ends[10]>=biggest7507){
-      biggest7507=ends[10];
+    if(ends[10]>=biggest7267){
+      biggest7267=ends[10];
     }
-    if(ends[11]>=biggest7507){
-      biggest7507=ends[11];
+    if(ends[11]>=biggest7267){
+      biggest7267=ends[11];
     }
-    if(biggest7507 == 1){
+    if(biggest7267 == 1){
       active[5]=1;
       ends[5]=1;
       tdone[5]=1;
     }
   }
 
-  public void thread7499(int [] tdone, int [] ends){
-        S4225=1;
+  public void thread7259(int [] tdone, int [] ends){
+        S3985=1;
     if(motConveyorOnOff.getprestatus() && enable.getprestatus()){//sysj/plant.sysj line: 97, column: 12
       conveyorOn_1.setPresent();//sysj/plant.sysj line: 99, column: 5
       currsigs.addElement(conveyorOn_1);
@@ -2917,16 +2917,16 @@ public class Plant extends ClockDomain{
     }
   }
 
-  public void thread7498(int [] tdone, int [] ends){
-        S4214=1;
-    S4184=0;
+  public void thread7258(int [] tdone, int [] ends){
+        S3974=1;
+    S3944=0;
     active[3]=1;
     ends[3]=1;
     tdone[3]=1;
   }
 
-  public void thread7497(int [] tdone, int [] ends){
-        S4182=1;
+  public void thread7257(int [] tdone, int [] ends){
+        S3942=1;
     r_thread_2 = new Rotator();//sysj/plant.sysj line: 33, column: 3
     bottlebefore1_thread_2 = false;//sysj/plant.sysj line: 35, column: 3
     bottleafter5_thread_2 = false;//sysj/plant.sysj line: 36, column: 3
@@ -2954,13 +2954,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -2970,13 +2970,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -2990,13 +2990,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3006,13 +3006,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3030,13 +3030,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3046,13 +3046,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3066,13 +3066,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3082,13 +3082,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3107,13 +3107,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3123,13 +3123,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3143,13 +3143,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3159,13 +3159,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3189,13 +3189,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3205,13 +3205,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3225,13 +3225,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3241,13 +3241,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3265,13 +3265,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3281,13 +3281,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3301,13 +3301,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3317,13 +3317,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3342,13 +3342,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3358,13 +3358,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3378,13 +3378,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3394,13 +3394,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3429,13 +3429,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3445,13 +3445,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3465,13 +3465,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3481,13 +3481,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3505,13 +3505,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3521,13 +3521,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3541,13 +3541,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3557,13 +3557,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3582,13 +3582,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3598,13 +3598,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3618,13 +3618,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3634,13 +3634,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3664,13 +3664,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3680,13 +3680,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3700,13 +3700,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3716,13 +3716,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3740,13 +3740,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3756,13 +3756,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3776,13 +3776,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3792,13 +3792,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3817,13 +3817,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3833,13 +3833,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3853,13 +3853,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3869,13 +3869,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3901,13 +3901,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3917,13 +3917,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3937,13 +3937,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3953,13 +3953,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3977,13 +3977,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3993,13 +3993,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -4013,13 +4013,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -4029,13 +4029,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -4054,13 +4054,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -4070,13 +4070,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -4090,13 +4090,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -4106,13 +4106,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -4144,13 +4144,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4160,13 +4160,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4180,13 +4180,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4196,13 +4196,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4220,13 +4220,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4236,13 +4236,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4256,13 +4256,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4272,13 +4272,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4297,13 +4297,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4313,13 +4313,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4333,13 +4333,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4349,13 +4349,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4379,13 +4379,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4395,13 +4395,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4415,13 +4415,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4431,13 +4431,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4455,13 +4455,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4471,13 +4471,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4491,13 +4491,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4507,13 +4507,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4532,13 +4532,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4548,13 +4548,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4568,13 +4568,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4584,13 +4584,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4619,13 +4619,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4635,13 +4635,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4655,13 +4655,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4671,13 +4671,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4695,13 +4695,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4711,13 +4711,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4731,13 +4731,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4747,13 +4747,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4772,13 +4772,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4788,13 +4788,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4808,13 +4808,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4824,13 +4824,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -4854,13 +4854,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4870,13 +4870,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4890,13 +4890,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4906,13 +4906,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4930,13 +4930,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4946,13 +4946,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4966,13 +4966,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -4982,13 +4982,13 @@ public class Plant extends ClockDomain{
                     if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                       bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=0;
+                      S848=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -5007,13 +5007,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -5023,13 +5023,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -5043,13 +5043,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -5059,13 +5059,13 @@ public class Plant extends ClockDomain{
                   if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                     bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=0;
+                    S848=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -5091,13 +5091,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5107,13 +5107,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5127,13 +5127,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5143,13 +5143,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5167,13 +5167,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5183,13 +5183,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5203,13 +5203,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5219,13 +5219,13 @@ public class Plant extends ClockDomain{
                 if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                   bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=0;
+                  S848=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -5244,13 +5244,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -5260,13 +5260,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -5280,13 +5280,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -5296,13 +5296,13 @@ public class Plant extends ClockDomain{
               if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
                 bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=0;
+                S848=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -5321,14 +5321,14 @@ public class Plant extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S7495){
+      switch(S7255){
         case 0 : 
-          S7495=0;
+          S7255=0;
           break RUN;
         
         case 1 : 
-          S7495=2;
-          S7495=2;
+          S7255=2;
+          S7255=2;
           new Thread(new Gui()).start();//sysj/plant.sysj line: 12, column: 2
           conveyorOn_1.setClear();//sysj/plant.sysj line: 14, column: 2
           bottleAfter5Sig_1.setClear();//sysj/plant.sysj line: 16, column: 2
@@ -5337,24 +5337,24 @@ public class Plant extends ClockDomain{
           addBottleSig_1.setClear();//sysj/plant.sysj line: 20, column: 2
           removeBottleSig_1.setClear();//sysj/plant.sysj line: 21, column: 2
           bottle5_1.setClear();//sysj/plant.sysj line: 27, column: 2
-          thread7497(tdone,ends);
-          thread7498(tdone,ends);
-          thread7499(tdone,ends);
-          thread7500(tdone,ends);
-          int biggest7508 = 0;
-          if(ends[2]>=biggest7508){
-            biggest7508=ends[2];
+          thread7257(tdone,ends);
+          thread7258(tdone,ends);
+          thread7259(tdone,ends);
+          thread7260(tdone,ends);
+          int biggest7268 = 0;
+          if(ends[2]>=biggest7268){
+            biggest7268=ends[2];
           }
-          if(ends[3]>=biggest7508){
-            biggest7508=ends[3];
+          if(ends[3]>=biggest7268){
+            biggest7268=ends[3];
           }
-          if(ends[4]>=biggest7508){
-            biggest7508=ends[4];
+          if(ends[4]>=biggest7268){
+            biggest7268=ends[4];
           }
-          if(ends[5]>=biggest7508){
-            biggest7508=ends[5];
+          if(ends[5]>=biggest7268){
+            biggest7268=ends[5];
           }
-          if(biggest7508 == 1){
+          if(biggest7268 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
@@ -5368,34 +5368,34 @@ public class Plant extends ClockDomain{
           addBottleSig_1.setClear();//sysj/plant.sysj line: 20, column: 2
           removeBottleSig_1.setClear();//sysj/plant.sysj line: 21, column: 2
           bottle5_1.setClear();//sysj/plant.sysj line: 27, column: 2
-          thread7509(tdone,ends);
-          thread7510(tdone,ends);
-          thread7511(tdone,ends);
-          thread7512(tdone,ends);
-          int biggest7520 = 0;
-          if(ends[2]>=biggest7520){
-            biggest7520=ends[2];
+          thread7269(tdone,ends);
+          thread7270(tdone,ends);
+          thread7271(tdone,ends);
+          thread7272(tdone,ends);
+          int biggest7280 = 0;
+          if(ends[2]>=biggest7280){
+            biggest7280=ends[2];
           }
-          if(ends[3]>=biggest7520){
-            biggest7520=ends[3];
+          if(ends[3]>=biggest7280){
+            biggest7280=ends[3];
           }
-          if(ends[4]>=biggest7520){
-            biggest7520=ends[4];
+          if(ends[4]>=biggest7280){
+            biggest7280=ends[4];
           }
-          if(ends[5]>=biggest7520){
-            biggest7520=ends[5];
+          if(ends[5]>=biggest7280){
+            biggest7280=ends[5];
           }
-          if(biggest7520 == 1){
+          if(biggest7280 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest7520 == 0){
-            S7495=0;
+          if(biggest7280 == 0){
+            S7255=0;
             active[1]=0;
             ends[1]=0;
-            S7495=0;
+            S7255=0;
             break RUN;
           }
         

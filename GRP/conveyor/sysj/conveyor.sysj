@@ -28,17 +28,16 @@ reaction ConveyorControl(: input signal bottleAtPos1, input signal bottleLeftPos
 		case 1:
 			dataMotConveyorOnOff = 0;
 			
-			System.out.print("waiting for bottle to leave pos 5 entrance.\n");
+			System.out.print("Conveyor turned off.\n");
 			await(!bottleLeftPos5);
 						
-			if (dataBottleLeftPos5 == 0) {
-				state = 2;
-			}
+			state = 2;
 			
 			break;
 			
 		case 2:
-			dataMotConveyorOnOff = 1;
+			
+			System.out.println("Conveyor is turned on.");
 			
 			abort(bottleAtPos1 || bottleLeftPos5){
 				sustain motConveyorOnOff;
@@ -59,28 +58,22 @@ reaction ConveyorControl(: input signal bottleAtPos1, input signal bottleLeftPos
 			break;
 			
 		case 3:
-			dataMotConveyorOnOff = 1;
 			
 			abort(bottleAtPos1){
 				sustain motConveyorOnOff;
 			}
 			
-			if (dataBottleAtPos1 == 1) {
-				state = 1;
-			}
+			state = 1;
 			
 			break;
 			
 		case 4:
-			dataMotConveyorOnOff = 1;
 
 			abort(bottleLeftPos5){
 				sustain motConveyorOnOff;
 			}
 			
-			if (dataBottleLeftPos5 == 1) {
-				state = 1;
-			}
+			state = 1;
 			
 			break;
 			
