@@ -65,8 +65,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 133, column: 24
-          before1E.setPresent();//sysj/plant.sysj line: 133, column: 40
+        if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 132, column: 24
+          before1E.setPresent();//sysj/plant.sysj line: 132, column: 40
           currsigs.addElement(before1E);
           active[11]=1;
           ends[11]=1;
@@ -91,8 +91,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(bottle5_1.getprestatus()){//sysj/plant.sysj line: 127, column: 24
-          bottle5E.setPresent();//sysj/plant.sysj line: 127, column: 33
+        if(bottle5_1.getprestatus()){//sysj/plant.sysj line: 126, column: 24
+          bottle5E.setPresent();//sysj/plant.sysj line: 126, column: 33
           currsigs.addElement(bottle5E);
           active[10]=1;
           ends[10]=1;
@@ -117,8 +117,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 117, column: 24
-          con5onE.setPresent();//sysj/plant.sysj line: 117, column: 36
+        if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 116, column: 24
+          con5onE.setPresent();//sysj/plant.sysj line: 116, column: 36
           currsigs.addElement(con5onE);
           active[9]=1;
           ends[9]=1;
@@ -143,8 +143,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 115, column: 24
-          con1onE.setPresent();//sysj/plant.sysj line: 115, column: 36
+        if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 114, column: 24
+          con1onE.setPresent();//sysj/plant.sysj line: 114, column: 36
           currsigs.addElement(con1onE);
           active[8]=1;
           ends[8]=1;
@@ -169,8 +169,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(bottleAfter5Sig_1.getprestatus()){//sysj/plant.sysj line: 113, column: 24
-          after5E.setPresent();//sysj/plant.sysj line: 113, column: 41
+        if(bottleAfter5Sig_1.getprestatus()){//sysj/plant.sysj line: 112, column: 24
+          after5E.setPresent();//sysj/plant.sysj line: 112, column: 41
           currsigs.addElement(after5E);
           active[7]=1;
           ends[7]=1;
@@ -195,8 +195,8 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(bottleAtPos1.getprestatus()){//sysj/plant.sysj line: 111, column: 24
-          bottle1E.setPresent();//sysj/plant.sysj line: 111, column: 38
+        if(bottleAtPos1.getprestatus()){//sysj/plant.sysj line: 110, column: 24
+          bottle1E.setPresent();//sysj/plant.sysj line: 110, column: 38
           currsigs.addElement(bottle1E);
           active[6]=1;
           ends[6]=1;
@@ -272,12 +272,12 @@ public class Plant extends ClockDomain{
         break;
       
       case 1 : 
-        if(motConveyorOnOff.getprestatus() && enable.getprestatus()){//sysj/plant.sysj line: 98, column: 12
-          conveyorOn_1.setPresent();//sysj/plant.sysj line: 100, column: 5
+        if(motConveyorOnOff.getprestatus() && enable.getprestatus()){//sysj/plant.sysj line: 97, column: 12
+          conveyorOn_1.setPresent();//sysj/plant.sysj line: 99, column: 5
           currsigs.addElement(conveyorOn_1);
-          addBottleSig_1.setPresent();//sysj/plant.sysj line: 102, column: 5
+          addBottleSig_1.setPresent();//sysj/plant.sysj line: 101, column: 5
           currsigs.addElement(addBottleSig_1);
-          removeBottleSig_1.setPresent();//sysj/plant.sysj line: 103, column: 5
+          removeBottleSig_1.setPresent();//sysj/plant.sysj line: 102, column: 5
           currsigs.addElement(removeBottleSig_1);
           active[4]=1;
           ends[4]=1;
@@ -304,10 +304,10 @@ public class Plant extends ClockDomain{
       case 1 : 
         switch(S4184){
           case 0 : 
-            if(spawnBottle.getprestatus()){//sysj/plant.sysj line: 81, column: 11
-              System.out.println("Bottle has been spawned.");//sysj/plant.sysj line: 83, column: 4
+            if(spawnBottle.getprestatus()){//sysj/plant.sysj line: 80, column: 11
+              System.out.println("Bottle has been spawned.");//sysj/plant.sysj line: 82, column: 4
               S4184=1;
-              spawnBottleSig_1.setPresent();//sysj/plant.sysj line: 86, column: 5
+              spawnBottleSig_1.setPresent();//sysj/plant.sysj line: 85, column: 5
               currsigs.addElement(spawnBottleSig_1);
               active[3]=1;
               ends[3]=1;
@@ -321,15 +321,15 @@ public class Plant extends ClockDomain{
             break;
           
           case 1 : 
-            if(removeSpawnBottle_1.getprestatus()){//sysj/plant.sysj line: 85, column: 10
-              System.out.println("Bottle has been removed from spawn.");//sysj/plant.sysj line: 89, column: 4
+            if(removeSpawnBottle_1.getprestatus()){//sysj/plant.sysj line: 84, column: 10
+              System.out.println("Bottle has been removed from spawn.");//sysj/plant.sysj line: 88, column: 4
               S4184=2;
               active[3]=1;
               ends[3]=1;
               tdone[3]=1;
             }
             else {
-              spawnBottleSig_1.setPresent();//sysj/plant.sysj line: 86, column: 5
+              spawnBottleSig_1.setPresent();//sysj/plant.sysj line: 85, column: 5
               currsigs.addElement(spawnBottleSig_1);
               active[3]=1;
               ends[3]=1;
@@ -362,1265 +362,68 @@ public class Plant extends ClockDomain{
       case 1 : 
         switch(S1088){
           case 0 : 
-            if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 12
-              if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 46, column: 13
-                bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 47, column: 6
-                bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-                if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-                  removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
-                  currsigs.addElement(removeSpawnBottle_1);
-                  if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                    bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                      bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
-                      currsigs.addElement(bottleAfter5Sig_1);
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                      currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                  }
-                }
-                else {
-                  if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                    bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                      bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
-                      currsigs.addElement(bottleAfter5Sig_1);
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                      currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              else {
-                bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-                if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-                  removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
-                  currsigs.addElement(removeSpawnBottle_1);
-                  if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                    bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                      bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
-                      currsigs.addElement(bottleAfter5Sig_1);
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                      currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                  }
-                }
-                else {
-                  if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                    bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                      bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
-                      currsigs.addElement(bottleAfter5Sig_1);
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                        currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                      else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                          currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                        else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                            currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                          else {
-                            S1088=1;
-                            active[2]=1;
-                            ends[2]=1;
-                            tdone[2]=1;
-                          }
-                        }
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                      currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                    else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                        currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                      else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                          currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                        else {
-                          S1088=1;
-                          active[2]=1;
-                          ends[2]=1;
-                          tdone[2]=1;
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+            if(!rotate.getprestatus()){//sysj/plant.sysj line: 73, column: 10
+              S1088=1;
+              active[2]=1;
+              ends[2]=1;
+              tdone[2]=1;
             }
             else {
-              if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                  bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
-                  currsigs.addElement(bottleAfter5Sig_1);
-                  if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                    bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                    currsigs.addElement(bottleAtPos1);
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                      currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                    else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                      currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                    else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                  }
-                }
-                else {
-                  if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                    bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                    currsigs.addElement(bottleAtPos1);
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                      currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                    else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                  }
-                  else {
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                      currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                    else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                        currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                      else {
-                        S1088=1;
-                        active[2]=1;
-                        ends[2]=1;
-                        tdone[2]=1;
-                      }
-                    }
-                  }
-                }
-              }
-              else {
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
-                  currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                    currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                      currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                  }
-                  else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                      currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                  }
-                }
-                else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
-                    currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                      currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                  }
-                  else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
-                      currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S1088=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                  }
-                }
-              }
+              active[2]=1;
+              ends[2]=1;
+              tdone[2]=1;
             }
             break;
           
           case 1 : 
-            if(!rotate.getprestatus()){//sysj/plant.sysj line: 74, column: 10
-              S1088=2;
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            else {
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            break;
-          
-          case 2 : 
-            S1088=2;
-            S1088=0;
+            S1088=1;
             if(rotate.getprestatus()){//sysj/plant.sysj line: 39, column: 12
               System.out.println("Rotated.");//sysj/plant.sysj line: 40, column: 5
               r_thread_2.rotateRotate();//sysj/plant.sysj line: 41, column: 5
-              active[2]=1;
-              ends[2]=1;
-              tdone[2]=1;
-            }
-            else {
-              if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 12
-                if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 46, column: 13
-                  bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 47, column: 6
-                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
+              if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 44, column: 12
+                if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 13
+                  bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 46, column: 6
+                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
                     currsigs.addElement(removeSpawnBottle_1);
-                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                         currsigs.addElement(bottleAfter5Sig_1);
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1628,35 +431,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1665,38 +468,38 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1704,35 +507,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1742,38 +545,38 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                         currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1781,35 +584,35 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -1819,43 +622,43 @@ public class Plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                         currsigs.addElement(bottleAfter5Sig_1);
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1863,35 +666,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1900,38 +703,38 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1939,35 +742,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -1977,38 +780,38 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                         currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2016,35 +819,35 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2055,47 +858,47 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
+                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
                     currsigs.addElement(removeSpawnBottle_1);
-                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                         currsigs.addElement(bottleAfter5Sig_1);
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2103,35 +906,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2140,38 +943,38 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2179,35 +982,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2217,38 +1020,38 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                         currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2256,35 +1059,35 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2294,43 +1097,43 @@ public class Plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                         currsigs.addElement(bottleAfter5Sig_1);
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2338,35 +1141,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2375,38 +1178,38 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                           currsigs.addElement(bottleAtPos1);
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2414,35 +1217,35 @@ public class Plant extends ClockDomain{
                           }
                         }
                         else {
-                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                            bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                             currsigs.addElement(bottle5_1);
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                           }
                           else {
-                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                               currsigs.addElement(bottleLeftPos5);
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
                             }
                             else {
-                              S1088=1;
+                              S1088=0;
                               active[2]=1;
                               ends[2]=1;
                               tdone[2]=1;
@@ -2452,38 +1255,38 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                         currsigs.addElement(bottleAtPos1);
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2491,35 +1294,35 @@ public class Plant extends ClockDomain{
                         }
                       }
                       else {
-                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                          bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                           currsigs.addElement(bottle5_1);
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                         }
                         else {
-                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                             currsigs.addElement(bottleLeftPos5);
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
                           }
                           else {
-                            S1088=1;
+                            S1088=0;
                             active[2]=1;
                             ends[2]=1;
                             tdone[2]=1;
@@ -2531,43 +1334,43 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-                  bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                    bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+                if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                  bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                    bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                     currsigs.addElement(bottleAfter5Sig_1);
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                       currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                         currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                       }
                       else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2575,35 +1378,35 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                         currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                       }
                       else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2612,38 +1415,38 @@ public class Plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                       currsigs.addElement(bottleAtPos1);
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                         currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                       }
                       else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2651,35 +1454,35 @@ public class Plant extends ClockDomain{
                       }
                     }
                     else {
-                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                        bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                         currsigs.addElement(bottle5_1);
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                       }
                       else {
-                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                           currsigs.addElement(bottleLeftPos5);
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
                         }
                         else {
-                          S1088=1;
+                          S1088=0;
                           active[2]=1;
                           ends[2]=1;
                           tdone[2]=1;
@@ -2689,38 +1492,38 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                    bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                  if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                    bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                     currsigs.addElement(bottleAtPos1);
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                      bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                       currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                     }
                     else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2728,35 +1531,1225 @@ public class Plant extends ClockDomain{
                     }
                   }
                   else {
-                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                      bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                      bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                       currsigs.addElement(bottle5_1);
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                     }
                     else {
-                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                         currsigs.addElement(bottleLeftPos5);
-                        S1088=1;
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
                       }
                       else {
-                        S1088=1;
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            else {
+              if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 44, column: 12
+                if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 13
+                  bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 46, column: 6
+                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
+                    currsigs.addElement(removeSpawnBottle_1);
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                        currsigs.addElement(bottleAfter5Sig_1);
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                        currsigs.addElement(bottleAtPos1);
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                  else {
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                        currsigs.addElement(bottleAfter5Sig_1);
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                        currsigs.addElement(bottleAtPos1);
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                else {
+                  bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+                  if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+                    removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
+                    currsigs.addElement(removeSpawnBottle_1);
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                        currsigs.addElement(bottleAfter5Sig_1);
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                        currsigs.addElement(bottleAtPos1);
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                  else {
+                    if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                      bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                        bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                        currsigs.addElement(bottleAfter5Sig_1);
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                          bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                          currsigs.addElement(bottleAtPos1);
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                        else {
+                          if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                            bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                            currsigs.addElement(bottle5_1);
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                          else {
+                            if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                              bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                              currsigs.addElement(bottleLeftPos5);
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                            else {
+                              S1088=0;
+                              active[2]=1;
+                              ends[2]=1;
+                              tdone[2]=1;
+                            }
+                          }
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                        bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                        currsigs.addElement(bottleAtPos1);
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                      else {
+                        if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                          bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                          currsigs.addElement(bottle5_1);
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                        else {
+                          if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                            bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                            currsigs.addElement(bottleLeftPos5);
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                          else {
+                            S1088=0;
+                            active[2]=1;
+                            ends[2]=1;
+                            tdone[2]=1;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              else {
+                if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+                  bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                    bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                    currsigs.addElement(bottleAfter5Sig_1);
+                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                      currsigs.addElement(bottleAtPos1);
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                        currsigs.addElement(bottle5_1);
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                      else {
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                        currsigs.addElement(bottle5_1);
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                      else {
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                    }
+                  }
+                  else {
+                    if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                      bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                      currsigs.addElement(bottleAtPos1);
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                        currsigs.addElement(bottle5_1);
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                      else {
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                    }
+                    else {
+                      if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                        bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                        currsigs.addElement(bottle5_1);
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                      else {
+                        if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                          bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                          currsigs.addElement(bottleLeftPos5);
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                        else {
+                          S1088=0;
+                          active[2]=1;
+                          ends[2]=1;
+                          tdone[2]=1;
+                        }
+                      }
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                    bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                    currsigs.addElement(bottleAtPos1);
+                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                      bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                      currsigs.addElement(bottle5_1);
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                        currsigs.addElement(bottleLeftPos5);
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                      else {
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                    }
+                    else {
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                        currsigs.addElement(bottleLeftPos5);
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                      else {
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                    }
+                  }
+                  else {
+                    if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                      bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                      currsigs.addElement(bottle5_1);
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                        currsigs.addElement(bottleLeftPos5);
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                      else {
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                    }
+                    else {
+                      if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                        bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                        currsigs.addElement(bottleLeftPos5);
+                        S1088=0;
+                        active[2]=1;
+                        ends[2]=1;
+                        tdone[2]=1;
+                      }
+                      else {
+                        S1088=0;
                         active[2]=1;
                         ends[2]=1;
                         tdone[2]=1;
@@ -2776,8 +2769,8 @@ public class Plant extends ClockDomain{
 
   public void thread7506(int [] tdone, int [] ends){
         S4273=1;
-    if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 133, column: 24
-      before1E.setPresent();//sysj/plant.sysj line: 133, column: 40
+    if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 132, column: 24
+      before1E.setPresent();//sysj/plant.sysj line: 132, column: 40
       currsigs.addElement(before1E);
       active[11]=1;
       ends[11]=1;
@@ -2792,8 +2785,8 @@ public class Plant extends ClockDomain{
 
   public void thread7505(int [] tdone, int [] ends){
         S4265=1;
-    if(bottle5_1.getprestatus()){//sysj/plant.sysj line: 127, column: 24
-      bottle5E.setPresent();//sysj/plant.sysj line: 127, column: 33
+    if(bottle5_1.getprestatus()){//sysj/plant.sysj line: 126, column: 24
+      bottle5E.setPresent();//sysj/plant.sysj line: 126, column: 33
       currsigs.addElement(bottle5E);
       active[10]=1;
       ends[10]=1;
@@ -2808,8 +2801,8 @@ public class Plant extends ClockDomain{
 
   public void thread7504(int [] tdone, int [] ends){
         S4257=1;
-    if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 117, column: 24
-      con5onE.setPresent();//sysj/plant.sysj line: 117, column: 36
+    if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 116, column: 24
+      con5onE.setPresent();//sysj/plant.sysj line: 116, column: 36
       currsigs.addElement(con5onE);
       active[9]=1;
       ends[9]=1;
@@ -2824,8 +2817,8 @@ public class Plant extends ClockDomain{
 
   public void thread7503(int [] tdone, int [] ends){
         S4249=1;
-    if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 115, column: 24
-      con1onE.setPresent();//sysj/plant.sysj line: 115, column: 36
+    if(conveyorOn_1.getprestatus()){//sysj/plant.sysj line: 114, column: 24
+      con1onE.setPresent();//sysj/plant.sysj line: 114, column: 36
       currsigs.addElement(con1onE);
       active[8]=1;
       ends[8]=1;
@@ -2840,8 +2833,8 @@ public class Plant extends ClockDomain{
 
   public void thread7502(int [] tdone, int [] ends){
         S4241=1;
-    if(bottleAfter5Sig_1.getprestatus()){//sysj/plant.sysj line: 113, column: 24
-      after5E.setPresent();//sysj/plant.sysj line: 113, column: 41
+    if(bottleAfter5Sig_1.getprestatus()){//sysj/plant.sysj line: 112, column: 24
+      after5E.setPresent();//sysj/plant.sysj line: 112, column: 41
       currsigs.addElement(after5E);
       active[7]=1;
       ends[7]=1;
@@ -2856,8 +2849,8 @@ public class Plant extends ClockDomain{
 
   public void thread7501(int [] tdone, int [] ends){
         S4233=1;
-    if(bottleAtPos1.getprestatus()){//sysj/plant.sysj line: 111, column: 24
-      bottle1E.setPresent();//sysj/plant.sysj line: 111, column: 38
+    if(bottleAtPos1.getprestatus()){//sysj/plant.sysj line: 110, column: 24
+      bottle1E.setPresent();//sysj/plant.sysj line: 110, column: 38
       currsigs.addElement(bottle1E);
       active[6]=1;
       ends[6]=1;
@@ -2906,12 +2899,12 @@ public class Plant extends ClockDomain{
 
   public void thread7499(int [] tdone, int [] ends){
         S4225=1;
-    if(motConveyorOnOff.getprestatus() && enable.getprestatus()){//sysj/plant.sysj line: 98, column: 12
-      conveyorOn_1.setPresent();//sysj/plant.sysj line: 100, column: 5
+    if(motConveyorOnOff.getprestatus() && enable.getprestatus()){//sysj/plant.sysj line: 97, column: 12
+      conveyorOn_1.setPresent();//sysj/plant.sysj line: 99, column: 5
       currsigs.addElement(conveyorOn_1);
-      addBottleSig_1.setPresent();//sysj/plant.sysj line: 102, column: 5
+      addBottleSig_1.setPresent();//sysj/plant.sysj line: 101, column: 5
       currsigs.addElement(addBottleSig_1);
-      removeBottleSig_1.setPresent();//sysj/plant.sysj line: 103, column: 5
+      removeBottleSig_1.setPresent();//sysj/plant.sysj line: 102, column: 5
       currsigs.addElement(removeBottleSig_1);
       active[4]=1;
       ends[4]=1;
@@ -2937,59 +2930,53 @@ public class Plant extends ClockDomain{
     r_thread_2 = new Rotator();//sysj/plant.sysj line: 33, column: 3
     bottlebefore1_thread_2 = false;//sysj/plant.sysj line: 35, column: 3
     bottleafter5_thread_2 = false;//sysj/plant.sysj line: 36, column: 3
-    S1088=0;
     if(rotate.getprestatus()){//sysj/plant.sysj line: 39, column: 12
       System.out.println("Rotated.");//sysj/plant.sysj line: 40, column: 5
       r_thread_2.rotateRotate();//sysj/plant.sysj line: 41, column: 5
-      active[2]=1;
-      ends[2]=1;
-      tdone[2]=1;
-    }
-    else {
-      if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 12
-        if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 46, column: 13
-          bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 47, column: 6
-          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
+      if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 44, column: 12
+        if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 13
+          bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 46, column: 6
+          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
             currsigs.addElement(removeSpawnBottle_1);
-            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                 currsigs.addElement(bottleAfter5Sig_1);
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -2997,35 +2984,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3034,38 +3021,38 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3073,35 +3060,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3111,38 +3098,38 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                 currsigs.addElement(bottleAtPos1);
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3150,35 +3137,35 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3188,43 +3175,43 @@ public class Plant extends ClockDomain{
             }
           }
           else {
-            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                 currsigs.addElement(bottleAfter5Sig_1);
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3232,35 +3219,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3269,38 +3256,38 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3308,35 +3295,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3346,38 +3333,38 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                 currsigs.addElement(bottleAtPos1);
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3385,35 +3372,35 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3424,47 +3411,47 @@ public class Plant extends ClockDomain{
           }
         }
         else {
-          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 49, column: 5
-          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 50, column: 9
-            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 51, column: 6
+          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
             currsigs.addElement(removeSpawnBottle_1);
-            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                 currsigs.addElement(bottleAfter5Sig_1);
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3472,35 +3459,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3509,38 +3496,38 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3548,35 +3535,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3586,38 +3573,38 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                 currsigs.addElement(bottleAtPos1);
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3625,35 +3612,35 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3663,43 +3650,43 @@ public class Plant extends ClockDomain{
             }
           }
           else {
-            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
                 currsigs.addElement(bottleAfter5Sig_1);
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3707,35 +3694,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3744,38 +3731,38 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                   currsigs.addElement(bottleAtPos1);
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3783,35 +3770,35 @@ public class Plant extends ClockDomain{
                   }
                 }
                 else {
-                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                    bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                     currsigs.addElement(bottle5_1);
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                   }
                   else {
-                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                       currsigs.addElement(bottleLeftPos5);
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
                     }
                     else {
-                      S1088=1;
+                      S1088=0;
                       active[2]=1;
                       ends[2]=1;
                       tdone[2]=1;
@@ -3821,38 +3808,38 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-                bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
                 currsigs.addElement(bottleAtPos1);
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3860,35 +3847,35 @@ public class Plant extends ClockDomain{
                 }
               }
               else {
-                if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                  bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                   currsigs.addElement(bottle5_1);
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                 }
                 else {
-                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                     currsigs.addElement(bottleLeftPos5);
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
                   }
                   else {
-                    S1088=1;
+                    S1088=0;
                     active[2]=1;
                     ends[2]=1;
                     tdone[2]=1;
@@ -3900,43 +3887,43 @@ public class Plant extends ClockDomain{
         }
       }
       else {
-        if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 56, column: 12
-          bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 57, column: 5
-          if(bottleafter5_thread_2){//sysj/plant.sysj line: 58, column: 5
-            bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 59, column: 6
+        if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+          bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+          if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+            bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
             currsigs.addElement(bottleAfter5Sig_1);
-            if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-              bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+            if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+              bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
               currsigs.addElement(bottleAtPos1);
-              if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                 currsigs.addElement(bottle5_1);
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
               }
               else {
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3944,35 +3931,35 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                 currsigs.addElement(bottle5_1);
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
               }
               else {
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -3981,38 +3968,38 @@ public class Plant extends ClockDomain{
             }
           }
           else {
-            if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-              bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+            if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+              bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
               currsigs.addElement(bottleAtPos1);
-              if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                 currsigs.addElement(bottle5_1);
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
               }
               else {
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -4020,35 +4007,35 @@ public class Plant extends ClockDomain{
               }
             }
             else {
-              if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-                bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
                 currsigs.addElement(bottle5_1);
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
               }
               else {
-                if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                   currsigs.addElement(bottleLeftPos5);
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
                 }
                 else {
-                  S1088=1;
+                  S1088=0;
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
@@ -4058,38 +4045,38 @@ public class Plant extends ClockDomain{
           }
         }
         else {
-          if(r_thread_2.get(0)){//sysj/plant.sysj line: 64, column: 4
-            bottleAtPos1.setPresent();//sysj/plant.sysj line: 64, column: 17
+          if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+            bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
             currsigs.addElement(bottleAtPos1);
-            if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-              bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+            if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+              bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
               currsigs.addElement(bottle5_1);
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
             }
             else {
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
@@ -4097,35 +4084,1225 @@ public class Plant extends ClockDomain{
             }
           }
           else {
-            if(r_thread_2.get(4)){//sysj/plant.sysj line: 70, column: 4
-              bottle5_1.setPresent();//sysj/plant.sysj line: 70, column: 17
+            if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+              bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
               currsigs.addElement(bottle5_1);
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
             }
             else {
-              if(bottleafter5_thread_2){//sysj/plant.sysj line: 72, column: 4
-                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 72, column: 21
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
                 currsigs.addElement(bottleLeftPos5);
-                S1088=1;
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;
               }
               else {
-                S1088=1;
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+            }
+          }
+        }
+      }
+    }
+    else {
+      if(addBottleSig_1.getprestatus()){//sysj/plant.sysj line: 44, column: 12
+        if(spawnBottleSig_1.getprestatus()){//sysj/plant.sysj line: 45, column: 13
+          bottlebefore1_thread_2 = true;//sysj/plant.sysj line: 46, column: 6
+          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
+            currsigs.addElement(removeSpawnBottle_1);
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                currsigs.addElement(bottleAfter5Sig_1);
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                currsigs.addElement(bottleAtPos1);
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+            }
+          }
+          else {
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                currsigs.addElement(bottleAfter5Sig_1);
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                currsigs.addElement(bottleAtPos1);
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+            }
+          }
+        }
+        else {
+          bottlebefore1_thread_2 = r_thread_2.addBottle(bottlebefore1_thread_2);//sysj/plant.sysj line: 48, column: 5
+          if(bottlebefore1_thread_2 == false){//sysj/plant.sysj line: 49, column: 9
+            removeSpawnBottle_1.setPresent();//sysj/plant.sysj line: 50, column: 6
+            currsigs.addElement(removeSpawnBottle_1);
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                currsigs.addElement(bottleAfter5Sig_1);
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                currsigs.addElement(bottleAtPos1);
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+            }
+          }
+          else {
+            if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+              bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+                bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+                currsigs.addElement(bottleAfter5Sig_1);
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                  bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                  currsigs.addElement(bottleAtPos1);
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+                else {
+                  if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                    bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                    currsigs.addElement(bottle5_1);
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                  else {
+                    if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                      bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                      currsigs.addElement(bottleLeftPos5);
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                    else {
+                      S1088=0;
+                      active[2]=1;
+                      ends[2]=1;
+                      tdone[2]=1;
+                    }
+                  }
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+                bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+                currsigs.addElement(bottleAtPos1);
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+              else {
+                if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                  bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                  currsigs.addElement(bottle5_1);
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+                else {
+                  if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                    bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                    currsigs.addElement(bottleLeftPos5);
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                  else {
+                    S1088=0;
+                    active[2]=1;
+                    ends[2]=1;
+                    tdone[2]=1;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      else {
+        if(removeBottleSig_1.getprestatus()){//sysj/plant.sysj line: 55, column: 12
+          bottleafter5_thread_2 = r_thread_2.removeBottle();//sysj/plant.sysj line: 56, column: 5
+          if(bottleafter5_thread_2){//sysj/plant.sysj line: 57, column: 5
+            bottleAfter5Sig_1.setPresent();//sysj/plant.sysj line: 58, column: 6
+            currsigs.addElement(bottleAfter5Sig_1);
+            if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+              bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+              currsigs.addElement(bottleAtPos1);
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                currsigs.addElement(bottle5_1);
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+              else {
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                currsigs.addElement(bottle5_1);
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+              else {
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+            }
+          }
+          else {
+            if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+              bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+              currsigs.addElement(bottleAtPos1);
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                currsigs.addElement(bottle5_1);
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+              else {
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+            }
+            else {
+              if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+                bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+                currsigs.addElement(bottle5_1);
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+              else {
+                if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                  bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                  currsigs.addElement(bottleLeftPos5);
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+                else {
+                  S1088=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
+                }
+              }
+            }
+          }
+        }
+        else {
+          if(r_thread_2.get(0)){//sysj/plant.sysj line: 63, column: 4
+            bottleAtPos1.setPresent();//sysj/plant.sysj line: 63, column: 17
+            currsigs.addElement(bottleAtPos1);
+            if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+              bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+              currsigs.addElement(bottle5_1);
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                currsigs.addElement(bottleLeftPos5);
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+              else {
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+            }
+            else {
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                currsigs.addElement(bottleLeftPos5);
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+              else {
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+            }
+          }
+          else {
+            if(r_thread_2.get(4)){//sysj/plant.sysj line: 69, column: 4
+              bottle5_1.setPresent();//sysj/plant.sysj line: 69, column: 17
+              currsigs.addElement(bottle5_1);
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                currsigs.addElement(bottleLeftPos5);
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+              else {
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+            }
+            else {
+              if(bottleafter5_thread_2){//sysj/plant.sysj line: 71, column: 4
+                bottleLeftPos5.setPresent();//sysj/plant.sysj line: 71, column: 21
+                currsigs.addElement(bottleLeftPos5);
+                S1088=0;
+                active[2]=1;
+                ends[2]=1;
+                tdone[2]=1;
+              }
+              else {
+                S1088=0;
                 active[2]=1;
                 ends[2]=1;
                 tdone[2]=1;

@@ -37,13 +37,13 @@ public class ConveyorGUI extends JFrame {
 		
 		
 		JButton enable = new JButton("enable");
-		enable.setMultiClickThreshhold(500);
+		//enable.setMultiClickThreshhold(500);
 		enable.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ENABLE_SIGNAL));
 		JButton spawn = new JButton("spawn bottle");
-		spawn.setMultiClickThreshhold(500);
+		//spawn.setMultiClickThreshhold(500);
 		spawn.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.SPAWN_SIGNAL));
 		JButton rotate = new JButton("rotate");
-		rotate.setMultiClickThreshhold(500);
+		//rotate.setMultiClickThreshhold(500);
 		rotate.addActionListener(new SignalClient(Ports.PORT_LOADER_PLANT, Ports.ROTATE_SIGNAL));
 		JPanel ss = new JPanel();
 		ss.add(enable);

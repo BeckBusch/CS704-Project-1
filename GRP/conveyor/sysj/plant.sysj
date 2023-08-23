@@ -39,7 +39,6 @@ Plant(
 			present(rotate){
 				System.out.println("Rotated.");
 				r.rotateRotate();
-				pause;
 			}
 			
 			present(addBottleSig){
