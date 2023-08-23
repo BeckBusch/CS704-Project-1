@@ -1,0 +1,25 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="plant" Local="true">
+		<ClockDomain Name="PlantCD" Class="Plant">
+			<iSignal Name="motConveyorOnOff" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="5002" />
+			<iSignal Name="rotate"        Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="5002" />
+			<iSignal Name="spawnBottle"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="5002" />
+			<iSignal Name="enable"       Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="5002" />
+
+			<oSignal Name="bottleAtPos1" To="ConveyorCD.bottleAtPos1" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="5001" />
+			<oSignal Name="bottleLeftPos5"  To="ConveyorCD.bottleLeftPos5"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="5001" />
+
+			<oSignal Name="bottle1E" To="UI.bottle1E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="bottle2E" To="UI.bottle2E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="bottle3E" To="UI.bottle3E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="bottle4E" To="UI.bottle4E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="bottle5E" To="UI.bottle5E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="bottle6E" To="UI.bottle6E" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			
+			<oSignal Name="before1E"  To="UI.before1E"  Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="after5E"       To="UI.after5E"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="con1onE"     To="UI.con1onE"     Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+			<oSignal Name="con5onE"       To="UI.con5onE"       Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="6000" />
+		</ClockDomain>
+	</SubSystem>
+</System>

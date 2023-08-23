@@ -1,0 +1,136 @@
+import run.Gui;
+import Rotate.Rotator;
+
+Plant(
+		input signal motConveyorOnOff;
+		input signal enable, rotate, spawnBottle;
+		output signal bottleAtPos1, bottleLeftPos5;
+		output signal bottle1E, bottle2E, bottle3E, bottle4E, bottle5E, bottle6E, before1E, after5E, con1onE, con5onE;
+		)
+->
+{
+	new Thread(new Gui()).start();
+
+	signal conveyorOn;
+	
+	signal bottleAfter5Sig;
+	signal spawnBottleSig;
+	signal removeSpawnBottle;
+	
+	signal addBottleSig;
+	signal removeBottleSig;
+	/*
+	signal bottle2;
+	signal bottle3;
+	signal bottle4
+	*/
+	signal bottle5;
+	//signal bottle6;
+	
+	
+	
+	{// rotate
+		Rotator r = new Rotator();
+
+		boolean bottlebefore1 = false;
+		boolean bottleafter5 = false;
+		
+		while(true){
+			present(rotate){
+				System.out.println("Rotated.");
+				r.rotateRotate();
+				pause;
+			}
+			
+			present(addBottleSig){
+				present(spawnBottleSig){
+					bottlebefore1 = true;
+				}
+				bottlebefore1 = r.addBottle(bottlebefore1);
+				if (bottlebefore1 == false) {
+					emit removeSpawnBottle;
+				}
+				
+			}
+			
+			present(removeBottleSig){
+				bottleafter5 = r.removeBottle();
+				if (bottleafter5) {
+					emit bottleAfter5Sig;
+				}
+			}
+			
+			
+			if(r.get(0)){emit bottleAtPos1;}
+			/*
+			if(r.get(1)){emit bottle2;}
+			if(r.get(2)){emit bottle3;}
+			if(r.get(3)){emit bottle4;}
+			*/
+			if(r.get(4)){emit bottle5;}
+			// if(r.get(5)){emit bottle6;}
+			if(bottleafter5){emit bottleLeftPos5;}
+
+			await(!rotate);
+			pause;
+		}
+	}
+	||
+	{// spawn bottle
+		while(true){
+			await (spawnBottle);
+			
+			System.out.println("Bottle has been spawned.");
+			
+			abort(removeSpawnBottle){
+				sustain spawnBottleSig;
+			}
+			
+			System.out.println("Bottle has been removed from spawn.");
+			
+			pause;
+		}
+	}
+	||
+	{// conveyor
+		
+		while(true){
+			present(motConveyorOnOff && enable){
+
+				System.out.println("Conveyor has been turned on.");
+				emit conveyorOn;
+				
+				emit addBottleSig;
+				emit removeBottleSig;
+				
+			}
+			pause;
+		}
+	}
+	||
+	{// To viz
+		{while(true){present(bottleAtPos1){emit bottle1E;} pause;}}
+		||
+		{while(true){present(bottleAfter5Sig){emit after5E;} pause;}}
+		||
+		{while(true){present(conveyorOn){emit con1onE;} pause;}}
+		||
+		{while(true){present(conveyorOn){emit con5onE;} pause;}}
+		/*
+		||
+		{while(true){present(bottle2){emit bottle2E;} pause;}}
+		||
+		{while(true){present(bottle3){emit bottle3E;} pause;}}
+		||
+		{while(true){present(bottle4){emit bottle4E;} pause;}}
+		*/
+		||
+		{while(true){present(bottle5){emit bottle5E;} pause;}}
+		/*
+		||
+		{while(true){present(bottle6){emit bottle6E;} pause;}}
+		*/
+		||
+		{while(true){present(spawnBottleSig){emit before1E;} pause;}}
+	}
+}
