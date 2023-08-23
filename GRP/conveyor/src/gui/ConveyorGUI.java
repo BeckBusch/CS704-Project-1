@@ -126,7 +126,7 @@ public class ConveyorGUI extends JFrame {
 		while(true){
 			try {
 				cl.repaint();
-				Thread.sleep(5);
+				Thread.sleep(100);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
