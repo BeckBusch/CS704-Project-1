@@ -1,0 +1,49 @@
+localise(
+		/*Signals to put into here */
+		input signal onOff;
+		input signal appendRemove;
+		input int signal ping; //TODO: need to make it a valued signal to pass an integer value as well as being high
+		output signal trackingList; //TODO: Make this output a list. May instead just make this a global variable among the Clock Domains
+)->{
+	int[] personList = new int[12]; //array to store the current 
+	
+	{ //Reaction to check badges and ID's and update
+		int id;
+		abort(!onOff){ //abort if the onOff signal is low
+			while(true){
+				await ping;
+				//TODO: Store the ping value into id
+				for(int i=0; i++; i<(personList.length()-1)) {
+					if(/*element id match person*/&&/*locations not equal*/){
+					//TODO: update the personList
+					}
+				}
+			}	
+		}
+
+		
+	}
+	||
+	{ //Reaction to add and remove people from the list
+		bool matchFound; //boolean variable to track whether a match has been found
+		int ID;
+		abort(!onOff){
+			while(true){
+				await ping;
+				await appendRemove;
+				matchFound = false;
+				//TODO: Store the ping value into id
+				for(int i=0; i++; i<(personList.length()-1)) {
+					if(/*ID value == element in array*/) {
+						personList[i,0] = 0;
+						personList[1,1] = 0; //deleting the person as they have just been detected to leave
+						matchFound = true;
+					}
+				}
+				if(matchFound == false) {
+					/*append array to include new value and make default location, zone 1*/
+				}
+			}
+		}
+	}
+}

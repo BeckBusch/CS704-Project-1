@@ -5,6 +5,7 @@ Controller(
 		input signal pusherExtendM,vacOnM,armSourceM,armDestM;
 		)->{
 			int currentMode = (Integer)#mode;
+			
 
 			
 			//====AUTOMATIC MODE=====

@@ -1,0 +1,18 @@
+restriction(
+		/*Signals to put into here */
+		input signal onOff;
+		input signal boundDetect;
+		output signal suspend;
+)->{
+	while(true) { //may not be necessary
+		abort(!onOff){
+			while(true) {
+				while(boundDetect) {
+					emit suspend //So for each clock tick boundDetect is on, the suspend signal will be emitted to go along the channel
+				}
+				
+			}
+		}
+	}
+	
+}
