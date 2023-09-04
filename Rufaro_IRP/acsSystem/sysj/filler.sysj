@@ -1,0 +1,153 @@
+filler(
+		/*Input Signals*/
+		 inpput signal bottleAtPos2  //Present when the bottle is at position 2
+		 input signal dosUnitEvac   //Present when a pressure canister is at bottom
+		 input signal dosUnitFilled // Present when a pressure canister is at top
+		 input signal order 		//signal holding the next order to be done
+		/*Output Signals*/
+		 //TODO: need to confirm which need to signals, which need to be channels
+		 output signal valveInjectorOnOff 	//Turns on or off the valve injector (absence of this signal will turn off the injector)
+		 output signal valveInletOnOff		//Opens the inlet valve (absence of this signal will close the inlet)
+		 output signal dosUnitValveRetract	// brings the pressure canister to top
+		 output signal dosUnitValveExtend		// brings the pressure canister to bottom
+		 output Boolean signal fillerReady 			//To signal that the filler is ready
+
+)-> { //Filler clock domain runs the task of filling the bottle with the next order  
+	
+	/*
+	Basic operation of the filler clock-domain would be:
+		1. Check if a bottle is at position 2, if not, wait until it arrives
+		2. Turn on the valve injector
+		3. Check if a pressure canister is at bottom, if so bring it up to fill the bottle with liquid
+		4. Wait until the cylinder is fully retracted (i.e. at top)
+		5. Turn off the injector
+		6. Open the inlet
+		7. Force down the pressure canister
+		8. Wait until the cylinder is fully extended (i.e. at bottom)
+		9. Close the inlets
+	*/
+	
+	//GLOBAL VARIABLES
+	
+	//Initial one-time run code
+	send fillerReady(Boolean.TRUE);
+	
+	
+	//R1 - Filler 1
+	{
+		loop {
+			await(bottleAtPos2);
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(dosUnitFilled){
+				{
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			await(!bottleAtPos2); //waits for new bottle
+		}
+		
+	}//R1 End
+	
+	//R2 - Filler 2
+	{
+		loop {
+			await(bottleAtPos2);
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(dosUnitFilled){
+				{
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	
+	//R3 - Filler 3
+	{
+		loop {
+			await(bottleAtPos2);
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(dosUnitFilled){
+				{
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	
+	
+	//R4 - Filler 4
+	{
+		loop {
+			await(bottleAtPos2);
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(dosUnitFilled){
+				{
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	
+	
+	
+	
+}

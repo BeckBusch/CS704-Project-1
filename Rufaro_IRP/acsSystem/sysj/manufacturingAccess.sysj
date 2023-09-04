@@ -1,7 +1,8 @@
-facilityAccess(
+manufacturingAccess(
 		/*Signals to put into here */
 		input signal onOff
-		input int signal facReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		input int signal manReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		/*Output signals*/
 		output signal manApprov;
 
 )->{
@@ -14,7 +15,7 @@ facilityAccess(
 	{
 		int value;
 		abort(!onOff){ //abort if the onOff signal is low
-			while true{
+			while(true){
 				await manReq;
 				//TODO: Store  racReq into a variable
 				for(int i=0; i++ ;i<(manReq.length()-1)) {

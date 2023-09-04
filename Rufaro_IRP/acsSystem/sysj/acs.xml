@@ -1,0 +1,36 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="SS1" Local="true">
+		
+		<ClockDomain Name="facilityAccess" Class="ACS-CD"> <!-- TODO: Need to add this Java class-->
+			<iSignal Name="onOff" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4444" />
+			<iSignal Name="facReq" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4444" />
+			<oChannel Name="facApprov" To="" />
+		</ClockDomain>
+		
+		<ClockDomain Name="officeAccess" Class="ACS-CD"> <!-- TODO: Need to add this Java class-->
+			<iSignal Name="onOff" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4445" />
+			<iSignal Name="officeReq" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4445" />
+			<oChannel Name="officeApprov" To="" />
+		</ClockDomain>
+		
+		<ClockDomain Name="manufacturingAccess" Class="ACS-CD"> <!-- TODO: Need to add this Java class-->
+			<iSignal Name="onOff" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4446" />
+			<iSignal Name="manReq" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4446" />
+			<oChannel Name="manApprov" To="" />
+		</ClockDomain>
+		
+		<ClockDomain Name="localise" Class="ACS-CD"> <!-- TODO: Need to add this Java class-->
+			<iSignal Name="onOff" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4447" />
+			<iSignal Name="appendRemove" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4447" />
+			<iSignal Name="appendRemove" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4447" />
+			<oChannel Name="trackingList" To="" />
+		</ClockDomain>
+		
+		<ClockDomain Name="restriction" Class="ACS-CD"> <!-- TODO: Need to add this Java class-->
+			<iSignal Name="onOff" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4448" />
+			<iSignal Name="boundDetect" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4448" />
+			<oChannel Name="suspend" To="" />
+		</ClockDomain>
+		
+	</SubSystem>
+</System>
