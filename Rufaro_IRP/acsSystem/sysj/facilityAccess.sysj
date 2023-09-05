@@ -14,9 +14,9 @@ facilityAccess(
 	{
 		int value;
 		abort(!onOff){ //abort if the onOff signal is low
-			while true{
+			loop{
 				await facReq;
-				//TODO: Store  racReq into a variable
+				value = (Integer)#racReq;//TODO: Store  racReq into a variable
 				for(int i=0; i++ ;i<(facReq.length()-1)) {
 					if(value == facAccessList[i]) {
 						emit facApprov;						

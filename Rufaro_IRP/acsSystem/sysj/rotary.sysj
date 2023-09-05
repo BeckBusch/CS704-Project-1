@@ -14,6 +14,7 @@ rotary(
 	signal fR, cR, cvR, bR;
 	{
 		loop{
+			await(capOnBottleAtPos1); //checking first if a cap is already on and waiting for manual removal of cap
 			{await(fR);}||{await(cR);}||{await(cvR);}||{await(bR);} //TODO: Need to change and verify names
 			present(bottleAtPos5) {
 				await(!bottleAtPos5);

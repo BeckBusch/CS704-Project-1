@@ -3,6 +3,7 @@ import run.GUI;
 Plant(
 		input signal pusherExtend,vacOn,armSource,armDest;
 		input signal enable,refill;
+		
 		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
 		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
 		)

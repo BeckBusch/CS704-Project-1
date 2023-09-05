@@ -1,28 +1,28 @@
 facilityAccess(
 		/*Signals to put into here */
 		input signal onOff
-		input int signal officeReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		input int signal officeReq //CHECK: valued signal to pass an integer value as well as being high
 		output signal facApprov;
 
 )->{
-	//Global Variables
-	int[] officeAccessList = new int[12];
-
+		//Global Variables
+		int[] officeAccessList = new int[12];
 	
-	
-	// Reaction for managing front door access
-	{
-		int value;
-		abort(!onOff){ //abort if the onOff signal is low
-			while true{
-				await officeReq;
-				//TODO: Store  racReq into a variable
-				for(int i=0; i++ ;i<(officeReq.length()-1)) {
-					if(value == officeAccessList[i]) {
-						emit officeApprov;						
+		
+		
+		// Reaction for managing front door access
+		{
+			int value;
+			abort(!onOff){ //abort if the onOff signal is low
+				loop{
+					await officeReq;
+					value = (Integer)#officeReq;//CHECK: Store  officeReq into a variable
+					for(int i=0; i++ ;i<(officeReq.length()-1)) {
+						if(value == officeAccessList[i]) {
+							emit officeApprov;						
+						}
 					}
-				}
-					
+						
 				}
 			}
 		}

@@ -9,8 +9,8 @@ filler(
 		 output signal valveInjectorOnOff 	//Turns on or off the valve injector (absence of this signal will turn off the injector)
 		 output signal valveInletOnOff		//Opens the inlet valve (absence of this signal will close the inlet)
 		 output signal dosUnitValveRetract	// brings the pressure canister to top
-		 output signal dosUnitValveExtend		// brings the pressure canister to bottom
-		 output Boolean signal fillerReady 			//To signal that the filler is ready
+		 output signal dosUnitValveExtend	// brings the pressure canister to bottom
+		 output Boolean signal fillerReady 	//To communicate that the filler is ready
 
 )-> { //Filler clock domain runs the task of filling the bottle with the next order  
 	
@@ -27,8 +27,12 @@ filler(
 		9. Close the inlets
 	*/
 	
-	//GLOBAL VARIABLES
-	
+	//GLOBAL VARIABLES & SIGNALS
+	signal f1Done; //internal signal to communcate first filler is done
+	signal f2Done; //internal signal to communcate second filler is done
+	signal f3Done; //internal signal to communcate third filler is done
+	signal f4Done; //internal signal to communcate fourth filler is done
+
 	//Initial one-time run code
 	send fillerReady(Boolean.TRUE);
 	
@@ -46,7 +50,7 @@ filler(
 				{
 					sustain dosUnitValveRetracts
 				}
-			}
+			};
 			
 			abort(dosUnitEvac){
 				{
@@ -56,16 +60,18 @@ filler(
 				{
 					sustain dosUnitValveExtend
 				}
-			}
-			await(!bottleAtPos2); //waits for new bottle
+			};
+			emit f1Done;
+			await(f4Done); //Waiting for the whole cycle for the filler to complete
+			await(!bottleAtPos2); //waits for odl bottle to moved onto the next stage
 		}
 		
 	}//R1 End
-	
+	||
 	//R2 - Filler 2
 	{
 		loop {
-			await(bottleAtPos2);
+			{await(bottleAtPos2);}||{await(f1Done);}
 			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
 			abort(dosUnitFilled){
 				{
@@ -85,19 +91,20 @@ filler(
 				{
 					sustain dosUnitValveExtend
 				}
-			}
+			};
+			emit f2Done;
 			await(!bottleAtPos2); //waits for new bottle
 		}
 	}
-	
+	||
 	//R3 - Filler 3
 	{
 		loop {
-			await(bottleAtPos2);
+			{await(bottleAtPos2);}||{await(f2Done);}
 			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
 			abort(dosUnitFilled){
 				{
-					sustain valveInjectorOnOff;
+					sustain valveInjectorOnOff
 				}
 				||
 				{
@@ -107,22 +114,22 @@ filler(
 			
 			abort(dosUnitEvac){
 				{
-					sustain valveInletOnOff;
+					sustain valveInletOnOff
 				}
 				||
 				{
 					sustain dosUnitValveExtend
 				}
 			}
+			emit f3Done;
 			await(!bottleAtPos2); //waits for new bottle
 		}
 	}
-	
-	
+	||	
 	//R4 - Filler 4
 	{
 		loop {
-			await(bottleAtPos2);
+			{await(bottleAtPos2);}||{await(f3Done);}
 			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
 			abort(dosUnitFilled){
 				{
@@ -143,6 +150,7 @@ filler(
 					sustain dosUnitValveExtend
 				}
 			}
+			emit f4Done;
 			await(!bottleAtPos2); //waits for new bottle
 		}
 	}

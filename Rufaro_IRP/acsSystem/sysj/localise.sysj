@@ -2,20 +2,23 @@ localise(
 		/*Signals to put into here */
 		input signal onOff;
 		input signal appendRemove;
-		input int signal ping; //TODO: need to make it a valued signal to pass an integer value as well as being high
-		output signal trackingList; //TODO: Make this output a list. May instead just make this a global variable among the Clock Domains
+		input int signal ping; //CHECK: need to make it a valued signal to pass an integer value as well as being high
+		output ArrayList signal trackingList; //CHECK: Make this output a list. May instead just make this a global variable among the Clock Domains
 )->{
-	int[] personList = new int[12]; //array to store the current 
+	int[][] personList = new int[12][2]; //array to store the current 
 	
 	{ //Reaction to check badges and ID's and update
-		int id;
+		int[][] id = new int[1][2];
 		abort(!onOff){ //abort if the onOff signal is low
-			while(true){
+			loop{
 				await ping;
-				//TODO: Store the ping value into id
+				id[0][0] = (int)#ping[0][0]; //Store the ping value into id
+				id[0][1] = (int)#ping[0][1]; //Store the ping value into id
+						
 				for(int i=0; i++; i<(personList.length()-1)) {
-					if(/*element id match person*/&&/*locations not equal*/){
-					//TODO: update the personList
+					if(/*element id match person*/(id[i][0] == personList[i][0]) && (id[i][1] == personList[i][1])/*locations not equal*/){
+						personList[i][0] = id[i][0];
+						personList[i][1] = id[i][1];//CHECK: update the personList
 					}
 				}
 			}	
@@ -28,7 +31,7 @@ localise(
 		bool matchFound; //boolean variable to track whether a match has been found
 		int ID;
 		abort(!onOff){
-			while(true){
+			loop{
 				await ping;
 				await appendRemove;
 				matchFound = false;
