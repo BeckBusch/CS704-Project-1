@@ -7,6 +7,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -18,10 +21,12 @@ public class posGUI {
     Integer yGrid = 32 + 8;
     Integer dimUnit = 20;
     ArrayList<String> Order;
-    String[] LiquidList = { "Milk", "Honey", "Water", "Juice", "Beer", "Wine" };
+    String[] LiquidList = { "Cola", "Tonic", "Soda", "Juice" };
     HashMap<String, Integer> PriceList = new HashMap<String, Integer>();
     HashMap<String, Integer> UserOrder = new HashMap<String, Integer>();
     HashMap<String, String> AccountList = new HashMap<String, String>();
+
+    volatile static ObjectOutputStream sO;
 
     JFrame guiFrame;
     JTextField usernameField;
@@ -33,6 +38,7 @@ public class posGUI {
     JPanel authPanel;
     JPanel submitPanel;
     JLabel priceLabel;
+    JTextArea responseArea;
 
     // == Main Method ==
     public static void main(String[] args) {
@@ -41,12 +47,10 @@ public class posGUI {
 
     // == GUI Class Constructor ==
     public posGUI() {
-        PriceList.put("Honey", 25);
-        PriceList.put("Water", 7);
-        PriceList.put("Juice", 18);
-        PriceList.put("Milk", 15);
-        PriceList.put("Beer", 25);
-        PriceList.put("Wine", 32);
+        PriceList.put("Cola", 5);
+        PriceList.put("Tonic", 10);
+        PriceList.put("Soda", 15);
+        PriceList.put("Juice", 20);
 
         AccountList.put("admin", "admin");
         AccountList.put("UOA", "ecse");
@@ -71,13 +75,19 @@ public class posGUI {
 
         // ---- Title Panel ----
         JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(null);
         titlePanel.setBounds(0, 0, dimUnit * xGrid, dimUnit * 3);
         titlePanel.setBackground(Color.pink);
         JLabel titleLabel = new JLabel("Bottle Ordering System");
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
-        titleLabel.setBounds(0, 0, dimUnit * xGrid, dimUnit * 3);
-        titleLabel.setFont(new Font("Verdana", Font.PLAIN, 34));
+        titleLabel.setBounds(dimUnit * 2, 0, dimUnit * (xGrid - 4), dimUnit * 3);
+        titleLabel.setFont(new Font("Verdana", Font.PLAIN, 32));
         titlePanel.add(titleLabel);
+        // JButton helpButton = new JButton(new ImageIcon("help.png"));
+        // helpButton.setBounds(dimUnit*(xGrid-2), dimUnit, dimUnit, dimUnit);
+        // helpButton.setActionCommand("help");
+        // helpButton.addActionListener(new ButtonClickListener());
+        // titlePanel.add(helpButton);
 
         // ---- Auth Panel ----
         authPanel = new JPanel();
@@ -191,18 +201,19 @@ public class posGUI {
         // ---- Response Panel ----
         JPanel responsePanel = new JPanel();
         responsePanel.setLayout(null);
-        responsePanel.setBounds(dimUnit * 1, dimUnit * (yGrid-8), dimUnit * (xGrid - 2), dimUnit * 8);
+        responsePanel.setBounds(dimUnit * 1, dimUnit * (yGrid - 8), dimUnit * (xGrid - 2), dimUnit * 8);
         responsePanel.setBackground(Color.gray);
         // -- Response Header --
         JLabel responseLabel = new JLabel("System Response:");
-        //responseLabel.setHorizontalAlignment(JLabel.CENTER);
+        // responseLabel.setHorizontalAlignment(JLabel.CENTER);
         responseLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
-        responseLabel.setBounds(0, 0, dimUnit * (xGrid-2), dimUnit * 2);
+        responseLabel.setBounds(0, 0, dimUnit * (xGrid - 2), dimUnit * 2);
         responsePanel.add(responseLabel);
         // -- Response Content --
-        JTextArea responseArea = new JTextArea("no responce received");
-        //responseArea.setBounds(dimUnit, dimUnit*3, dimUnit*(xGrid-4), dimUnit*4);
-        responseArea.setBounds((int)(dimUnit*0.5), (int)(dimUnit*2), dimUnit*(xGrid-3), (int)(dimUnit*5.5));
+        responseArea = new JTextArea("no responce received");
+        responseArea.setEditable(false);
+        responseArea.setBounds((int) (dimUnit * 0.5), (int) (dimUnit * 2), dimUnit * (xGrid - 3),
+                (int) (dimUnit * 5.5));
         responseArea.setBackground(Color.gray);
         responsePanel.add(responseArea);
 
@@ -233,7 +244,7 @@ public class posGUI {
         for (Map.Entry<String, Integer> itemPair : UserOrder.entrySet()) {
 
             // -- Temp Name Label --
-            JLabel tempName = new JLabel("Item " + Integer.toString(i+1) + ": " + itemPair.getKey());
+            JLabel tempName = new JLabel("Item " + Integer.toString(i + 1) + ": " + itemPair.getKey());
             tempName.setHorizontalAlignment(JLabel.CENTER);
             tempName.setFont(new Font("Verdana", Font.PLAIN, 12));
             tempName.setBounds(0, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
@@ -268,21 +279,27 @@ public class posGUI {
     private void authUser(String name, char[] pass) {
         String password = String.valueOf(pass);
 
-        if (AccountList.get(name).equals(password)) {
-            orderPanel.setVisible(true);
+        if (AccountList.get(name) == null) {
+            responseArea.setText("Invalid Username.");
+            return;
+        } else if (AccountList.get(name).equals(password)) {
+            responseArea.setText("Login Successful.");
 
-            System.out.println("Login Correct"); // PRINTER
+            orderPanel.setVisible(true);
 
             for (Component i : authPanel.getComponents()) {
                 i.setEnabled(false);
             }
 
             SwingUtilities.updateComponentTreeUI(guiFrame);
+        } else {
+            responseArea.setText("Incorrect Password.");
+            return;
         }
     }
 
     private void submitOrder() {
-        String[] items = new String[] { "Honey", "Water", "Juice", "Milk", "Beer", "Wine" };
+        String[] items = new String[] { "Cola", "Tonic", "Soda", "Juice" };
         Integer[] outputArray = new Integer[items.length];
         int i = 0;
 
@@ -305,11 +322,23 @@ public class posGUI {
 
         SwingUtilities.updateComponentTreeUI(guiFrame);
 
-        System.out.println(Arrays.toString(outputArray));
+        System.out.println(Arrays.toString(outputArray)); // PRINTER
 
-        // for (Map.Entry<String, Integer> pair : UserOrder.entrySet()) {
-        // System.out.println(pair.getKey() + Integer.toString(pair.getValue()));
-        // }
+        try {
+            if (sO == null) {
+                sO = new ObjectOutputStream(new Socket("127.0.0.1", 4007).getOutputStream());
+            }
+
+            Object[] transmitArray = new Object[] { true, outputArray };
+            sO.writeObject(transmitArray);
+
+            Thread.sleep(100);
+
+            transmitArray[0] = false;
+            sO.writeObject(transmitArray);
+
+        } catch (IOException | InterruptedException aa) {
+        }
     }
 
     private class ButtonClickListener implements ActionListener {
@@ -317,24 +346,25 @@ public class posGUI {
             String command = e.getActionCommand();
 
             if (command.equals("login")) {
-                System.out.println(usernameField.getText()); // PRINTER
-                System.out.println(passwordField.getPassword()); // PRINTER
+                System.out.println("LOGIN pressed");
+                //System.out.println(usernameField.getText()); // PRINT
+                //System.out.println(passwordField.getPassword()); // PRINT
 
                 authUser(usernameField.getText(), passwordField.getPassword());
 
             } else if (command.equals("add")) {
+                System.out.println("ADD pressed"); // PRINTER
                 String additionalItem = liquidSelectionCombo.getSelectedItem().toString();
                 Integer additionalQuantity;
 
                 try {
                     additionalQuantity = Integer.parseInt(quantitySelectionField.getText());
                 } catch (NumberFormatException exc) {
-                    System.out.println("Please use numbers only");
+                    responseArea.setText("Please enter a quantity using only numerical values.");
                     return;
                 }
 
-                System.out.println(additionalItem); // PRINTER
-                System.out.println(Integer.toString(additionalQuantity)); // PRINTER
+                System.out.println("Added " + additionalItem + " quantity " + Integer.toString(additionalQuantity)); // PRINTER
 
                 UserOrder.put(additionalItem, additionalQuantity);
 
@@ -356,9 +386,3 @@ public class posGUI {
     }
 
 }
-
-// JButton orderButton = new JButton("Order", null);
-// orderButton.setBounds(dimUnit * 1, dimUnit * 1, dimUnit * 4, dimUnit * 1);
-// orderButton.setActionCommand("order");
-// orderButton.addActionListener(new ButtonClickListener());
-// titlePanel.add(orderButton);
