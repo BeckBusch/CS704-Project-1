@@ -15,7 +15,7 @@ import java.util.Map;
 // == GUI Class ==
 public class posGUI {
     Integer xGrid = 24;
-    Integer yGrid = 32;
+    Integer yGrid = 32 + 8;
     Integer dimUnit = 20;
     ArrayList<String> Order;
     String[] LiquidList = { "Milk", "Honey", "Water", "Juice", "Beer", "Wine" };
@@ -30,6 +30,9 @@ public class posGUI {
     JTextField quantitySelectionField;
     JPanel scrollItemsHolder;
     JPanel orderPanel;
+    JPanel authPanel;
+    JPanel submitPanel;
+    JLabel priceLabel;
 
     // == Main Method ==
     public static void main(String[] args) {
@@ -77,7 +80,7 @@ public class posGUI {
         titlePanel.add(titleLabel);
 
         // ---- Auth Panel ----
-        JPanel authPanel = new JPanel();
+        authPanel = new JPanel();
         authPanel.setLayout(null);
         authPanel.setBounds(dimUnit * 2, dimUnit * 4, dimUnit * (xGrid - 4), dimUnit * 6);
         authPanel.setBackground(Color.cyan);
@@ -151,15 +154,14 @@ public class posGUI {
         scrollItemsHolder = new JPanel();
         scrollItemsHolder.setBackground(Color.green);
         scrollItemsHolder.setLayout(null);
-        scrollItemsHolder.setBounds(dimUnit * 2, dimUnit * 6, dimUnit * (xGrid - 6), dimUnit * 9); // TODO: replace with
-                                                                                                   // scroll bounds
-        // JScrollPane itemsScroll = new JScrollPane(scrollItemsHolder);
-        // itemsScroll.setBounds(dimUnit, dimUnit * 6, dimUnit * 20, dimUnit * 9);
-        // orderPanel.add(itemsScroll);
-        orderPanel.add(scrollItemsHolder);
+        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 2 * 1));
+        JScrollPane itemsScroll = new JScrollPane(scrollItemsHolder);
+        itemsScroll.setBounds(dimUnit, dimUnit * 6, dimUnit * 20, dimUnit * 9);
+        orderPanel.add(itemsScroll);
+        // orderPanel.add(scrollItemsHolder);
 
         // ---- Submit Order Panel ----
-        JPanel submitPanel = new JPanel();
+        submitPanel = new JPanel();
         submitPanel.setLayout(null);
         submitPanel.setBounds(dimUnit * 2, dimUnit * 28, dimUnit * (xGrid - 4), dimUnit * 3);
         submitPanel.setBackground(Color.green);
@@ -168,7 +170,7 @@ public class posGUI {
         totalLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
         totalLabel.setBounds(0, 0, dimUnit * 4, dimUnit * 3);
         submitPanel.add(totalLabel);
-        JLabel priceLabel = new JLabel("$XXXX");
+        priceLabel = new JLabel("");
         priceLabel.setHorizontalAlignment(JLabel.CENTER);
         priceLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
         priceLabel.setBounds(dimUnit * 4, 0, dimUnit * 5, dimUnit * 3);
@@ -186,11 +188,30 @@ public class posGUI {
         resetButton.addActionListener(new ButtonClickListener());
         submitPanel.add(resetButton);
 
+        // ---- Response Panel ----
+        JPanel responsePanel = new JPanel();
+        responsePanel.setLayout(null);
+        responsePanel.setBounds(dimUnit * 1, dimUnit * (yGrid-8), dimUnit * (xGrid - 2), dimUnit * 8);
+        responsePanel.setBackground(Color.gray);
+        // -- Response Header --
+        JLabel responseLabel = new JLabel("System Response:");
+        //responseLabel.setHorizontalAlignment(JLabel.CENTER);
+        responseLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
+        responseLabel.setBounds(0, 0, dimUnit * (xGrid-2), dimUnit * 2);
+        responsePanel.add(responseLabel);
+        // -- Response Content --
+        JTextArea responseArea = new JTextArea("no responce received");
+        //responseArea.setBounds(dimUnit, dimUnit*3, dimUnit*(xGrid-4), dimUnit*4);
+        responseArea.setBounds((int)(dimUnit*0.5), (int)(dimUnit*2), dimUnit*(xGrid-3), (int)(dimUnit*5.5));
+        responseArea.setBackground(Color.gray);
+        responsePanel.add(responseArea);
+
         // ---- Final Steps ----
         guiFrame.add(titlePanel);
         guiFrame.add(authPanel);
         guiFrame.add(orderPanel);
         guiFrame.add(submitPanel);
+        guiFrame.add(responsePanel);
         guiFrame.setVisible(true);
     }
 
@@ -199,18 +220,20 @@ public class posGUI {
 
         // Clear Items Panel
         scrollItemsHolder.removeAll();
+        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 2 * UserOrder.size()));
 
         // -- Temp Panel --
         JPanel tempPanel = new JPanel();
-        tempPanel.setBounds(0, 0, dimUnit * (xGrid - 6), dimUnit * 9);
+        tempPanel.setBounds(0, 0, dimUnit * (xGrid - 5), dimUnit * 2 * UserOrder.size());
         tempPanel.setLayout(null);
 
         Integer i = 0;
+        Integer totalPrice = 0;
 
         for (Map.Entry<String, Integer> itemPair : UserOrder.entrySet()) {
 
             // -- Temp Name Label --
-            JLabel tempName = new JLabel("Item " + "1" + ": " + itemPair.getKey()); // TODO: make number from array
+            JLabel tempName = new JLabel("Item " + Integer.toString(i+1) + ": " + itemPair.getKey());
             tempName.setHorizontalAlignment(JLabel.CENTER);
             tempName.setFont(new Font("Verdana", Font.PLAIN, 12));
             tempName.setBounds(0, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
@@ -229,11 +252,15 @@ public class posGUI {
             tempPrice.setBounds(dimUnit * 12, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
             tempPanel.add(tempPrice);
 
+            totalPrice += PriceList.get(itemPair.getKey()) * itemPair.getValue();
+
             i += 1;
         }
 
         // Add temp panel to items holder
         scrollItemsHolder.add(tempPanel);
+
+        priceLabel.setText("$" + Integer.toString(totalPrice));
 
         SwingUtilities.updateComponentTreeUI(guiFrame);
     }
@@ -243,8 +270,14 @@ public class posGUI {
 
         if (AccountList.get(name).equals(password)) {
             orderPanel.setVisible(true);
-            SwingUtilities.updateComponentTreeUI(guiFrame);
+
             System.out.println("Login Correct"); // PRINTER
+
+            for (Component i : authPanel.getComponents()) {
+                i.setEnabled(false);
+            }
+
+            SwingUtilities.updateComponentTreeUI(guiFrame);
         }
     }
 
@@ -259,15 +292,24 @@ public class posGUI {
             } else {
                 outputArray[i] = 0;
             }
-            
+
             i += 1;
         }
 
+        for (Component componentI : orderPanel.getComponents()) {
+            componentI.setEnabled(false);
+        }
+        for (Component componentI : submitPanel.getComponents()) {
+            componentI.setEnabled(false);
+        }
+
+        SwingUtilities.updateComponentTreeUI(guiFrame);
+
         System.out.println(Arrays.toString(outputArray));
 
-        //for (Map.Entry<String, Integer> pair : UserOrder.entrySet()) {
-        //    System.out.println(pair.getKey() + Integer.toString(pair.getValue()));
-        //}
+        // for (Map.Entry<String, Integer> pair : UserOrder.entrySet()) {
+        // System.out.println(pair.getKey() + Integer.toString(pair.getValue()));
+        // }
     }
 
     private class ButtonClickListener implements ActionListener {
