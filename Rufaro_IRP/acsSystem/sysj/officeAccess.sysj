@@ -2,7 +2,7 @@ facilityAccess(
 		/*Signals to put into here */
 		input signal onOff
 		input int signal officeReq //CHECK: valued signal to pass an integer value as well as being high
-		output signal facApprov;
+		output signal officeApprov;
 
 )->{
 		//Global Variables

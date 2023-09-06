@@ -1,8 +1,9 @@
 import run.GUI;
 
 Plant(
-		input signal pusherExtend,vacOn,armSource,armDest;
-		input signal enable,refill;
+		input signal manApprov,facApprov,officeApprov
+		input signal suspend, onOff, appendRemove;
+		input ArrayList signal trackingList;
 		
 		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
 		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;

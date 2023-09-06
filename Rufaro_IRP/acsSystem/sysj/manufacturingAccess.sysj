@@ -3,14 +3,12 @@ manufacturingAccess(
 		input signal onOff
 		input int signal manReq //TODO: need to make it a valued signal to pass an integer value as well as being high
 		/*Output signals*/
-		output channel manApprov; //outputted channel to notify that the door should be unlocked
+		output signal manApprov; //outputted channel to notify that the door should be unlocked
 
 )->{
 		//Global Variables
 		int[] manAccessList = new int[12];
 	
-		
-		
 		// Reaction for managing front door access
 		{
 			int value;
@@ -20,7 +18,7 @@ manufacturingAccess(
 					value = (Integer)#manReq;//TODO: Store  racReq into a variable
 					for(int i=0; i++ ;i<(manAccessList.length()-1)) {
 						if(value == manAccessList[i]) {
-							send manApprov();						
+							emit manApprov;						
 						}
 					}
 						
