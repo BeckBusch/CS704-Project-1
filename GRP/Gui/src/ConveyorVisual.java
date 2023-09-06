@@ -87,31 +87,7 @@ public class ConveyorVisual implements ActionListener {
 	// Main method
 	public static void main(String[] args) {
 		ConveyorVisual conGUI = new ConveyorVisual();
-		Integer socketReturn;
-		boolean socketVisStatus;
-
-		// Await socket or something
-		// receive object and return int for which part we change and bool for how we change it
-		socketReturn = 1;
-		socketVisStatus = true;
-
-		switch (socketReturn) {
-			case 1: // 1 for bottle 1
-				conGUI.bottle1.setVisible(socketVisStatus);
-				break;
-
-			case 2: // 2 for bottle 5
-				conGUI.bottle5.setVisible(socketVisStatus);
-				break;
-
-			case 3: // 3 for conveyor left
-				conGUI.con1On.setVisible(socketVisStatus);
-				break;
-
-			case 4: // 4 for conveyor right
-				conGUI.con5On.setVisible(socketVisStatus);
-				break;
-		}
+		
 	}
 
 }
