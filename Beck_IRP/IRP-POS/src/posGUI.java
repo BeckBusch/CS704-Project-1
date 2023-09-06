@@ -5,6 +5,9 @@
 
 // == Imports ==
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -23,22 +26,20 @@ public class posGUI {
     ArrayList<String> Order;
     String[] LiquidList = { "Cola", "Tonic", "Soda", "Juice" };
     HashMap<String, Integer> PriceList = new HashMap<String, Integer>();
-    HashMap<String, Integer> UserOrder = new HashMap<String, Integer>();
     HashMap<String, String> AccountList = new HashMap<String, String>();
+    HashMap<String, Integer> UserOrder = new HashMap<String, Integer>();
+    Integer UserQuantity;
 
     volatile static ObjectOutputStream sO;
 
     JFrame guiFrame;
-    JTextField usernameField;
+    JPanel scrollItemsHolder, orderPanel, authPanel, submitPanel;
+    JTextField usernameField, quantitySelectionField;
     JPasswordField passwordField;
     JComboBox<String> liquidSelectionCombo;
-    JTextField quantitySelectionField;
-    JPanel scrollItemsHolder;
-    JPanel orderPanel;
-    JPanel authPanel;
-    JPanel submitPanel;
-    JLabel priceLabel;
+    JLabel priceLabel, remainingLabel;
     JTextArea responseArea;
+    JSlider quantitySlider;
 
     // == Main Method ==
     public static void main(String[] args) {
@@ -47,16 +48,18 @@ public class posGUI {
 
     // == GUI Class Constructor ==
     public posGUI() {
-        PriceList.put("Cola", 5);
-        PriceList.put("Tonic", 10);
-        PriceList.put("Soda", 15);
-        PriceList.put("Juice", 20);
+        PriceList.put("Cola", 110);
+        PriceList.put("Tonic", 70);
+        PriceList.put("Soda", 50);
+        PriceList.put("Juice", 90);
 
         AccountList.put("admin", "admin");
         AccountList.put("UOA", "ecse");
         AccountList.put("bottles", "plant");
         AccountList.put("system", "j");
         AccountList.put("group", "7");
+
+        UserQuantity = 0;
 
         generateGUI();
     }
@@ -139,23 +142,35 @@ public class posGUI {
         orderTitle.setFont(new Font("Verdana", Font.PLAIN, 28));
         orderPanel.add(orderTitle);
         // -- New Label --
-        JLabel newLabel = new JLabel("New Item:");
+        JLabel newLabel = new JLabel("New Liquid:");
         newLabel.setHorizontalAlignment(JLabel.CENTER);
-        newLabel.setBounds(dimUnit, dimUnit * 3, dimUnit * 4, dimUnit * 2);
+        newLabel.setBounds(dimUnit * 0, dimUnit * 3, dimUnit * 5, dimUnit * 2);
         newLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
         orderPanel.add(newLabel);
         // -- Liquid Selector Combo --
         liquidSelectionCombo = new JComboBox<String>(LiquidList);
-        liquidSelectionCombo.setBounds(dimUnit * 6, dimUnit * 3, dimUnit * 5, dimUnit * 2);
+        liquidSelectionCombo.setBounds(dimUnit * 5, dimUnit * 3, dimUnit * 3, dimUnit * 2);
         orderPanel.add(liquidSelectionCombo);
+        // -- Proportion Label --
+        JLabel proportionLabel = new JLabel("Proportion:");
+        proportionLabel.setHorizontalAlignment(JLabel.RIGHT);
+        proportionLabel.setBounds(dimUnit * 9, dimUnit * 3, dimUnit * 7, dimUnit * 1);
+        proportionLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
+        orderPanel.add(proportionLabel);
+        // -- Proportion Label --
+        remainingLabel = new JLabel("(100% Remaining)");
+        remainingLabel.setHorizontalAlignment(JLabel.CENTER);
+        remainingLabel.setBounds(dimUnit * 9, dimUnit * 4, dimUnit * 7, dimUnit * 1);
+        remainingLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
+        orderPanel.add(remainingLabel);
         // -- Quantity Selector Field --
         quantitySelectionField = new JTextField();
-        quantitySelectionField.setBounds(dimUnit * 12, dimUnit * 3, dimUnit * 5, dimUnit * 2);
+        quantitySelectionField.setBounds(dimUnit * 16, dimUnit * 3, dimUnit * 2, dimUnit * 2);
         orderPanel.add(quantitySelectionField);
         // -- Add item button --
         JButton addItemButton = new JButton("Add", null);
         addItemButton.setFont(new Font("Verdana", Font.PLAIN, 12));
-        addItemButton.setBounds(dimUnit * 18, dimUnit * 3, dimUnit * 3, dimUnit * 2);
+        addItemButton.setBounds(dimUnit * 19, dimUnit * 3, dimUnit * 3, dimUnit * 2);
         addItemButton.setActionCommand("add");
         addItemButton.addActionListener(new ButtonClickListener());
         orderPanel.add(addItemButton);
@@ -164,11 +179,25 @@ public class posGUI {
         scrollItemsHolder = new JPanel();
         scrollItemsHolder.setBackground(Color.green);
         scrollItemsHolder.setLayout(null);
-        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 2 * 1));
+        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 2));
         JScrollPane itemsScroll = new JScrollPane(scrollItemsHolder);
-        itemsScroll.setBounds(dimUnit, dimUnit * 6, dimUnit * 20, dimUnit * 9);
+        itemsScroll.setBounds(dimUnit, dimUnit * 6, dimUnit * 20, dimUnit * 6);
         orderPanel.add(itemsScroll);
-        // orderPanel.add(scrollItemsHolder);
+
+        // -- Quantity selection for real this time -- sits at 13y
+        JLabel sliderLabel = new JLabel("Quantity:");
+        sliderLabel.setHorizontalAlignment(JLabel.RIGHT);
+        sliderLabel.setBounds(dimUnit * 0, dimUnit * 13, dimUnit * 4, dimUnit * 1);
+        sliderLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
+        orderPanel.add(sliderLabel);
+        quantitySlider = new JSlider(JSlider.HORIZONTAL, 0, 16, 0);
+        quantitySlider.setBounds(dimUnit*5, dimUnit*13, dimUnit*16, dimUnit*2);
+        quantitySlider.addChangeListener(new SliderChangeListener());
+        quantitySlider.setMajorTickSpacing(4);
+        quantitySlider.setMinorTickSpacing(1);
+        quantitySlider.setPaintTicks(true);
+        quantitySlider.setPaintLabels(true);
+        orderPanel.add(quantitySlider); 
 
         // ---- Submit Order Panel ----
         submitPanel = new JPanel();
@@ -192,7 +221,7 @@ public class posGUI {
         submitButton.addActionListener(new ButtonClickListener());
         submitPanel.add(submitButton);
         JButton resetButton = new JButton("Reset", null);
-        resetButton.setFont(new Font("Verdana", Font.PLAIN, 16));
+        resetButton.setFont(new Font("Verdana", Font.PLAIN, 14));
         resetButton.setBounds(dimUnit * 16, 0, dimUnit * 4, dimUnit * 3);
         resetButton.setActionCommand("reset");
         resetButton.addActionListener(new ButtonClickListener());
@@ -224,6 +253,15 @@ public class posGUI {
         guiFrame.add(submitPanel);
         guiFrame.add(responsePanel);
         guiFrame.setVisible(true);
+
+        // Testing stuff
+        // char[] testing = { '7' };
+        // authUser("group", testing);
+        // UserOrder.put("Cola", 50);
+        // UserOrder.put("Tonic", 30);
+        // UserOrder.put("Soda", 15);
+        // UserOrder.put("Juice", 5);
+        // updateOrderPanel();
     }
 
     // ---- Add Item Method ----
@@ -231,39 +269,41 @@ public class posGUI {
 
         // Clear Items Panel
         scrollItemsHolder.removeAll();
-        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 2 * UserOrder.size()));
+        scrollItemsHolder.setPreferredSize(new Dimension(dimUnit * (xGrid - 5), dimUnit * 6));
 
         // -- Temp Panel --
         JPanel tempPanel = new JPanel();
-        tempPanel.setBounds(0, 0, dimUnit * (xGrid - 5), dimUnit * 2 * UserOrder.size());
+        tempPanel.setBounds(0, 0, dimUnit * (xGrid - 4), dimUnit * 6); // (int)(dimUnit * 1.5) * UserOrder.size());
         tempPanel.setLayout(null);
 
         Integer i = 0;
         Integer totalPrice = 0;
+        Integer totalUsed = 0;
 
         for (Map.Entry<String, Integer> itemPair : UserOrder.entrySet()) {
 
             // -- Temp Name Label --
-            JLabel tempName = new JLabel("Item " + Integer.toString(i + 1) + ": " + itemPair.getKey());
+            JLabel tempName = new JLabel("Liquid " + Integer.toString(i + 1) + ": " + itemPair.getKey());
             tempName.setHorizontalAlignment(JLabel.CENTER);
             tempName.setFont(new Font("Verdana", Font.PLAIN, 12));
-            tempName.setBounds(0, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
+            tempName.setBounds(0, (int) (dimUnit * 1.5) * i, dimUnit * 6, (int) (dimUnit * 1.5));
             tempPanel.add(tempName);
             // -- Temp Quantity Label --
-            JLabel tempQuantity = new JLabel("Quantity: " + Integer.toString(itemPair.getValue()));
+            JLabel tempQuantity = new JLabel("Proportion: " + Integer.toString(itemPair.getValue()) + "%");
             tempQuantity.setHorizontalAlignment(JLabel.CENTER);
             tempQuantity.setFont(new Font("Verdana", Font.PLAIN, 12));
-            tempQuantity.setBounds(dimUnit * 6, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
+            tempQuantity.setBounds(dimUnit * 7, (int) (dimUnit * 1.5) * i, dimUnit * 6, (int) (dimUnit * 1.5));
             tempPanel.add(tempQuantity);
+            totalUsed += itemPair.getValue();
             // -- Temp Price Label --
             JLabel tempPrice = new JLabel(
-                    "Price: $" + Integer.toString(PriceList.get(itemPair.getKey()) * itemPair.getValue()));
+                    "Price: $" + Integer.toString((int)(PriceList.get(itemPair.getKey()) * itemPair.getValue() * 0.01)));
             tempPrice.setHorizontalAlignment(JLabel.CENTER);
             tempPrice.setFont(new Font("Verdana", Font.PLAIN, 12));
-            tempPrice.setBounds(dimUnit * 12, dimUnit * 2 * i, dimUnit * 5, dimUnit * 2);
+            tempPrice.setBounds(dimUnit * 13, (int) (dimUnit * 1.5) * i, dimUnit * 6, (int) (dimUnit * 1.5));
             tempPanel.add(tempPrice);
 
-            totalPrice += PriceList.get(itemPair.getKey()) * itemPair.getValue();
+            totalPrice += (int) (PriceList.get(itemPair.getKey()) * itemPair.getValue() * 0.01);
 
             i += 1;
         }
@@ -271,7 +311,9 @@ public class posGUI {
         // Add temp panel to items holder
         scrollItemsHolder.add(tempPanel);
 
-        priceLabel.setText("$" + Integer.toString(totalPrice));
+        remainingLabel.setText("(" + Integer.toString(100 - totalUsed) + "% Remaining)");
+
+        priceLabel.setText("$" + Integer.toString(totalPrice * UserQuantity));
 
         SwingUtilities.updateComponentTreeUI(guiFrame);
     }
@@ -300,8 +342,11 @@ public class posGUI {
 
     private void submitOrder() {
         String[] items = new String[] { "Cola", "Tonic", "Soda", "Juice" };
-        Integer[] outputArray = new Integer[items.length];
-        int i = 0;
+        int[] outputArray = new int[items.length + 1];
+
+        outputArray[0] = UserQuantity;
+
+        int i = 1;
 
         for (String string : items) {
             if (UserOrder.get(string) != null) {
@@ -341,14 +386,28 @@ public class posGUI {
         }
     }
 
+    private class SliderChangeListener implements ChangeListener {
+        public void stateChanged(ChangeEvent e) {
+            //JSlider source = (JSlider)e.getSource();
+
+            if (!quantitySlider.getValueIsAdjusting()) {
+
+                int tempQuantity = (int)quantitySlider.getValue();
+                UserQuantity = tempQuantity;
+                //SwingUtilities.updateComponentTreeUI(submitPanel);
+                updateOrderPanel();
+            }
+        }
+    }
+
     private class ButtonClickListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String command = e.getActionCommand();
 
             if (command.equals("login")) {
                 System.out.println("LOGIN pressed");
-                //System.out.println(usernameField.getText()); // PRINT
-                //System.out.println(passwordField.getPassword()); // PRINT
+                // System.out.println(usernameField.getText()); // PRINT
+                // System.out.println(passwordField.getPassword()); // PRINT
 
                 authUser(usernameField.getText(), passwordField.getPassword());
 
@@ -360,7 +419,7 @@ public class posGUI {
                 try {
                     additionalQuantity = Integer.parseInt(quantitySelectionField.getText());
                 } catch (NumberFormatException exc) {
-                    responseArea.setText("Please enter a quantity using only numerical values.");
+                    responseArea.setText("Please enter a proportion using only numerical values.");
                     return;
                 }
 
@@ -373,7 +432,23 @@ public class posGUI {
             } else if (command.equals("submit")) {
                 System.out.println("SUBMIT pressed"); // PRINTER
 
-                submitOrder();
+                Integer totalProportions = 0;
+
+                for (Map.Entry<String, Integer> itemPair : UserOrder.entrySet()) {
+                    totalProportions += itemPair.getValue();
+                }
+
+                if (totalProportions != 100) {
+                    responseArea.setText("Proportions must add to 100%");
+                    return;
+
+                } else if (UserQuantity == 0) {
+                    responseArea.setText("Order Quantity must be more than 0");
+                    return;
+
+                } else {
+                    submitOrder();
+                }
 
             } else if (command.equals("reset")) {
                 System.out.println("RESET pressed"); // PRINTER
