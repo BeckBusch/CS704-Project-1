@@ -89,7 +89,35 @@ FacilityAccessCD(
  * 
  * 
  */
-/*==== CLOCK DOMAIN====*/
+/*====MANUFACTURING ACCESS CLOCK DOMAIN====*/
+ManuAccessCD(
+		/*Signals to put into here */
+		input signal onOff
+		input int signal manReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		/*Output signals*/
+		output signal manApprov; //outputted channel to notify that the door should be unlocked
+
+)->{
+		//Global Variables
+		int[] manAccessList = new int[12];
+	
+		// Reaction for managing front door access
+		{
+			int value;
+			abort(!onOff){ //abort if the onOff signal is low
+				loop{
+					await(manReq);
+					value = (Integer)#manReq;//TODO: Store  racReq into a variable
+					for(int i=0; i++ ;i<(manAccessList.length()-1)) {
+						if(value == manAccessList[i]) {
+							emit manApprov;						
+						}
+					}
+						
+				}
+			}
+		}
+}
 
 
 /*
@@ -99,7 +127,36 @@ FacilityAccessCD(
  * 
  * 
  */
-/*==== CLOCK DOMAIN====*/
+/*====OFFICE ACCESS CLOCK DOMAIN====*/
+OfficeAccessCD(
+		/*Signals to put into here */
+		input signal onOff
+		input int signal officeReq //CHECK: valued signal to pass an integer value as well as being high
+		output signal officeApprov;
+
+)->{
+		//Global Variables
+		int[] officeAccessList = new int[12];
+	
+		
+		
+		// Reaction for managing front door access
+		{
+			int value;
+			abort(!onOff){ //abort if the onOff signal is low
+				loop{
+					await officeReq;
+					value = (Integer)#officeReq;//CHECK: Store  officeReq into a variable
+					for(int i=0; i++ ;i<(officeReq.length()-1)) {
+						if(value == officeAccessList[i]) {
+							emit officeApprov;						
+						}
+					}
+						
+				}
+			}
+		}
+}
 
 
 /*
@@ -109,8 +166,59 @@ FacilityAccessCD(
  * 
  * 
  */
-/*==== CLOCK DOMAIN====*/
+/*====LOCALISE CLOCK DOMAIN====*/
+LocaliseCD(
+		/*Signals to put into here */
+		input signal onOff;
+		input int signal ping; //CHECK: need to make it a valued signal to pass an integer value as well as being high
+		output ArrayList channel trackingList; //CHECK: Make this output a list. May instead just make this a global variable among the Clock Domains
+)->{
+	int[][] personList = new int[12][2]; //array to store the current people within the facilities
+	int listPointer = 0;
+	
+	{ //Reaction to check badges and ID's and update
+		int[][] id = new int[1][2];
+		abort(!onOff){ //abort if the onOff signal is low
+			loop{
+				await ping;
+				id[0][0] = (int)#ping[0][0]; //Store the ping value into id TODO: This may be overcomplex: "id = #ping"?
+				id[0][1] = (int)#ping[0][1]; //Store the ping value into id
+						
+				for(int i=0; i++; i<(personList.length()-1)) {
+					if(/*element id match person*/(id[i][0] == personList[i][0]) && (id[i][1] == personList[i][1])/*locations not equal*/){
+						personList[i][0] = id[i][0];
+						personList[i][1] = id[i][1];//CHECK: update the personList
+					}
+				}
+			}	
+		}
+	}
+}
 
+/*
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+/*====RESTRICTION CLOCK DOMAIN====*/
+RestrictionCD(
+		/*Signals to put into here */
+		input signal onOff;
+		input signal boundDetect;
+		output signal suspend;
+)->{
+	loop { //may not be necessary
+		abort(!onOff){
+			loop {
+				while(boundDetect) {
+					emit suspend //So for each clock tick boundDetect is on, the suspend signal will be emitted to go along the channel
+				}
+			}
+		}
+	}
+}
 
 /*
  * 
