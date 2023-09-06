@@ -1,0 +1,239 @@
+filler(
+		/*Input Signals*/
+		 input signal bottleAtPos2  //Present when the bottle is at position 2
+		 input signal dosUnitEvac   //Present when a pressure canister is at bottom
+		 input signal dosUnitFilled // Present when a pressure canister is at top
+		 input signal int[] order 		//signal holding the next order to be done
+		/*Output Signals*/
+		 //TODO: need to confirm which need to signals, which need to be channels
+		 output signal valveInjectorOnOff 	//Turns on or off the valve injector (absence of this signal will turn off the injector)
+		 output signal valveInletOnOff		//Opens the inlet valve (absence of this signal will close the inlet)
+		 output signal dosUnitValveRetract	// brings the pressure canister to top
+		 output signal dosUnitValveExtend	// brings the pressure canister to bottom
+		 output Boolean signal fillerReady 	//To communicate that the filler is ready
+		 output signal orderTaken //to signify to the buffer that the last order was taken and can be removed from buffer
+
+)-> { //Filler clock domain runs the task of filling the bottle with the next order  
+	
+	/*
+	Basic operation of the filler clock-domain would be:
+		1. Check if a bottle is at position 2, if not, wait until it arrives
+		2. Turn on the valve injector
+		3. Check if a pressure canister is at bottom, if so bring it up to fill the bottle with liquid
+		4. Wait until the cylinder is fully retracted (i.e. at top)
+		5. Turn off the injector
+		6. Open the inlet
+		7. Force down the pressure canister
+		8. Wait until the cylinder is fully extended (i.e. at bottom)
+		9. Close the inlets
+	*/
+	
+	//GLOBAL VARIABLES & SIGNALS
+	signal f1Done; //internal signal to communcate first filler is done
+	signal f2Done; //internal signal to communcate second filler is done
+	signal f3Done; //internal signal to communcate third filler is done
+	signal f4Done; //internal signal to communcate fourth filler is done
+	
+	signal timeup1; //signals to be emitted that represent when the time for filling up is finished
+	signal timeup2;
+	signal timeup3;
+	signal timeup4;
+	
+	signal time1Start; //signal to emit that starting /restarting o
+	signal time2Start;
+	signal time3Start;
+	signal time4Start;
+	
+	int maxTime = 30; //developer defined variable to specify the max amount of time a filler needs to fully retract. unit is seconds
+	
+	int orderCount;
+	int f1Amount; //integer value representing percentage value of filler liquid to use
+	int f2Amount; //integer value representing percentage value of filler liquid to use
+	int f3Amount; //integer value representing percentage value of filler liquid to use
+	int f4Amount; //integer value representing percentage value of filler liquid to use
+	
+
+	//Initial one-time run code
+	send fillerReady(Boolean.TRUE);
+	
+	
+	//R1 - Filler 1
+	{
+		loop {
+			await(bottleAtPos2);
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			
+			abort(timeup1){
+				{
+					emit time1Start; //starts timer
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			};
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			};
+			emit f1Done;
+			await(f4Done); //Waiting for the whole cycle for the filler to complete
+			await(!bottleAtPos2); //waits for odl bottle to moved onto the next stage
+		}
+		
+	}//R1 End
+	||
+	//R2 - Filler 2
+	{
+		loop {
+			{await(bottleAtPos2);}||{await(f1Done);}
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(timeup2){
+				{
+					emit time2Start; //starts timer
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			};
+			emit f2Done;
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	||
+	//R3 - Filler 3
+	{
+		loop {
+			{await(bottleAtPos2);}||{await(f2Done);}
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(timeup3){
+				{
+					emit time3Start; //starts timer
+					sustain valveInjectorOnOff
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					emit time4Start; //starts timer
+					sustain valveInletOnOff
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			emit f3Done;
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	||	
+	//R4 - Filler 4
+	{
+		loop {
+			{await(bottleAtPos2);}||{await(f3Done);}
+			send fillerReady(Boolean.FALSE); //notifying ABS that is in fact in use right now
+			abort(timeup4){
+				{
+					sustain valveInjectorOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveRetracts
+				}
+			}
+			
+			abort(dosUnitEvac){
+				{
+					sustain valveInletOnOff;
+				}
+				||
+				{
+					sustain dosUnitValveExtend
+				}
+			}
+			emit f4Done;
+			await(!bottleAtPos2); //waits for new bottle
+		}
+	}
+	||
+	{//R5 Reaction for taking the next order and storing it
+		//wait for signal 
+		//take and store order signal value
+		//have counter for how many times the process has happened for the order
+		//wait for one item of order to be fulfilled (filler 4 done). decrement count OR restart loop
+		//wait for order to be fulfilled (filler 4 done emitted amount of times equal to order number value)
+		//Send signal for next order the next signal (Must be connected to POS to access Buffer
+		/* Order Data Structure --> [<Order_amount>, <Filler_1%>, <Filler_2%>, <Filler_3%>, <Filler_4%>]*/
+		loop{
+			abort(onOff){
+				abort(suspend){ //Essentially nothing will be done if turned off or suspend command signal sent
+					await(order); //awaiting new order to be sent
+					
+					//Storing new order values
+					int [] temp = (Integer) #order;
+					orderCount = temp[0]];
+					f1Amount = temp[1];
+					f2Amount = temp[2];
+					f3Amount = temp[3];
+					f4Amount = temp[4];
+					
+					for(int i = count; i>0; i--) {
+						await(f4Done);
+					}
+					emit orderTaken;//!! Check syntax, and if this actually needs to be a channel
+				}
+			}
+		}
+		
+	}
+	||
+	{ //R6 Reaction for tracking all the timers
+		{
+			await(timer1Start);
+			Thread.sleep(maxTime*f1Amount*10);//keep in mind argument units are milliseconds. constant to allow conversion
+			emit timeup1; //signifying timer finished
+		}
+		||
+		{
+			await(timer2Start);
+			Thread.sleep(maxTime*f2Amount*10);//keep in mind argument units are milliseconds. constant to allow conversion
+			emit timeup2; //signifying timer finished
+		}
+		||
+		{
+			await(timer3Start);
+			Thread.sleep(maxTime*f3Amount*10);//keep in mind argument units are milliseconds. constant to allow conversion
+			emit timeup3; //signifying timer finished
+		}
+		||
+		{
+			await(timer4Start);
+			Thread.sleep(maxTime*f4Amount*10);//keep in mind argument units are milliseconds. constant to allow conversion
+			emit timeup4; //signifying timer finished
+		}
+	}
+}

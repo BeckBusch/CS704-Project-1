@@ -1,0 +1,82 @@
+facilityAccess(
+		/*Signals to put into here */
+		input signal onOff
+		input int signal facReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		input signal appendRemove;
+		input int signal ping;
+		
+		output signal facApprov;
+		output ArrayList signal trackingList;
+
+)->{
+	//Global Variables
+	int[] facAccessList = new int[12];
+	int[][] personList = new int[12][2]; //array to store the current people within the facilities
+	int listPointer = 0;
+	
+	
+	// Reaction for managing front door access
+	{
+		int value;
+		abort(!onOff){ //abort if the onOff signal is low
+			loop{
+				await facReq;
+				value = (Integer)#racReq;//TODO: Store  racReq into a variable
+				for(int i=0; i++ ;i<(facReq.length()-1)) {
+					if(value == facAccessList[i]) {
+						emit facApprov;						
+					}
+				}
+					
+			}
+		}
+	}
+	||
+	{ //Reaction to check badges and ID's and update
+		int[][] id = new int[1][2];
+		abort(!onOff){ //abort if the onOff signal is low
+			loop{
+				await ping;
+				id[0][0] = (int)#ping[0][0]; //Store the ping value into id
+				id[0][1] = (int)#ping[0][1]; //Store the ping value into id
+						
+				for(int i=0; i++; i<(personList.length()-1)) {
+					if(/*element id match person*/(id[i][0] == personList[i][0]) && (id[i][1] == personList[i][1])/*locations not equal*/){
+						personList[i][0] = id[i][0];
+						personList[i][1] = id[i][1];//CHECK: update the personList
+					}
+				}
+			}	
+		}
+
+		
+	}
+	||
+	{ //Reaction to add and remove people from the list
+		bool matchFound; //boolean variable to track whether a match has been found
+		int ID;
+		int lenPointer = 0; //pointer to show how long the array is
+		abort(!onOff){
+			loop{
+				await ping;
+				matchFound = false;
+				id[0][0] = (int)#ping[0][0]; 	//Store the ping value into id
+				id[0][1] = (int)#ping[0][1]; 	//Store the ping value into id
+				
+				for(int i=0; i++; i<(personList.length()-1)) {
+					if(id[i][0] == personList[i][0]) { 			/*ID value == element in array*/
+						personList[i][0] = 0;
+						personList[i][1] = 0; //deleting the person as they have just been detected to leave
+						matchFound = true;
+					}
+				}
+				if(matchFound == false) {
+					/*append array to include new value and make default location, zone 1*/
+					personList[listPointer][0] = ping[0][0];
+					personList[listPointer][1] = ping[0][1];
+					listPointer++; //incrementing the total count
+				}
+			}
+		}
+	}
+}
