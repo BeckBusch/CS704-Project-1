@@ -1,0 +1,24 @@
+// need to import GUI class
+
+acsPlant(
+		input signal manApprov,facApprov,officeApprov
+		input int signal ping, facReq, manReq, officeReq,
+		input signal suspend, onOff, appendRemove;
+		input ArrayList signal trackingList;
+		
+		
+		output signal
+		output signal
+
+		
+)->{
+	
+	
+	
+	
+	
+	{ //Reaction for sending external signals for gui
+		{loop{present(__){emit__;} pause;}}
+		{loop{present(__){emit__;} pause;}}
+	}
+}

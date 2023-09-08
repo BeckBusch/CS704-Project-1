@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-        <listEntry value="/acsSystem/lib/sjc-2.2-13-g8ab684c-SNAPSHOT.jar"/>
+        <listEntry value="/fullABSSolution/lib/sjc-2.2-13-g8ab684c-SNAPSHOT.jar"/>
     </listAttribute>
     <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
         <listEntry value="1"/>
@@ -13,5 +13,5 @@
     <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.systemj.compiler.JavaPrettyPrinter"/>
     <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="acsSystem"/>
     <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-d src --nojavac --silence sysj/*.sysj"/>
-    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="acsSystem"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="fullABSSolution"/>
 </launchConfiguration>

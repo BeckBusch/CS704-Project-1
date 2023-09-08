@@ -97,7 +97,6 @@ FillerCD(
 		 input signal dosUnitFilled // Present when a pressure canister is at top
 		 input signal int[] order 		//signal holding the next order to be done
 		/*Output Signals*/
-		 //TODO: need to confirm which need to signals, which need to be channels
 		 output signal valveInjectorOnOff 	//Turns on or off the valve injector (absence of this signal will turn off the injector)
 		 output signal valveInletOnOff		//Opens the inlet valve (absence of this signal will close the inlet)
 		 output signal dosUnitValveRetract	// brings the pressure canister to top
