@@ -1,0 +1,534 @@
+TempCD(
+		input  double  signal  temp17, temp23, temp456;
+		input  double  signal  humd17, humd23, humd456;
+		input  int     signal  occu1, occu2, occu3, occu4, occu5, occu6, occu7;
+		input  int     signal  clock;
+		output         signal  heat17, heat23, heat456;
+		output         signal  ac17,   ac23,   ac456;
+		output         signal  fan17,  fan23,  fan456;
+		
+		input  boolean channel fireHappening;
+	  )
+->{
+	signal workingHours;
+	signal occu17, occu23, occu456;
+	signal fire;
+	
+	// Working hours
+	{
+		while (true) {
+			// 8AM to 6 PM
+			if (#clock >= 480 && #clock <= 1080) {
+				emit workingHours;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 1 & 7 occupied
+	{
+		while (true) {
+			if (#occu1 + #occu7 > 0) {
+				emit occu17;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 1 & 7 temp
+	{
+		double officeTemp = 25.0;
+		double temperatureTolerance = 1.0;
+		while (true) {
+			present(temp17 && workingHours && occu17 && !fire){
+				// temperature exceeds tolerance
+				if (#temp17 > officeTemp + temperatureTolerance) {
+					emit heat17;
+				}
+				
+				if (#temp17 < officeTemp - temperatureTolerance) {
+					emit fan17;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 1 & 7 humidity
+	{
+		double officeHumidity = 50.0;
+		double humidityTolerance = 10.0;
+		while (true) {
+			present(humd17 && workingHours && occu17 && !fire){
+				// temperature exceeds tolerance
+				if (#humd17 > officeHumidity + humidityTolerance || #humd17 < officeHumidity - humidityTolerance) {
+					emit ac17;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 2 & 3 occupied
+	{
+		while (true) {
+			if (#occu2 + #occu3 > 0) {
+				emit occu23;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 2 & 3 temp
+	{
+		double officeTemp = 25.0;
+		double temperatureTolerance = 1.0;
+		while (true) {
+			present(temp23 && workingHours && occu23 && !fire){
+				// temperature exceeds tolerance
+				if (#temp23 > officeTemp + temperatureTolerance) {
+					emit heat23;
+				}
+				
+				if (#temp23 < officeTemp - temperatureTolerance) {
+					emit fan23;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Zone 2 & 3 humidity
+	{
+		double officeHumidity = 50.0;
+		double humidityTolerance = 10.0;
+		while (true) {
+			present(humd23 && workingHours && occu23 && !fire){
+				// temperature exceeds tolerance
+				if (#humd23 > officeHumidity + humidityTolerance || #humd23 < officeHumidity - humidityTolerance) {
+					emit ac23;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Manufacturing temp
+	{
+		double manufacturingTemp = 15.0;
+		double temperatureTolerance = 0.1;
+		while (true) {
+			present(temp456 && workingHours && !fire){
+				// temperature exceeds tolerance
+				if (#temp456 > manufacturingTemp + temperatureTolerance) {
+					emit heat456;
+				}
+				
+				if (#temp456 < manufacturingTemp - temperatureTolerance) {
+					emit fan456;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Manufacturing humidity
+	{
+		double factoryHumidity = 55.0;
+		double humidityTolerance = 5.0;
+		while (true) {
+			present(humd456 && workingHours && !fire){
+				// temperature exceeds tolerance
+				if (#humd456 > factoryHumidity + humidityTolerance || #humd456 < factoryHumidity - humidityTolerance) {
+					emit ac456;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Check for fire
+	{
+		receive fireHappening;
+		sustain fire ; // requires manual reset
+		pause;
+	}
+	
+}
+
+FireCD(
+		input  double  signal  temp17, temp23, temp456;
+		input          signal  smoke1, smoke2, smoke3, smoke4, smoke5, smoke6, smoke7;
+		output boolean channel fireHappening;
+	  )
+->{
+	
+	signal fire;
+	
+	// temp
+	{
+		double temperatureThreshold = 50.0;
+		
+		while (true) {
+			if (#temp17 > temperatureThreshold || #temp23 > temperatureThreshold || #temp456 > temperatureThreshold) {
+				emit fire;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// smoke
+	{
+		while (true) {
+			present(smoke1 || smoke2 || smoke3 || smoke4 || smoke5 || smoke6 || smoke7){
+				emit fire;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// channel
+	{
+		present(fire){
+			send fireHappening(true);
+		}
+	}
+}
+
+LightCD(
+		input  int     signal  occu1, occu2, occu3, occu4, occu5, occu6, occu7;
+		input  int     signal  clock;
+		output int     signal  light1, light2, light3, light4, light5, light6, light7;
+		
+		input  boolean channel fireHappening;
+	  )
+	->{
+
+	signal workingHours;
+	signal fire;
+	signal timer1, timer2, timer3, timer7;
+	signal startTimer1, startTimer2, startTimer3, startTimer7;
+	
+	// Light levels - 0, 1, 2 - None, Low, High
+
+	// Working hours
+	{
+		while (true) {
+			// 8AM to 6 PM
+			if (#clock >= 470 && #clock <= 1090) {
+				emit workingHours;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Check for fire
+	{
+		receive fireHappening;
+		sustain fire; // requires manual reset
+		pause;
+	}
+	||
+	// Manufacturing
+	{
+		while (true) {
+			present (workingHours || fire){
+				emit light4(2);
+				emit light5(2);
+				emit light6(2);
+			}
+			
+			pause;
+		}
+	}
+	// Zone 1
+	{
+		int previous = 0;
+		int lightLevel = 0;
+		
+		while (true) {
+			present(workingHours || fire){
+				// There is a fire
+				present(fire){
+					lightLevel = 2;
+				} else {
+					// People are in there
+					if (#occu1 > 0) {
+						lightLevel = 2;
+					
+					// People were in there previously
+					} else if (previous == 2) {
+						emit startTimer1;
+						lightLevel = 1;
+						
+					// Empty
+					} else {
+						present(startTimer1){
+							// within 5min of someone leaving the room
+							lightLevel = 1;
+						} else {
+							// empty for a while
+							lightLevel = 0;
+						}
+					}
+				}
+			} else {
+				// Not working hours
+				lightLevel = 0;
+			}
+			
+			emit light1(lightLevel);
+			previous = lightLevel;
+			
+			pause;
+		}
+	}
+	||
+	// Zone 1 timer
+	{
+		await(startTimer1);
+		
+		{
+			waitl(300 s);
+			emit timer1;
+			
+		}
+		||
+		{
+			abort(timer1){
+				sustain startTimer1;
+			}
+		}
+		||
+		{
+			while (true) {
+				if (#occu1 > 0) {
+					emit timer1;
+				}
+				
+				pause;
+			}
+			
+			pause;
+		}
+	}
+	// Zone 2
+	{
+		int previous = 0;
+		int lightLevel = 0;
+		
+		while (true) {
+			present(workingHours || fire){
+				// There is a fire
+				present(fire){
+					lightLevel = 2;
+				} else {
+					// People are in there
+					if (#occu2 > 0) {
+						lightLevel = 2;
+					
+					// People were in there previously
+					} else if (previous == 2) {
+						emit startTimer2;
+						lightLevel = 1;
+						
+					// Empty
+					} else {
+						present(startTimer2){
+							// within 5min of someone leaving the room
+							lightLevel = 1;
+						} else {
+							// empty for a while
+							lightLevel = 0;
+						}
+					}
+				}
+			} else {
+				// Not working hours
+				lightLevel = 0;
+			}
+			
+			emit light2(lightLevel);
+			previous = lightLevel;
+			
+			pause;
+		}
+	}
+	||
+	// Zone 2 timer
+	{
+		await(startTimer2);
+		
+		{
+			waitl(300 s);
+			emit timer2;
+			
+		}
+		||
+		{
+			abort(timer2){
+				sustain startTimer2;
+			}
+		}
+		||
+		{
+			while (true) {
+				if (#occu2 > 0) {
+					emit timer7;
+				}
+				
+				pause;
+			}
+		}
+	}
+	// Zone 3
+	{
+		int previous = 0;
+		int lightLevel = 0;
+		
+		while (true) {
+			present(workingHours || fire){
+				// There is a fire
+				present(fire){
+					lightLevel = 2;
+				} else {
+					// People are in there
+					if (#occu3 > 0) {
+						lightLevel = 2;
+					
+					// People were in there previously
+					} else if (previous == 2) {
+						emit startTimer3;
+						lightLevel = 1;
+						
+					// Empty
+					} else {
+						present(startTimer3){
+							// within 5min of someone leaving the room
+							lightLevel = 1;
+						} else {
+							// empty for a while
+							lightLevel = 0;
+						}
+					}
+				}
+			} else {
+				// Not working hours
+				lightLevel = 0;
+			}
+			
+			emit light3(lightLevel);
+			previous = lightLevel;
+			
+			pause;
+		}
+	}
+	||
+	// Zone 3 timer
+	{
+		await(startTimer3);
+		
+		{
+			waitl(300 s);
+			emit timer3;
+			
+		}
+		||
+		{
+			abort(timer1){
+				sustain startTimer3;
+			}
+		}
+		||
+		{
+			while (true) {
+				if (#occu3 > 0) {
+					emit timer3;
+				}
+				
+				pause;
+			}
+		}
+	}
+	// Zone 7
+	{
+		int previous = 0;
+		int lightLevel = 0;
+		
+		while (true) {
+			present(workingHours || fire){
+				// There is a fire
+				present(fire){
+					lightLevel = 2;
+				} else {
+					// People are in there
+					if (#occu7 > 0) {
+						lightLevel = 2;
+					
+					// People were in there previously
+					} else if (previous == 2) {
+						emit startTimer7;
+						lightLevel = 1;
+						
+					// Empty
+					} else {
+						present(startTimer7){
+							// within 5min of someone leaving the room
+							lightLevel = 1;
+						} else {
+							// empty for a while
+							lightLevel = 0;
+						}
+					}
+				}
+			} else {
+				// Not working hours
+				lightLevel = 0;
+			}
+			
+			emit light7(lightLevel);
+			previous = lightLevel;
+			
+			pause;
+		}
+	}
+	||
+	// Zone 7 timer
+	{
+		await(startTimer7);
+		
+		{
+			waitl(300 s);
+			emit timer7;
+			
+		}
+		||
+		{
+			abort(timer7){
+				sustain startTimer7;
+			}
+		}
+		||
+		{
+			while (true) {
+				if (#occu7 > 0) {
+					emit timer7;
+				}
+				
+				pause;
+			}
+		}
+	}
+}
