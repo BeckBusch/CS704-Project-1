@@ -1,8 +1,8 @@
 /*====FACILITY-ACCESS(Front Door) CLOCK DOMAIN====*/
 FacilityAccessCD(
 		/*Signals to put into here */
-		input signal onOff
-		input int signal facReq //TODO: need to make it a valued signal to pass an integer value as well as being high
+		input signal onOff;
+		input int signal facReq; //TODO: need to make it a valued signal to pass an integer value as well as being high
 		input signal appendRemove;
 		input int signal ping;
 		

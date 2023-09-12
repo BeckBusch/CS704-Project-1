@@ -1,17 +1,22 @@
 // need to import GUI class
 
 acsPlant(
-		input signal manApprov,facApprov,officeApprov
-		input int signal ping, facReq, manReq, officeReq,
+		input signal manApprov,facApprov,officeApprov;
+		input int signal ping, facReq, manReq, officeReq;
 		input signal suspend, onOff, appendRemove;
 		input ArrayList signal trackingList;
 		
-		
-		output signal
-		output signal
-
+		output ArrayList signal trackingList;
+		output signal facApprov, manApprov, office,Approv, suspend;
+		output signal facApprovE, manApprovE, office,ApprovE, suspendE;
 		
 )->{
+	//PLANNING
+	/*This is going to be rather complex
+	 * 
+	 * 
+	 * 
+	 */
 	
 	
 	
