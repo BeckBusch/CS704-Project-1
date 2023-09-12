@@ -1,0 +1,12 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="POS" Local="true">
+		<ClockDomain Name="MyCD" Class="CD">
+			<iSignal Name="incomingOrder" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4007" />
+			<iSignal Name="absReady" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4008" />
+			<iSignal Name="absFault" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4009" />
+			<oSignal Name="outgoingOrder" To="ABSCD.newOrder" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="4010" />
+			<oSignal Name="returnMSG" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4011" />
+		</ClockDomain>
+	</SubSystem>
+</System>
+	
