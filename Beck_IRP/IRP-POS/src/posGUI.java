@@ -4,14 +4,19 @@
 //  
 
 // == Imports ==
+import javax.net.ServerSocketFactory;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -42,7 +47,9 @@ public class posGUI {
     JSlider quantitySlider;
 
     // == Main Method ==
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        ServerListener server = new ServerListener();
+        server.start();
         posGUI POSGUI = new posGUI();
     }
 
@@ -359,17 +366,16 @@ public class posGUI {
             i += 1;
         }
 
-        for (Component componentI : orderPanel.getComponents()) {
-            componentI.setEnabled(false);
-        }
-        for (Component componentI : submitPanel.getComponents()) {
-            componentI.setEnabled(false);
-        }
+        // for (Component componentI : orderPanel.getComponents()) {
+        // componentI.setEnabled(false);
+        // }
+        // for (Component componentI : submitPanel.getComponents()) {
+        // componentI.setEnabled(false);
+        // }
 
         SwingUtilities.updateComponentTreeUI(guiFrame);
 
         System.out.println(Arrays.toString(outputArray)); // PRINTER
-        
 
         orderSubmit sender = new orderSubmit(String.join(",", outputArray));
         sender.start();
@@ -383,6 +389,7 @@ public class posGUI {
             this.outgoing = in;
         }
 
+        @Override
         public void run() {
             try {
                 if (sO == null) {
@@ -399,8 +406,10 @@ public class posGUI {
                 sO.writeObject(transmitArray);
 
                 sO.close();
+                System.out.println("closed reached");
 
             } catch (IOException | InterruptedException aa) {
+                //System.out.println(aa.getMessage());
             }
         }
 
@@ -477,6 +486,58 @@ public class posGUI {
 
                 updateOrderPanel();
             }
+        }
+    }
+
+    static class ServerListener extends Thread {
+
+        private ServerSocket serverSocket;
+
+        ServerListener() throws IOException {
+            serverSocket = ServerSocketFactory.getDefault().createServerSocket(4011);
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    final Socket socketToClient = serverSocket.accept();
+                    System.out.println("check");
+                    ClientHandler clientHandler = new ClientHandler(socketToClient);
+                    clientHandler.start();
+                } catch (IOException e) {
+                    System.out.println("failure in ssocket server");
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    static class ClientHandler extends Thread {
+        private Socket socket;
+        BufferedReader br;
+
+        ClientHandler(Socket socket) throws IOException {
+            this.socket = socket;
+            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        }
+
+        @Override
+        public void run() {
+            String line;
+            while (true) {
+                try {
+                    while ((line = br.readLine()) != null) {
+                        System.out.println(line);// ).contains("true"));
+                    }
+
+                } catch (IOException e) {
+                    System.out.println("faileru in buffer");
+                    e.printStackTrace();
+
+                }
+            }
+
         }
     }
 

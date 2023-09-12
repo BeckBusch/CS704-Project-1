@@ -1,8 +1,9 @@
 import buffer.*;
+import java.util.ArrayList;
 
 CD(
 	input String signal incomingOrder;
-	output String signal outgoingOrder;
+	output String signal outgoingOrder, returnMSG;
 	input signal absReady, absFault;
 	
 )->{
@@ -11,6 +12,7 @@ CD(
 	{// First reaction - Waiting to receive from GUI		
 		//int[] inputOrderValues = new int[5];
 		String wholeInputString;
+		ArrayList<String> test = new ArrayList<String>();
 		//String[] splitInputString;
 		Buffer firstTempBuffer;
 		
@@ -21,7 +23,9 @@ CD(
 			await(incomingOrder);
 			await(!incomingOrder);
 			
-			//System.out.println("Got Order");
+			System.out.println("Got Order");
+			emit returnMSG("checking");
+			
 			wholeInputString = #incomingOrder;
 			
 //			splitInputString = wholeInputString.split(",", 0);
@@ -37,6 +41,10 @@ CD(
 			firstTempBuffer = #orderBufferSignal;
 			firstTempBuffer.push(wholeInputString);
 			emit orderBufferSignal(firstTempBuffer);
+			
+			waitl(500 ms);
+			
+			emit returnMSG("second tesh");
 		}
 	}
 	||
@@ -78,9 +86,9 @@ CD(
 	{ // Third Reaction - Buffer Manager
 		Buffer orderBuffer = new Buffer(128);
 		emit orderBufferSignal(orderBuffer);
+
 		halt;
-	}
-	
+	}	
 }
 
 
