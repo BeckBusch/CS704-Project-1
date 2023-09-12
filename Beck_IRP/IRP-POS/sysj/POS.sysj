@@ -2,15 +2,16 @@ import buffer.*;
 
 CD(
 	input String signal incomingOrder;
-	input signal absReady;
+	output String signal outgoingOrder;
+	input signal absReady, absFault;
 	
 )->{
 	Buffer signal orderBufferSignal;
-	//signal absFree, sentOrder;
+
 	{// First reaction - Waiting to receive from GUI		
-		int[] inputOrderValues = new int[5];
+		//int[] inputOrderValues = new int[5];
 		String wholeInputString;
-		String[] splitInputString;
+		//String[] splitInputString;
 		Buffer firstTempBuffer;
 		
 		await(orderBufferSignal); // wait for buffer to be init
@@ -22,71 +23,86 @@ CD(
 			
 			//System.out.println("Got Order");
 			wholeInputString = #incomingOrder;
-			splitInputString = wholeInputString.split(",", 0);
 			
-			for (int i=0; i<5; i++) {
-				inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
-			}
+//			splitInputString = wholeInputString.split(",", 0);
+//			
+//			for (int i=0; i<5; i++) {
+//				inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
+//			}
+//			
+//			firstTempBuffer = #orderBufferSignal;
+//			firstTempBuffer.push(inputOrderValues);
+//			emit orderBufferSignal(firstTempBuffer);
 			
 			firstTempBuffer = #orderBufferSignal;
-			firstTempBuffer.push(inputOrderValues);
+			firstTempBuffer.push(wholeInputString);
 			emit orderBufferSignal(firstTempBuffer);
 		}
 	}
-	//||
-//	{// Second Reaction - Sending to ABS
-//		Buffer secondTempBuffer;
-//		int[] numbers = new int[5];
-//		
-//		while(true) {
-//			await(orderBufferSignal);
-//			secondTempBuffer = #orderBufferSignal;
-//			if (!secondTempBuffer.isEmpty()) {
-//				numbers = secondTempBuffer.pop();
-//				System.out.println(numbers[1]);
-//			}
-//		}
-//	}
+	||
+	{// Second Readtion - Order Sender
+		Buffer secondTempBuffer;
+		String sendingString;
+		
+		await(orderBufferSignal); // wait for buffer to be init
+		
+		while(true) { // repeat loop
+			abort(absFault) { // exit on abs ERROR, incase one occurs while waiting on the buffer
+				await(absReady); // Wait for ABS to enter ready state, and assume it will stay like this forever
+				
+				trap(R) { // Begin waiting for the buffer to have contents
+					loop { // repeat the loop
+						secondTempBuffer = #orderBufferSignal; // read the global buffer signal
+						
+						if (!secondTempBuffer.isEmpty()) { // if the buffer has contents
+							exit(R); // Exit the loop to SENT IT
+						}
+						await(orderBufferSignal); // if the buffer has no contents, wait for the global buffer signal to be updates
+						// this cuts down on unnessacary reads and writes of the global buffer signal
+					}
+				}
+			// SEND IT!
+			// This code is inside the abort to ensure that a fault returns the code to the absReady at the start of the loop
+				// however a clash condition is created where is a fault arises during the manipluation of the buffer, 
+				// the buffer will become corrupted
+			sendingString = (String) secondTempBuffer.pop(); // get the next order to be sent
+			
+			emit outgoingOrder(sendingString); // send the order to the ABS
+			
+			emit orderBufferSignal(secondTempBuffer); // Update global buffer value
+			pause; // wait before continuing so we dont react to our own buffer update
+			}
+		}
+	}
 	||
 	{ // Third Reaction - Buffer Manager
 		Buffer orderBuffer = new Buffer(128);
 		emit orderBufferSignal(orderBuffer);
 		halt;
 	}
-//	||
-//	{// Fourth Reaction - ABS Busy/Ready Detection
-//		// This reaction awaits the READY signal form the ABS, and then sustains an internal signal for ABSREADY
-//		// When the POS sends a new order to the ABS, this internal signal is halted
-//		
-//		await(a)
-//	}
-	||
-	{// Alt 2nd and 4th reaction - Order Sender
-		Buffer secondTempBuffer;
-		//intStringSomething[] sendingNumbers = new intStringSomething[5];
-		
-		await(orderBufferSignal); // wait for buffer to be init
-		
-		while(true) {
-			await(absReady);
-			
-			trap(R) {
-				loop {
-					secondTempBuffer = #orderBufferSignal;
-					
-					if (!secondTempBuffer.isEmpty()) {
-						exit(R);
-					}
-					await(orderBufferSignal);
-				}
-			}
-			
-			// sendingNumbers = secondTempBuffer.pop();
-			// SEND IT!
-			
-			emit orderBufferSignal(secondTempBuffer); // Update global buffer value
-			pause; // wait before continuing so we dont react to our own buffer update
-		}
-
-	}
+	
 }
+
+
+//||
+//{// Second Reaction - Sending to ABS
+//	Buffer secondTempBuffer;
+//	int[] numbers = new int[5];
+//	
+//	while(true) {
+//		await(orderBufferSignal);
+//		secondTempBuffer = #orderBufferSignal;
+//		if (!secondTempBuffer.isEmpty()) {
+//			numbers = secondTempBuffer.pop();
+//			System.out.println(numbers[1]);
+//		}
+//	}
+//}
+//||
+//{// Fourth Reaction - ABS Busy/Ready Detection
+//	// This reaction awaits the READY signal form the ABS, and then sustains an internal signal for ABSREADY
+//	// When the POS sends a new order to the ABS, this internal signal is halted
+//	
+//	await(a)
+//}
+
