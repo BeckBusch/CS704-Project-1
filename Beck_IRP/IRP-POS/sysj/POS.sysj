@@ -1,0 +1,92 @@
+import buffer.*;
+
+CD(
+	input String signal incomingOrder;
+	input signal absReady;
+	
+)->{
+	Buffer signal orderBufferSignal;
+	//signal absFree, sentOrder;
+	{// First reaction - Waiting to receive from GUI		
+		int[] inputOrderValues = new int[5];
+		String wholeInputString;
+		String[] splitInputString;
+		Buffer firstTempBuffer;
+		
+		await(orderBufferSignal); // wait for buffer to be init
+		
+		while(true) {
+			
+			await(incomingOrder);
+			await(!incomingOrder);
+			
+			//System.out.println("Got Order");
+			wholeInputString = #incomingOrder;
+			splitInputString = wholeInputString.split(",", 0);
+			
+			for (int i=0; i<5; i++) {
+				inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
+			}
+			
+			firstTempBuffer = #orderBufferSignal;
+			firstTempBuffer.push(inputOrderValues);
+			emit orderBufferSignal(firstTempBuffer);
+		}
+	}
+	//||
+//	{// Second Reaction - Sending to ABS
+//		Buffer secondTempBuffer;
+//		int[] numbers = new int[5];
+//		
+//		while(true) {
+//			await(orderBufferSignal);
+//			secondTempBuffer = #orderBufferSignal;
+//			if (!secondTempBuffer.isEmpty()) {
+//				numbers = secondTempBuffer.pop();
+//				System.out.println(numbers[1]);
+//			}
+//		}
+//	}
+	||
+	{ // Third Reaction - Buffer Manager
+		Buffer orderBuffer = new Buffer(128);
+		emit orderBufferSignal(orderBuffer);
+		halt;
+	}
+//	||
+//	{// Fourth Reaction - ABS Busy/Ready Detection
+//		// This reaction awaits the READY signal form the ABS, and then sustains an internal signal for ABSREADY
+//		// When the POS sends a new order to the ABS, this internal signal is halted
+//		
+//		await(a)
+//	}
+	||
+	{// Alt 2nd and 4th reaction - Order Sender
+		Buffer secondTempBuffer;
+		//intStringSomething[] sendingNumbers = new intStringSomething[5];
+		
+		await(orderBufferSignal); // wait for buffer to be init
+		
+		while(true) {
+			await(absReady);
+			
+			trap(R) {
+				loop {
+					secondTempBuffer = #orderBufferSignal;
+					
+					if (!secondTempBuffer.isEmpty()) {
+						exit(R);
+					}
+					await(orderBufferSignal);
+				}
+			}
+			
+			// sendingNumbers = secondTempBuffer.pop();
+			// SEND IT!
+			
+			emit orderBufferSignal(secondTempBuffer); // Update global buffer value
+			pause; // wait before continuing so we dont react to our own buffer update
+		}
+
+	}
+}

@@ -191,13 +191,13 @@ public class posGUI {
         sliderLabel.setFont(new Font("Verdana", Font.PLAIN, 14));
         orderPanel.add(sliderLabel);
         quantitySlider = new JSlider(JSlider.HORIZONTAL, 0, 16, 0);
-        quantitySlider.setBounds(dimUnit*5, dimUnit*13, dimUnit*16, dimUnit*2);
+        quantitySlider.setBounds(dimUnit * 5, dimUnit * 13, dimUnit * 16, dimUnit * 2);
         quantitySlider.addChangeListener(new SliderChangeListener());
         quantitySlider.setMajorTickSpacing(4);
         quantitySlider.setMinorTickSpacing(1);
         quantitySlider.setPaintTicks(true);
         quantitySlider.setPaintLabels(true);
-        orderPanel.add(quantitySlider); 
+        orderPanel.add(quantitySlider);
 
         // ---- Submit Order Panel ----
         submitPanel = new JPanel();
@@ -297,7 +297,8 @@ public class posGUI {
             totalUsed += itemPair.getValue();
             // -- Temp Price Label --
             JLabel tempPrice = new JLabel(
-                    "Price: $" + Integer.toString((int)(PriceList.get(itemPair.getKey()) * itemPair.getValue() * 0.01)));
+                    "Price: $"
+                            + Integer.toString((int) (PriceList.get(itemPair.getKey()) * itemPair.getValue() * 0.01)));
             tempPrice.setHorizontalAlignment(JLabel.CENTER);
             tempPrice.setFont(new Font("Verdana", Font.PLAIN, 12));
             tempPrice.setBounds(dimUnit * 13, (int) (dimUnit * 1.5) * i, dimUnit * 6, (int) (dimUnit * 1.5));
@@ -342,17 +343,17 @@ public class posGUI {
 
     private void submitOrder() {
         String[] items = new String[] { "Cola", "Tonic", "Soda", "Juice" };
-        int[] outputArray = new int[items.length + 1];
+        String[] outputArray = new String[items.length + 1];
 
-        outputArray[0] = UserQuantity;
+        outputArray[0] = Integer.toString(UserQuantity);
 
         int i = 1;
 
         for (String string : items) {
             if (UserOrder.get(string) != null) {
-                outputArray[i] = UserOrder.get(string);
+                outputArray[i] = Integer.toString(UserOrder.get(string));
             } else {
-                outputArray[i] = 0;
+                outputArray[i] = Integer.toString(0);
             }
 
             i += 1;
@@ -368,33 +369,52 @@ public class posGUI {
         SwingUtilities.updateComponentTreeUI(guiFrame);
 
         System.out.println(Arrays.toString(outputArray)); // PRINTER
+        
 
-        try {
-            if (sO == null) {
-                sO = new ObjectOutputStream(new Socket("127.0.0.1", 4007).getOutputStream());
-            }
+        orderSubmit sender = new orderSubmit(String.join(",", outputArray));
+        sender.start();
 
-            Object[] transmitArray = new Object[] { true, outputArray };
-            sO.writeObject(transmitArray);
+    }
 
-            Thread.sleep(100);
+    private class orderSubmit extends Thread {
+        String outgoing;
 
-            transmitArray[0] = false;
-            sO.writeObject(transmitArray);
-
-        } catch (IOException | InterruptedException aa) {
+        orderSubmit(String in) {
+            this.outgoing = in;
         }
+
+        public void run() {
+            try {
+                if (sO == null) {
+                    sO = new ObjectOutputStream(new Socket("127.0.0.1", 4007).getOutputStream());
+                }
+
+                Object[] transmitArray = new Object[] { true, outgoing };
+
+                sO.writeObject(transmitArray);
+
+                Thread.sleep(100);
+
+                transmitArray[0] = false;
+                sO.writeObject(transmitArray);
+
+                sO.close();
+
+            } catch (IOException | InterruptedException aa) {
+            }
+        }
+
     }
 
     private class SliderChangeListener implements ChangeListener {
         public void stateChanged(ChangeEvent e) {
-            //JSlider source = (JSlider)e.getSource();
+            // JSlider source = (JSlider)e.getSource();
 
             if (!quantitySlider.getValueIsAdjusting()) {
 
-                int tempQuantity = (int)quantitySlider.getValue();
+                int tempQuantity = (int) quantitySlider.getValue();
                 UserQuantity = tempQuantity;
-                //SwingUtilities.updateComponentTreeUI(submitPanel);
+                // SwingUtilities.updateComponentTreeUI(submitPanel);
                 updateOrderPanel();
             }
         }
