@@ -438,7 +438,10 @@ reaction PlantCapper(
 ) {
 	{
 		await(tableAlignedWithSensorGUI);
-		
+		pause;
+		{{emit gripperTurnHomePos;}||{emit gripperTurnHomePosGUI};}
+		pause;
+		{{emit gripperTurnHomePos;}||{emit gripperTurnHomePosGUI};}
 	}
 	
 	
