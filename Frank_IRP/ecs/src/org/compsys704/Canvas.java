@@ -10,13 +10,6 @@ import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class Canvas extends JPanel {
-	BufferedImage arm1;
-	BufferedImage arm2;
-	BufferedImage p1;
-	BufferedImage p2;
-	BufferedImage loader;
-	BufferedImage cap;
-	
 	public Canvas(){
 		try {
 			BufferedImage bi = ImageIO.read(new File("res/arm.png"));

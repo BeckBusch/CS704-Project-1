@@ -1,112 +1,205 @@
 import run.GUI;
 
 Plant(
-		input signal pusherExtend,vacOn,armSource,armDest;
-		input signal enable,refill;
-		output signal pusherRetracted,pusherExtended,WPgripped,armAtSource,armAtDest,empty;
-		output signal pusherRetractedE,pusherExtendedE,WPgrippedE,armAtSourceE,armAtDestE,emptyE;
+		output  double  signal  temp17, temp23, temp456, tempFire1;
+		output  double  signal  humd17, humd23, humd456;
+		output  int     signal  occu1, occuLight1;
+		output  int     signal  clock, clockLight;
+		input         signal  heat17, heat23, heat456;
+		input         signal  ac17,   ac23,   ac456;
+		input         signal  fan17,  fan23,  fan456;
+		output          signal  smoke1, smoke2, smoke3, smoke4, smoke5, smoke6, smoke7;
+		input         signal  emergency;
+		input int     signal  light1, light2, light3, light4, light5, light6, light7;
+		
+		
+		output signal lightHigh;
+		output signal lightLow;
+		output signal lightNone;
+		output signal fire;
+		output signal fan;
+		output signal ac;
+		output signal heat;
+		
+		input signal tempLow;
+		input signal tempHigh;
+		input signal tempNormal;
+		input signal tempFire;
+		input signal humd;
+		input signal humdNormal;
+		input signal occu;
+		input signal smoke;
+		input signal working;
+		
+		
 		)
 ->
 {
 	new Thread(new GUI()).start();
 
-	signal capDec;
-	int signal capPos;
-	emit capPos(0);
-	{// Arm
-		while(true){
-			abort(armSource && enable){
-				sustain armAtDest;
-			}
-			await(!enable);
-			abort(armDest && enable){
-				sustain armAtSource;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Pusher
-		while(true){
-			abort(pusherExtend && enable){
-				sustain pusherRetracted;
-			}
-			await(!enable);
-			abort(!pusherExtend && enable){
-				sustain pusherExtended;
-			}
-			await(!enable);
-		}
-	}
-	||
-	{// Vacuum
-		while(true){
-			present(vacOn && armAtSource){
-				if((Integer)#capPos == 1){
-					emit capPos(0);
-					abort(!vacOn){
-						sustain WPgripped; 
-					}
-					present(armAtSource){
-						emit capPos(1);
-					}
+
+	{
+		loop {
+			present(light1){
+				if (#light1 == 0) {
+					emit lightNone;
+				} else if (#light1 == 1){
+					emit lightLow;
+				} else {
+					emit lightHigh;
 				}
 			}
+			
 			pause;
 		}
 	}
 	||
 	{
-		/*
-		 * Cap positions
-		 * 0 = at Mag
-		 * 1 = at pick-up
-		 */
-		while(true){
-			// At mag
-			abort(empty){
-				while(true){
-						await(pusherRetracted);
-						await(pusherExtended);
-						// At pick-up
-						emit capPos(1);
-						await(pusherRetracted);
-						emit capDec;
-				}
+		loop {
+			present(fan17){
+				emit fan;
 			}
-			await(refill);
-		}
-	}
-	||
-	{
-		int capcount = 5;
-		while(true){
-			present(capDec){
-				if(capcount > 0)
-					capcount--;
-			}
-			present(refill){
-				capcount = 5;
-			}
-//			present(pusherRetracted){
-				if(capcount == 0)
-					emit empty;
-//			}
+			
 			pause;
 		}
 	}
 	||
-	{// To viz
-		{while(true){present(pusherRetracted){emit pusherRetractedE;} pause;}}
-		||
-		{while(true){present(pusherExtended){emit pusherExtendedE;} pause;}}
-		||
-		{while(true){present(WPgripped){emit WPgrippedE;} pause;}}
-		||
-		{while(true){present(armAtSource){emit armAtSourceE;} pause;}}
-		||
-		{while(true){present(armAtDest){emit armAtDestE;} pause;}}
-		||
-		{while(true){present(empty){emit emptyE;} pause;}}
+	{
+		loop {
+			present(emergency){
+				emit fire;
+			}
+			
+			pause;
+		}
 	}
+	||
+	{
+		loop {
+			present(ac17){
+				emit ac;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present(heat17){
+				emit heat;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop{
+			present(tempNormal){
+				emit temp17(25.0);
+				emit temp23(25.0);
+				emit temp456(15.0);
+			}
+			
+			pause;
+	
+		}
+	}
+	||
+	{
+		loop{
+			present(tempLow){
+				emit temp17(0.0);
+				emit temp23(0.0);
+				emit temp456(0.0);
+			}
+			
+			pause;
+	
+		}
+	}
+	||
+	{
+		loop {
+			present(tempHigh){
+				emit temp17(30.0);
+				emit temp23(30.0);
+				emit temp456(30.0);
+				
+			}
+			
+			pause;
+			
+		}
+	}
+	||
+	{
+		loop {
+			present (tempFire){
+				emit temp17(100.0);
+				emit temp23(300.0);
+				emit temp456(300.0);
+				emit tempFire1(100.0);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (humd){
+				emit humd17(0.0);
+				emit humd23(0.0);
+				emit humd456(0.0);
+				
+				
+			} else {
+
+				emit humd17(50.0);
+				emit humd23(50.0);
+				emit humd456(50.0);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (occu){
+				emit occu1(2);
+				emit occuLight1(2);
+			} else {
+				emit occu1(0);
+				emit occuLight1(2);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (smoke){
+				emit smoke1;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (working){
+				emit clock(500);
+			} else {
+				emit clock(0);
+			}
+			
+			pause;
+		}
+	}
+	
 }

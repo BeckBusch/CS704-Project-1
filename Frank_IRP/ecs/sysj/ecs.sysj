@@ -169,6 +169,9 @@ FireCD(
 		input  double  signal  temp17, temp23, temp456;
 		input          signal  smoke1, smoke2, smoke3, smoke4, smoke5, smoke6, smoke7;
 		output boolean channel fireHappening;
+		output boolean channel fireHappeningLight;
+		output         signal  emergency;
+
 	  )
 ->{
 	
@@ -202,6 +205,7 @@ FireCD(
 	{
 		present(fire){
 			send fireHappening(true);
+			sustain emergency;
 		}
 	}
 }
@@ -211,7 +215,7 @@ LightCD(
 		input  int     signal  clock;
 		output int     signal  light1, light2, light3, light4, light5, light6, light7;
 		
-		input  boolean channel fireHappening;
+		input  boolean channel fireHappeningLight;
 	  )
 	->{
 
@@ -236,7 +240,7 @@ LightCD(
 	||
 	// Check for fire
 	{
-		receive fireHappening;
+		receive fireHappeningLight;
 		sustain fire; // requires manual reset
 		pause;
 	}
