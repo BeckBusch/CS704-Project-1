@@ -1,0 +1,109 @@
+reaction ConvertChannelToSignal
+(:
+	input boolean channel C,
+	signal S
+) {
+	loop {
+		receive C;
+		emit S;
+		pause;
+	}
+}
+
+reaction ConvertSignalToChannel
+(:
+	signal S,
+	output boolean channel C
+) {
+	loop {
+		present(S){
+			send C(true);
+		}
+		pause;
+	}
+}
+
+
+PlantConveyorCD
+(
+	input signal motConveyorOnOff;
+	output signal bottleLeftPos5;
+	
+	input signal spawnBottle;
+	input signal removeBottle; // may add this automatically
+
+	input boolean channel receivedPos1;
+	input boolean channel sentPos5;
+
+	output boolean channel plantConveyorActive;
+	output boolean channel plantConveyorBottleBeforePos1;
+)->{
+	signal bottleBeforePos1;
+	signal removeBeforePos1;
+	
+	signal spawnBottleAfter5;
+	signal bottleAfter5;
+	
+	// conveyor data being sent to other stuff
+	{
+		loop {
+			present (motConveyorOnOff){
+				send plantConveyorActive(true);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (bottleBeforePos1){
+				send plantConveyorBottleBeforePos1(true);
+			}
+			
+			pause;
+		}
+	}
+	||
+	// variable tracking
+	{
+		loop {
+			await (spawnBottle);
+			
+			abort(removeBeforePos1){
+				sustain bottleBeforePos1;
+			}
+		}
+	}
+	||
+	{
+		ConvertChannelToSignal(: receivedPos1, removeBeforePos1);
+	}
+	||
+	{
+
+		ConvertChannelToSignal(: sentPos5, spawnBottleAfter5);
+	}
+	||
+	{
+		loop {
+			await (spawnBottleAfter5);
+			
+			abort(removeBottle){
+				sustain bottleAfter5;
+			}
+		}
+	}
+	||
+	{
+		loop {
+			present (bottleAfter5){
+				emit bottleLeftPos5;
+			}
+			
+			pause;
+		}
+	}
+}
+
+
