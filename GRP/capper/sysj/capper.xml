@@ -1,0 +1,20 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="CAPPER_SS" Local="true">
+		
+		<ClockDomain Name="CapperCD" Class="CapperCD"> <!-- TODO: Need to add this Java class-->
+
+			<iSignal Name="bottleAtPos4" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="gripperZAxisLowered" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="gripperZAxisLifted" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="gripperTurnHomePos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+			<iSignal Name="gripperTurnFinalPos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
+
+			<oSignal Name="cylPos5ZaxisExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+			<oSignal Name="gripperTurnRetract" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+			<oSignal Name="gripperTurnExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+			<oSignal Name="capGripperPos5Extend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+			<oSignal Name="cylClampBottleExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+		</ClockDomain>
+		
+	</SubSystem>
+</System>
