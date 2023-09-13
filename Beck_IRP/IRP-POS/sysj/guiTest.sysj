@@ -1,0 +1,17 @@
+CD(
+	input int signal bottleAtPos1;
+	
+)->{
+	{
+		loop {
+		await(bottleAtPos1);
+		await(!bottleAtPos1);
+		
+		int test = #bottleAtPos1;
+		
+		System.out.println(test);
+		
+		System.out.println("received");
+		}
+	}	
+}
