@@ -26,8 +26,7 @@ CapperCD
 			
 			// wait for arm to come down then back up
 			{
-				await (gripperZAxisLowered);
-				
+				await (gripperZAxisLowered);				
 				await (gripperZAxisLifted);
 				
 				emit cancelClamp;
@@ -44,9 +43,10 @@ CapperCD
 		{
 			signal raiseGripper;
 			
-			// raise gripper when cap is twisted properly
+			// raise gripper when cap is twisted / untwisted properly
 			{
 				await (gripperTurnFinalPos);
+				await (gripperTurnHomePos);
 				emit raiseGripper;
 			}
 			||
@@ -63,26 +63,22 @@ CapperCD
 			await (gripperZAxisLowered);
 			
 			// gripping cap until twisted
-			{
-				signal untwistCap;
-				
+			trap(T){
 				{
-					// twisting cap
-					abort (untwistCap){
-						sustain gripperTurnExtend;
-					}
+					await(gripperTurnFinalPos);
+					exit(T);
 				}
 				||
-				{
-					// gripping cap
-					abort(gripperTurnFinalPos){
-						sustain capGripperPos5Extend;
-					}
-					
-					emit untwistCap;
-				}
-				
+				// twisting cap
+				{sustain gripperTurnExtend;}
+				||
+				// gripping cap
+				{sustain capGripperPos5Extend;}
 			}
+			
 		}
+		
+		// waiting until the bottle is gone
+		await (!bottleAtPos4);
 	}
 }
