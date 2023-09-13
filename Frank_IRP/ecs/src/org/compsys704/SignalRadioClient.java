@@ -24,6 +24,7 @@ public class SignalRadioClient extends SignalClient {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		/*
 		if(e.getActionCommand().equals("0")){
 			for(Component c : comp)
 				c.setEnabled(false);
@@ -32,6 +33,7 @@ public class SignalRadioClient extends SignalClient {
 			for(Component c : comp)
 				c.setEnabled(true);
 		}
+		*/
 		try {
 			if(s.isClosed()){
 				s = new Socket();

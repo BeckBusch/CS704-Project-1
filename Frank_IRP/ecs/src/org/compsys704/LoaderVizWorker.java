@@ -7,34 +7,37 @@ public class LoaderVizWorker extends Worker{
 
 	@Override
 	public void setSignal(boolean status) {
-//		System.out.println(signame+"  "+status);
+		System.out.println(signame+"  "+status);
 		switch(signame){
-		case "pusherRetractedE":
-			States.PUSHER_RETRACTED = status;
-			break;
-		case "pusherExtendedE":
-			if(!States.MAG_EMPTY && !States.PUSHER_EXTENDED)
-				States.CAP_READY = true;
-			States.PUSHER_EXTENDED = status;
-			break;
-		case "WPgrippedE":
-			if(States.GRIPPED && States.ARM_AT_SOURCE){
-				if(!status)
-					States.CAP_READY = true;
-			}
-			States.GRIPPED = status;
-			if(States.GRIPPED && States.ARM_AT_SOURCE){
-				States.CAP_READY = false;
+		case "lightHigh":
+			if (status == true) {
+
+				States.LIGHT = 2;
 			}
 			break;
-		case "armAtSourceE":
-			States.ARM_AT_SOURCE = status;
+		case "lightLow":
+			if (status == true) {
+				States.LIGHT = 1;
+				
+			}
 			break;
-		case "armAtDestE":
-			States.ARM_AT_DEST = status;
+		case "lightNone":
+			if (status == true) {
+				States.LIGHT = 0;
+				
+			}
 			break;
-		case "emptyE":
-			States.MAG_EMPTY = status;
+		case "fire":
+			States.FIRE = status;
+			break;
+		case "fan":
+			States.FAN = status;
+			break;
+		case "ac":
+			States.AC = status;
+			break;
+		case "heat":
+			States.HEAT = status;
 			break;
 		default: 
 			System.err.println("Wrong sig name : "+signame);
@@ -43,7 +46,7 @@ public class LoaderVizWorker extends Worker{
 	}
 	
 	
-	static final List<String> signames = Arrays.asList("pusherRetractedE","pusherExtendedE","WPgrippedE","armAtSourceE","armAtDestE","emptyE");
+	static final List<String> signames = Arrays.asList("lightHigh","lightLow","lightNone","fire","fan","ac", "heat" );
 	
 	@Override
 	public boolean hasSignal(String sn) {

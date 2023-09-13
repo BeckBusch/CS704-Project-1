@@ -2,12 +2,9 @@ package org.compsys704;
 
 public class States {
 	
-	public static volatile boolean ARM_AT_DEST = true;
-	public static volatile boolean ARM_AT_SOURCE = !ARM_AT_DEST;
-	public static volatile boolean PUSHER_RETRACTED = true;
-	public static volatile boolean PUSHER_EXTENDED = !PUSHER_RETRACTED;
-	public static volatile boolean GRIPPED = false;
-	public static volatile boolean MAG_EMPTY = false;
-	
-	public static volatile boolean CAP_READY = false;
+	public static volatile int LIGHT = 0;
+	public static volatile boolean FIRE = false;
+	public static volatile boolean FAN = false;
+	public static volatile boolean AC = false;
+	public static volatile boolean HEAT = false;
 }

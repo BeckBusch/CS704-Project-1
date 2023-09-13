@@ -26,94 +26,805 @@ public class LightCD extends ClockDomain{
   public Signal light5 = new Signal("light5", Signal.OUTPUT);
   public Signal light6 = new Signal("light6", Signal.OUTPUT);
   public Signal light7 = new Signal("light7", Signal.OUTPUT);
-  public input_Channel fireHappening_in = new input_Channel();
+  public input_Channel fireHappeningLight_in = new input_Channel();
   private Signal workingHours_16;
   private Signal fire_16;
-  private Signal timer1_16;
-  private Signal timer2_16;
-  private Signal timer3_16;
-  private Signal timer7_16;
-  private Signal startTimer1_16;
-  private Signal startTimer2_16;
-  private Signal startTimer3_16;
-  private Signal startTimer7_16;
-  private int previous_thread_20;//sysj\controller.sysj line: 258, column: 3
-  private int lightLevel_thread_20;//sysj\controller.sysj line: 259, column: 3
-  private int previous_thread_25;//sysj\controller.sysj line: 329, column: 3
-  private int lightLevel_thread_25;//sysj\controller.sysj line: 330, column: 3
-  private long __start_thread_22;//sysj\controller.sysj line: 303, column: 3
-  private int previous_thread_30;//sysj\controller.sysj line: 398, column: 3
-  private int lightLevel_thread_30;//sysj\controller.sysj line: 399, column: 3
-  private long __start_thread_27;//sysj\controller.sysj line: 374, column: 3
-  private int previous_thread_35;//sysj\controller.sysj line: 467, column: 3
-  private int lightLevel_thread_35;//sysj\controller.sysj line: 468, column: 3
-  private long __start_thread_32;//sysj\controller.sysj line: 443, column: 3
-  private long __start_thread_37;//sysj\controller.sysj line: 512, column: 3
-  private int S1231 = 1;
-  private int S588 = 1;
-  private int S326 = 1;
-  private int S362 = 1;
-  private int S361 = 1;
-  private int S333 = 1;
-  private int S328 = 1;
-  private int S373 = 1;
-  private int S417 = 1;
-  private int S480 = 1;
-  private int S479 = 1;
-  private int S434 = 1;
-  private int S440 = 1;
-  private int S448 = 1;
-  private int S447 = 1;
-  private int S632 = 1;
+  private Signal timer_22;
+  private Signal startTimer_22;
+  private Signal timer_31;
+  private Signal startTimer_31;
+  private Signal timer_40;
+  private Signal startTimer_40;
+  private Signal timer_49;
+  private Signal startTimer_49;
+  private int previous_thread_23;//sysj\ecs.sysj line: 39, column: 3
+  private int lightLevel_thread_23;//sysj\ecs.sysj line: 40, column: 3
+  private int previous_thread_32;//sysj\ecs.sysj line: 39, column: 3
+  private int lightLevel_thread_32;//sysj\ecs.sysj line: 40, column: 3
+  private int previous_thread_41;//sysj\ecs.sysj line: 39, column: 3
+  private int lightLevel_thread_41;//sysj\ecs.sysj line: 40, column: 3
+  private int previous_thread_50;//sysj\ecs.sysj line: 39, column: 3
+  private int lightLevel_thread_50;//sysj\ecs.sysj line: 40, column: 3
+  private long __start_thread_26;//sysj\ecs.sysj line: 86, column: 5
+  private long __start_thread_35;//sysj\ecs.sysj line: 86, column: 5
+  private long __start_thread_44;//sysj\ecs.sysj line: 86, column: 5
+  private long __start_thread_53;//sysj\ecs.sysj line: 86, column: 5
+  private int S1545 = 1;
+  private int S688 = 1;
+  private int S724 = 1;
+  private int S723 = 1;
   private int S695 = 1;
-  private int S694 = 1;
-  private int S649 = 1;
-  private int S655 = 1;
-  private int S663 = 1;
-  private int S846 = 1;
-  private int S909 = 1;
-  private int S908 = 1;
-  private int S863 = 1;
-  private int S869 = 1;
-  private int S877 = 1;
-  private int S1060 = 1;
-  private int S1123 = 1;
-  private int S1122 = 1;
-  private int S1077 = 1;
-  private int S1083 = 1;
-  private int S1091 = 1;
+  private int S690 = 1;
+  private int S735 = 1;
+  private int S937 = 1;
+  private int S935 = 1;
+  private int S783 = 1;
+  private int S933 = 1;
+  private int S923 = 1;
+  private int S829 = 1;
+  private int S800 = 1;
+  private int S806 = 1;
+  private int S931 = 1;
+  private int S1139 = 1;
+  private int S1137 = 1;
+  private int S985 = 1;
+  private int S1135 = 1;
+  private int S1125 = 1;
+  private int S1031 = 1;
+  private int S1002 = 1;
+  private int S1008 = 1;
+  private int S1133 = 1;
+  private int S1341 = 1;
+  private int S1339 = 1;
+  private int S1187 = 1;
+  private int S1337 = 1;
+  private int S1327 = 1;
+  private int S1233 = 1;
+  private int S1204 = 1;
+  private int S1210 = 1;
+  private int S1335 = 1;
+  private int S1543 = 1;
+  private int S1541 = 1;
+  private int S1389 = 1;
+  private int S1539 = 1;
+  private int S1529 = 1;
+  private int S1435 = 1;
+  private int S1406 = 1;
+  private int S1412 = 1;
+  private int S1537 = 1;
   
-  private int[] ends = new int[40];
-  private int[] tdone = new int[40];
+  private int[] ends = new int[56];
+  private int[] tdone = new int[56];
   
-  public void thread1324(int [] tdone, int [] ends){
-        switch(S1091){
+  public void thread1684(int [] tdone, int [] ends){
+        switch(S1537){
       case 0 : 
-        active[39]=0;
-        ends[39]=0;
-        tdone[39]=1;
+        active[55]=0;
+        ends[55]=0;
+        tdone[55]=1;
         break;
       
       case 1 : 
-        if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 526, column: 9
-          timer7_16.setPresent();//sysj\controller.sysj line: 527, column: 6
-          currsigs.addElement(timer7_16);
-          active[39]=1;
-          ends[39]=1;
-          tdone[39]=1;
+        if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+          timer_49.setPresent();//sysj\ecs.sysj line: 105, column: 6
+          currsigs.addElement(timer_49);
+          active[55]=1;
+          ends[55]=1;
+          tdone[55]=1;
         }
         else {
-          active[39]=1;
-          ends[39]=1;
-          tdone[39]=1;
+          active[55]=1;
+          ends[55]=1;
+          tdone[55]=1;
         }
         break;
       
     }
   }
 
-  public void thread1323(int [] tdone, int [] ends){
-        switch(S1083){
+  public void thread1682(int [] tdone, int [] ends){
+        switch(S1412){
+      case 0 : 
+        active[54]=0;
+        ends[54]=0;
+        tdone[54]=1;
+        break;
+      
+      case 1 : 
+        if(timer_49.getprestatus()){//sysj\ecs.sysj line: 93, column: 12
+          S1412=0;
+          active[54]=0;
+          ends[54]=0;
+          tdone[54]=1;
+        }
+        else {
+          startTimer_49.setPresent();//sysj\ecs.sysj line: 94, column: 7
+          currsigs.addElement(startTimer_49);
+          active[54]=1;
+          ends[54]=1;
+          tdone[54]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1681(int [] tdone, int [] ends){
+        switch(S1406){
+      case 0 : 
+        active[53]=0;
+        ends[53]=0;
+        tdone[53]=1;
+        break;
+      
+      case 1 : 
+        if(com.systemj.Timer.getMs() - __start_thread_53 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+          ends[53]=2;
+          ;//sysj\ecs.sysj line: 86, column: 5
+          timer_49.setPresent();//sysj\ecs.sysj line: 88, column: 6
+          currsigs.addElement(timer_49);
+          S1406=0;
+          active[53]=0;
+          ends[53]=0;
+          tdone[53]=1;
+        }
+        else {
+          active[53]=1;
+          ends[53]=1;
+          tdone[53]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1679(int [] tdone, int [] ends){
+        S1412=1;
+    startTimer_49.setPresent();//sysj\ecs.sysj line: 94, column: 7
+    currsigs.addElement(startTimer_49);
+    active[54]=1;
+    ends[54]=1;
+    tdone[54]=1;
+  }
+
+  public void thread1678(int [] tdone, int [] ends){
+        S1406=1;
+    __start_thread_53 = com.systemj.Timer.getMs();//sysj\ecs.sysj line: 86, column: 5
+    if(com.systemj.Timer.getMs() - __start_thread_53 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+      ends[53]=2;
+      ;//sysj\ecs.sysj line: 86, column: 5
+      timer_49.setPresent();//sysj\ecs.sysj line: 88, column: 6
+      currsigs.addElement(timer_49);
+      S1406=0;
+      active[53]=0;
+      ends[53]=0;
+      tdone[53]=1;
+    }
+    else {
+      active[53]=1;
+      ends[53]=1;
+      tdone[53]=1;
+    }
+  }
+
+  public void thread1677(int [] tdone, int [] ends){
+        switch(S1529){
+      case 0 : 
+        active[52]=0;
+        ends[52]=0;
+        tdone[52]=1;
+        break;
+      
+      case 1 : 
+        switch(S1435){
+          case 0 : 
+            if(startTimer_49.getprestatus()){//sysj\ecs.sysj line: 84, column: 11
+              S1435=1;
+              thread1678(tdone,ends);
+              thread1679(tdone,ends);
+              int biggest1680 = 0;
+              if(ends[53]>=biggest1680){
+                biggest1680=ends[53];
+              }
+              if(ends[54]>=biggest1680){
+                biggest1680=ends[54];
+              }
+              if(biggest1680 == 1){
+                active[52]=1;
+                ends[52]=1;
+                tdone[52]=1;
+              }
+            }
+            else {
+              active[52]=1;
+              ends[52]=1;
+              tdone[52]=1;
+            }
+            break;
+          
+          case 1 : 
+            thread1681(tdone,ends);
+            thread1682(tdone,ends);
+            int biggest1683 = 0;
+            if(ends[53]>=biggest1683){
+              biggest1683=ends[53];
+            }
+            if(ends[54]>=biggest1683){
+              biggest1683=ends[54];
+            }
+            if(biggest1683 == 1){
+              active[52]=1;
+              ends[52]=1;
+              tdone[52]=1;
+            }
+            //FINXME code
+            if(biggest1683 == 0){
+              S1435=2;
+              active[52]=1;
+              ends[52]=1;
+              tdone[52]=1;
+            }
+            break;
+          
+          case 2 : 
+            S1435=2;
+            S1435=0;
+            active[52]=1;
+            ends[52]=1;
+            tdone[52]=1;
+            break;
+          
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1676(int [] tdone, int [] ends){
+        switch(S1539){
+      case 0 : 
+        active[51]=0;
+        ends[51]=0;
+        tdone[51]=1;
+        break;
+      
+      case 1 : 
+        thread1677(tdone,ends);
+        thread1684(tdone,ends);
+        int biggest1685 = 0;
+        if(ends[52]>=biggest1685){
+          biggest1685=ends[52];
+        }
+        if(ends[55]>=biggest1685){
+          biggest1685=ends[55];
+        }
+        if(biggest1685 == 1){
+          active[51]=1;
+          ends[51]=1;
+          tdone[51]=1;
+        }
+        //FINXME code
+        if(biggest1685 == 0){
+          S1539=0;
+          active[51]=0;
+          ends[51]=0;
+          tdone[51]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1675(int [] tdone, int [] ends){
+        switch(S1389){
+      case 0 : 
+        active[50]=0;
+        ends[50]=0;
+        tdone[50]=1;
+        break;
+      
+      case 1 : 
+        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+          if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+            lightLevel_thread_50 = 2;//sysj\ecs.sysj line: 46, column: 6
+            light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light7);
+            light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+            active[50]=1;
+            ends[50]=1;
+            tdone[50]=1;
+          }
+          else {
+            if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+              lightLevel_thread_50 = 2;//sysj\ecs.sysj line: 50, column: 7
+              light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light7);
+              light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+              active[50]=1;
+              ends[50]=1;
+              tdone[50]=1;
+            }
+            else {
+              if(previous_thread_50 == 2){//sysj\ecs.sysj line: 53, column: 17
+                startTimer_49.setPresent();//sysj\ecs.sysj line: 54, column: 7
+                currsigs.addElement(startTimer_49);
+                lightLevel_thread_50 = 1;//sysj\ecs.sysj line: 55, column: 7
+                light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                currsigs.addElement(light7);
+                light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+                previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+                active[50]=1;
+                ends[50]=1;
+                tdone[50]=1;
+              }
+              else {
+                if(startTimer_49.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+                  lightLevel_thread_50 = 1;//sysj\ecs.sysj line: 61, column: 8
+                  light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light7);
+                  light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+                  active[50]=1;
+                  ends[50]=1;
+                  tdone[50]=1;
+                }
+                else {
+                  lightLevel_thread_50 = 0;//sysj\ecs.sysj line: 64, column: 8
+                  light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light7);
+                  light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+                  active[50]=1;
+                  ends[50]=1;
+                  tdone[50]=1;
+                }
+              }
+            }
+          }
+        }
+        else {
+          lightLevel_thread_50 = 0;//sysj\ecs.sysj line: 70, column: 5
+          light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light7);
+          light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+          active[50]=1;
+          ends[50]=1;
+          tdone[50]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1674(int [] tdone, int [] ends){
+        switch(S1541){
+      case 0 : 
+        active[49]=0;
+        ends[49]=0;
+        tdone[49]=1;
+        break;
+      
+      case 1 : 
+        timer_49.setClear();//sysj\ecs.sysj line: 35, column: 2
+        startTimer_49.setClear();//sysj\ecs.sysj line: 36, column: 2
+        thread1675(tdone,ends);
+        thread1676(tdone,ends);
+        int biggest1686 = 0;
+        if(ends[50]>=biggest1686){
+          biggest1686=ends[50];
+        }
+        if(ends[51]>=biggest1686){
+          biggest1686=ends[51];
+        }
+        if(biggest1686 == 1){
+          active[49]=1;
+          ends[49]=1;
+          tdone[49]=1;
+        }
+        //FINXME code
+        if(biggest1686 == 0){
+          S1541=0;
+          active[49]=0;
+          ends[49]=0;
+          tdone[49]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1673(int [] tdone, int [] ends){
+        active[48]=0;
+    ends[48]=0;
+    tdone[48]=1;
+  }
+
+  public void thread1672(int [] tdone, int [] ends){
+        switch(S1543){
+      case 0 : 
+        active[47]=0;
+        ends[47]=0;
+        tdone[47]=1;
+        break;
+      
+      case 1 : 
+        thread1673(tdone,ends);
+        thread1674(tdone,ends);
+        int biggest1687 = 0;
+        if(ends[48]>=biggest1687){
+          biggest1687=ends[48];
+        }
+        if(ends[49]>=biggest1687){
+          biggest1687=ends[49];
+        }
+        if(biggest1687 == 1){
+          active[47]=1;
+          ends[47]=1;
+          tdone[47]=1;
+        }
+        //FINXME code
+        if(biggest1687 == 0){
+          S1543=0;
+          active[47]=0;
+          ends[47]=0;
+          tdone[47]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1668(int [] tdone, int [] ends){
+        switch(S1335){
+      case 0 : 
+        active[46]=0;
+        ends[46]=0;
+        tdone[46]=1;
+        break;
+      
+      case 1 : 
+        if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+          timer_40.setPresent();//sysj\ecs.sysj line: 105, column: 6
+          currsigs.addElement(timer_40);
+          active[46]=1;
+          ends[46]=1;
+          tdone[46]=1;
+        }
+        else {
+          active[46]=1;
+          ends[46]=1;
+          tdone[46]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1666(int [] tdone, int [] ends){
+        switch(S1210){
+      case 0 : 
+        active[45]=0;
+        ends[45]=0;
+        tdone[45]=1;
+        break;
+      
+      case 1 : 
+        if(timer_40.getprestatus()){//sysj\ecs.sysj line: 93, column: 12
+          S1210=0;
+          active[45]=0;
+          ends[45]=0;
+          tdone[45]=1;
+        }
+        else {
+          startTimer_40.setPresent();//sysj\ecs.sysj line: 94, column: 7
+          currsigs.addElement(startTimer_40);
+          active[45]=1;
+          ends[45]=1;
+          tdone[45]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1665(int [] tdone, int [] ends){
+        switch(S1204){
+      case 0 : 
+        active[44]=0;
+        ends[44]=0;
+        tdone[44]=1;
+        break;
+      
+      case 1 : 
+        if(com.systemj.Timer.getMs() - __start_thread_44 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+          ends[44]=2;
+          ;//sysj\ecs.sysj line: 86, column: 5
+          timer_40.setPresent();//sysj\ecs.sysj line: 88, column: 6
+          currsigs.addElement(timer_40);
+          S1204=0;
+          active[44]=0;
+          ends[44]=0;
+          tdone[44]=1;
+        }
+        else {
+          active[44]=1;
+          ends[44]=1;
+          tdone[44]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1663(int [] tdone, int [] ends){
+        S1210=1;
+    startTimer_40.setPresent();//sysj\ecs.sysj line: 94, column: 7
+    currsigs.addElement(startTimer_40);
+    active[45]=1;
+    ends[45]=1;
+    tdone[45]=1;
+  }
+
+  public void thread1662(int [] tdone, int [] ends){
+        S1204=1;
+    __start_thread_44 = com.systemj.Timer.getMs();//sysj\ecs.sysj line: 86, column: 5
+    if(com.systemj.Timer.getMs() - __start_thread_44 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+      ends[44]=2;
+      ;//sysj\ecs.sysj line: 86, column: 5
+      timer_40.setPresent();//sysj\ecs.sysj line: 88, column: 6
+      currsigs.addElement(timer_40);
+      S1204=0;
+      active[44]=0;
+      ends[44]=0;
+      tdone[44]=1;
+    }
+    else {
+      active[44]=1;
+      ends[44]=1;
+      tdone[44]=1;
+    }
+  }
+
+  public void thread1661(int [] tdone, int [] ends){
+        switch(S1327){
+      case 0 : 
+        active[43]=0;
+        ends[43]=0;
+        tdone[43]=1;
+        break;
+      
+      case 1 : 
+        switch(S1233){
+          case 0 : 
+            if(startTimer_40.getprestatus()){//sysj\ecs.sysj line: 84, column: 11
+              S1233=1;
+              thread1662(tdone,ends);
+              thread1663(tdone,ends);
+              int biggest1664 = 0;
+              if(ends[44]>=biggest1664){
+                biggest1664=ends[44];
+              }
+              if(ends[45]>=biggest1664){
+                biggest1664=ends[45];
+              }
+              if(biggest1664 == 1){
+                active[43]=1;
+                ends[43]=1;
+                tdone[43]=1;
+              }
+            }
+            else {
+              active[43]=1;
+              ends[43]=1;
+              tdone[43]=1;
+            }
+            break;
+          
+          case 1 : 
+            thread1665(tdone,ends);
+            thread1666(tdone,ends);
+            int biggest1667 = 0;
+            if(ends[44]>=biggest1667){
+              biggest1667=ends[44];
+            }
+            if(ends[45]>=biggest1667){
+              biggest1667=ends[45];
+            }
+            if(biggest1667 == 1){
+              active[43]=1;
+              ends[43]=1;
+              tdone[43]=1;
+            }
+            //FINXME code
+            if(biggest1667 == 0){
+              S1233=2;
+              active[43]=1;
+              ends[43]=1;
+              tdone[43]=1;
+            }
+            break;
+          
+          case 2 : 
+            S1233=2;
+            S1233=0;
+            active[43]=1;
+            ends[43]=1;
+            tdone[43]=1;
+            break;
+          
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1660(int [] tdone, int [] ends){
+        switch(S1337){
+      case 0 : 
+        active[42]=0;
+        ends[42]=0;
+        tdone[42]=1;
+        break;
+      
+      case 1 : 
+        thread1661(tdone,ends);
+        thread1668(tdone,ends);
+        int biggest1669 = 0;
+        if(ends[43]>=biggest1669){
+          biggest1669=ends[43];
+        }
+        if(ends[46]>=biggest1669){
+          biggest1669=ends[46];
+        }
+        if(biggest1669 == 1){
+          active[42]=1;
+          ends[42]=1;
+          tdone[42]=1;
+        }
+        //FINXME code
+        if(biggest1669 == 0){
+          S1337=0;
+          active[42]=0;
+          ends[42]=0;
+          tdone[42]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1659(int [] tdone, int [] ends){
+        switch(S1187){
+      case 0 : 
+        active[41]=0;
+        ends[41]=0;
+        tdone[41]=1;
+        break;
+      
+      case 1 : 
+        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+          if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+            lightLevel_thread_41 = 2;//sysj\ecs.sysj line: 46, column: 6
+            light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light3);
+            light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+            active[41]=1;
+            ends[41]=1;
+            tdone[41]=1;
+          }
+          else {
+            if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+              lightLevel_thread_41 = 2;//sysj\ecs.sysj line: 50, column: 7
+              light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light3);
+              light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+              active[41]=1;
+              ends[41]=1;
+              tdone[41]=1;
+            }
+            else {
+              if(previous_thread_41 == 2){//sysj\ecs.sysj line: 53, column: 17
+                startTimer_40.setPresent();//sysj\ecs.sysj line: 54, column: 7
+                currsigs.addElement(startTimer_40);
+                lightLevel_thread_41 = 1;//sysj\ecs.sysj line: 55, column: 7
+                light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                currsigs.addElement(light3);
+                light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+                previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+                active[41]=1;
+                ends[41]=1;
+                tdone[41]=1;
+              }
+              else {
+                if(startTimer_40.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+                  lightLevel_thread_41 = 1;//sysj\ecs.sysj line: 61, column: 8
+                  light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light3);
+                  light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+                  active[41]=1;
+                  ends[41]=1;
+                  tdone[41]=1;
+                }
+                else {
+                  lightLevel_thread_41 = 0;//sysj\ecs.sysj line: 64, column: 8
+                  light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light3);
+                  light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+                  active[41]=1;
+                  ends[41]=1;
+                  tdone[41]=1;
+                }
+              }
+            }
+          }
+        }
+        else {
+          lightLevel_thread_41 = 0;//sysj\ecs.sysj line: 70, column: 5
+          light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light3);
+          light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+          active[41]=1;
+          ends[41]=1;
+          tdone[41]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1658(int [] tdone, int [] ends){
+        switch(S1339){
+      case 0 : 
+        active[40]=0;
+        ends[40]=0;
+        tdone[40]=1;
+        break;
+      
+      case 1 : 
+        timer_40.setClear();//sysj\ecs.sysj line: 35, column: 2
+        startTimer_40.setClear();//sysj\ecs.sysj line: 36, column: 2
+        thread1659(tdone,ends);
+        thread1660(tdone,ends);
+        int biggest1670 = 0;
+        if(ends[41]>=biggest1670){
+          biggest1670=ends[41];
+        }
+        if(ends[42]>=biggest1670){
+          biggest1670=ends[42];
+        }
+        if(biggest1670 == 1){
+          active[40]=1;
+          ends[40]=1;
+          tdone[40]=1;
+        }
+        //FINXME code
+        if(biggest1670 == 0){
+          S1339=0;
+          active[40]=0;
+          ends[40]=0;
+          tdone[40]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1657(int [] tdone, int [] ends){
+        active[39]=0;
+    ends[39]=0;
+    tdone[39]=1;
+  }
+
+  public void thread1656(int [] tdone, int [] ends){
+        switch(S1341){
       case 0 : 
         active[38]=0;
         ends[38]=0;
@@ -121,17 +832,25 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(timer7_16.getprestatus()){//sysj\controller.sysj line: 519, column: 10
-          S1083=0;
-          active[38]=0;
-          ends[38]=0;
-          tdone[38]=1;
+        thread1657(tdone,ends);
+        thread1658(tdone,ends);
+        int biggest1671 = 0;
+        if(ends[39]>=biggest1671){
+          biggest1671=ends[39];
         }
-        else {
-          startTimer7_16.setPresent();//sysj\controller.sysj line: 520, column: 5
-          currsigs.addElement(startTimer7_16);
+        if(ends[40]>=biggest1671){
+          biggest1671=ends[40];
+        }
+        if(biggest1671 == 1){
           active[38]=1;
           ends[38]=1;
+          tdone[38]=1;
+        }
+        //FINXME code
+        if(biggest1671 == 0){
+          S1341=0;
+          active[38]=0;
+          ends[38]=0;
           tdone[38]=1;
         }
         break;
@@ -139,8 +858,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1322(int [] tdone, int [] ends){
-        switch(S1077){
+  public void thread1652(int [] tdone, int [] ends){
+        switch(S1133){
       case 0 : 
         active[37]=0;
         ends[37]=0;
@@ -148,14 +867,11 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(com.systemj.Timer.getMs() - __start_thread_37 >= (300) * 1000){//sysj\controller.sysj line: 512, column: 3
-          ends[37]=2;
-          ;//sysj\controller.sysj line: 512, column: 3
-          timer7_16.setPresent();//sysj\controller.sysj line: 514, column: 4
-          currsigs.addElement(timer7_16);
-          S1077=0;
-          active[37]=0;
-          ends[37]=0;
+        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+          timer_31.setPresent();//sysj\ecs.sysj line: 105, column: 6
+          currsigs.addElement(timer_31);
+          active[37]=1;
+          ends[37]=1;
           tdone[37]=1;
         }
         else {
@@ -168,53 +884,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1320(int [] tdone, int [] ends){
-        S1091=1;
-    if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 526, column: 9
-      timer7_16.setPresent();//sysj\controller.sysj line: 527, column: 6
-      currsigs.addElement(timer7_16);
-      active[39]=1;
-      ends[39]=1;
-      tdone[39]=1;
-    }
-    else {
-      active[39]=1;
-      ends[39]=1;
-      tdone[39]=1;
-    }
-  }
-
-  public void thread1319(int [] tdone, int [] ends){
-        S1083=1;
-    startTimer7_16.setPresent();//sysj\controller.sysj line: 520, column: 5
-    currsigs.addElement(startTimer7_16);
-    active[38]=1;
-    ends[38]=1;
-    tdone[38]=1;
-  }
-
-  public void thread1318(int [] tdone, int [] ends){
-        S1077=1;
-    __start_thread_37 = com.systemj.Timer.getMs();//sysj\controller.sysj line: 512, column: 3
-    if(com.systemj.Timer.getMs() - __start_thread_37 >= (300) * 1000){//sysj\controller.sysj line: 512, column: 3
-      ends[37]=2;
-      ;//sysj\controller.sysj line: 512, column: 3
-      timer7_16.setPresent();//sysj\controller.sysj line: 514, column: 4
-      currsigs.addElement(timer7_16);
-      S1077=0;
-      active[37]=0;
-      ends[37]=0;
-      tdone[37]=1;
-    }
-    else {
-      active[37]=1;
-      ends[37]=1;
-      tdone[37]=1;
-    }
-  }
-
-  public void thread1317(int [] tdone, int [] ends){
-        switch(S1123){
+  public void thread1650(int [] tdone, int [] ends){
+        switch(S1008){
       case 0 : 
         active[36]=0;
         ends[36]=0;
@@ -222,72 +893,26 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S1122){
-          case 0 : 
-            if(startTimer7_16.getprestatus()){//sysj\controller.sysj line: 510, column: 9
-              S1122=1;
-              thread1318(tdone,ends);
-              thread1319(tdone,ends);
-              thread1320(tdone,ends);
-              int biggest1321 = 0;
-              if(ends[37]>=biggest1321){
-                biggest1321=ends[37];
-              }
-              if(ends[38]>=biggest1321){
-                biggest1321=ends[38];
-              }
-              if(ends[39]>=biggest1321){
-                biggest1321=ends[39];
-              }
-              if(biggest1321 == 1){
-                active[36]=1;
-                ends[36]=1;
-                tdone[36]=1;
-              }
-            }
-            else {
-              active[36]=1;
-              ends[36]=1;
-              tdone[36]=1;
-            }
-            break;
-          
-          case 1 : 
-            thread1322(tdone,ends);
-            thread1323(tdone,ends);
-            thread1324(tdone,ends);
-            int biggest1325 = 0;
-            if(ends[37]>=biggest1325){
-              biggest1325=ends[37];
-            }
-            if(ends[38]>=biggest1325){
-              biggest1325=ends[38];
-            }
-            if(ends[39]>=biggest1325){
-              biggest1325=ends[39];
-            }
-            if(biggest1325 == 1){
-              active[36]=1;
-              ends[36]=1;
-              tdone[36]=1;
-            }
-            //FINXME code
-            if(biggest1325 == 0){
-              S1123=0;
-              active[36]=0;
-              ends[36]=0;
-              tdone[36]=1;
-            }
-            break;
-          
+        if(timer_31.getprestatus()){//sysj\ecs.sysj line: 93, column: 12
+          S1008=0;
+          active[36]=0;
+          ends[36]=0;
+          tdone[36]=1;
+        }
+        else {
+          startTimer_31.setPresent();//sysj\ecs.sysj line: 94, column: 7
+          currsigs.addElement(startTimer_31);
+          active[36]=1;
+          ends[36]=1;
+          tdone[36]=1;
         }
         break;
       
     }
   }
 
-  public void thread1316(int [] tdone, int [] ends){
-        switch(S1060){
+  public void thread1649(int [] tdone, int [] ends){
+        switch(S1002){
       case 0 : 
         active[35]=0;
         ends[35]=0;
@@ -295,72 +920,17 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 471, column: 12
-          if(fire_16.getprestatus()){//sysj\controller.sysj line: 473, column: 13
-            lightLevel_thread_35 = 2;//sysj\controller.sysj line: 474, column: 6
-            light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-            currsigs.addElement(light7);
-            light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-            previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-            active[35]=1;
-            ends[35]=1;
-            tdone[35]=1;
-          }
-          else {
-            if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 477, column: 10
-              lightLevel_thread_35 = 2;//sysj\controller.sysj line: 478, column: 7
-              light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-              currsigs.addElement(light7);
-              light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-              previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-              active[35]=1;
-              ends[35]=1;
-              tdone[35]=1;
-            }
-            else {
-              if(previous_thread_35 == 2){//sysj\controller.sysj line: 481, column: 17
-                startTimer7_16.setPresent();//sysj\controller.sysj line: 482, column: 7
-                currsigs.addElement(startTimer7_16);
-                lightLevel_thread_35 = 1;//sysj\controller.sysj line: 483, column: 7
-                light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-                currsigs.addElement(light7);
-                light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-                previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-                active[35]=1;
-                ends[35]=1;
-                tdone[35]=1;
-              }
-              else {
-                if(startTimer7_16.getprestatus()){//sysj\controller.sysj line: 487, column: 15
-                  lightLevel_thread_35 = 1;//sysj\controller.sysj line: 489, column: 8
-                  light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-                  currsigs.addElement(light7);
-                  light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-                  previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-                  active[35]=1;
-                  ends[35]=1;
-                  tdone[35]=1;
-                }
-                else {
-                  lightLevel_thread_35 = 0;//sysj\controller.sysj line: 492, column: 8
-                  light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-                  currsigs.addElement(light7);
-                  light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-                  previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-                  active[35]=1;
-                  ends[35]=1;
-                  tdone[35]=1;
-                }
-              }
-            }
-          }
+        if(com.systemj.Timer.getMs() - __start_thread_35 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+          ends[35]=2;
+          ;//sysj\ecs.sysj line: 86, column: 5
+          timer_31.setPresent();//sysj\ecs.sysj line: 88, column: 6
+          currsigs.addElement(timer_31);
+          S1002=0;
+          active[35]=0;
+          ends[35]=0;
+          tdone[35]=1;
         }
         else {
-          lightLevel_thread_35 = 0;//sysj\controller.sysj line: 498, column: 5
-          light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-          currsigs.addElement(light7);
-          light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-          previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
           active[35]=1;
           ends[35]=1;
           tdone[35]=1;
@@ -370,92 +940,37 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1314(int [] tdone, int [] ends){
-        S1123=1;
-    S1122=0;
+  public void thread1647(int [] tdone, int [] ends){
+        S1008=1;
+    startTimer_31.setPresent();//sysj\ecs.sysj line: 94, column: 7
+    currsigs.addElement(startTimer_31);
     active[36]=1;
     ends[36]=1;
     tdone[36]=1;
   }
 
-  public void thread1313(int [] tdone, int [] ends){
-        S1060=1;
-    previous_thread_35 = 0;//sysj\controller.sysj line: 467, column: 3
-    lightLevel_thread_35 = 0;//sysj\controller.sysj line: 468, column: 3
-    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 471, column: 12
-      if(fire_16.getprestatus()){//sysj\controller.sysj line: 473, column: 13
-        lightLevel_thread_35 = 2;//sysj\controller.sysj line: 474, column: 6
-        light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-        currsigs.addElement(light7);
-        light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-        previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-        active[35]=1;
-        ends[35]=1;
-        tdone[35]=1;
-      }
-      else {
-        if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 477, column: 10
-          lightLevel_thread_35 = 2;//sysj\controller.sysj line: 478, column: 7
-          light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-          currsigs.addElement(light7);
-          light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-          previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-          active[35]=1;
-          ends[35]=1;
-          tdone[35]=1;
-        }
-        else {
-          if(previous_thread_35 == 2){//sysj\controller.sysj line: 481, column: 17
-            startTimer7_16.setPresent();//sysj\controller.sysj line: 482, column: 7
-            currsigs.addElement(startTimer7_16);
-            lightLevel_thread_35 = 1;//sysj\controller.sysj line: 483, column: 7
-            light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-            currsigs.addElement(light7);
-            light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-            previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-            active[35]=1;
-            ends[35]=1;
-            tdone[35]=1;
-          }
-          else {
-            if(startTimer7_16.getprestatus()){//sysj\controller.sysj line: 487, column: 15
-              lightLevel_thread_35 = 1;//sysj\controller.sysj line: 489, column: 8
-              light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-              currsigs.addElement(light7);
-              light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-              previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-              active[35]=1;
-              ends[35]=1;
-              tdone[35]=1;
-            }
-            else {
-              lightLevel_thread_35 = 0;//sysj\controller.sysj line: 492, column: 8
-              light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-              currsigs.addElement(light7);
-              light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-              previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
-              active[35]=1;
-              ends[35]=1;
-              tdone[35]=1;
-            }
-          }
-        }
-      }
+  public void thread1646(int [] tdone, int [] ends){
+        S1002=1;
+    __start_thread_35 = com.systemj.Timer.getMs();//sysj\ecs.sysj line: 86, column: 5
+    if(com.systemj.Timer.getMs() - __start_thread_35 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+      ends[35]=2;
+      ;//sysj\ecs.sysj line: 86, column: 5
+      timer_31.setPresent();//sysj\ecs.sysj line: 88, column: 6
+      currsigs.addElement(timer_31);
+      S1002=0;
+      active[35]=0;
+      ends[35]=0;
+      tdone[35]=1;
     }
     else {
-      lightLevel_thread_35 = 0;//sysj\controller.sysj line: 498, column: 5
-      light7.setPresent();//sysj\controller.sysj line: 501, column: 4
-      currsigs.addElement(light7);
-      light7.setValue(lightLevel_thread_35);//sysj\controller.sysj line: 501, column: 4
-      previous_thread_35 = lightLevel_thread_35;//sysj\controller.sysj line: 502, column: 4
       active[35]=1;
       ends[35]=1;
       tdone[35]=1;
     }
   }
 
-  public void thread1310(int [] tdone, int [] ends){
-        switch(S877){
+  public void thread1645(int [] tdone, int [] ends){
+        switch(S1125){
       case 0 : 
         active[34]=0;
         ends[34]=0;
@@ -463,25 +978,72 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 457, column: 9
-          timer3_16.setPresent();//sysj\controller.sysj line: 458, column: 6
-          currsigs.addElement(timer3_16);
-          active[34]=1;
-          ends[34]=1;
-          tdone[34]=1;
-        }
-        else {
-          active[34]=1;
-          ends[34]=1;
-          tdone[34]=1;
+        switch(S1031){
+          case 0 : 
+            if(startTimer_31.getprestatus()){//sysj\ecs.sysj line: 84, column: 11
+              S1031=1;
+              thread1646(tdone,ends);
+              thread1647(tdone,ends);
+              int biggest1648 = 0;
+              if(ends[35]>=biggest1648){
+                biggest1648=ends[35];
+              }
+              if(ends[36]>=biggest1648){
+                biggest1648=ends[36];
+              }
+              if(biggest1648 == 1){
+                active[34]=1;
+                ends[34]=1;
+                tdone[34]=1;
+              }
+            }
+            else {
+              active[34]=1;
+              ends[34]=1;
+              tdone[34]=1;
+            }
+            break;
+          
+          case 1 : 
+            thread1649(tdone,ends);
+            thread1650(tdone,ends);
+            int biggest1651 = 0;
+            if(ends[35]>=biggest1651){
+              biggest1651=ends[35];
+            }
+            if(ends[36]>=biggest1651){
+              biggest1651=ends[36];
+            }
+            if(biggest1651 == 1){
+              active[34]=1;
+              ends[34]=1;
+              tdone[34]=1;
+            }
+            //FINXME code
+            if(biggest1651 == 0){
+              S1031=2;
+              active[34]=1;
+              ends[34]=1;
+              tdone[34]=1;
+            }
+            break;
+          
+          case 2 : 
+            S1031=2;
+            S1031=0;
+            active[34]=1;
+            ends[34]=1;
+            tdone[34]=1;
+            break;
+          
         }
         break;
       
     }
   }
 
-  public void thread1309(int [] tdone, int [] ends){
-        switch(S869){
+  public void thread1644(int [] tdone, int [] ends){
+        switch(S1135){
       case 0 : 
         active[33]=0;
         ends[33]=0;
@@ -489,17 +1051,25 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(timer1_16.getprestatus()){//sysj\controller.sysj line: 450, column: 10
-          S869=0;
-          active[33]=0;
-          ends[33]=0;
-          tdone[33]=1;
+        thread1645(tdone,ends);
+        thread1652(tdone,ends);
+        int biggest1653 = 0;
+        if(ends[34]>=biggest1653){
+          biggest1653=ends[34];
         }
-        else {
-          startTimer3_16.setPresent();//sysj\controller.sysj line: 451, column: 5
-          currsigs.addElement(startTimer3_16);
+        if(ends[37]>=biggest1653){
+          biggest1653=ends[37];
+        }
+        if(biggest1653 == 1){
           active[33]=1;
           ends[33]=1;
+          tdone[33]=1;
+        }
+        //FINXME code
+        if(biggest1653 == 0){
+          S1135=0;
+          active[33]=0;
+          ends[33]=0;
           tdone[33]=1;
         }
         break;
@@ -507,8 +1077,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1308(int [] tdone, int [] ends){
-        switch(S863){
+  public void thread1643(int [] tdone, int [] ends){
+        switch(S985){
       case 0 : 
         active[32]=0;
         ends[32]=0;
@@ -516,17 +1086,72 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(com.systemj.Timer.getMs() - __start_thread_32 >= (300) * 1000){//sysj\controller.sysj line: 443, column: 3
-          ends[32]=2;
-          ;//sysj\controller.sysj line: 443, column: 3
-          timer3_16.setPresent();//sysj\controller.sysj line: 445, column: 4
-          currsigs.addElement(timer3_16);
-          S863=0;
-          active[32]=0;
-          ends[32]=0;
-          tdone[32]=1;
+        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+          if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+            lightLevel_thread_32 = 2;//sysj\ecs.sysj line: 46, column: 6
+            light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light2);
+            light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+            active[32]=1;
+            ends[32]=1;
+            tdone[32]=1;
+          }
+          else {
+            if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+              lightLevel_thread_32 = 2;//sysj\ecs.sysj line: 50, column: 7
+              light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light2);
+              light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+              active[32]=1;
+              ends[32]=1;
+              tdone[32]=1;
+            }
+            else {
+              if(previous_thread_32 == 2){//sysj\ecs.sysj line: 53, column: 17
+                startTimer_31.setPresent();//sysj\ecs.sysj line: 54, column: 7
+                currsigs.addElement(startTimer_31);
+                lightLevel_thread_32 = 1;//sysj\ecs.sysj line: 55, column: 7
+                light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                currsigs.addElement(light2);
+                light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+                previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+                active[32]=1;
+                ends[32]=1;
+                tdone[32]=1;
+              }
+              else {
+                if(startTimer_31.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+                  lightLevel_thread_32 = 1;//sysj\ecs.sysj line: 61, column: 8
+                  light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light2);
+                  light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+                  active[32]=1;
+                  ends[32]=1;
+                  tdone[32]=1;
+                }
+                else {
+                  lightLevel_thread_32 = 0;//sysj\ecs.sysj line: 64, column: 8
+                  light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light2);
+                  light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+                  active[32]=1;
+                  ends[32]=1;
+                  tdone[32]=1;
+                }
+              }
+            }
+          }
         }
         else {
+          lightLevel_thread_32 = 0;//sysj\ecs.sysj line: 70, column: 5
+          light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light2);
+          light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
           active[32]=1;
           ends[32]=1;
           tdone[32]=1;
@@ -536,53 +1161,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1306(int [] tdone, int [] ends){
-        S877=1;
-    if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 457, column: 9
-      timer3_16.setPresent();//sysj\controller.sysj line: 458, column: 6
-      currsigs.addElement(timer3_16);
-      active[34]=1;
-      ends[34]=1;
-      tdone[34]=1;
-    }
-    else {
-      active[34]=1;
-      ends[34]=1;
-      tdone[34]=1;
-    }
-  }
-
-  public void thread1305(int [] tdone, int [] ends){
-        S869=1;
-    startTimer3_16.setPresent();//sysj\controller.sysj line: 451, column: 5
-    currsigs.addElement(startTimer3_16);
-    active[33]=1;
-    ends[33]=1;
-    tdone[33]=1;
-  }
-
-  public void thread1304(int [] tdone, int [] ends){
-        S863=1;
-    __start_thread_32 = com.systemj.Timer.getMs();//sysj\controller.sysj line: 443, column: 3
-    if(com.systemj.Timer.getMs() - __start_thread_32 >= (300) * 1000){//sysj\controller.sysj line: 443, column: 3
-      ends[32]=2;
-      ;//sysj\controller.sysj line: 443, column: 3
-      timer3_16.setPresent();//sysj\controller.sysj line: 445, column: 4
-      currsigs.addElement(timer3_16);
-      S863=0;
-      active[32]=0;
-      ends[32]=0;
-      tdone[32]=1;
-    }
-    else {
-      active[32]=1;
-      ends[32]=1;
-      tdone[32]=1;
-    }
-  }
-
-  public void thread1303(int [] tdone, int [] ends){
-        switch(S909){
+  public void thread1642(int [] tdone, int [] ends){
+        switch(S1137){
       case 0 : 
         active[31]=0;
         ends[31]=0;
@@ -590,240 +1170,42 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S908){
-          case 0 : 
-            if(startTimer3_16.getprestatus()){//sysj\controller.sysj line: 441, column: 9
-              S908=1;
-              thread1304(tdone,ends);
-              thread1305(tdone,ends);
-              thread1306(tdone,ends);
-              int biggest1307 = 0;
-              if(ends[32]>=biggest1307){
-                biggest1307=ends[32];
-              }
-              if(ends[33]>=biggest1307){
-                biggest1307=ends[33];
-              }
-              if(ends[34]>=biggest1307){
-                biggest1307=ends[34];
-              }
-              if(biggest1307 == 1){
-                active[31]=1;
-                ends[31]=1;
-                tdone[31]=1;
-              }
-            }
-            else {
-              active[31]=1;
-              ends[31]=1;
-              tdone[31]=1;
-            }
-            break;
-          
-          case 1 : 
-            thread1308(tdone,ends);
-            thread1309(tdone,ends);
-            thread1310(tdone,ends);
-            int biggest1311 = 0;
-            if(ends[32]>=biggest1311){
-              biggest1311=ends[32];
-            }
-            if(ends[33]>=biggest1311){
-              biggest1311=ends[33];
-            }
-            if(ends[34]>=biggest1311){
-              biggest1311=ends[34];
-            }
-            if(biggest1311 == 1){
-              active[31]=1;
-              ends[31]=1;
-              tdone[31]=1;
-            }
-            //FINXME code
-            if(biggest1311 == 0){
-              S909=0;
-              active[31]=0;
-              ends[31]=0;
-              tdone[31]=1;
-            }
-            break;
-          
+        timer_31.setClear();//sysj\ecs.sysj line: 35, column: 2
+        startTimer_31.setClear();//sysj\ecs.sysj line: 36, column: 2
+        thread1643(tdone,ends);
+        thread1644(tdone,ends);
+        int biggest1654 = 0;
+        if(ends[32]>=biggest1654){
+          biggest1654=ends[32];
+        }
+        if(ends[33]>=biggest1654){
+          biggest1654=ends[33];
+        }
+        if(biggest1654 == 1){
+          active[31]=1;
+          ends[31]=1;
+          tdone[31]=1;
+        }
+        //FINXME code
+        if(biggest1654 == 0){
+          S1137=0;
+          active[31]=0;
+          ends[31]=0;
+          tdone[31]=1;
         }
         break;
       
     }
   }
 
-  public void thread1302(int [] tdone, int [] ends){
-        switch(S846){
-      case 0 : 
+  public void thread1641(int [] tdone, int [] ends){
         active[30]=0;
-        ends[30]=0;
-        tdone[30]=1;
-        break;
-      
-      case 1 : 
-        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 402, column: 12
-          if(fire_16.getprestatus()){//sysj\controller.sysj line: 404, column: 13
-            lightLevel_thread_30 = 2;//sysj\controller.sysj line: 405, column: 6
-            light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-            currsigs.addElement(light3);
-            light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-            previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-            active[30]=1;
-            ends[30]=1;
-            tdone[30]=1;
-          }
-          else {
-            if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 408, column: 10
-              lightLevel_thread_30 = 2;//sysj\controller.sysj line: 409, column: 7
-              light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-              currsigs.addElement(light3);
-              light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-              previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-              active[30]=1;
-              ends[30]=1;
-              tdone[30]=1;
-            }
-            else {
-              if(previous_thread_30 == 2){//sysj\controller.sysj line: 412, column: 17
-                startTimer3_16.setPresent();//sysj\controller.sysj line: 413, column: 7
-                currsigs.addElement(startTimer3_16);
-                lightLevel_thread_30 = 1;//sysj\controller.sysj line: 414, column: 7
-                light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-                currsigs.addElement(light3);
-                light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-                previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-                active[30]=1;
-                ends[30]=1;
-                tdone[30]=1;
-              }
-              else {
-                if(startTimer3_16.getprestatus()){//sysj\controller.sysj line: 418, column: 15
-                  lightLevel_thread_30 = 1;//sysj\controller.sysj line: 420, column: 8
-                  light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-                  currsigs.addElement(light3);
-                  light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-                  previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-                  active[30]=1;
-                  ends[30]=1;
-                  tdone[30]=1;
-                }
-                else {
-                  lightLevel_thread_30 = 0;//sysj\controller.sysj line: 423, column: 8
-                  light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-                  currsigs.addElement(light3);
-                  light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-                  previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-                  active[30]=1;
-                  ends[30]=1;
-                  tdone[30]=1;
-                }
-              }
-            }
-          }
-        }
-        else {
-          lightLevel_thread_30 = 0;//sysj\controller.sysj line: 429, column: 5
-          light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-          currsigs.addElement(light3);
-          light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-          previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-          active[30]=1;
-          ends[30]=1;
-          tdone[30]=1;
-        }
-        break;
-      
-    }
+    ends[30]=0;
+    tdone[30]=1;
   }
 
-  public void thread1300(int [] tdone, int [] ends){
-        S909=1;
-    S908=0;
-    active[31]=1;
-    ends[31]=1;
-    tdone[31]=1;
-  }
-
-  public void thread1299(int [] tdone, int [] ends){
-        S846=1;
-    previous_thread_30 = 0;//sysj\controller.sysj line: 398, column: 3
-    lightLevel_thread_30 = 0;//sysj\controller.sysj line: 399, column: 3
-    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 402, column: 12
-      if(fire_16.getprestatus()){//sysj\controller.sysj line: 404, column: 13
-        lightLevel_thread_30 = 2;//sysj\controller.sysj line: 405, column: 6
-        light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-        currsigs.addElement(light3);
-        light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-        previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-        active[30]=1;
-        ends[30]=1;
-        tdone[30]=1;
-      }
-      else {
-        if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 408, column: 10
-          lightLevel_thread_30 = 2;//sysj\controller.sysj line: 409, column: 7
-          light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-          currsigs.addElement(light3);
-          light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-          previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-          active[30]=1;
-          ends[30]=1;
-          tdone[30]=1;
-        }
-        else {
-          if(previous_thread_30 == 2){//sysj\controller.sysj line: 412, column: 17
-            startTimer3_16.setPresent();//sysj\controller.sysj line: 413, column: 7
-            currsigs.addElement(startTimer3_16);
-            lightLevel_thread_30 = 1;//sysj\controller.sysj line: 414, column: 7
-            light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-            currsigs.addElement(light3);
-            light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-            previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-            active[30]=1;
-            ends[30]=1;
-            tdone[30]=1;
-          }
-          else {
-            if(startTimer3_16.getprestatus()){//sysj\controller.sysj line: 418, column: 15
-              lightLevel_thread_30 = 1;//sysj\controller.sysj line: 420, column: 8
-              light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-              currsigs.addElement(light3);
-              light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-              previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-              active[30]=1;
-              ends[30]=1;
-              tdone[30]=1;
-            }
-            else {
-              lightLevel_thread_30 = 0;//sysj\controller.sysj line: 423, column: 8
-              light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-              currsigs.addElement(light3);
-              light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-              previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-              active[30]=1;
-              ends[30]=1;
-              tdone[30]=1;
-            }
-          }
-        }
-      }
-    }
-    else {
-      lightLevel_thread_30 = 0;//sysj\controller.sysj line: 429, column: 5
-      light3.setPresent();//sysj\controller.sysj line: 432, column: 4
-      currsigs.addElement(light3);
-      light3.setValue(lightLevel_thread_30);//sysj\controller.sysj line: 432, column: 4
-      previous_thread_30 = lightLevel_thread_30;//sysj\controller.sysj line: 433, column: 4
-      active[30]=1;
-      ends[30]=1;
-      tdone[30]=1;
-    }
-  }
-
-  public void thread1296(int [] tdone, int [] ends){
-        switch(S663){
+  public void thread1640(int [] tdone, int [] ends){
+        switch(S1139){
       case 0 : 
         active[29]=0;
         ends[29]=0;
@@ -831,16 +1213,25 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 388, column: 9
-          timer7_16.setPresent();//sysj\controller.sysj line: 389, column: 6
-          currsigs.addElement(timer7_16);
+        thread1641(tdone,ends);
+        thread1642(tdone,ends);
+        int biggest1655 = 0;
+        if(ends[30]>=biggest1655){
+          biggest1655=ends[30];
+        }
+        if(ends[31]>=biggest1655){
+          biggest1655=ends[31];
+        }
+        if(biggest1655 == 1){
           active[29]=1;
           ends[29]=1;
           tdone[29]=1;
         }
-        else {
-          active[29]=1;
-          ends[29]=1;
+        //FINXME code
+        if(biggest1655 == 0){
+          S1139=0;
+          active[29]=0;
+          ends[29]=0;
           tdone[29]=1;
         }
         break;
@@ -848,8 +1239,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1295(int [] tdone, int [] ends){
-        switch(S655){
+  public void thread1636(int [] tdone, int [] ends){
+        switch(S931){
       case 0 : 
         active[28]=0;
         ends[28]=0;
@@ -857,15 +1248,14 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(timer2_16.getprestatus()){//sysj\controller.sysj line: 381, column: 10
-          S655=0;
-          active[28]=0;
-          ends[28]=0;
+        if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+          timer_22.setPresent();//sysj\ecs.sysj line: 105, column: 6
+          currsigs.addElement(timer_22);
+          active[28]=1;
+          ends[28]=1;
           tdone[28]=1;
         }
         else {
-          startTimer2_16.setPresent();//sysj\controller.sysj line: 382, column: 5
-          currsigs.addElement(startTimer2_16);
           active[28]=1;
           ends[28]=1;
           tdone[28]=1;
@@ -875,8 +1265,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1294(int [] tdone, int [] ends){
-        switch(S649){
+  public void thread1634(int [] tdone, int [] ends){
+        switch(S806){
       case 0 : 
         active[27]=0;
         ends[27]=0;
@@ -884,17 +1274,15 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(com.systemj.Timer.getMs() - __start_thread_27 >= (300) * 1000){//sysj\controller.sysj line: 374, column: 3
-          ends[27]=2;
-          ;//sysj\controller.sysj line: 374, column: 3
-          timer2_16.setPresent();//sysj\controller.sysj line: 376, column: 4
-          currsigs.addElement(timer2_16);
-          S649=0;
+        if(timer_22.getprestatus()){//sysj\ecs.sysj line: 93, column: 12
+          S806=0;
           active[27]=0;
           ends[27]=0;
           tdone[27]=1;
         }
         else {
+          startTimer_22.setPresent();//sysj\ecs.sysj line: 94, column: 7
+          currsigs.addElement(startTimer_22);
           active[27]=1;
           ends[27]=1;
           tdone[27]=1;
@@ -904,53 +1292,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1292(int [] tdone, int [] ends){
-        S663=1;
-    if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 388, column: 9
-      timer7_16.setPresent();//sysj\controller.sysj line: 389, column: 6
-      currsigs.addElement(timer7_16);
-      active[29]=1;
-      ends[29]=1;
-      tdone[29]=1;
-    }
-    else {
-      active[29]=1;
-      ends[29]=1;
-      tdone[29]=1;
-    }
-  }
-
-  public void thread1291(int [] tdone, int [] ends){
-        S655=1;
-    startTimer2_16.setPresent();//sysj\controller.sysj line: 382, column: 5
-    currsigs.addElement(startTimer2_16);
-    active[28]=1;
-    ends[28]=1;
-    tdone[28]=1;
-  }
-
-  public void thread1290(int [] tdone, int [] ends){
-        S649=1;
-    __start_thread_27 = com.systemj.Timer.getMs();//sysj\controller.sysj line: 374, column: 3
-    if(com.systemj.Timer.getMs() - __start_thread_27 >= (300) * 1000){//sysj\controller.sysj line: 374, column: 3
-      ends[27]=2;
-      ;//sysj\controller.sysj line: 374, column: 3
-      timer2_16.setPresent();//sysj\controller.sysj line: 376, column: 4
-      currsigs.addElement(timer2_16);
-      S649=0;
-      active[27]=0;
-      ends[27]=0;
-      tdone[27]=1;
-    }
-    else {
-      active[27]=1;
-      ends[27]=1;
-      tdone[27]=1;
-    }
-  }
-
-  public void thread1289(int [] tdone, int [] ends){
-        switch(S695){
+  public void thread1633(int [] tdone, int [] ends){
+        switch(S800){
       case 0 : 
         active[26]=0;
         ends[26]=0;
@@ -958,72 +1301,57 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S694){
-          case 0 : 
-            if(startTimer2_16.getprestatus()){//sysj\controller.sysj line: 372, column: 9
-              S694=1;
-              thread1290(tdone,ends);
-              thread1291(tdone,ends);
-              thread1292(tdone,ends);
-              int biggest1293 = 0;
-              if(ends[27]>=biggest1293){
-                biggest1293=ends[27];
-              }
-              if(ends[28]>=biggest1293){
-                biggest1293=ends[28];
-              }
-              if(ends[29]>=biggest1293){
-                biggest1293=ends[29];
-              }
-              if(biggest1293 == 1){
-                active[26]=1;
-                ends[26]=1;
-                tdone[26]=1;
-              }
-            }
-            else {
-              active[26]=1;
-              ends[26]=1;
-              tdone[26]=1;
-            }
-            break;
-          
-          case 1 : 
-            thread1294(tdone,ends);
-            thread1295(tdone,ends);
-            thread1296(tdone,ends);
-            int biggest1297 = 0;
-            if(ends[27]>=biggest1297){
-              biggest1297=ends[27];
-            }
-            if(ends[28]>=biggest1297){
-              biggest1297=ends[28];
-            }
-            if(ends[29]>=biggest1297){
-              biggest1297=ends[29];
-            }
-            if(biggest1297 == 1){
-              active[26]=1;
-              ends[26]=1;
-              tdone[26]=1;
-            }
-            //FINXME code
-            if(biggest1297 == 0){
-              S695=0;
-              active[26]=0;
-              ends[26]=0;
-              tdone[26]=1;
-            }
-            break;
-          
+        if(com.systemj.Timer.getMs() - __start_thread_26 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+          ends[26]=2;
+          ;//sysj\ecs.sysj line: 86, column: 5
+          timer_22.setPresent();//sysj\ecs.sysj line: 88, column: 6
+          currsigs.addElement(timer_22);
+          S800=0;
+          active[26]=0;
+          ends[26]=0;
+          tdone[26]=1;
+        }
+        else {
+          active[26]=1;
+          ends[26]=1;
+          tdone[26]=1;
         }
         break;
       
     }
   }
 
-  public void thread1288(int [] tdone, int [] ends){
-        switch(S632){
+  public void thread1631(int [] tdone, int [] ends){
+        S806=1;
+    startTimer_22.setPresent();//sysj\ecs.sysj line: 94, column: 7
+    currsigs.addElement(startTimer_22);
+    active[27]=1;
+    ends[27]=1;
+    tdone[27]=1;
+  }
+
+  public void thread1630(int [] tdone, int [] ends){
+        S800=1;
+    __start_thread_26 = com.systemj.Timer.getMs();//sysj\ecs.sysj line: 86, column: 5
+    if(com.systemj.Timer.getMs() - __start_thread_26 >= (5) * 1000){//sysj\ecs.sysj line: 86, column: 5
+      ends[26]=2;
+      ;//sysj\ecs.sysj line: 86, column: 5
+      timer_22.setPresent();//sysj\ecs.sysj line: 88, column: 6
+      currsigs.addElement(timer_22);
+      S800=0;
+      active[26]=0;
+      ends[26]=0;
+      tdone[26]=1;
+    }
+    else {
+      active[26]=1;
+      ends[26]=1;
+      tdone[26]=1;
+    }
+  }
+
+  public void thread1629(int [] tdone, int [] ends){
+        switch(S923){
       case 0 : 
         active[25]=0;
         ends[25]=0;
@@ -1031,167 +1359,72 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 333, column: 12
-          if(fire_16.getprestatus()){//sysj\controller.sysj line: 335, column: 13
-            lightLevel_thread_25 = 2;//sysj\controller.sysj line: 336, column: 6
-            light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-            currsigs.addElement(light2);
-            light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-            previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-            active[25]=1;
-            ends[25]=1;
-            tdone[25]=1;
-          }
-          else {
-            if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 339, column: 10
-              lightLevel_thread_25 = 2;//sysj\controller.sysj line: 340, column: 7
-              light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-              currsigs.addElement(light2);
-              light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-              previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-              active[25]=1;
-              ends[25]=1;
-              tdone[25]=1;
-            }
-            else {
-              if(previous_thread_25 == 2){//sysj\controller.sysj line: 343, column: 17
-                startTimer2_16.setPresent();//sysj\controller.sysj line: 344, column: 7
-                currsigs.addElement(startTimer2_16);
-                lightLevel_thread_25 = 1;//sysj\controller.sysj line: 345, column: 7
-                light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-                currsigs.addElement(light2);
-                light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-                previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
+        switch(S829){
+          case 0 : 
+            if(startTimer_22.getprestatus()){//sysj\ecs.sysj line: 84, column: 11
+              S829=1;
+              thread1630(tdone,ends);
+              thread1631(tdone,ends);
+              int biggest1632 = 0;
+              if(ends[26]>=biggest1632){
+                biggest1632=ends[26];
+              }
+              if(ends[27]>=biggest1632){
+                biggest1632=ends[27];
+              }
+              if(biggest1632 == 1){
                 active[25]=1;
                 ends[25]=1;
                 tdone[25]=1;
               }
-              else {
-                if(startTimer2_16.getprestatus()){//sysj\controller.sysj line: 349, column: 15
-                  lightLevel_thread_25 = 1;//sysj\controller.sysj line: 351, column: 8
-                  light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-                  currsigs.addElement(light2);
-                  light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-                  previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-                  active[25]=1;
-                  ends[25]=1;
-                  tdone[25]=1;
-                }
-                else {
-                  lightLevel_thread_25 = 0;//sysj\controller.sysj line: 354, column: 8
-                  light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-                  currsigs.addElement(light2);
-                  light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-                  previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-                  active[25]=1;
-                  ends[25]=1;
-                  tdone[25]=1;
-                }
-              }
             }
-          }
-        }
-        else {
-          lightLevel_thread_25 = 0;//sysj\controller.sysj line: 360, column: 5
-          light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-          currsigs.addElement(light2);
-          light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-          previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-          active[25]=1;
-          ends[25]=1;
-          tdone[25]=1;
+            else {
+              active[25]=1;
+              ends[25]=1;
+              tdone[25]=1;
+            }
+            break;
+          
+          case 1 : 
+            thread1633(tdone,ends);
+            thread1634(tdone,ends);
+            int biggest1635 = 0;
+            if(ends[26]>=biggest1635){
+              biggest1635=ends[26];
+            }
+            if(ends[27]>=biggest1635){
+              biggest1635=ends[27];
+            }
+            if(biggest1635 == 1){
+              active[25]=1;
+              ends[25]=1;
+              tdone[25]=1;
+            }
+            //FINXME code
+            if(biggest1635 == 0){
+              S829=2;
+              active[25]=1;
+              ends[25]=1;
+              tdone[25]=1;
+            }
+            break;
+          
+          case 2 : 
+            S829=2;
+            S829=0;
+            active[25]=1;
+            ends[25]=1;
+            tdone[25]=1;
+            break;
+          
         }
         break;
       
     }
   }
 
-  public void thread1286(int [] tdone, int [] ends){
-        S695=1;
-    S694=0;
-    active[26]=1;
-    ends[26]=1;
-    tdone[26]=1;
-  }
-
-  public void thread1285(int [] tdone, int [] ends){
-        S632=1;
-    previous_thread_25 = 0;//sysj\controller.sysj line: 329, column: 3
-    lightLevel_thread_25 = 0;//sysj\controller.sysj line: 330, column: 3
-    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 333, column: 12
-      if(fire_16.getprestatus()){//sysj\controller.sysj line: 335, column: 13
-        lightLevel_thread_25 = 2;//sysj\controller.sysj line: 336, column: 6
-        light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-        currsigs.addElement(light2);
-        light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-        previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-        active[25]=1;
-        ends[25]=1;
-        tdone[25]=1;
-      }
-      else {
-        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 339, column: 10
-          lightLevel_thread_25 = 2;//sysj\controller.sysj line: 340, column: 7
-          light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-          currsigs.addElement(light2);
-          light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-          previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-          active[25]=1;
-          ends[25]=1;
-          tdone[25]=1;
-        }
-        else {
-          if(previous_thread_25 == 2){//sysj\controller.sysj line: 343, column: 17
-            startTimer2_16.setPresent();//sysj\controller.sysj line: 344, column: 7
-            currsigs.addElement(startTimer2_16);
-            lightLevel_thread_25 = 1;//sysj\controller.sysj line: 345, column: 7
-            light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-            currsigs.addElement(light2);
-            light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-            previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-            active[25]=1;
-            ends[25]=1;
-            tdone[25]=1;
-          }
-          else {
-            if(startTimer2_16.getprestatus()){//sysj\controller.sysj line: 349, column: 15
-              lightLevel_thread_25 = 1;//sysj\controller.sysj line: 351, column: 8
-              light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-              currsigs.addElement(light2);
-              light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-              previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-              active[25]=1;
-              ends[25]=1;
-              tdone[25]=1;
-            }
-            else {
-              lightLevel_thread_25 = 0;//sysj\controller.sysj line: 354, column: 8
-              light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-              currsigs.addElement(light2);
-              light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-              previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-              active[25]=1;
-              ends[25]=1;
-              tdone[25]=1;
-            }
-          }
-        }
-      }
-    }
-    else {
-      lightLevel_thread_25 = 0;//sysj\controller.sysj line: 360, column: 5
-      light2.setPresent();//sysj\controller.sysj line: 363, column: 4
-      currsigs.addElement(light2);
-      light2.setValue(lightLevel_thread_25);//sysj\controller.sysj line: 363, column: 4
-      previous_thread_25 = lightLevel_thread_25;//sysj\controller.sysj line: 364, column: 4
-      active[25]=1;
-      ends[25]=1;
-      tdone[25]=1;
-    }
-  }
-
-  public void thread1282(int [] tdone, int [] ends){
-        switch(S448){
+  public void thread1628(int [] tdone, int [] ends){
+        switch(S933){
       case 0 : 
         active[24]=0;
         ends[24]=0;
@@ -1199,38 +1432,34 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S447){
-          case 0 : 
-            if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 317, column: 9
-              timer1_16.setPresent();//sysj\controller.sysj line: 318, column: 6
-              currsigs.addElement(timer1_16);
-              active[24]=1;
-              ends[24]=1;
-              tdone[24]=1;
-            }
-            else {
-              active[24]=1;
-              ends[24]=1;
-              tdone[24]=1;
-            }
-            break;
-          
-          case 1 : 
-            S447=1;
-            S448=0;
-            active[24]=0;
-            ends[24]=0;
-            tdone[24]=1;
-            break;
-          
+        thread1629(tdone,ends);
+        thread1636(tdone,ends);
+        int biggest1637 = 0;
+        if(ends[25]>=biggest1637){
+          biggest1637=ends[25];
+        }
+        if(ends[28]>=biggest1637){
+          biggest1637=ends[28];
+        }
+        if(biggest1637 == 1){
+          active[24]=1;
+          ends[24]=1;
+          tdone[24]=1;
+        }
+        //FINXME code
+        if(biggest1637 == 0){
+          S933=0;
+          active[24]=0;
+          ends[24]=0;
+          tdone[24]=1;
         }
         break;
       
     }
   }
 
-  public void thread1281(int [] tdone, int [] ends){
-        switch(S440){
+  public void thread1627(int [] tdone, int [] ends){
+        switch(S783){
       case 0 : 
         active[23]=0;
         ends[23]=0;
@@ -1238,15 +1467,72 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(timer1_16.getprestatus()){//sysj\controller.sysj line: 310, column: 10
-          S440=0;
-          active[23]=0;
-          ends[23]=0;
-          tdone[23]=1;
+        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+          if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+            lightLevel_thread_23 = 2;//sysj\ecs.sysj line: 46, column: 6
+            light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light1);
+            light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+            active[23]=1;
+            ends[23]=1;
+            tdone[23]=1;
+          }
+          else {
+            if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+              lightLevel_thread_23 = 2;//sysj\ecs.sysj line: 50, column: 7
+              light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light1);
+              light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+              active[23]=1;
+              ends[23]=1;
+              tdone[23]=1;
+            }
+            else {
+              if(previous_thread_23 == 2){//sysj\ecs.sysj line: 53, column: 17
+                startTimer_22.setPresent();//sysj\ecs.sysj line: 54, column: 7
+                currsigs.addElement(startTimer_22);
+                lightLevel_thread_23 = 1;//sysj\ecs.sysj line: 55, column: 7
+                light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                currsigs.addElement(light1);
+                light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+                previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+                active[23]=1;
+                ends[23]=1;
+                tdone[23]=1;
+              }
+              else {
+                if(startTimer_22.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+                  lightLevel_thread_23 = 1;//sysj\ecs.sysj line: 61, column: 8
+                  light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light1);
+                  light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+                  active[23]=1;
+                  ends[23]=1;
+                  tdone[23]=1;
+                }
+                else {
+                  lightLevel_thread_23 = 0;//sysj\ecs.sysj line: 64, column: 8
+                  light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+                  currsigs.addElement(light1);
+                  light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+                  previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+                  active[23]=1;
+                  ends[23]=1;
+                  tdone[23]=1;
+                }
+              }
+            }
+          }
         }
         else {
-          startTimer1_16.setPresent();//sysj\controller.sysj line: 311, column: 5
-          currsigs.addElement(startTimer1_16);
+          lightLevel_thread_23 = 0;//sysj\ecs.sysj line: 70, column: 5
+          light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light1);
+          light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
           active[23]=1;
           ends[23]=1;
           tdone[23]=1;
@@ -1256,8 +1542,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1280(int [] tdone, int [] ends){
-        switch(S434){
+  public void thread1626(int [] tdone, int [] ends){
+        switch(S935){
       case 0 : 
         active[22]=0;
         ends[22]=0;
@@ -1265,147 +1551,42 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(com.systemj.Timer.getMs() - __start_thread_22 >= (300) * 1000){//sysj\controller.sysj line: 303, column: 3
-          ends[22]=2;
-          ;//sysj\controller.sysj line: 303, column: 3
-          timer1_16.setPresent();//sysj\controller.sysj line: 305, column: 4
-          currsigs.addElement(timer1_16);
-          S434=0;
-          active[22]=0;
-          ends[22]=0;
-          tdone[22]=1;
+        timer_22.setClear();//sysj\ecs.sysj line: 35, column: 2
+        startTimer_22.setClear();//sysj\ecs.sysj line: 36, column: 2
+        thread1627(tdone,ends);
+        thread1628(tdone,ends);
+        int biggest1638 = 0;
+        if(ends[23]>=biggest1638){
+          biggest1638=ends[23];
         }
-        else {
+        if(ends[24]>=biggest1638){
+          biggest1638=ends[24];
+        }
+        if(biggest1638 == 1){
           active[22]=1;
           ends[22]=1;
           tdone[22]=1;
         }
-        break;
-      
-    }
-  }
-
-  public void thread1278(int [] tdone, int [] ends){
-        S448=1;
-    S447=0;
-    if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 317, column: 9
-      timer1_16.setPresent();//sysj\controller.sysj line: 318, column: 6
-      currsigs.addElement(timer1_16);
-      active[24]=1;
-      ends[24]=1;
-      tdone[24]=1;
-    }
-    else {
-      active[24]=1;
-      ends[24]=1;
-      tdone[24]=1;
-    }
-  }
-
-  public void thread1277(int [] tdone, int [] ends){
-        S440=1;
-    startTimer1_16.setPresent();//sysj\controller.sysj line: 311, column: 5
-    currsigs.addElement(startTimer1_16);
-    active[23]=1;
-    ends[23]=1;
-    tdone[23]=1;
-  }
-
-  public void thread1276(int [] tdone, int [] ends){
-        S434=1;
-    __start_thread_22 = com.systemj.Timer.getMs();//sysj\controller.sysj line: 303, column: 3
-    if(com.systemj.Timer.getMs() - __start_thread_22 >= (300) * 1000){//sysj\controller.sysj line: 303, column: 3
-      ends[22]=2;
-      ;//sysj\controller.sysj line: 303, column: 3
-      timer1_16.setPresent();//sysj\controller.sysj line: 305, column: 4
-      currsigs.addElement(timer1_16);
-      S434=0;
-      active[22]=0;
-      ends[22]=0;
-      tdone[22]=1;
-    }
-    else {
-      active[22]=1;
-      ends[22]=1;
-      tdone[22]=1;
-    }
-  }
-
-  public void thread1275(int [] tdone, int [] ends){
-        switch(S480){
-      case 0 : 
-        active[21]=0;
-        ends[21]=0;
-        tdone[21]=1;
-        break;
-      
-      case 1 : 
-        switch(S479){
-          case 0 : 
-            if(startTimer1_16.getprestatus()){//sysj\controller.sysj line: 301, column: 9
-              S479=1;
-              thread1276(tdone,ends);
-              thread1277(tdone,ends);
-              thread1278(tdone,ends);
-              int biggest1279 = 0;
-              if(ends[22]>=biggest1279){
-                biggest1279=ends[22];
-              }
-              if(ends[23]>=biggest1279){
-                biggest1279=ends[23];
-              }
-              if(ends[24]>=biggest1279){
-                biggest1279=ends[24];
-              }
-              if(biggest1279 == 1){
-                active[21]=1;
-                ends[21]=1;
-                tdone[21]=1;
-              }
-            }
-            else {
-              active[21]=1;
-              ends[21]=1;
-              tdone[21]=1;
-            }
-            break;
-          
-          case 1 : 
-            thread1280(tdone,ends);
-            thread1281(tdone,ends);
-            thread1282(tdone,ends);
-            int biggest1283 = 0;
-            if(ends[22]>=biggest1283){
-              biggest1283=ends[22];
-            }
-            if(ends[23]>=biggest1283){
-              biggest1283=ends[23];
-            }
-            if(ends[24]>=biggest1283){
-              biggest1283=ends[24];
-            }
-            if(biggest1283 == 1){
-              active[21]=1;
-              ends[21]=1;
-              tdone[21]=1;
-            }
-            //FINXME code
-            if(biggest1283 == 0){
-              S480=0;
-              active[21]=0;
-              ends[21]=0;
-              tdone[21]=1;
-            }
-            break;
-          
+        //FINXME code
+        if(biggest1638 == 0){
+          S935=0;
+          active[22]=0;
+          ends[22]=0;
+          tdone[22]=1;
         }
         break;
       
     }
   }
 
-  public void thread1274(int [] tdone, int [] ends){
-        switch(S417){
+  public void thread1625(int [] tdone, int [] ends){
+        active[21]=0;
+    ends[21]=0;
+    tdone[21]=1;
+  }
+
+  public void thread1624(int [] tdone, int [] ends){
+        switch(S937){
       case 0 : 
         active[20]=0;
         ends[20]=0;
@@ -1413,74 +1594,25 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 262, column: 12
-          if(fire_16.getprestatus()){//sysj\controller.sysj line: 264, column: 13
-            lightLevel_thread_20 = 2;//sysj\controller.sysj line: 265, column: 6
-            light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-            currsigs.addElement(light1);
-            light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-            previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-            active[20]=1;
-            ends[20]=1;
-            tdone[20]=1;
-          }
-          else {
-            if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 268, column: 10
-              lightLevel_thread_20 = 2;//sysj\controller.sysj line: 269, column: 7
-              light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-              currsigs.addElement(light1);
-              light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-              previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-              active[20]=1;
-              ends[20]=1;
-              tdone[20]=1;
-            }
-            else {
-              if(previous_thread_20 == 2){//sysj\controller.sysj line: 272, column: 17
-                startTimer1_16.setPresent();//sysj\controller.sysj line: 273, column: 7
-                currsigs.addElement(startTimer1_16);
-                lightLevel_thread_20 = 1;//sysj\controller.sysj line: 274, column: 7
-                light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-                currsigs.addElement(light1);
-                light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-                previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-                active[20]=1;
-                ends[20]=1;
-                tdone[20]=1;
-              }
-              else {
-                if(startTimer1_16.getprestatus()){//sysj\controller.sysj line: 278, column: 15
-                  lightLevel_thread_20 = 1;//sysj\controller.sysj line: 280, column: 8
-                  light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-                  currsigs.addElement(light1);
-                  light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-                  previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-                  active[20]=1;
-                  ends[20]=1;
-                  tdone[20]=1;
-                }
-                else {
-                  lightLevel_thread_20 = 0;//sysj\controller.sysj line: 283, column: 8
-                  light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-                  currsigs.addElement(light1);
-                  light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-                  previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-                  active[20]=1;
-                  ends[20]=1;
-                  tdone[20]=1;
-                }
-              }
-            }
-          }
+        thread1625(tdone,ends);
+        thread1626(tdone,ends);
+        int biggest1639 = 0;
+        if(ends[21]>=biggest1639){
+          biggest1639=ends[21];
         }
-        else {
-          lightLevel_thread_20 = 0;//sysj\controller.sysj line: 289, column: 5
-          light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-          currsigs.addElement(light1);
-          light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-          previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
+        if(ends[22]>=biggest1639){
+          biggest1639=ends[22];
+        }
+        if(biggest1639 == 1){
           active[20]=1;
           ends[20]=1;
+          tdone[20]=1;
+        }
+        //FINXME code
+        if(biggest1639 == 0){
+          S937=0;
+          active[20]=0;
+          ends[20]=0;
           tdone[20]=1;
         }
         break;
@@ -1488,92 +1620,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1272(int [] tdone, int [] ends){
-        S480=1;
-    S479=0;
-    active[21]=1;
-    ends[21]=1;
-    tdone[21]=1;
-  }
-
-  public void thread1271(int [] tdone, int [] ends){
-        S417=1;
-    previous_thread_20 = 0;//sysj\controller.sysj line: 258, column: 3
-    lightLevel_thread_20 = 0;//sysj\controller.sysj line: 259, column: 3
-    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 262, column: 12
-      if(fire_16.getprestatus()){//sysj\controller.sysj line: 264, column: 13
-        lightLevel_thread_20 = 2;//sysj\controller.sysj line: 265, column: 6
-        light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-        currsigs.addElement(light1);
-        light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-        previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-        active[20]=1;
-        ends[20]=1;
-        tdone[20]=1;
-      }
-      else {
-        if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 268, column: 10
-          lightLevel_thread_20 = 2;//sysj\controller.sysj line: 269, column: 7
-          light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-          currsigs.addElement(light1);
-          light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-          previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-          active[20]=1;
-          ends[20]=1;
-          tdone[20]=1;
-        }
-        else {
-          if(previous_thread_20 == 2){//sysj\controller.sysj line: 272, column: 17
-            startTimer1_16.setPresent();//sysj\controller.sysj line: 273, column: 7
-            currsigs.addElement(startTimer1_16);
-            lightLevel_thread_20 = 1;//sysj\controller.sysj line: 274, column: 7
-            light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-            currsigs.addElement(light1);
-            light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-            previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-            active[20]=1;
-            ends[20]=1;
-            tdone[20]=1;
-          }
-          else {
-            if(startTimer1_16.getprestatus()){//sysj\controller.sysj line: 278, column: 15
-              lightLevel_thread_20 = 1;//sysj\controller.sysj line: 280, column: 8
-              light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-              currsigs.addElement(light1);
-              light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-              previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-              active[20]=1;
-              ends[20]=1;
-              tdone[20]=1;
-            }
-            else {
-              lightLevel_thread_20 = 0;//sysj\controller.sysj line: 283, column: 8
-              light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-              currsigs.addElement(light1);
-              light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-              previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-              active[20]=1;
-              ends[20]=1;
-              tdone[20]=1;
-            }
-          }
-        }
-      }
-    }
-    else {
-      lightLevel_thread_20 = 0;//sysj\controller.sysj line: 289, column: 5
-      light1.setPresent();//sysj\controller.sysj line: 292, column: 4
-      currsigs.addElement(light1);
-      light1.setValue(lightLevel_thread_20);//sysj\controller.sysj line: 292, column: 4
-      previous_thread_20 = lightLevel_thread_20;//sysj\controller.sysj line: 293, column: 4
-      active[20]=1;
-      ends[20]=1;
-      tdone[20]=1;
-    }
-  }
-
-  public void thread1269(int [] tdone, int [] ends){
-        switch(S373){
+  public void thread1623(int [] tdone, int [] ends){
+        switch(S735){
       case 0 : 
         active[19]=0;
         ends[19]=0;
@@ -1581,16 +1629,16 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 247, column: 13
-          light4.setPresent();//sysj\controller.sysj line: 248, column: 5
+        if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 369, column: 13
+          light4.setPresent();//sysj\ecs.sysj line: 370, column: 5
           currsigs.addElement(light4);
-          light4.setValue(2);//sysj\controller.sysj line: 248, column: 5
-          light5.setPresent();//sysj\controller.sysj line: 249, column: 5
+          light4.setValue(2);//sysj\ecs.sysj line: 370, column: 5
+          light5.setPresent();//sysj\ecs.sysj line: 371, column: 5
           currsigs.addElement(light5);
-          light5.setValue(2);//sysj\controller.sysj line: 249, column: 5
-          light6.setPresent();//sysj\controller.sysj line: 250, column: 5
+          light5.setValue(2);//sysj\ecs.sysj line: 371, column: 5
+          light6.setPresent();//sysj\ecs.sysj line: 372, column: 5
           currsigs.addElement(light6);
-          light6.setValue(2);//sysj\controller.sysj line: 250, column: 5
+          light6.setValue(2);//sysj\ecs.sysj line: 372, column: 5
           active[19]=1;
           ends[19]=1;
           tdone[19]=1;
@@ -1605,8 +1653,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1268(int [] tdone, int [] ends){
-        switch(S362){
+  public void thread1622(int [] tdone, int [] ends){
+        switch(S724){
       case 0 : 
         active[18]=0;
         ends[18]=0;
@@ -1614,29 +1662,29 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S361){
+        switch(S723){
           case 0 : 
-            switch(S333){
+            switch(S695){
               case 0 : 
-                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 239, column: 3
-                  fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
-                  S333=1;
+                if(!fireHappeningLight_in.isPartnerPresent() || fireHappeningLight_in.isPartnerPreempted()){//sysj\ecs.sysj line: 361, column: 3
+                  fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
+                  S695=1;
                   active[18]=1;
                   ends[18]=1;
                   tdone[18]=1;
                 }
                 else {
-                  switch(S328){
+                  switch(S690){
                     case 0 : 
-                      if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-                        fireHappening_in.setACK(true);//sysj\controller.sysj line: 239, column: 3
-                        S328=1;
-                        if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-                          fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
+                      if(!fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+                        fireHappeningLight_in.setACK(true);//sysj\ecs.sysj line: 361, column: 3
+                        S690=1;
+                        if(fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+                          fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
                           ends[18]=2;
-                          ;//sysj\controller.sysj line: 239, column: 3
-                          S361=1;
-                          fire_16.setPresent();//sysj\controller.sysj line: 240, column: 3
+                          ;//sysj\ecs.sysj line: 361, column: 3
+                          S723=1;
+                          fire_16.setPresent();//sysj\ecs.sysj line: 362, column: 3
                           currsigs.addElement(fire_16);
                           active[18]=1;
                           ends[18]=1;
@@ -1656,12 +1704,12 @@ public class LightCD extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-                        fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
+                      if(fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+                        fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
                         ends[18]=2;
-                        ;//sysj\controller.sysj line: 239, column: 3
-                        S361=1;
-                        fire_16.setPresent();//sysj\controller.sysj line: 240, column: 3
+                        ;//sysj\ecs.sysj line: 361, column: 3
+                        S723=1;
+                        fire_16.setPresent();//sysj\ecs.sysj line: 362, column: 3
                         currsigs.addElement(fire_16);
                         active[18]=1;
                         ends[18]=1;
@@ -1679,26 +1727,26 @@ public class LightCD extends ClockDomain{
                 break;
               
               case 1 : 
-                S333=1;
-                S333=0;
-                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 239, column: 3
-                  fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
-                  S333=1;
+                S695=1;
+                S695=0;
+                if(!fireHappeningLight_in.isPartnerPresent() || fireHappeningLight_in.isPartnerPreempted()){//sysj\ecs.sysj line: 361, column: 3
+                  fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
+                  S695=1;
                   active[18]=1;
                   ends[18]=1;
                   tdone[18]=1;
                 }
                 else {
-                  S328=0;
-                  if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-                    fireHappening_in.setACK(true);//sysj\controller.sysj line: 239, column: 3
-                    S328=1;
-                    if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-                      fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
+                  S690=0;
+                  if(!fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+                    fireHappeningLight_in.setACK(true);//sysj\ecs.sysj line: 361, column: 3
+                    S690=1;
+                    if(fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+                      fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
                       ends[18]=2;
-                      ;//sysj\controller.sysj line: 239, column: 3
-                      S361=1;
-                      fire_16.setPresent();//sysj\controller.sysj line: 240, column: 3
+                      ;//sysj\ecs.sysj line: 361, column: 3
+                      S723=1;
+                      fire_16.setPresent();//sysj\ecs.sysj line: 362, column: 3
                       currsigs.addElement(fire_16);
                       active[18]=1;
                       ends[18]=1;
@@ -1722,7 +1770,7 @@ public class LightCD extends ClockDomain{
             break;
           
           case 1 : 
-            fire_16.setPresent();//sysj\controller.sysj line: 240, column: 3
+            fire_16.setPresent();//sysj\ecs.sysj line: 362, column: 3
             currsigs.addElement(fire_16);
             active[18]=1;
             ends[18]=1;
@@ -1730,8 +1778,8 @@ public class LightCD extends ClockDomain{
             break;
           
           case 2 : 
-            S361=2;
-            S362=0;
+            S723=2;
+            S724=0;
             active[18]=0;
             ends[18]=0;
             tdone[18]=1;
@@ -1743,8 +1791,8 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1267(int [] tdone, int [] ends){
-        switch(S326){
+  public void thread1621(int [] tdone, int [] ends){
+        switch(S688){
       case 0 : 
         active[17]=0;
         ends[17]=0;
@@ -1752,8 +1800,8 @@ public class LightCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 470 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1090){//sysj\controller.sysj line: 229, column: 8
-          workingHours_16.setPresent();//sysj\controller.sysj line: 230, column: 5
+        if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 470 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1090){//sysj\ecs.sysj line: 351, column: 8
+          workingHours_16.setPresent();//sysj\ecs.sysj line: 352, column: 5
           currsigs.addElement(workingHours_16);
           active[17]=1;
           ends[17]=1;
@@ -1769,18 +1817,666 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1265(int [] tdone, int [] ends){
-        S373=1;
-    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\controller.sysj line: 247, column: 13
-      light4.setPresent();//sysj\controller.sysj line: 248, column: 5
+  public void thread1616(int [] tdone, int [] ends){
+        S1537=1;
+    if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+      timer_49.setPresent();//sysj\ecs.sysj line: 105, column: 6
+      currsigs.addElement(timer_49);
+      active[55]=1;
+      ends[55]=1;
+      tdone[55]=1;
+    }
+    else {
+      active[55]=1;
+      ends[55]=1;
+      tdone[55]=1;
+    }
+  }
+
+  public void thread1615(int [] tdone, int [] ends){
+        S1529=1;
+    S1435=0;
+    active[52]=1;
+    ends[52]=1;
+    tdone[52]=1;
+  }
+
+  public void thread1614(int [] tdone, int [] ends){
+        S1539=1;
+    thread1615(tdone,ends);
+    thread1616(tdone,ends);
+    int biggest1617 = 0;
+    if(ends[52]>=biggest1617){
+      biggest1617=ends[52];
+    }
+    if(ends[55]>=biggest1617){
+      biggest1617=ends[55];
+    }
+    if(biggest1617 == 1){
+      active[51]=1;
+      ends[51]=1;
+      tdone[51]=1;
+    }
+  }
+
+  public void thread1613(int [] tdone, int [] ends){
+        S1389=1;
+    previous_thread_50 = 0;//sysj\ecs.sysj line: 39, column: 3
+    lightLevel_thread_50 = 0;//sysj\ecs.sysj line: 40, column: 3
+    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+      if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+        lightLevel_thread_50 = 2;//sysj\ecs.sysj line: 46, column: 6
+        light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+        currsigs.addElement(light7);
+        light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+        previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+        active[50]=1;
+        ends[50]=1;
+        tdone[50]=1;
+      }
+      else {
+        if((occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+          lightLevel_thread_50 = 2;//sysj\ecs.sysj line: 50, column: 7
+          light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light7);
+          light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+          active[50]=1;
+          ends[50]=1;
+          tdone[50]=1;
+        }
+        else {
+          if(previous_thread_50 == 2){//sysj\ecs.sysj line: 53, column: 17
+            startTimer_49.setPresent();//sysj\ecs.sysj line: 54, column: 7
+            currsigs.addElement(startTimer_49);
+            lightLevel_thread_50 = 1;//sysj\ecs.sysj line: 55, column: 7
+            light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light7);
+            light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+            active[50]=1;
+            ends[50]=1;
+            tdone[50]=1;
+          }
+          else {
+            if(startTimer_49.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+              lightLevel_thread_50 = 1;//sysj\ecs.sysj line: 61, column: 8
+              light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light7);
+              light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+              active[50]=1;
+              ends[50]=1;
+              tdone[50]=1;
+            }
+            else {
+              lightLevel_thread_50 = 0;//sysj\ecs.sysj line: 64, column: 8
+              light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light7);
+              light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+              active[50]=1;
+              ends[50]=1;
+              tdone[50]=1;
+            }
+          }
+        }
+      }
+    }
+    else {
+      lightLevel_thread_50 = 0;//sysj\ecs.sysj line: 70, column: 5
+      light7.setPresent();//sysj\ecs.sysj line: 73, column: 4
+      currsigs.addElement(light7);
+      light7.setValue(lightLevel_thread_50);//sysj\ecs.sysj line: 73, column: 4
+      previous_thread_50 = lightLevel_thread_50;//sysj\ecs.sysj line: 74, column: 4
+      active[50]=1;
+      ends[50]=1;
+      tdone[50]=1;
+    }
+  }
+
+  public void thread1612(int [] tdone, int [] ends){
+        S1541=1;
+    timer_49.setClear();//sysj\ecs.sysj line: 35, column: 2
+    startTimer_49.setClear();//sysj\ecs.sysj line: 36, column: 2
+    thread1613(tdone,ends);
+    thread1614(tdone,ends);
+    int biggest1618 = 0;
+    if(ends[50]>=biggest1618){
+      biggest1618=ends[50];
+    }
+    if(ends[51]>=biggest1618){
+      biggest1618=ends[51];
+    }
+    if(biggest1618 == 1){
+      active[49]=1;
+      ends[49]=1;
+      tdone[49]=1;
+    }
+  }
+
+  public void thread1611(int [] tdone, int [] ends){
+        active[48]=0;
+    ends[48]=0;
+    tdone[48]=1;
+  }
+
+  public void thread1610(int [] tdone, int [] ends){
+        S1543=1;
+    thread1611(tdone,ends);
+    thread1612(tdone,ends);
+    int biggest1619 = 0;
+    if(ends[48]>=biggest1619){
+      biggest1619=ends[48];
+    }
+    if(ends[49]>=biggest1619){
+      biggest1619=ends[49];
+    }
+    if(biggest1619 == 1){
+      active[47]=1;
+      ends[47]=1;
+      tdone[47]=1;
+    }
+  }
+
+  public void thread1606(int [] tdone, int [] ends){
+        S1335=1;
+    if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+      timer_40.setPresent();//sysj\ecs.sysj line: 105, column: 6
+      currsigs.addElement(timer_40);
+      active[46]=1;
+      ends[46]=1;
+      tdone[46]=1;
+    }
+    else {
+      active[46]=1;
+      ends[46]=1;
+      tdone[46]=1;
+    }
+  }
+
+  public void thread1605(int [] tdone, int [] ends){
+        S1327=1;
+    S1233=0;
+    active[43]=1;
+    ends[43]=1;
+    tdone[43]=1;
+  }
+
+  public void thread1604(int [] tdone, int [] ends){
+        S1337=1;
+    thread1605(tdone,ends);
+    thread1606(tdone,ends);
+    int biggest1607 = 0;
+    if(ends[43]>=biggest1607){
+      biggest1607=ends[43];
+    }
+    if(ends[46]>=biggest1607){
+      biggest1607=ends[46];
+    }
+    if(biggest1607 == 1){
+      active[42]=1;
+      ends[42]=1;
+      tdone[42]=1;
+    }
+  }
+
+  public void thread1603(int [] tdone, int [] ends){
+        S1187=1;
+    previous_thread_41 = 0;//sysj\ecs.sysj line: 39, column: 3
+    lightLevel_thread_41 = 0;//sysj\ecs.sysj line: 40, column: 3
+    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+      if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+        lightLevel_thread_41 = 2;//sysj\ecs.sysj line: 46, column: 6
+        light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+        currsigs.addElement(light3);
+        light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+        previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+        active[41]=1;
+        ends[41]=1;
+        tdone[41]=1;
+      }
+      else {
+        if((occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+          lightLevel_thread_41 = 2;//sysj\ecs.sysj line: 50, column: 7
+          light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light3);
+          light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+          active[41]=1;
+          ends[41]=1;
+          tdone[41]=1;
+        }
+        else {
+          if(previous_thread_41 == 2){//sysj\ecs.sysj line: 53, column: 17
+            startTimer_40.setPresent();//sysj\ecs.sysj line: 54, column: 7
+            currsigs.addElement(startTimer_40);
+            lightLevel_thread_41 = 1;//sysj\ecs.sysj line: 55, column: 7
+            light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light3);
+            light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+            active[41]=1;
+            ends[41]=1;
+            tdone[41]=1;
+          }
+          else {
+            if(startTimer_40.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+              lightLevel_thread_41 = 1;//sysj\ecs.sysj line: 61, column: 8
+              light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light3);
+              light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+              active[41]=1;
+              ends[41]=1;
+              tdone[41]=1;
+            }
+            else {
+              lightLevel_thread_41 = 0;//sysj\ecs.sysj line: 64, column: 8
+              light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light3);
+              light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+              active[41]=1;
+              ends[41]=1;
+              tdone[41]=1;
+            }
+          }
+        }
+      }
+    }
+    else {
+      lightLevel_thread_41 = 0;//sysj\ecs.sysj line: 70, column: 5
+      light3.setPresent();//sysj\ecs.sysj line: 73, column: 4
+      currsigs.addElement(light3);
+      light3.setValue(lightLevel_thread_41);//sysj\ecs.sysj line: 73, column: 4
+      previous_thread_41 = lightLevel_thread_41;//sysj\ecs.sysj line: 74, column: 4
+      active[41]=1;
+      ends[41]=1;
+      tdone[41]=1;
+    }
+  }
+
+  public void thread1602(int [] tdone, int [] ends){
+        S1339=1;
+    timer_40.setClear();//sysj\ecs.sysj line: 35, column: 2
+    startTimer_40.setClear();//sysj\ecs.sysj line: 36, column: 2
+    thread1603(tdone,ends);
+    thread1604(tdone,ends);
+    int biggest1608 = 0;
+    if(ends[41]>=biggest1608){
+      biggest1608=ends[41];
+    }
+    if(ends[42]>=biggest1608){
+      biggest1608=ends[42];
+    }
+    if(biggest1608 == 1){
+      active[40]=1;
+      ends[40]=1;
+      tdone[40]=1;
+    }
+  }
+
+  public void thread1601(int [] tdone, int [] ends){
+        active[39]=0;
+    ends[39]=0;
+    tdone[39]=1;
+  }
+
+  public void thread1600(int [] tdone, int [] ends){
+        S1341=1;
+    thread1601(tdone,ends);
+    thread1602(tdone,ends);
+    int biggest1609 = 0;
+    if(ends[39]>=biggest1609){
+      biggest1609=ends[39];
+    }
+    if(ends[40]>=biggest1609){
+      biggest1609=ends[40];
+    }
+    if(biggest1609 == 1){
+      active[38]=1;
+      ends[38]=1;
+      tdone[38]=1;
+    }
+  }
+
+  public void thread1596(int [] tdone, int [] ends){
+        S1133=1;
+    if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+      timer_31.setPresent();//sysj\ecs.sysj line: 105, column: 6
+      currsigs.addElement(timer_31);
+      active[37]=1;
+      ends[37]=1;
+      tdone[37]=1;
+    }
+    else {
+      active[37]=1;
+      ends[37]=1;
+      tdone[37]=1;
+    }
+  }
+
+  public void thread1595(int [] tdone, int [] ends){
+        S1125=1;
+    S1031=0;
+    active[34]=1;
+    ends[34]=1;
+    tdone[34]=1;
+  }
+
+  public void thread1594(int [] tdone, int [] ends){
+        S1135=1;
+    thread1595(tdone,ends);
+    thread1596(tdone,ends);
+    int biggest1597 = 0;
+    if(ends[34]>=biggest1597){
+      biggest1597=ends[34];
+    }
+    if(ends[37]>=biggest1597){
+      biggest1597=ends[37];
+    }
+    if(biggest1597 == 1){
+      active[33]=1;
+      ends[33]=1;
+      tdone[33]=1;
+    }
+  }
+
+  public void thread1593(int [] tdone, int [] ends){
+        S985=1;
+    previous_thread_32 = 0;//sysj\ecs.sysj line: 39, column: 3
+    lightLevel_thread_32 = 0;//sysj\ecs.sysj line: 40, column: 3
+    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+      if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+        lightLevel_thread_32 = 2;//sysj\ecs.sysj line: 46, column: 6
+        light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+        currsigs.addElement(light2);
+        light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+        previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+        active[32]=1;
+        ends[32]=1;
+        tdone[32]=1;
+      }
+      else {
+        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+          lightLevel_thread_32 = 2;//sysj\ecs.sysj line: 50, column: 7
+          light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light2);
+          light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+          active[32]=1;
+          ends[32]=1;
+          tdone[32]=1;
+        }
+        else {
+          if(previous_thread_32 == 2){//sysj\ecs.sysj line: 53, column: 17
+            startTimer_31.setPresent();//sysj\ecs.sysj line: 54, column: 7
+            currsigs.addElement(startTimer_31);
+            lightLevel_thread_32 = 1;//sysj\ecs.sysj line: 55, column: 7
+            light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light2);
+            light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+            active[32]=1;
+            ends[32]=1;
+            tdone[32]=1;
+          }
+          else {
+            if(startTimer_31.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+              lightLevel_thread_32 = 1;//sysj\ecs.sysj line: 61, column: 8
+              light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light2);
+              light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+              active[32]=1;
+              ends[32]=1;
+              tdone[32]=1;
+            }
+            else {
+              lightLevel_thread_32 = 0;//sysj\ecs.sysj line: 64, column: 8
+              light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light2);
+              light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+              active[32]=1;
+              ends[32]=1;
+              tdone[32]=1;
+            }
+          }
+        }
+      }
+    }
+    else {
+      lightLevel_thread_32 = 0;//sysj\ecs.sysj line: 70, column: 5
+      light2.setPresent();//sysj\ecs.sysj line: 73, column: 4
+      currsigs.addElement(light2);
+      light2.setValue(lightLevel_thread_32);//sysj\ecs.sysj line: 73, column: 4
+      previous_thread_32 = lightLevel_thread_32;//sysj\ecs.sysj line: 74, column: 4
+      active[32]=1;
+      ends[32]=1;
+      tdone[32]=1;
+    }
+  }
+
+  public void thread1592(int [] tdone, int [] ends){
+        S1137=1;
+    timer_31.setClear();//sysj\ecs.sysj line: 35, column: 2
+    startTimer_31.setClear();//sysj\ecs.sysj line: 36, column: 2
+    thread1593(tdone,ends);
+    thread1594(tdone,ends);
+    int biggest1598 = 0;
+    if(ends[32]>=biggest1598){
+      biggest1598=ends[32];
+    }
+    if(ends[33]>=biggest1598){
+      biggest1598=ends[33];
+    }
+    if(biggest1598 == 1){
+      active[31]=1;
+      ends[31]=1;
+      tdone[31]=1;
+    }
+  }
+
+  public void thread1591(int [] tdone, int [] ends){
+        active[30]=0;
+    ends[30]=0;
+    tdone[30]=1;
+  }
+
+  public void thread1590(int [] tdone, int [] ends){
+        S1139=1;
+    thread1591(tdone,ends);
+    thread1592(tdone,ends);
+    int biggest1599 = 0;
+    if(ends[30]>=biggest1599){
+      biggest1599=ends[30];
+    }
+    if(ends[31]>=biggest1599){
+      biggest1599=ends[31];
+    }
+    if(biggest1599 == 1){
+      active[29]=1;
+      ends[29]=1;
+      tdone[29]=1;
+    }
+  }
+
+  public void thread1586(int [] tdone, int [] ends){
+        S931=1;
+    if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 104, column: 9
+      timer_22.setPresent();//sysj\ecs.sysj line: 105, column: 6
+      currsigs.addElement(timer_22);
+      active[28]=1;
+      ends[28]=1;
+      tdone[28]=1;
+    }
+    else {
+      active[28]=1;
+      ends[28]=1;
+      tdone[28]=1;
+    }
+  }
+
+  public void thread1585(int [] tdone, int [] ends){
+        S923=1;
+    S829=0;
+    active[25]=1;
+    ends[25]=1;
+    tdone[25]=1;
+  }
+
+  public void thread1584(int [] tdone, int [] ends){
+        S933=1;
+    thread1585(tdone,ends);
+    thread1586(tdone,ends);
+    int biggest1587 = 0;
+    if(ends[25]>=biggest1587){
+      biggest1587=ends[25];
+    }
+    if(ends[28]>=biggest1587){
+      biggest1587=ends[28];
+    }
+    if(biggest1587 == 1){
+      active[24]=1;
+      ends[24]=1;
+      tdone[24]=1;
+    }
+  }
+
+  public void thread1583(int [] tdone, int [] ends){
+        S783=1;
+    previous_thread_23 = 0;//sysj\ecs.sysj line: 39, column: 3
+    lightLevel_thread_23 = 0;//sysj\ecs.sysj line: 40, column: 3
+    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 43, column: 12
+      if(fire_16.getprestatus()){//sysj\ecs.sysj line: 45, column: 13
+        lightLevel_thread_23 = 2;//sysj\ecs.sysj line: 46, column: 6
+        light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+        currsigs.addElement(light1);
+        light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+        previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+        active[23]=1;
+        ends[23]=1;
+        tdone[23]=1;
+      }
+      else {
+        if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 49, column: 10
+          lightLevel_thread_23 = 2;//sysj\ecs.sysj line: 50, column: 7
+          light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+          currsigs.addElement(light1);
+          light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+          previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+          active[23]=1;
+          ends[23]=1;
+          tdone[23]=1;
+        }
+        else {
+          if(previous_thread_23 == 2){//sysj\ecs.sysj line: 53, column: 17
+            startTimer_22.setPresent();//sysj\ecs.sysj line: 54, column: 7
+            currsigs.addElement(startTimer_22);
+            lightLevel_thread_23 = 1;//sysj\ecs.sysj line: 55, column: 7
+            light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+            currsigs.addElement(light1);
+            light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+            previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+            active[23]=1;
+            ends[23]=1;
+            tdone[23]=1;
+          }
+          else {
+            if(startTimer_22.getprestatus()){//sysj\ecs.sysj line: 59, column: 15
+              lightLevel_thread_23 = 1;//sysj\ecs.sysj line: 61, column: 8
+              light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light1);
+              light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+              active[23]=1;
+              ends[23]=1;
+              tdone[23]=1;
+            }
+            else {
+              lightLevel_thread_23 = 0;//sysj\ecs.sysj line: 64, column: 8
+              light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+              currsigs.addElement(light1);
+              light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+              previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+              active[23]=1;
+              ends[23]=1;
+              tdone[23]=1;
+            }
+          }
+        }
+      }
+    }
+    else {
+      lightLevel_thread_23 = 0;//sysj\ecs.sysj line: 70, column: 5
+      light1.setPresent();//sysj\ecs.sysj line: 73, column: 4
+      currsigs.addElement(light1);
+      light1.setValue(lightLevel_thread_23);//sysj\ecs.sysj line: 73, column: 4
+      previous_thread_23 = lightLevel_thread_23;//sysj\ecs.sysj line: 74, column: 4
+      active[23]=1;
+      ends[23]=1;
+      tdone[23]=1;
+    }
+  }
+
+  public void thread1582(int [] tdone, int [] ends){
+        S935=1;
+    timer_22.setClear();//sysj\ecs.sysj line: 35, column: 2
+    startTimer_22.setClear();//sysj\ecs.sysj line: 36, column: 2
+    thread1583(tdone,ends);
+    thread1584(tdone,ends);
+    int biggest1588 = 0;
+    if(ends[23]>=biggest1588){
+      biggest1588=ends[23];
+    }
+    if(ends[24]>=biggest1588){
+      biggest1588=ends[24];
+    }
+    if(biggest1588 == 1){
+      active[22]=1;
+      ends[22]=1;
+      tdone[22]=1;
+    }
+  }
+
+  public void thread1581(int [] tdone, int [] ends){
+        active[21]=0;
+    ends[21]=0;
+    tdone[21]=1;
+  }
+
+  public void thread1580(int [] tdone, int [] ends){
+        S937=1;
+    thread1581(tdone,ends);
+    thread1582(tdone,ends);
+    int biggest1589 = 0;
+    if(ends[21]>=biggest1589){
+      biggest1589=ends[21];
+    }
+    if(ends[22]>=biggest1589){
+      biggest1589=ends[22];
+    }
+    if(biggest1589 == 1){
+      active[20]=1;
+      ends[20]=1;
+      tdone[20]=1;
+    }
+  }
+
+  public void thread1579(int [] tdone, int [] ends){
+        S735=1;
+    if(workingHours_16.getprestatus() || fire_16.getprestatus()){//sysj\ecs.sysj line: 369, column: 13
+      light4.setPresent();//sysj\ecs.sysj line: 370, column: 5
       currsigs.addElement(light4);
-      light4.setValue(2);//sysj\controller.sysj line: 248, column: 5
-      light5.setPresent();//sysj\controller.sysj line: 249, column: 5
+      light4.setValue(2);//sysj\ecs.sysj line: 370, column: 5
+      light5.setPresent();//sysj\ecs.sysj line: 371, column: 5
       currsigs.addElement(light5);
-      light5.setValue(2);//sysj\controller.sysj line: 249, column: 5
-      light6.setPresent();//sysj\controller.sysj line: 250, column: 5
+      light5.setValue(2);//sysj\ecs.sysj line: 371, column: 5
+      light6.setPresent();//sysj\ecs.sysj line: 372, column: 5
       currsigs.addElement(light6);
-      light6.setValue(2);//sysj\controller.sysj line: 250, column: 5
+      light6.setValue(2);//sysj\ecs.sysj line: 372, column: 5
       active[19]=1;
       ends[19]=1;
       tdone[19]=1;
@@ -1792,28 +2488,28 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1264(int [] tdone, int [] ends){
-        S362=1;
-    S361=0;
-    S333=0;
-    if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 239, column: 3
-      fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
-      S333=1;
+  public void thread1578(int [] tdone, int [] ends){
+        S724=1;
+    S723=0;
+    S695=0;
+    if(!fireHappeningLight_in.isPartnerPresent() || fireHappeningLight_in.isPartnerPreempted()){//sysj\ecs.sysj line: 361, column: 3
+      fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
+      S695=1;
       active[18]=1;
       ends[18]=1;
       tdone[18]=1;
     }
     else {
-      S328=0;
-      if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-        fireHappening_in.setACK(true);//sysj\controller.sysj line: 239, column: 3
-        S328=1;
-        if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 239, column: 3
-          fireHappening_in.setACK(false);//sysj\controller.sysj line: 239, column: 3
+      S690=0;
+      if(!fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+        fireHappeningLight_in.setACK(true);//sysj\ecs.sysj line: 361, column: 3
+        S690=1;
+        if(fireHappeningLight_in.isREQ()){//sysj\ecs.sysj line: 361, column: 3
+          fireHappeningLight_in.setACK(false);//sysj\ecs.sysj line: 361, column: 3
           ends[18]=2;
-          ;//sysj\controller.sysj line: 239, column: 3
-          S361=1;
-          fire_16.setPresent();//sysj\controller.sysj line: 240, column: 3
+          ;//sysj\ecs.sysj line: 361, column: 3
+          S723=1;
+          fire_16.setPresent();//sysj\ecs.sysj line: 362, column: 3
           currsigs.addElement(fire_16);
           active[18]=1;
           ends[18]=1;
@@ -1833,10 +2529,10 @@ public class LightCD extends ClockDomain{
     }
   }
 
-  public void thread1263(int [] tdone, int [] ends){
-        S326=1;
-    if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 470 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1090){//sysj\controller.sysj line: 229, column: 8
-      workingHours_16.setPresent();//sysj\controller.sysj line: 230, column: 5
+  public void thread1577(int [] tdone, int [] ends){
+        S688=1;
+    if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 470 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1090){//sysj\ecs.sysj line: 351, column: 8
+      workingHours_16.setPresent();//sysj\ecs.sysj line: 352, column: 5
       currsigs.addElement(workingHours_16);
       active[17]=1;
       ends[17]=1;
@@ -1856,220 +2552,95 @@ public class LightCD extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S1231){
+      switch(S1545){
         case 0 : 
-          S1231=0;
+          S1545=0;
           break RUN;
         
         case 1 : 
-          S1231=2;
-          S1231=2;
-          workingHours_16.setClear();//sysj\controller.sysj line: 218, column: 2
-          fire_16.setClear();//sysj\controller.sysj line: 219, column: 2
-          timer1_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer2_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer3_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer7_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          startTimer1_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer2_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer3_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer7_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          S588=0;
-          thread1263(tdone,ends);
-          thread1264(tdone,ends);
-          thread1265(tdone,ends);
-          int biggest1266 = 0;
-          if(ends[17]>=biggest1266){
-            biggest1266=ends[17];
+          S1545=2;
+          S1545=2;
+          workingHours_16.setClear();//sysj\ecs.sysj line: 342, column: 2
+          fire_16.setClear();//sysj\ecs.sysj line: 343, column: 2
+          thread1577(tdone,ends);
+          thread1578(tdone,ends);
+          thread1579(tdone,ends);
+          thread1580(tdone,ends);
+          thread1590(tdone,ends);
+          thread1600(tdone,ends);
+          thread1610(tdone,ends);
+          int biggest1620 = 0;
+          if(ends[17]>=biggest1620){
+            biggest1620=ends[17];
           }
-          if(ends[18]>=biggest1266){
-            biggest1266=ends[18];
+          if(ends[18]>=biggest1620){
+            biggest1620=ends[18];
           }
-          if(ends[19]>=biggest1266){
-            biggest1266=ends[19];
+          if(ends[19]>=biggest1620){
+            biggest1620=ends[19];
           }
-          if(biggest1266 == 1){
+          if(ends[20]>=biggest1620){
+            biggest1620=ends[20];
+          }
+          if(ends[29]>=biggest1620){
+            biggest1620=ends[29];
+          }
+          if(ends[38]>=biggest1620){
+            biggest1620=ends[38];
+          }
+          if(ends[47]>=biggest1620){
+            biggest1620=ends[47];
+          }
+          if(biggest1620 == 1){
             active[16]=1;
             ends[16]=1;
             break RUN;
           }
         
         case 2 : 
-          workingHours_16.setClear();//sysj\controller.sysj line: 218, column: 2
-          fire_16.setClear();//sysj\controller.sysj line: 219, column: 2
-          timer1_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer2_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer3_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          timer7_16.setClear();//sysj\controller.sysj line: 220, column: 2
-          startTimer1_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer2_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer3_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          startTimer7_16.setClear();//sysj\controller.sysj line: 221, column: 2
-          switch(S588){
-            case 0 : 
-              thread1267(tdone,ends);
-              thread1268(tdone,ends);
-              thread1269(tdone,ends);
-              int biggest1270 = 0;
-              if(ends[17]>=biggest1270){
-                biggest1270=ends[17];
-              }
-              if(ends[18]>=biggest1270){
-                biggest1270=ends[18];
-              }
-              if(ends[19]>=biggest1270){
-                biggest1270=ends[19];
-              }
-              if(biggest1270 == 1){
-                active[16]=1;
-                ends[16]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest1270 == 0){
-                S588=1;
-                thread1271(tdone,ends);
-                thread1272(tdone,ends);
-                int biggest1273 = 0;
-                if(ends[20]>=biggest1273){
-                  biggest1273=ends[20];
-                }
-                if(ends[21]>=biggest1273){
-                  biggest1273=ends[21];
-                }
-                if(biggest1273 == 1){
-                  active[16]=1;
-                  ends[16]=1;
-                  break RUN;
-                }
-              }
-            
-            case 1 : 
-              thread1274(tdone,ends);
-              thread1275(tdone,ends);
-              int biggest1284 = 0;
-              if(ends[20]>=biggest1284){
-                biggest1284=ends[20];
-              }
-              if(ends[21]>=biggest1284){
-                biggest1284=ends[21];
-              }
-              if(biggest1284 == 1){
-                active[16]=1;
-                ends[16]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest1284 == 0){
-                S588=2;
-                thread1285(tdone,ends);
-                thread1286(tdone,ends);
-                int biggest1287 = 0;
-                if(ends[25]>=biggest1287){
-                  biggest1287=ends[25];
-                }
-                if(ends[26]>=biggest1287){
-                  biggest1287=ends[26];
-                }
-                if(biggest1287 == 1){
-                  active[16]=1;
-                  ends[16]=1;
-                  break RUN;
-                }
-              }
-            
-            case 2 : 
-              thread1288(tdone,ends);
-              thread1289(tdone,ends);
-              int biggest1298 = 0;
-              if(ends[25]>=biggest1298){
-                biggest1298=ends[25];
-              }
-              if(ends[26]>=biggest1298){
-                biggest1298=ends[26];
-              }
-              if(biggest1298 == 1){
-                active[16]=1;
-                ends[16]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest1298 == 0){
-                S588=3;
-                thread1299(tdone,ends);
-                thread1300(tdone,ends);
-                int biggest1301 = 0;
-                if(ends[30]>=biggest1301){
-                  biggest1301=ends[30];
-                }
-                if(ends[31]>=biggest1301){
-                  biggest1301=ends[31];
-                }
-                if(biggest1301 == 1){
-                  active[16]=1;
-                  ends[16]=1;
-                  break RUN;
-                }
-              }
-            
-            case 3 : 
-              thread1302(tdone,ends);
-              thread1303(tdone,ends);
-              int biggest1312 = 0;
-              if(ends[30]>=biggest1312){
-                biggest1312=ends[30];
-              }
-              if(ends[31]>=biggest1312){
-                biggest1312=ends[31];
-              }
-              if(biggest1312 == 1){
-                active[16]=1;
-                ends[16]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest1312 == 0){
-                S588=4;
-                thread1313(tdone,ends);
-                thread1314(tdone,ends);
-                int biggest1315 = 0;
-                if(ends[35]>=biggest1315){
-                  biggest1315=ends[35];
-                }
-                if(ends[36]>=biggest1315){
-                  biggest1315=ends[36];
-                }
-                if(biggest1315 == 1){
-                  active[16]=1;
-                  ends[16]=1;
-                  break RUN;
-                }
-              }
-            
-            case 4 : 
-              thread1316(tdone,ends);
-              thread1317(tdone,ends);
-              int biggest1326 = 0;
-              if(ends[35]>=biggest1326){
-                biggest1326=ends[35];
-              }
-              if(ends[36]>=biggest1326){
-                biggest1326=ends[36];
-              }
-              if(biggest1326 == 1){
-                active[16]=1;
-                ends[16]=1;
-                break RUN;
-              }
-              //FINXME code
-              if(biggest1326 == 0){
-                S1231=0;
-                active[16]=0;
-                ends[16]=0;
-                S1231=0;
-                break RUN;
-              }
-            
+          workingHours_16.setClear();//sysj\ecs.sysj line: 342, column: 2
+          fire_16.setClear();//sysj\ecs.sysj line: 343, column: 2
+          thread1621(tdone,ends);
+          thread1622(tdone,ends);
+          thread1623(tdone,ends);
+          thread1624(tdone,ends);
+          thread1640(tdone,ends);
+          thread1656(tdone,ends);
+          thread1672(tdone,ends);
+          int biggest1688 = 0;
+          if(ends[17]>=biggest1688){
+            biggest1688=ends[17];
+          }
+          if(ends[18]>=biggest1688){
+            biggest1688=ends[18];
+          }
+          if(ends[19]>=biggest1688){
+            biggest1688=ends[19];
+          }
+          if(ends[20]>=biggest1688){
+            biggest1688=ends[20];
+          }
+          if(ends[29]>=biggest1688){
+            biggest1688=ends[29];
+          }
+          if(ends[38]>=biggest1688){
+            biggest1688=ends[38];
+          }
+          if(ends[47]>=biggest1688){
+            biggest1688=ends[47];
+          }
+          if(biggest1688 == 1){
+            active[16]=1;
+            ends[16]=1;
+            break RUN;
+          }
+          //FINXME code
+          if(biggest1688 == 0){
+            S1545=0;
+            active[16]=0;
+            ends[16]=0;
+            S1545=0;
+            break RUN;
           }
         
       }
@@ -2077,23 +2648,23 @@ public class LightCD extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
     // Now instantiate all the local signals ONLY
     workingHours_16 = new Signal();
     fire_16 = new Signal();
-    timer1_16 = new Signal();
-    timer2_16 = new Signal();
-    timer3_16 = new Signal();
-    timer7_16 = new Signal();
-    startTimer1_16 = new Signal();
-    startTimer2_16 = new Signal();
-    startTimer3_16 = new Signal();
-    startTimer7_16 = new Signal();
+    timer_22 = new Signal();
+    startTimer_22 = new Signal();
+    timer_31 = new Signal();
+    startTimer_31 = new Signal();
+    timer_40 = new Signal();
+    startTimer_40 = new Signal();
+    timer_49 = new Signal();
+    startTimer_49 = new Signal();
     // --------------------------------------------------
   }
   
@@ -2108,7 +2679,7 @@ public class LightCD extends ClockDomain{
       if(paused[16]!=0 || suspended[16]!=0 || active[16]!=1);
       else{
         if(!df){
-          fireHappening_in.gethook();
+          fireHappeningLight_in.gethook();
           occu1.gethook();
           occu2.gethook();
           occu3.gethook();
@@ -2138,14 +2709,14 @@ public class LightCD extends ClockDomain{
       light7.setpreclear();
       workingHours_16.setpreclear();
       fire_16.setpreclear();
-      timer1_16.setpreclear();
-      timer2_16.setpreclear();
-      timer3_16.setpreclear();
-      timer7_16.setpreclear();
-      startTimer1_16.setpreclear();
-      startTimer2_16.setpreclear();
-      startTimer3_16.setpreclear();
-      startTimer7_16.setpreclear();
+      timer_22.setpreclear();
+      startTimer_22.setpreclear();
+      timer_31.setpreclear();
+      startTimer_31.setpreclear();
+      timer_40.setpreclear();
+      startTimer_40.setpreclear();
+      timer_49.setpreclear();
+      startTimer_49.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
         dummyint = ((Signal)currsigs.elementAt(qw)).getStatus() ? ((Signal)currsigs.elementAt(qw)).setprepresent() : ((Signal)currsigs.elementAt(qw)).setpreclear();
@@ -2192,18 +2763,18 @@ public class LightCD extends ClockDomain{
       light7.setClear();
       workingHours_16.setClear();
       fire_16.setClear();
-      timer1_16.setClear();
-      timer2_16.setClear();
-      timer3_16.setClear();
-      timer7_16.setClear();
-      startTimer1_16.setClear();
-      startTimer2_16.setClear();
-      startTimer3_16.setClear();
-      startTimer7_16.setClear();
-      fireHappening_in.sethook();
+      timer_22.setClear();
+      startTimer_22.setClear();
+      timer_31.setClear();
+      startTimer_31.setClear();
+      timer_40.setClear();
+      startTimer_40.setClear();
+      timer_49.setClear();
+      startTimer_49.setClear();
+      fireHappeningLight_in.sethook();
       if(paused[16]!=0 || suspended[16]!=0 || active[16]!=1);
       else{
-        fireHappening_in.gethook();
+        fireHappeningLight_in.gethook();
         occu1.gethook();
         occu2.gethook();
         occu3.gethook();

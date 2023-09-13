@@ -40,18 +40,18 @@ public class TempCD extends ClockDomain{
   private Signal occu23_1;
   private Signal occu456_1;
   private Signal fire_1;
-  private double officeTemp_thread_4;//sysj\controller.sysj line: 42, column: 3
-  private double temperatureTolerance_thread_4;//sysj\controller.sysj line: 43, column: 3
-  private double officeHumidity_thread_5;//sysj\controller.sysj line: 62, column: 3
-  private double humidityTolerance_thread_5;//sysj\controller.sysj line: 63, column: 3
-  private double officeTemp_thread_7;//sysj\controller.sysj line: 89, column: 3
-  private double temperatureTolerance_thread_7;//sysj\controller.sysj line: 90, column: 3
-  private double officeHumidity_thread_8;//sysj\controller.sysj line: 109, column: 3
-  private double humidityTolerance_thread_8;//sysj\controller.sysj line: 110, column: 3
-  private double manufacturingTemp_thread_9;//sysj\controller.sysj line: 125, column: 3
-  private double temperatureTolerance_thread_9;//sysj\controller.sysj line: 126, column: 3
-  private double factoryHumidity_thread_10;//sysj\controller.sysj line: 145, column: 3
-  private double humidityTolerance_thread_10;//sysj\controller.sysj line: 146, column: 3
+  private double officeTemp_thread_4;//sysj\ecs.sysj line: 156, column: 3
+  private double temperatureTolerance_thread_4;//sysj\ecs.sysj line: 157, column: 3
+  private double officeHumidity_thread_5;//sysj\ecs.sysj line: 176, column: 3
+  private double humidityTolerance_thread_5;//sysj\ecs.sysj line: 177, column: 3
+  private double officeTemp_thread_7;//sysj\ecs.sysj line: 203, column: 3
+  private double temperatureTolerance_thread_7;//sysj\ecs.sysj line: 204, column: 3
+  private double officeHumidity_thread_8;//sysj\ecs.sysj line: 223, column: 3
+  private double humidityTolerance_thread_8;//sysj\ecs.sysj line: 224, column: 3
+  private double manufacturingTemp_thread_9;//sysj\ecs.sysj line: 239, column: 3
+  private double temperatureTolerance_thread_9;//sysj\ecs.sysj line: 240, column: 3
+  private double factoryHumidity_thread_10;//sysj\ecs.sysj line: 259, column: 3
+  private double humidityTolerance_thread_10;//sysj\ecs.sysj line: 260, column: 3
   private int S258 = 1;
   private int S12 = 1;
   private int S6 = 1;
@@ -68,10 +68,10 @@ public class TempCD extends ClockDomain{
   private int S227 = 1;
   private int S222 = 1;
   
-  private int[] ends = new int[40];
-  private int[] tdone = new int[40];
+  private int[] ends = new int[56];
+  private int[] tdone = new int[56];
   
-  public void thread1253(int [] tdone, int [] ends){
+  public void thread1567(int [] tdone, int [] ends){
         switch(S256){
       case 0 : 
         active[11]=0;
@@ -84,8 +84,8 @@ public class TempCD extends ClockDomain{
           case 0 : 
             switch(S227){
               case 0 : 
-                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 161, column: 3
-                  fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\ecs.sysj line: 275, column: 3
+                  fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
                   S227=1;
                   active[11]=1;
                   ends[11]=1;
@@ -94,15 +94,15 @@ public class TempCD extends ClockDomain{
                 else {
                   switch(S222){
                     case 0 : 
-                      if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-                        fireHappening_in.setACK(true);//sysj\controller.sysj line: 161, column: 3
+                      if(!fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+                        fireHappening_in.setACK(true);//sysj\ecs.sysj line: 275, column: 3
                         S222=1;
-                        if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-                          fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+                        if(fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+                          fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
                           ends[11]=2;
-                          ;//sysj\controller.sysj line: 161, column: 3
+                          ;//sysj\ecs.sysj line: 275, column: 3
                           S255=1;
-                          fire_1.setPresent();//sysj\controller.sysj line: 162, column: 3
+                          fire_1.setPresent();//sysj\ecs.sysj line: 276, column: 3
                           currsigs.addElement(fire_1);
                           active[11]=1;
                           ends[11]=1;
@@ -122,12 +122,12 @@ public class TempCD extends ClockDomain{
                       break;
                     
                     case 1 : 
-                      if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-                        fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+                      if(fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+                        fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
                         ends[11]=2;
-                        ;//sysj\controller.sysj line: 161, column: 3
+                        ;//sysj\ecs.sysj line: 275, column: 3
                         S255=1;
-                        fire_1.setPresent();//sysj\controller.sysj line: 162, column: 3
+                        fire_1.setPresent();//sysj\ecs.sysj line: 276, column: 3
                         currsigs.addElement(fire_1);
                         active[11]=1;
                         ends[11]=1;
@@ -147,8 +147,8 @@ public class TempCD extends ClockDomain{
               case 1 : 
                 S227=1;
                 S227=0;
-                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 161, column: 3
-                  fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+                if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\ecs.sysj line: 275, column: 3
+                  fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
                   S227=1;
                   active[11]=1;
                   ends[11]=1;
@@ -156,15 +156,15 @@ public class TempCD extends ClockDomain{
                 }
                 else {
                   S222=0;
-                  if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-                    fireHappening_in.setACK(true);//sysj\controller.sysj line: 161, column: 3
+                  if(!fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+                    fireHappening_in.setACK(true);//sysj\ecs.sysj line: 275, column: 3
                     S222=1;
-                    if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-                      fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+                    if(fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+                      fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
                       ends[11]=2;
-                      ;//sysj\controller.sysj line: 161, column: 3
+                      ;//sysj\ecs.sysj line: 275, column: 3
                       S255=1;
-                      fire_1.setPresent();//sysj\controller.sysj line: 162, column: 3
+                      fire_1.setPresent();//sysj\ecs.sysj line: 276, column: 3
                       currsigs.addElement(fire_1);
                       active[11]=1;
                       ends[11]=1;
@@ -188,7 +188,7 @@ public class TempCD extends ClockDomain{
             break;
           
           case 1 : 
-            fire_1.setPresent();//sysj\controller.sysj line: 162, column: 3
+            fire_1.setPresent();//sysj\ecs.sysj line: 276, column: 3
             currsigs.addElement(fire_1);
             active[11]=1;
             ends[11]=1;
@@ -209,7 +209,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1252(int [] tdone, int [] ends){
+  public void thread1566(int [] tdone, int [] ends){
         switch(S220){
       case 0 : 
         active[10]=0;
@@ -218,9 +218,9 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(humd456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 148, column: 12
-          if((humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) > factoryHumidity_thread_10 + humidityTolerance_thread_10 || (humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) < factoryHumidity_thread_10 - humidityTolerance_thread_10){//sysj\controller.sysj line: 150, column: 9
-            ac456.setPresent();//sysj\controller.sysj line: 151, column: 6
+        if(humd456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 262, column: 12
+          if((humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) > factoryHumidity_thread_10 + humidityTolerance_thread_10 || (humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) < factoryHumidity_thread_10 - humidityTolerance_thread_10){//sysj\ecs.sysj line: 264, column: 9
+            ac456.setPresent();//sysj\ecs.sysj line: 265, column: 6
             currsigs.addElement(ac456);
             active[10]=1;
             ends[10]=1;
@@ -242,7 +242,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1251(int [] tdone, int [] ends){
+  public void thread1565(int [] tdone, int [] ends){
         switch(S200){
       case 0 : 
         active[9]=0;
@@ -251,12 +251,12 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(temp456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 128, column: 12
-          if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > manufacturingTemp_thread_9 + temperatureTolerance_thread_9){//sysj\controller.sysj line: 130, column: 9
-            heat456.setPresent();//sysj\controller.sysj line: 131, column: 6
+        if(temp456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 242, column: 12
+          if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > manufacturingTemp_thread_9 + temperatureTolerance_thread_9){//sysj\ecs.sysj line: 244, column: 9
+            heat456.setPresent();//sysj\ecs.sysj line: 245, column: 6
             currsigs.addElement(heat456);
-            if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\controller.sysj line: 134, column: 9
-              fan456.setPresent();//sysj\controller.sysj line: 135, column: 6
+            if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\ecs.sysj line: 248, column: 9
+              fan456.setPresent();//sysj\ecs.sysj line: 249, column: 6
               currsigs.addElement(fan456);
               active[9]=1;
               ends[9]=1;
@@ -269,8 +269,8 @@ public class TempCD extends ClockDomain{
             }
           }
           else {
-            if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\controller.sysj line: 134, column: 9
-              fan456.setPresent();//sysj\controller.sysj line: 135, column: 6
+            if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\ecs.sysj line: 248, column: 9
+              fan456.setPresent();//sysj\ecs.sysj line: 249, column: 6
               currsigs.addElement(fan456);
               active[9]=1;
               ends[9]=1;
@@ -293,7 +293,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1250(int [] tdone, int [] ends){
+  public void thread1564(int [] tdone, int [] ends){
         switch(S156){
       case 0 : 
         active[8]=0;
@@ -302,9 +302,9 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(humd23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 112, column: 12
-          if((humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) > officeHumidity_thread_8 + humidityTolerance_thread_8 || (humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) < officeHumidity_thread_8 - humidityTolerance_thread_8){//sysj\controller.sysj line: 114, column: 9
-            ac23.setPresent();//sysj\controller.sysj line: 115, column: 6
+        if(humd23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 226, column: 12
+          if((humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) > officeHumidity_thread_8 + humidityTolerance_thread_8 || (humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) < officeHumidity_thread_8 - humidityTolerance_thread_8){//sysj\ecs.sysj line: 228, column: 9
+            ac23.setPresent();//sysj\ecs.sysj line: 229, column: 6
             currsigs.addElement(ac23);
             active[8]=1;
             ends[8]=1;
@@ -326,7 +326,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1249(int [] tdone, int [] ends){
+  public void thread1563(int [] tdone, int [] ends){
         switch(S136){
       case 0 : 
         active[7]=0;
@@ -335,12 +335,12 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(temp23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 92, column: 12
-          if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > officeTemp_thread_7 + temperatureTolerance_thread_7){//sysj\controller.sysj line: 94, column: 9
-            heat23.setPresent();//sysj\controller.sysj line: 95, column: 6
+        if(temp23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 206, column: 12
+          if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > officeTemp_thread_7 + temperatureTolerance_thread_7){//sysj\ecs.sysj line: 208, column: 9
+            heat23.setPresent();//sysj\ecs.sysj line: 209, column: 6
             currsigs.addElement(heat23);
-            if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\controller.sysj line: 98, column: 9
-              fan23.setPresent();//sysj\controller.sysj line: 99, column: 6
+            if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\ecs.sysj line: 212, column: 9
+              fan23.setPresent();//sysj\ecs.sysj line: 213, column: 6
               currsigs.addElement(fan23);
               active[7]=1;
               ends[7]=1;
@@ -353,8 +353,8 @@ public class TempCD extends ClockDomain{
             }
           }
           else {
-            if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\controller.sysj line: 98, column: 9
-              fan23.setPresent();//sysj\controller.sysj line: 99, column: 6
+            if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\ecs.sysj line: 212, column: 9
+              fan23.setPresent();//sysj\ecs.sysj line: 213, column: 6
               currsigs.addElement(fan23);
               active[7]=1;
               ends[7]=1;
@@ -377,7 +377,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1248(int [] tdone, int [] ends){
+  public void thread1562(int [] tdone, int [] ends){
         switch(S92){
       case 0 : 
         active[6]=0;
@@ -386,8 +386,8 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) + (occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 79, column: 8
-          occu23_1.setPresent();//sysj\controller.sysj line: 80, column: 5
+        if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) + (occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 193, column: 8
+          occu23_1.setPresent();//sysj\ecs.sysj line: 194, column: 5
           currsigs.addElement(occu23_1);
           active[6]=1;
           ends[6]=1;
@@ -403,7 +403,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1247(int [] tdone, int [] ends){
+  public void thread1561(int [] tdone, int [] ends){
         switch(S84){
       case 0 : 
         active[5]=0;
@@ -412,9 +412,9 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(humd17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 65, column: 12
-          if((humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) > officeHumidity_thread_5 + humidityTolerance_thread_5 || (humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) < officeHumidity_thread_5 - humidityTolerance_thread_5){//sysj\controller.sysj line: 67, column: 9
-            ac17.setPresent();//sysj\controller.sysj line: 68, column: 6
+        if(humd17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 179, column: 12
+          if((humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) > officeHumidity_thread_5 + humidityTolerance_thread_5 || (humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) < officeHumidity_thread_5 - humidityTolerance_thread_5){//sysj\ecs.sysj line: 181, column: 9
+            ac17.setPresent();//sysj\ecs.sysj line: 182, column: 6
             currsigs.addElement(ac17);
             active[5]=1;
             ends[5]=1;
@@ -436,7 +436,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1246(int [] tdone, int [] ends){
+  public void thread1560(int [] tdone, int [] ends){
         switch(S64){
       case 0 : 
         active[4]=0;
@@ -445,12 +445,12 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(temp17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 45, column: 12
-          if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > officeTemp_thread_4 + temperatureTolerance_thread_4){//sysj\controller.sysj line: 47, column: 9
-            heat17.setPresent();//sysj\controller.sysj line: 48, column: 6
+        if(temp17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 159, column: 12
+          if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > officeTemp_thread_4 + temperatureTolerance_thread_4){//sysj\ecs.sysj line: 161, column: 9
+            heat17.setPresent();//sysj\ecs.sysj line: 162, column: 6
             currsigs.addElement(heat17);
-            if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\controller.sysj line: 51, column: 9
-              fan17.setPresent();//sysj\controller.sysj line: 52, column: 6
+            if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\ecs.sysj line: 165, column: 9
+              fan17.setPresent();//sysj\ecs.sysj line: 166, column: 6
               currsigs.addElement(fan17);
               active[4]=1;
               ends[4]=1;
@@ -463,8 +463,8 @@ public class TempCD extends ClockDomain{
             }
           }
           else {
-            if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\controller.sysj line: 51, column: 9
-              fan17.setPresent();//sysj\controller.sysj line: 52, column: 6
+            if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\ecs.sysj line: 165, column: 9
+              fan17.setPresent();//sysj\ecs.sysj line: 166, column: 6
               currsigs.addElement(fan17);
               active[4]=1;
               ends[4]=1;
@@ -487,7 +487,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1245(int [] tdone, int [] ends){
+  public void thread1559(int [] tdone, int [] ends){
         switch(S20){
       case 0 : 
         active[3]=0;
@@ -496,8 +496,8 @@ public class TempCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) + (occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 32, column: 8
-          occu17_1.setPresent();//sysj\controller.sysj line: 33, column: 5
+        if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) + (occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 146, column: 8
+          occu17_1.setPresent();//sysj\ecs.sysj line: 147, column: 5
           currsigs.addElement(occu17_1);
           active[3]=1;
           ends[3]=1;
@@ -513,7 +513,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1244(int [] tdone, int [] ends){
+  public void thread1558(int [] tdone, int [] ends){
         switch(S12){
       case 0 : 
         active[2]=0;
@@ -525,8 +525,8 @@ public class TempCD extends ClockDomain{
         switch(S6){
           case 0 : 
             S6=0;
-            if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\controller.sysj line: 21, column: 8
-              workingHours_1.setPresent();//sysj\controller.sysj line: 22, column: 5
+            if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\ecs.sysj line: 135, column: 8
+              workingHours_1.setPresent();//sysj\ecs.sysj line: 136, column: 5
               currsigs.addElement(workingHours_1);
               S6=1;
               active[2]=1;
@@ -544,8 +544,8 @@ public class TempCD extends ClockDomain{
           case 1 : 
             S6=1;
             S6=0;
-            if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\controller.sysj line: 21, column: 8
-              workingHours_1.setPresent();//sysj\controller.sysj line: 22, column: 5
+            if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\ecs.sysj line: 135, column: 8
+              workingHours_1.setPresent();//sysj\ecs.sysj line: 136, column: 5
               currsigs.addElement(workingHours_1);
               S6=1;
               active[2]=1;
@@ -566,12 +566,12 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1242(int [] tdone, int [] ends){
+  public void thread1556(int [] tdone, int [] ends){
         S256=1;
     S255=0;
     S227=0;
-    if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\controller.sysj line: 161, column: 3
-      fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+    if(!fireHappening_in.isPartnerPresent() || fireHappening_in.isPartnerPreempted()){//sysj\ecs.sysj line: 275, column: 3
+      fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
       S227=1;
       active[11]=1;
       ends[11]=1;
@@ -579,15 +579,15 @@ public class TempCD extends ClockDomain{
     }
     else {
       S222=0;
-      if(!fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-        fireHappening_in.setACK(true);//sysj\controller.sysj line: 161, column: 3
+      if(!fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+        fireHappening_in.setACK(true);//sysj\ecs.sysj line: 275, column: 3
         S222=1;
-        if(fireHappening_in.isREQ()){//sysj\controller.sysj line: 161, column: 3
-          fireHappening_in.setACK(false);//sysj\controller.sysj line: 161, column: 3
+        if(fireHappening_in.isREQ()){//sysj\ecs.sysj line: 275, column: 3
+          fireHappening_in.setACK(false);//sysj\ecs.sysj line: 275, column: 3
           ends[11]=2;
-          ;//sysj\controller.sysj line: 161, column: 3
+          ;//sysj\ecs.sysj line: 275, column: 3
           S255=1;
-          fire_1.setPresent();//sysj\controller.sysj line: 162, column: 3
+          fire_1.setPresent();//sysj\ecs.sysj line: 276, column: 3
           currsigs.addElement(fire_1);
           active[11]=1;
           ends[11]=1;
@@ -607,13 +607,13 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1241(int [] tdone, int [] ends){
+  public void thread1555(int [] tdone, int [] ends){
         S220=1;
-    factoryHumidity_thread_10 = 55.0;//sysj\controller.sysj line: 145, column: 3
-    humidityTolerance_thread_10 = 5.0;//sysj\controller.sysj line: 146, column: 3
-    if(humd456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 148, column: 12
-      if((humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) > factoryHumidity_thread_10 + humidityTolerance_thread_10 || (humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) < factoryHumidity_thread_10 - humidityTolerance_thread_10){//sysj\controller.sysj line: 150, column: 9
-        ac456.setPresent();//sysj\controller.sysj line: 151, column: 6
+    factoryHumidity_thread_10 = 55.0;//sysj\ecs.sysj line: 259, column: 3
+    humidityTolerance_thread_10 = 5.0;//sysj\ecs.sysj line: 260, column: 3
+    if(humd456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 262, column: 12
+      if((humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) > factoryHumidity_thread_10 + humidityTolerance_thread_10 || (humd456.getpreval() == null ? 0.0d : ((Double)humd456.getpreval()).doubleValue()) < factoryHumidity_thread_10 - humidityTolerance_thread_10){//sysj\ecs.sysj line: 264, column: 9
+        ac456.setPresent();//sysj\ecs.sysj line: 265, column: 6
         currsigs.addElement(ac456);
         active[10]=1;
         ends[10]=1;
@@ -632,16 +632,16 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1240(int [] tdone, int [] ends){
+  public void thread1554(int [] tdone, int [] ends){
         S200=1;
-    manufacturingTemp_thread_9 = 15.0;//sysj\controller.sysj line: 125, column: 3
-    temperatureTolerance_thread_9 = 0.1;//sysj\controller.sysj line: 126, column: 3
-    if(temp456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 128, column: 12
-      if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > manufacturingTemp_thread_9 + temperatureTolerance_thread_9){//sysj\controller.sysj line: 130, column: 9
-        heat456.setPresent();//sysj\controller.sysj line: 131, column: 6
+    manufacturingTemp_thread_9 = 15.0;//sysj\ecs.sysj line: 239, column: 3
+    temperatureTolerance_thread_9 = 0.1;//sysj\ecs.sysj line: 240, column: 3
+    if(temp456.getprestatus() && workingHours_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 242, column: 12
+      if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > manufacturingTemp_thread_9 + temperatureTolerance_thread_9){//sysj\ecs.sysj line: 244, column: 9
+        heat456.setPresent();//sysj\ecs.sysj line: 245, column: 6
         currsigs.addElement(heat456);
-        if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\controller.sysj line: 134, column: 9
-          fan456.setPresent();//sysj\controller.sysj line: 135, column: 6
+        if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\ecs.sysj line: 248, column: 9
+          fan456.setPresent();//sysj\ecs.sysj line: 249, column: 6
           currsigs.addElement(fan456);
           active[9]=1;
           ends[9]=1;
@@ -654,8 +654,8 @@ public class TempCD extends ClockDomain{
         }
       }
       else {
-        if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\controller.sysj line: 134, column: 9
-          fan456.setPresent();//sysj\controller.sysj line: 135, column: 6
+        if((temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) < manufacturingTemp_thread_9 - temperatureTolerance_thread_9){//sysj\ecs.sysj line: 248, column: 9
+          fan456.setPresent();//sysj\ecs.sysj line: 249, column: 6
           currsigs.addElement(fan456);
           active[9]=1;
           ends[9]=1;
@@ -675,13 +675,13 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1239(int [] tdone, int [] ends){
+  public void thread1553(int [] tdone, int [] ends){
         S156=1;
-    officeHumidity_thread_8 = 50.0;//sysj\controller.sysj line: 109, column: 3
-    humidityTolerance_thread_8 = 10.0;//sysj\controller.sysj line: 110, column: 3
-    if(humd23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 112, column: 12
-      if((humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) > officeHumidity_thread_8 + humidityTolerance_thread_8 || (humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) < officeHumidity_thread_8 - humidityTolerance_thread_8){//sysj\controller.sysj line: 114, column: 9
-        ac23.setPresent();//sysj\controller.sysj line: 115, column: 6
+    officeHumidity_thread_8 = 50.0;//sysj\ecs.sysj line: 223, column: 3
+    humidityTolerance_thread_8 = 10.0;//sysj\ecs.sysj line: 224, column: 3
+    if(humd23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 226, column: 12
+      if((humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) > officeHumidity_thread_8 + humidityTolerance_thread_8 || (humd23.getpreval() == null ? 0.0d : ((Double)humd23.getpreval()).doubleValue()) < officeHumidity_thread_8 - humidityTolerance_thread_8){//sysj\ecs.sysj line: 228, column: 9
+        ac23.setPresent();//sysj\ecs.sysj line: 229, column: 6
         currsigs.addElement(ac23);
         active[8]=1;
         ends[8]=1;
@@ -700,16 +700,16 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1238(int [] tdone, int [] ends){
+  public void thread1552(int [] tdone, int [] ends){
         S136=1;
-    officeTemp_thread_7 = 25.0;//sysj\controller.sysj line: 89, column: 3
-    temperatureTolerance_thread_7 = 1.0;//sysj\controller.sysj line: 90, column: 3
-    if(temp23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 92, column: 12
-      if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > officeTemp_thread_7 + temperatureTolerance_thread_7){//sysj\controller.sysj line: 94, column: 9
-        heat23.setPresent();//sysj\controller.sysj line: 95, column: 6
+    officeTemp_thread_7 = 25.0;//sysj\ecs.sysj line: 203, column: 3
+    temperatureTolerance_thread_7 = 1.0;//sysj\ecs.sysj line: 204, column: 3
+    if(temp23.getprestatus() && workingHours_1.getprestatus() && occu23_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 206, column: 12
+      if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > officeTemp_thread_7 + temperatureTolerance_thread_7){//sysj\ecs.sysj line: 208, column: 9
+        heat23.setPresent();//sysj\ecs.sysj line: 209, column: 6
         currsigs.addElement(heat23);
-        if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\controller.sysj line: 98, column: 9
-          fan23.setPresent();//sysj\controller.sysj line: 99, column: 6
+        if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\ecs.sysj line: 212, column: 9
+          fan23.setPresent();//sysj\ecs.sysj line: 213, column: 6
           currsigs.addElement(fan23);
           active[7]=1;
           ends[7]=1;
@@ -722,8 +722,8 @@ public class TempCD extends ClockDomain{
         }
       }
       else {
-        if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\controller.sysj line: 98, column: 9
-          fan23.setPresent();//sysj\controller.sysj line: 99, column: 6
+        if((temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) < officeTemp_thread_7 - temperatureTolerance_thread_7){//sysj\ecs.sysj line: 212, column: 9
+          fan23.setPresent();//sysj\ecs.sysj line: 213, column: 6
           currsigs.addElement(fan23);
           active[7]=1;
           ends[7]=1;
@@ -743,10 +743,10 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1237(int [] tdone, int [] ends){
+  public void thread1551(int [] tdone, int [] ends){
         S92=1;
-    if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) + (occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 79, column: 8
-      occu23_1.setPresent();//sysj\controller.sysj line: 80, column: 5
+    if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) + (occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 193, column: 8
+      occu23_1.setPresent();//sysj\ecs.sysj line: 194, column: 5
       currsigs.addElement(occu23_1);
       active[6]=1;
       ends[6]=1;
@@ -759,13 +759,13 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1236(int [] tdone, int [] ends){
+  public void thread1550(int [] tdone, int [] ends){
         S84=1;
-    officeHumidity_thread_5 = 50.0;//sysj\controller.sysj line: 62, column: 3
-    humidityTolerance_thread_5 = 10.0;//sysj\controller.sysj line: 63, column: 3
-    if(humd17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 65, column: 12
-      if((humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) > officeHumidity_thread_5 + humidityTolerance_thread_5 || (humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) < officeHumidity_thread_5 - humidityTolerance_thread_5){//sysj\controller.sysj line: 67, column: 9
-        ac17.setPresent();//sysj\controller.sysj line: 68, column: 6
+    officeHumidity_thread_5 = 50.0;//sysj\ecs.sysj line: 176, column: 3
+    humidityTolerance_thread_5 = 10.0;//sysj\ecs.sysj line: 177, column: 3
+    if(humd17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 179, column: 12
+      if((humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) > officeHumidity_thread_5 + humidityTolerance_thread_5 || (humd17.getpreval() == null ? 0.0d : ((Double)humd17.getpreval()).doubleValue()) < officeHumidity_thread_5 - humidityTolerance_thread_5){//sysj\ecs.sysj line: 181, column: 9
+        ac17.setPresent();//sysj\ecs.sysj line: 182, column: 6
         currsigs.addElement(ac17);
         active[5]=1;
         ends[5]=1;
@@ -784,16 +784,16 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1235(int [] tdone, int [] ends){
+  public void thread1549(int [] tdone, int [] ends){
         S64=1;
-    officeTemp_thread_4 = 25.0;//sysj\controller.sysj line: 42, column: 3
-    temperatureTolerance_thread_4 = 1.0;//sysj\controller.sysj line: 43, column: 3
-    if(temp17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\controller.sysj line: 45, column: 12
-      if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > officeTemp_thread_4 + temperatureTolerance_thread_4){//sysj\controller.sysj line: 47, column: 9
-        heat17.setPresent();//sysj\controller.sysj line: 48, column: 6
+    officeTemp_thread_4 = 25.0;//sysj\ecs.sysj line: 156, column: 3
+    temperatureTolerance_thread_4 = 1.0;//sysj\ecs.sysj line: 157, column: 3
+    if(temp17.getprestatus() && workingHours_1.getprestatus() && occu17_1.getprestatus() && !fire_1.getprestatus()){//sysj\ecs.sysj line: 159, column: 12
+      if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > officeTemp_thread_4 + temperatureTolerance_thread_4){//sysj\ecs.sysj line: 161, column: 9
+        heat17.setPresent();//sysj\ecs.sysj line: 162, column: 6
         currsigs.addElement(heat17);
-        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\controller.sysj line: 51, column: 9
-          fan17.setPresent();//sysj\controller.sysj line: 52, column: 6
+        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\ecs.sysj line: 165, column: 9
+          fan17.setPresent();//sysj\ecs.sysj line: 166, column: 6
           currsigs.addElement(fan17);
           active[4]=1;
           ends[4]=1;
@@ -806,8 +806,8 @@ public class TempCD extends ClockDomain{
         }
       }
       else {
-        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\controller.sysj line: 51, column: 9
-          fan17.setPresent();//sysj\controller.sysj line: 52, column: 6
+        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) < officeTemp_thread_4 - temperatureTolerance_thread_4){//sysj\ecs.sysj line: 165, column: 9
+          fan17.setPresent();//sysj\ecs.sysj line: 166, column: 6
           currsigs.addElement(fan17);
           active[4]=1;
           ends[4]=1;
@@ -827,10 +827,10 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1234(int [] tdone, int [] ends){
+  public void thread1548(int [] tdone, int [] ends){
         S20=1;
-    if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) + (occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\controller.sysj line: 32, column: 8
-      occu17_1.setPresent();//sysj\controller.sysj line: 33, column: 5
+    if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) + (occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 146, column: 8
+      occu17_1.setPresent();//sysj\ecs.sysj line: 147, column: 5
       currsigs.addElement(occu17_1);
       active[3]=1;
       ends[3]=1;
@@ -843,11 +843,11 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1233(int [] tdone, int [] ends){
+  public void thread1547(int [] tdone, int [] ends){
         S12=1;
     S6=0;
-    if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\controller.sysj line: 21, column: 8
-      workingHours_1.setPresent();//sysj\controller.sysj line: 22, column: 5
+    if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\ecs.sysj line: 135, column: 8
+      workingHours_1.setPresent();//sysj\ecs.sysj line: 136, column: 5
       currsigs.addElement(workingHours_1);
       S6=1;
       active[2]=1;
@@ -877,112 +877,112 @@ public class TempCD extends ClockDomain{
         case 1 : 
           S258=2;
           S258=2;
-          workingHours_1.setClear();//sysj\controller.sysj line: 13, column: 2
-          occu17_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          occu23_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          occu456_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          fire_1.setClear();//sysj\controller.sysj line: 15, column: 2
-          thread1233(tdone,ends);
-          thread1234(tdone,ends);
-          thread1235(tdone,ends);
-          thread1236(tdone,ends);
-          thread1237(tdone,ends);
-          thread1238(tdone,ends);
-          thread1239(tdone,ends);
-          thread1240(tdone,ends);
-          thread1241(tdone,ends);
-          thread1242(tdone,ends);
-          int biggest1243 = 0;
-          if(ends[2]>=biggest1243){
-            biggest1243=ends[2];
+          workingHours_1.setClear();//sysj\ecs.sysj line: 127, column: 2
+          occu17_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          occu23_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          occu456_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          fire_1.setClear();//sysj\ecs.sysj line: 129, column: 2
+          thread1547(tdone,ends);
+          thread1548(tdone,ends);
+          thread1549(tdone,ends);
+          thread1550(tdone,ends);
+          thread1551(tdone,ends);
+          thread1552(tdone,ends);
+          thread1553(tdone,ends);
+          thread1554(tdone,ends);
+          thread1555(tdone,ends);
+          thread1556(tdone,ends);
+          int biggest1557 = 0;
+          if(ends[2]>=biggest1557){
+            biggest1557=ends[2];
           }
-          if(ends[3]>=biggest1243){
-            biggest1243=ends[3];
+          if(ends[3]>=biggest1557){
+            biggest1557=ends[3];
           }
-          if(ends[4]>=biggest1243){
-            biggest1243=ends[4];
+          if(ends[4]>=biggest1557){
+            biggest1557=ends[4];
           }
-          if(ends[5]>=biggest1243){
-            biggest1243=ends[5];
+          if(ends[5]>=biggest1557){
+            biggest1557=ends[5];
           }
-          if(ends[6]>=biggest1243){
-            biggest1243=ends[6];
+          if(ends[6]>=biggest1557){
+            biggest1557=ends[6];
           }
-          if(ends[7]>=biggest1243){
-            biggest1243=ends[7];
+          if(ends[7]>=biggest1557){
+            biggest1557=ends[7];
           }
-          if(ends[8]>=biggest1243){
-            biggest1243=ends[8];
+          if(ends[8]>=biggest1557){
+            biggest1557=ends[8];
           }
-          if(ends[9]>=biggest1243){
-            biggest1243=ends[9];
+          if(ends[9]>=biggest1557){
+            biggest1557=ends[9];
           }
-          if(ends[10]>=biggest1243){
-            biggest1243=ends[10];
+          if(ends[10]>=biggest1557){
+            biggest1557=ends[10];
           }
-          if(ends[11]>=biggest1243){
-            biggest1243=ends[11];
+          if(ends[11]>=biggest1557){
+            biggest1557=ends[11];
           }
-          if(biggest1243 == 1){
+          if(biggest1557 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
         
         case 2 : 
-          workingHours_1.setClear();//sysj\controller.sysj line: 13, column: 2
-          occu17_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          occu23_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          occu456_1.setClear();//sysj\controller.sysj line: 14, column: 2
-          fire_1.setClear();//sysj\controller.sysj line: 15, column: 2
-          thread1244(tdone,ends);
-          thread1245(tdone,ends);
-          thread1246(tdone,ends);
-          thread1247(tdone,ends);
-          thread1248(tdone,ends);
-          thread1249(tdone,ends);
-          thread1250(tdone,ends);
-          thread1251(tdone,ends);
-          thread1252(tdone,ends);
-          thread1253(tdone,ends);
-          int biggest1254 = 0;
-          if(ends[2]>=biggest1254){
-            biggest1254=ends[2];
+          workingHours_1.setClear();//sysj\ecs.sysj line: 127, column: 2
+          occu17_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          occu23_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          occu456_1.setClear();//sysj\ecs.sysj line: 128, column: 2
+          fire_1.setClear();//sysj\ecs.sysj line: 129, column: 2
+          thread1558(tdone,ends);
+          thread1559(tdone,ends);
+          thread1560(tdone,ends);
+          thread1561(tdone,ends);
+          thread1562(tdone,ends);
+          thread1563(tdone,ends);
+          thread1564(tdone,ends);
+          thread1565(tdone,ends);
+          thread1566(tdone,ends);
+          thread1567(tdone,ends);
+          int biggest1568 = 0;
+          if(ends[2]>=biggest1568){
+            biggest1568=ends[2];
           }
-          if(ends[3]>=biggest1254){
-            biggest1254=ends[3];
+          if(ends[3]>=biggest1568){
+            biggest1568=ends[3];
           }
-          if(ends[4]>=biggest1254){
-            biggest1254=ends[4];
+          if(ends[4]>=biggest1568){
+            biggest1568=ends[4];
           }
-          if(ends[5]>=biggest1254){
-            biggest1254=ends[5];
+          if(ends[5]>=biggest1568){
+            biggest1568=ends[5];
           }
-          if(ends[6]>=biggest1254){
-            biggest1254=ends[6];
+          if(ends[6]>=biggest1568){
+            biggest1568=ends[6];
           }
-          if(ends[7]>=biggest1254){
-            biggest1254=ends[7];
+          if(ends[7]>=biggest1568){
+            biggest1568=ends[7];
           }
-          if(ends[8]>=biggest1254){
-            biggest1254=ends[8];
+          if(ends[8]>=biggest1568){
+            biggest1568=ends[8];
           }
-          if(ends[9]>=biggest1254){
-            biggest1254=ends[9];
+          if(ends[9]>=biggest1568){
+            biggest1568=ends[9];
           }
-          if(ends[10]>=biggest1254){
-            biggest1254=ends[10];
+          if(ends[10]>=biggest1568){
+            biggest1568=ends[10];
           }
-          if(ends[11]>=biggest1254){
-            biggest1254=ends[11];
+          if(ends[11]>=biggest1568){
+            biggest1568=ends[11];
           }
-          if(biggest1254 == 1){
+          if(biggest1568 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest1254 == 0){
+          if(biggest1568 == 0){
             S258=0;
             active[1]=0;
             ends[1]=0;
@@ -995,9 +995,9 @@ public class TempCD extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

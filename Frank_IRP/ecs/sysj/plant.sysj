@@ -16,17 +16,14 @@ Plant(
 		output signal lightHigh;
 		output signal lightLow;
 		output signal lightNone;
+		
 		output signal fire;
 		output signal fan;
 		output signal ac;
 		output signal heat;
 		
-		input signal tempLow;
-		input signal tempHigh;
-		input signal tempNormal;
-		input signal tempFire;
+		input Integer signal temp;
 		input signal humd;
-		input signal humdNormal;
 		input signal occu;
 		input signal smoke;
 		input signal working;
@@ -36,7 +33,6 @@ Plant(
 ->
 {
 	new Thread(new GUI()).start();
-
 
 	{
 		loop {
@@ -58,7 +54,7 @@ Plant(
 		loop {
 			present(fan17){
 				emit fan;
-			}
+			} 
 			
 			pause;
 		}
@@ -68,7 +64,7 @@ Plant(
 		loop {
 			present(emergency){
 				emit fire;
-			}
+			} 
 			
 			pause;
 		}
@@ -78,8 +74,7 @@ Plant(
 		loop {
 			present(ac17){
 				emit ac;
-			}
-			
+			} 
 			pause;
 		}
 	}
@@ -96,54 +91,37 @@ Plant(
 	||
 	{
 		loop{
-			present(tempNormal){
-				emit temp17(25.0);
-				emit temp23(25.0);
-				emit temp456(15.0);
+			present(temp){
+					
+				switch(#temp) {
+				case 0:
+					emit temp17(0.0);
+					emit temp23(0.0);
+					emit temp456(0.0);
+					break;
+				case 1:
+					emit temp17(25.0);
+					emit temp23(25.0);
+					emit temp456(15.0);
+					break;
+				case 2:
+					emit temp17(30.0);
+					emit temp23(30.0);
+					emit temp456(30.0);
+					break;
+				case 3:
+					emit temp17(100.0);
+					emit temp23(300.0);
+					emit temp456(300.0);
+					emit tempFire1(100.0);
+					break;
+				default:
+					break;
+				}
 			}
 			
 			pause;
 	
-		}
-	}
-	||
-	{
-		loop{
-			present(tempLow){
-				emit temp17(0.0);
-				emit temp23(0.0);
-				emit temp456(0.0);
-			}
-			
-			pause;
-	
-		}
-	}
-	||
-	{
-		loop {
-			present(tempHigh){
-				emit temp17(30.0);
-				emit temp23(30.0);
-				emit temp456(30.0);
-				
-			}
-			
-			pause;
-			
-		}
-	}
-	||
-	{
-		loop {
-			present (tempFire){
-				emit temp17(100.0);
-				emit temp23(300.0);
-				emit temp456(300.0);
-				emit tempFire1(100.0);
-			}
-			
-			pause;
 		}
 	}
 	||
@@ -173,7 +151,7 @@ Plant(
 				emit occuLight1(2);
 			} else {
 				emit occu1(0);
-				emit occuLight1(2);
+				emit occuLight1(0);
 			}
 			
 			pause;
@@ -194,8 +172,10 @@ Plant(
 		loop {
 			present (working){
 				emit clock(500);
+				emit clockLight(500);
 			} else {
 				emit clock(0);
+				emit clockLight(0);
 			}
 			
 			pause;

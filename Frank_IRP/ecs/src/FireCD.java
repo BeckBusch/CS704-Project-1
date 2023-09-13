@@ -21,21 +21,27 @@ public class FireCD extends ClockDomain{
   public Signal smoke5 = new Signal("smoke5", Signal.INPUT);
   public Signal smoke6 = new Signal("smoke6", Signal.INPUT);
   public Signal smoke7 = new Signal("smoke7", Signal.INPUT);
+  public Signal emergency = new Signal("emergency", Signal.OUTPUT);
   public output_Channel fireHappening_o = new output_Channel();
+  public output_Channel fireHappeningLight_o = new output_Channel();
   private Signal fire_12;
-  private double temperatureThreshold_thread_13;//sysj\controller.sysj line: 179, column: 3
-  private int S308 = 1;
+  private double temperatureThreshold_thread_13;//sysj\ecs.sysj line: 296, column: 3
+  private int S678 = 1;
   private int S273 = 1;
   private int S281 = 1;
-  private int S306 = 1;
+  private int S676 = 1;
+  private int S412 = 1;
+  private int S392 = 1;
   private int S288 = 1;
   private int S283 = 1;
+  private int S310 = 1;
+  private int S305 = 1;
   
-  private int[] ends = new int[40];
-  private int[] tdone = new int[40];
+  private int[] ends = new int[56];
+  private int[] tdone = new int[56];
   
-  public void thread1261(int [] tdone, int [] ends){
-        switch(S306){
+  public void thread1575(int [] tdone, int [] ends){
+        switch(S676){
       case 0 : 
         active[15]=0;
         ends[15]=0;
@@ -43,86 +49,509 @@ public class FireCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S288){
+        switch(S412){
           case 0 : 
-            if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\controller.sysj line: 204, column: 4
-              fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-              S288=1;
-              active[15]=1;
-              ends[15]=1;
-              tdone[15]=1;
-            }
-            else {
-              switch(S283){
-                case 0 : 
-                  if(fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-                    fireHappening_o.setVal(true);//sysj\controller.sysj line: 204, column: 4
-                    S283=1;
-                    if(!fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-                      fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-                      ends[15]=2;
-                      ;//sysj\controller.sysj line: 204, column: 4
-                      S306=0;
-                      active[15]=0;
-                      ends[15]=0;
-                      tdone[15]=1;
-                    }
-                    else {
+            switch(S392){
+              case 0 : 
+                switch(S288){
+                  case 0 : 
+                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
+                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                      S288=1;
                       active[15]=1;
                       ends[15]=1;
                       tdone[15]=1;
                     }
-                  }
-                  else {
-                    active[15]=1;
-                    ends[15]=1;
-                    tdone[15]=1;
-                  }
-                  break;
-                
-                case 1 : 
-                  if(!fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-                    fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-                    ends[15]=2;
-                    ;//sysj\controller.sysj line: 204, column: 4
-                    S306=0;
-                    active[15]=0;
-                    ends[15]=0;
-                    tdone[15]=1;
-                  }
-                  else {
-                    active[15]=1;
-                    ends[15]=1;
-                    tdone[15]=1;
-                  }
-                  break;
-                
-              }
+                    else {
+                      switch(S283){
+                        case 0 : 
+                          if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                            fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                            S283=1;
+                            if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                              fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                              ends[15]=2;
+                              ;//sysj\ecs.sysj line: 322, column: 5
+                              S392=1;
+                              S310=0;
+                              if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                S310=1;
+                                active[15]=1;
+                                ends[15]=1;
+                                tdone[15]=1;
+                              }
+                              else {
+                                S305=0;
+                                if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                                  fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                                  S305=1;
+                                  if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                                    fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                    ends[15]=2;
+                                    ;//sysj\ecs.sysj line: 323, column: 5
+                                    S392=2;
+                                    emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                                    currsigs.addElement(emergency);
+                                    active[15]=1;
+                                    ends[15]=1;
+                                    tdone[15]=1;
+                                  }
+                                  else {
+                                    active[15]=1;
+                                    ends[15]=1;
+                                    tdone[15]=1;
+                                  }
+                                }
+                                else {
+                                  active[15]=1;
+                                  ends[15]=1;
+                                  tdone[15]=1;
+                                }
+                              }
+                            }
+                            else {
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
+                          }
+                          else {
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          break;
+                        
+                        case 1 : 
+                          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                            ends[15]=2;
+                            ;//sysj\ecs.sysj line: 322, column: 5
+                            S392=1;
+                            S310=0;
+                            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                              S310=1;
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
+                            else {
+                              S305=0;
+                              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                                S305=1;
+                                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                  ends[15]=2;
+                                  ;//sysj\ecs.sysj line: 323, column: 5
+                                  S392=2;
+                                  emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                                  currsigs.addElement(emergency);
+                                  active[15]=1;
+                                  ends[15]=1;
+                                  tdone[15]=1;
+                                }
+                                else {
+                                  active[15]=1;
+                                  ends[15]=1;
+                                  tdone[15]=1;
+                                }
+                              }
+                              else {
+                                active[15]=1;
+                                ends[15]=1;
+                                tdone[15]=1;
+                              }
+                            }
+                          }
+                          else {
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          break;
+                        
+                      }
+                    }
+                    break;
+                  
+                  case 1 : 
+                    S288=1;
+                    S288=0;
+                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
+                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                      S288=1;
+                      active[15]=1;
+                      ends[15]=1;
+                      tdone[15]=1;
+                    }
+                    else {
+                      S283=0;
+                      if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                        fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                        S283=1;
+                        if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                          fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                          ends[15]=2;
+                          ;//sysj\ecs.sysj line: 322, column: 5
+                          S392=1;
+                          S310=0;
+                          if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                            S310=1;
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          else {
+                            S305=0;
+                            if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                              fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                              S305=1;
+                              if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                ends[15]=2;
+                                ;//sysj\ecs.sysj line: 323, column: 5
+                                S392=2;
+                                emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                                currsigs.addElement(emergency);
+                                active[15]=1;
+                                ends[15]=1;
+                                tdone[15]=1;
+                              }
+                              else {
+                                active[15]=1;
+                                ends[15]=1;
+                                tdone[15]=1;
+                              }
+                            }
+                            else {
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
+                          }
+                        }
+                        else {
+                          active[15]=1;
+                          ends[15]=1;
+                          tdone[15]=1;
+                        }
+                      }
+                      else {
+                        active[15]=1;
+                        ends[15]=1;
+                        tdone[15]=1;
+                      }
+                    }
+                    break;
+                  
+                }
+                break;
+              
+              case 1 : 
+                switch(S310){
+                  case 0 : 
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                      S310=1;
+                      active[15]=1;
+                      ends[15]=1;
+                      tdone[15]=1;
+                    }
+                    else {
+                      switch(S305){
+                        case 0 : 
+                          if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                            fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                            S305=1;
+                            if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                              ends[15]=2;
+                              ;//sysj\ecs.sysj line: 323, column: 5
+                              S392=2;
+                              emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                              currsigs.addElement(emergency);
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
+                            else {
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
+                          }
+                          else {
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          break;
+                        
+                        case 1 : 
+                          if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                            ends[15]=2;
+                            ;//sysj\ecs.sysj line: 323, column: 5
+                            S392=2;
+                            emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                            currsigs.addElement(emergency);
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          else {
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
+                          break;
+                        
+                      }
+                    }
+                    break;
+                  
+                  case 1 : 
+                    S310=1;
+                    S310=0;
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                      S310=1;
+                      active[15]=1;
+                      ends[15]=1;
+                      tdone[15]=1;
+                    }
+                    else {
+                      S305=0;
+                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                        S305=1;
+                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                          ends[15]=2;
+                          ;//sysj\ecs.sysj line: 323, column: 5
+                          S392=2;
+                          emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                          currsigs.addElement(emergency);
+                          active[15]=1;
+                          ends[15]=1;
+                          tdone[15]=1;
+                        }
+                        else {
+                          active[15]=1;
+                          ends[15]=1;
+                          tdone[15]=1;
+                        }
+                      }
+                      else {
+                        active[15]=1;
+                        ends[15]=1;
+                        tdone[15]=1;
+                      }
+                    }
+                    break;
+                  
+                }
+                break;
+              
+              case 2 : 
+                emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                currsigs.addElement(emergency);
+                active[15]=1;
+                ends[15]=1;
+                tdone[15]=1;
+                break;
+              
             }
             break;
           
           case 1 : 
-            S288=1;
-            S288=0;
-            if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\controller.sysj line: 204, column: 4
-              fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-              S288=1;
+            S412=1;
+            S412=0;
+            if(fire_12.getprestatus()){//sysj\ecs.sysj line: 321, column: 12
+              S392=0;
+              S288=0;
+              if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
+                fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                S288=1;
+                active[15]=1;
+                ends[15]=1;
+                tdone[15]=1;
+              }
+              else {
+                S283=0;
+                if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                  fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                  S283=1;
+                  if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+                    fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                    ends[15]=2;
+                    ;//sysj\ecs.sysj line: 322, column: 5
+                    S392=1;
+                    S310=0;
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                      S310=1;
+                      active[15]=1;
+                      ends[15]=1;
+                      tdone[15]=1;
+                    }
+                    else {
+                      S305=0;
+                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                        S305=1;
+                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                          ends[15]=2;
+                          ;//sysj\ecs.sysj line: 323, column: 5
+                          S392=2;
+                          emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                          currsigs.addElement(emergency);
+                          active[15]=1;
+                          ends[15]=1;
+                          tdone[15]=1;
+                        }
+                        else {
+                          active[15]=1;
+                          ends[15]=1;
+                          tdone[15]=1;
+                        }
+                      }
+                      else {
+                        active[15]=1;
+                        ends[15]=1;
+                        tdone[15]=1;
+                      }
+                    }
+                  }
+                  else {
+                    active[15]=1;
+                    ends[15]=1;
+                    tdone[15]=1;
+                  }
+                }
+                else {
+                  active[15]=1;
+                  ends[15]=1;
+                  tdone[15]=1;
+                }
+              }
+            }
+            else {
+              S412=1;
+              active[15]=1;
+              ends[15]=1;
+              tdone[15]=1;
+            }
+            break;
+          
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1574(int [] tdone, int [] ends){
+        switch(S281){
+      case 0 : 
+        active[14]=0;
+        ends[14]=0;
+        tdone[14]=1;
+        break;
+      
+      case 1 : 
+        if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 310, column: 12
+          fire_12.setPresent();//sysj\ecs.sysj line: 311, column: 5
+          currsigs.addElement(fire_12);
+          active[14]=1;
+          ends[14]=1;
+          tdone[14]=1;
+        }
+        else {
+          active[14]=1;
+          ends[14]=1;
+          tdone[14]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1573(int [] tdone, int [] ends){
+        switch(S273){
+      case 0 : 
+        active[13]=0;
+        ends[13]=0;
+        tdone[13]=1;
+        break;
+      
+      case 1 : 
+        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 299, column: 8
+          fire_12.setPresent();//sysj\ecs.sysj line: 300, column: 5
+          currsigs.addElement(fire_12);
+          active[13]=1;
+          ends[13]=1;
+          tdone[13]=1;
+        }
+        else {
+          active[13]=1;
+          ends[13]=1;
+          tdone[13]=1;
+        }
+        break;
+      
+    }
+  }
+
+  public void thread1571(int [] tdone, int [] ends){
+        S676=1;
+    S412=0;
+    if(fire_12.getprestatus()){//sysj\ecs.sysj line: 321, column: 12
+      S392=0;
+      S288=0;
+      if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
+        fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+        S288=1;
+        active[15]=1;
+        ends[15]=1;
+        tdone[15]=1;
+      }
+      else {
+        S283=0;
+        if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+          fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+          S283=1;
+          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
+            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+            ends[15]=2;
+            ;//sysj\ecs.sysj line: 322, column: 5
+            S392=1;
+            S310=0;
+            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+              S310=1;
               active[15]=1;
               ends[15]=1;
               tdone[15]=1;
             }
             else {
-              S283=0;
-              if(fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-                fireHappening_o.setVal(true);//sysj\controller.sysj line: 204, column: 4
-                S283=1;
-                if(!fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-                  fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
+              S305=0;
+              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                S305=1;
+                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                   ends[15]=2;
-                  ;//sysj\controller.sysj line: 204, column: 4
-                  S306=0;
-                  active[15]=0;
-                  ends[15]=0;
+                  ;//sysj\ecs.sysj line: 323, column: 5
+                  S392=2;
+                  emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
+                  currsigs.addElement(emergency);
+                  active[15]=1;
+                  ends[15]=1;
                   tdone[15]=1;
                 }
                 else {
@@ -137,90 +566,6 @@ public class FireCD extends ClockDomain{
                 tdone[15]=1;
               }
             }
-            break;
-          
-        }
-        break;
-      
-    }
-  }
-
-  public void thread1260(int [] tdone, int [] ends){
-        switch(S281){
-      case 0 : 
-        active[14]=0;
-        ends[14]=0;
-        tdone[14]=1;
-        break;
-      
-      case 1 : 
-        if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\controller.sysj line: 193, column: 12
-          fire_12.setPresent();//sysj\controller.sysj line: 194, column: 5
-          currsigs.addElement(fire_12);
-          active[14]=1;
-          ends[14]=1;
-          tdone[14]=1;
-        }
-        else {
-          active[14]=1;
-          ends[14]=1;
-          tdone[14]=1;
-        }
-        break;
-      
-    }
-  }
-
-  public void thread1259(int [] tdone, int [] ends){
-        switch(S273){
-      case 0 : 
-        active[13]=0;
-        ends[13]=0;
-        tdone[13]=1;
-        break;
-      
-      case 1 : 
-        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\controller.sysj line: 182, column: 8
-          fire_12.setPresent();//sysj\controller.sysj line: 183, column: 5
-          currsigs.addElement(fire_12);
-          active[13]=1;
-          ends[13]=1;
-          tdone[13]=1;
-        }
-        else {
-          active[13]=1;
-          ends[13]=1;
-          tdone[13]=1;
-        }
-        break;
-      
-    }
-  }
-
-  public void thread1257(int [] tdone, int [] ends){
-        S306=1;
-    if(fire_12.getprestatus()){//sysj\controller.sysj line: 203, column: 11
-      S288=0;
-      if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\controller.sysj line: 204, column: 4
-        fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-        S288=1;
-        active[15]=1;
-        ends[15]=1;
-        tdone[15]=1;
-      }
-      else {
-        S283=0;
-        if(fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-          fireHappening_o.setVal(true);//sysj\controller.sysj line: 204, column: 4
-          S283=1;
-          if(!fireHappening_o.isACK()){//sysj\controller.sysj line: 204, column: 4
-            fireHappening_o.setREQ(false);//sysj\controller.sysj line: 204, column: 4
-            ends[15]=2;
-            ;//sysj\controller.sysj line: 204, column: 4
-            S306=0;
-            active[15]=0;
-            ends[15]=0;
-            tdone[15]=1;
           }
           else {
             active[15]=1;
@@ -236,17 +581,17 @@ public class FireCD extends ClockDomain{
       }
     }
     else {
-      S306=0;
-      active[15]=0;
-      ends[15]=0;
+      S412=1;
+      active[15]=1;
+      ends[15]=1;
       tdone[15]=1;
     }
   }
 
-  public void thread1256(int [] tdone, int [] ends){
+  public void thread1570(int [] tdone, int [] ends){
         S281=1;
-    if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\controller.sysj line: 193, column: 12
-      fire_12.setPresent();//sysj\controller.sysj line: 194, column: 5
+    if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 310, column: 12
+      fire_12.setPresent();//sysj\ecs.sysj line: 311, column: 5
       currsigs.addElement(fire_12);
       active[14]=1;
       ends[14]=1;
@@ -259,11 +604,11 @@ public class FireCD extends ClockDomain{
     }
   }
 
-  public void thread1255(int [] tdone, int [] ends){
+  public void thread1569(int [] tdone, int [] ends){
         S273=1;
-    temperatureThreshold_thread_13 = 50.0;//sysj\controller.sysj line: 179, column: 3
-    if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\controller.sysj line: 182, column: 8
-      fire_12.setPresent();//sysj\controller.sysj line: 183, column: 5
+    temperatureThreshold_thread_13 = 50.0;//sysj\ecs.sysj line: 296, column: 3
+    if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 299, column: 8
+      fire_12.setPresent();//sysj\ecs.sysj line: 300, column: 5
       currsigs.addElement(fire_12);
       active[13]=1;
       ends[13]=1;
@@ -283,60 +628,60 @@ public class FireCD extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S308){
+      switch(S678){
         case 0 : 
-          S308=0;
+          S678=0;
           break RUN;
         
         case 1 : 
-          S308=2;
-          S308=2;
-          fire_12.setClear();//sysj\controller.sysj line: 175, column: 2
-          thread1255(tdone,ends);
-          thread1256(tdone,ends);
-          thread1257(tdone,ends);
-          int biggest1258 = 0;
-          if(ends[13]>=biggest1258){
-            biggest1258=ends[13];
+          S678=2;
+          S678=2;
+          fire_12.setClear();//sysj\ecs.sysj line: 292, column: 2
+          thread1569(tdone,ends);
+          thread1570(tdone,ends);
+          thread1571(tdone,ends);
+          int biggest1572 = 0;
+          if(ends[13]>=biggest1572){
+            biggest1572=ends[13];
           }
-          if(ends[14]>=biggest1258){
-            biggest1258=ends[14];
+          if(ends[14]>=biggest1572){
+            biggest1572=ends[14];
           }
-          if(ends[15]>=biggest1258){
-            biggest1258=ends[15];
+          if(ends[15]>=biggest1572){
+            biggest1572=ends[15];
           }
-          if(biggest1258 == 1){
+          if(biggest1572 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
         
         case 2 : 
-          fire_12.setClear();//sysj\controller.sysj line: 175, column: 2
-          thread1259(tdone,ends);
-          thread1260(tdone,ends);
-          thread1261(tdone,ends);
-          int biggest1262 = 0;
-          if(ends[13]>=biggest1262){
-            biggest1262=ends[13];
+          fire_12.setClear();//sysj\ecs.sysj line: 292, column: 2
+          thread1573(tdone,ends);
+          thread1574(tdone,ends);
+          thread1575(tdone,ends);
+          int biggest1576 = 0;
+          if(ends[13]>=biggest1576){
+            biggest1576=ends[13];
           }
-          if(ends[14]>=biggest1262){
-            biggest1262=ends[14];
+          if(ends[14]>=biggest1576){
+            biggest1576=ends[14];
           }
-          if(ends[15]>=biggest1262){
-            biggest1262=ends[15];
+          if(ends[15]>=biggest1576){
+            biggest1576=ends[15];
           }
-          if(biggest1262 == 1){
+          if(biggest1576 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest1262 == 0){
-            S308=0;
+          if(biggest1576 == 0){
+            S678=0;
             active[12]=0;
             ends[12]=0;
-            S308=0;
+            S678=0;
             break RUN;
           }
         
@@ -345,9 +690,9 @@ public class FireCD extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
@@ -368,6 +713,7 @@ public class FireCD extends ClockDomain{
       else{
         if(!df){
           fireHappening_o.gethook();
+          fireHappeningLight_o.gethook();
           temp17.gethook();
           temp23.gethook();
           temp456.gethook();
@@ -392,6 +738,7 @@ public class FireCD extends ClockDomain{
       smoke5.setpreclear();
       smoke6.setpreclear();
       smoke7.setpreclear();
+      emergency.setpreclear();
       fire_12.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
@@ -429,11 +776,15 @@ public class FireCD extends ClockDomain{
       dummyint = smoke7.getStatus() ? smoke7.setprepresent() : smoke7.setpreclear();
       smoke7.setpreval(smoke7.getValue());
       smoke7.setClear();
+      emergency.sethook();
+      emergency.setClear();
       fire_12.setClear();
       fireHappening_o.sethook();
+      fireHappeningLight_o.sethook();
       if(paused[12]!=0 || suspended[12]!=0 || active[12]!=1);
       else{
         fireHappening_o.gethook();
+        fireHappeningLight_o.gethook();
         temp17.gethook();
         temp23.gethook();
         temp456.gethook();

@@ -1,3 +1,117 @@
+reaction HeaterFan(:
+	input int signal temp,
+	input signal working,
+	input signal occupied,
+	input signal fire,
+	output signal heat,
+	output signal fan
+	) {
+	double officeTemp = 25.0;
+	double temperatureTolerance = 1.0;
+	while (true) {
+		present(temp && working && occupied && !fire){
+			// temperature exceeds tolerance
+			if (#temp > officeTemp + temperatureTolerance) {
+				emit heat;
+			}
+			
+			if (#temp < officeTemp - temperatureTolerance) {
+				emit fan;
+			}
+		}
+		
+		pause;
+	}
+}
+
+
+
+reaction LightThing(:
+	input int signal occu,
+	signal workingHours,
+	signal fire,
+	output int signal light
+		) {
+	signal timer;
+	signal startTimer;
+	
+	{
+		int previous = 0;
+		int lightLevel = 0;
+		
+		while (true) {
+			present(workingHours || fire){
+				// There is a fire
+				present(fire){
+					lightLevel = 2;
+				} else {
+					// People are in there
+					if (#occu > 0) {
+						lightLevel = 2;
+					
+					// People were in there previously
+					} else if (previous == 2) {
+						emit startTimer;
+						lightLevel = 1;
+						
+					// Empty
+					} else {
+						present(startTimer){
+							// within 5min of someone leaving the room
+							lightLevel = 1;
+						} else {
+							// empty for a while
+							lightLevel = 0;
+						}
+					}
+				}
+			} else {
+				// Not working hours
+				lightLevel = 0;
+			}
+			
+			emit light(lightLevel);
+			previous = lightLevel;
+			
+			pause;
+		}
+	}
+	||
+	// Zone 1 timer
+	{
+		{
+			while (true) {
+				await(startTimer);
+				
+				{
+					waitl(5 s);
+					emit timer;
+					
+				}
+				||
+				{
+					abort(timer){
+						sustain startTimer;
+					}
+				}
+				
+				pause;
+			}
+		}
+		||
+		{
+			while (true) {
+				if (#occu > 0) {
+					emit timer;
+				}
+				
+				pause;
+			}
+		}
+
+	}
+}
+
 TempCD(
 		input  double  signal  temp17, temp23, temp456;
 		input  double  signal  humd17, humd23, humd456;
@@ -203,9 +317,15 @@ FireCD(
 	||
 	// channel
 	{
-		present(fire){
-			send fireHappening(true);
-			sustain emergency;
+		while (true) {
+			present(fire){
+				send fireHappening(true);
+				send fireHappeningLight(true);
+				sustain emergency;
+			}
+			
+			pause;
+			
 		}
 	}
 }
@@ -221,8 +341,6 @@ LightCD(
 
 	signal workingHours;
 	signal fire;
-	signal timer1, timer2, timer3, timer7;
-	signal startTimer1, startTimer2, startTimer3, startTimer7;
 	
 	// Light levels - 0, 1, 2 - None, Low, High
 
@@ -257,282 +375,25 @@ LightCD(
 			pause;
 		}
 	}
+	||
 	// Zone 1
 	{
-		int previous = 0;
-		int lightLevel = 0;
-		
-		while (true) {
-			present(workingHours || fire){
-				// There is a fire
-				present(fire){
-					lightLevel = 2;
-				} else {
-					// People are in there
-					if (#occu1 > 0) {
-						lightLevel = 2;
-					
-					// People were in there previously
-					} else if (previous == 2) {
-						emit startTimer1;
-						lightLevel = 1;
-						
-					// Empty
-					} else {
-						present(startTimer1){
-							// within 5min of someone leaving the room
-							lightLevel = 1;
-						} else {
-							// empty for a while
-							lightLevel = 0;
-						}
-					}
-				}
-			} else {
-				// Not working hours
-				lightLevel = 0;
-			}
-			
-			emit light1(lightLevel);
-			previous = lightLevel;
-			
-			pause;
-		}
+		LightThing(: occu1, workingHours, fire, light1);
 	}
 	||
-	// Zone 1 timer
-	{
-		await(startTimer1);
-		
-		{
-			waitl(300 s);
-			emit timer1;
-			
-		}
-		||
-		{
-			abort(timer1){
-				sustain startTimer1;
-			}
-		}
-		||
-		{
-			while (true) {
-				if (#occu1 > 0) {
-					emit timer1;
-				}
-				
-				pause;
-			}
-			
-			pause;
-		}
-	}
 	// Zone 2
 	{
-		int previous = 0;
-		int lightLevel = 0;
-		
-		while (true) {
-			present(workingHours || fire){
-				// There is a fire
-				present(fire){
-					lightLevel = 2;
-				} else {
-					// People are in there
-					if (#occu2 > 0) {
-						lightLevel = 2;
-					
-					// People were in there previously
-					} else if (previous == 2) {
-						emit startTimer2;
-						lightLevel = 1;
-						
-					// Empty
-					} else {
-						present(startTimer2){
-							// within 5min of someone leaving the room
-							lightLevel = 1;
-						} else {
-							// empty for a while
-							lightLevel = 0;
-						}
-					}
-				}
-			} else {
-				// Not working hours
-				lightLevel = 0;
-			}
-			
-			emit light2(lightLevel);
-			previous = lightLevel;
-			
-			pause;
-		}
+		LightThing(: occu2, workingHours, fire, light2);
 	}
 	||
-	// Zone 2 timer
-	{
-		await(startTimer2);
-		
-		{
-			waitl(300 s);
-			emit timer2;
-			
-		}
-		||
-		{
-			abort(timer2){
-				sustain startTimer2;
-			}
-		}
-		||
-		{
-			while (true) {
-				if (#occu2 > 0) {
-					emit timer7;
-				}
-				
-				pause;
-			}
-		}
-	}
 	// Zone 3
 	{
-		int previous = 0;
-		int lightLevel = 0;
-		
-		while (true) {
-			present(workingHours || fire){
-				// There is a fire
-				present(fire){
-					lightLevel = 2;
-				} else {
-					// People are in there
-					if (#occu3 > 0) {
-						lightLevel = 2;
-					
-					// People were in there previously
-					} else if (previous == 2) {
-						emit startTimer3;
-						lightLevel = 1;
-						
-					// Empty
-					} else {
-						present(startTimer3){
-							// within 5min of someone leaving the room
-							lightLevel = 1;
-						} else {
-							// empty for a while
-							lightLevel = 0;
-						}
-					}
-				}
-			} else {
-				// Not working hours
-				lightLevel = 0;
-			}
-			
-			emit light3(lightLevel);
-			previous = lightLevel;
-			
-			pause;
-		}
+		LightThing(: occu3, workingHours, fire, light3);
 	}
 	||
-	// Zone 3 timer
-	{
-		await(startTimer3);
-		
-		{
-			waitl(300 s);
-			emit timer3;
-			
-		}
-		||
-		{
-			abort(timer1){
-				sustain startTimer3;
-			}
-		}
-		||
-		{
-			while (true) {
-				if (#occu3 > 0) {
-					emit timer3;
-				}
-				
-				pause;
-			}
-		}
-	}
 	// Zone 7
 	{
-		int previous = 0;
-		int lightLevel = 0;
-		
-		while (true) {
-			present(workingHours || fire){
-				// There is a fire
-				present(fire){
-					lightLevel = 2;
-				} else {
-					// People are in there
-					if (#occu7 > 0) {
-						lightLevel = 2;
-					
-					// People were in there previously
-					} else if (previous == 2) {
-						emit startTimer7;
-						lightLevel = 1;
-						
-					// Empty
-					} else {
-						present(startTimer7){
-							// within 5min of someone leaving the room
-							lightLevel = 1;
-						} else {
-							// empty for a while
-							lightLevel = 0;
-						}
-					}
-				}
-			} else {
-				// Not working hours
-				lightLevel = 0;
-			}
-			
-			emit light7(lightLevel);
-			previous = lightLevel;
-			
-			pause;
-		}
+		LightThing(: occu7, workingHours, fire, light7);
 	}
-	||
-	// Zone 7 timer
-	{
-		await(startTimer7);
-		
-		{
-			waitl(300 s);
-			emit timer7;
-			
-		}
-		||
-		{
-			abort(timer7){
-				sustain startTimer7;
-			}
-		}
-		||
-		{
-			while (true) {
-				if (#occu7 > 0) {
-					emit timer7;
-				}
-				
-				pause;
-			}
-		}
-	}
+	
 }
