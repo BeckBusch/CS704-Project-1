@@ -1,0 +1,84 @@
+CapperCD
+(
+	input signal bottleAtPos4, gripperZAxisLowered,gripperZAxisLifted,gripperTurnHomePos,gripperTurnFinalPos;
+	output signal cylPos5ZaxisExtend,gripperTurnRetract,gripperTurnExtend,capGripperPos5Extend,cylClampBottleExtend;
+) -> {
+	while (true) {
+		// initializing state when no bottle
+		{
+			// gripper is untwisted
+			abort (gripperTurnHomePos){
+				sustain gripperTurnRetract;
+			}
+		}
+		||
+		{
+			// gripper is fully raised
+			await (gripperZAxisLifted);
+		}
+		
+		// waiting for bottle at pos 4
+		await (bottleAtPos4);
+		
+		// clamping bottle
+		{
+			signal cancelClamp;
+			
+			// wait for arm to come down then back up
+			{
+				await (gripperZAxisLowered);				
+				await (gripperZAxisLifted);
+				
+				emit cancelClamp;
+			}
+			||
+			{
+				abort(cancelClamp){
+					sustain cylClampBottleExtend;
+				}
+			}
+		}
+		||
+		// Lowering gripper
+		{
+			signal raiseGripper;
+			
+			// raise gripper when cap is twisted / untwisted properly
+			{
+				await (gripperTurnFinalPos);
+				await (gripperTurnHomePos);
+				emit raiseGripper;
+			}
+			||
+			{
+				abort(raiseGripper){
+					sustain cylPos5ZaxisExtend;
+				}
+			}
+		}
+		||
+		// gripping / twisting cap
+		{
+			// wait for gripper to be lowered
+			await (gripperZAxisLowered);
+			
+			// gripping cap until twisted
+			trap(T){
+				{
+					await(gripperTurnFinalPos);
+					exit(T);
+				}
+				||
+				// twisting cap
+				{sustain gripperTurnExtend;}
+				||
+				// gripping cap
+				{sustain capGripperPos5Extend;}
+			}
+			
+		}
+		
+		// waiting until the bottle is gone
+		await (!bottleAtPos4);
+	}
+}

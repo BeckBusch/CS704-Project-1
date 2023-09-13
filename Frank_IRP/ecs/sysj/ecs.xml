@@ -1,0 +1,76 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="ECS" Local="true">
+		<ClockDomain Name="TempCD" Class="TempCD">
+			<iSignal Name="temp17" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="temp23" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="temp456" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="humd17" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="humd23" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="humd456" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			
+			<iSignal Name="occu1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu2" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu3" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu4" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu5" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu6" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="occu7" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+			<iSignal Name="clock" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10002" />
+
+			<oSignal Name="heat17" To="PlantCD.heat17"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="heat23" To="PlantCD.heat23"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="heat456" To="PlantCD.heat456"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="ac17"           To="PlantCD.ac17"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="ac23"           To="PlantCD.ac23"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="ac456"           To="PlantCD.ac456"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="fan17"           To="PlantCD.fan17"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="fan23"           To="PlantCD.fan23"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="fan456"           To="PlantCD.fan456"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			
+			<iChannel Name="fireHappening" From="FireCD.fireHappening" />
+
+		</ClockDomain>
+		
+		<ClockDomain Name="FireCD" Class="FireCD">		
+			<iSignal Name="smoke1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke2" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke3" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke4" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke5" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke6" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="smoke7" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			
+			<iSignal Name="temp17" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="temp23" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+			<iSignal Name="temp456" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10004" />
+						
+			<oSignal Name="emergency"           To="PlantCD.emergency"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+
+			<oChannel Name="fireHappening" To="TempCD.fireHappening" />
+			<oChannel Name="fireHappeningLight" To="LightCD.fireHappeningLight" />
+
+		</ClockDomain>
+		<ClockDomain Name="LightCD" Class="LightCD">
+			<iChannel Name="fireHappeningLight" From="FireCD.fireHappeningLight" />
+			
+			<iSignal Name="occu1" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu2" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu3" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu4" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu5" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu6" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="occu7" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			<iSignal Name="clock" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10003" />
+			
+			<oSignal Name="light1" To="PlantCD.light1"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light2" To="PlantCD.light2"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light3" To="PlantCD.light3"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light4" To="PlantCD.light4"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light5" To="PlantCD.light5"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light6" To="PlantCD.light6"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+			<oSignal Name="light7" To="PlantCD.light7"           Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="10001" />
+
+
+		</ClockDomain>
+	</SubSystem>
+</System>
