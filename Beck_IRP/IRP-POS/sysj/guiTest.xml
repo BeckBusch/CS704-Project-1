@@ -1,0 +1,10 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="POS" Local="true">
+		<ClockDomain Name="MyCD" Class="CD">
+			
+			<iSignal Name="bottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4007" />
+			
+		</ClockDomain>
+	</SubSystem>
+</System>
+	

@@ -412,6 +412,7 @@ public class posGUI {
                 System.out.println("closed reached"); // PRINTER
 
             } catch (IOException | InterruptedException aa) {
+                System.out.println("fail");
                 // System.out.println(aa.getMessage());
             }
         }
