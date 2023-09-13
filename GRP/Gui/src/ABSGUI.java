@@ -19,10 +19,10 @@ import java.util.Map;
 
 public class ABSGUI {
     HashMap<String, signalSender> signalSendersMap;
-    String[] signalNames = { "bottleAtPos1", "bottleLeftPos5", "tableAlignedWithSensor",
-            "bottleAtPos5", "capOnBottleAtPos1", "bottleAtPos4",
-            "gripperZAxisLowered", "gripperZAxisLifted", "gripperTurnHomePos",
-            "gripperTurnFinalPos", "bottleAtPos2", "dosUnitEvac", "dosUnitFilled" };
+    String[] signalNames = { "bottleAtPos1GUI", "bottleLeftPos5GUI", "tableAlignedWithSensorGUI",
+            "bottleAtPos5GUI", "capOnBottleAtPos1GUI", "bottleAtPos4GUI",
+            "gripperZAxisLoweredGUI", "gripperZAxisLiftedGUI", "gripperTurnHomePosGUI",
+            "gripperTurnFinalPosGUI", "bottleAtPos2GUI", "dosUnitEvacGUI", "dosUnitFilledGUI" };
 
     HashMap<String, JLabel> imageLabels;
     String[] imageNames = { "canisterBottom.png", "tableRotation.png", "conveyorOn.png",
@@ -120,10 +120,11 @@ public class ABSGUI {
         messageLabels = new HashMap<>();
         for (String name : messageNames) {
             JLabel tempLabel = new JLabel(name);
-            tempLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
+            tempLabel.setFont(new Font("Verdana", Font.PLAIN, 16));
             int index = Arrays.asList(messageNames).indexOf(name);
             int[] location = messageLocations[index];
             tempLabel.setBounds(location[0], location[1], 200, 50);
+            messageLabels.put(name, tempLabel);
             guiPanel.add(tempLabel);
         }
 
@@ -203,175 +204,175 @@ public class ABSGUI {
                             inputStatus = statusMatcher.group(1);
 
                             switcher = inputName + inputStatus;
-                             System.out.println(switcher);
+                            System.out.println(switcher);
 
                             switch (switcher) {
-                                case "motConveyorOnOfftrue":
+                                case "motConveyorOnOffGUItrue":
                                     System.out.println("motConveyorOnOfftrue");
                                     imageLabels.get("conveyorOn.png").setVisible(true);
                                     break;
-                                case "motConveyorOnOfffalse":
+                                case "motConveyorOnOffGUIfalse":
                                     System.out.println("motConveyorOnOfffalse");
                                     imageLabels.get("conveyorOn.png").setVisible(false);
                                     break;
-                                case "rotaryTableTriggertrue":
+                                case "rotaryTableTriggerGUItrue":
                                     System.out.println("rotaryTableTriggertrue");
                                     imageLabels.get("tableRotation.png").setVisible(true);
                                     break;
-                                case "rotaryTableTriggerfalse":
+                                case "rotaryTableTriggerGUIfalse":
                                     System.out.println("rotaryTableTriggerfalse");
                                     imageLabels.get("tableRotation.png").setVisible(false);
                                     break;
-                                case "cylPos5ZaxisExtendtrue":
+                                case "cylPos5ZaxisExtendGUItrue":
                                     System.out.println("cylPos5ZaxisExtendtrue");
                                     messageLabels.get("gripperDown").setText("Lowering Gripper");
                                     break;
-                                case "cylPos5ZaxisExtendfalse":
+                                case "cylPos5ZaxisExtendGUIfalse":
                                     System.out.println("cylPos5ZaxisExtendfalse");
                                     messageLabels.get("gripperDown").setText("Raising Gripper");
                                     break;
-                                case "gripperTurnRetracttrue":
+                                case "gripperTurnRetractGUItrue":
                                     System.out.println("gripperTurnRetracttrue");
                                     messageLabels.get("gripperTurn").setText("Untwisting Gripper");
                                     break;
-                                case "gripperTurnRetractfalse":
+                                case "gripperTurnRetractGUIfalse":
                                     System.out.println("gripperTurnRetractfalse");
                                     // noop
                                     break;
-                                case "gripperTurnExtendtrue":
+                                case "gripperTurnExtendGUItrue":
                                     System.out.println("gripperTurnExtendtrue");
                                     messageLabels.get("gripperTurn").setText("Twisting Gripper");
                                     break;
-                                case "gripperTurnExtendfalse":
+                                case "gripperTurnExtendGUIfalse":
                                     System.out.println("gripperTurnExtendfalse");
                                     // noop
                                     break;
-                                case "capGripperPos5Extendtrue":
+                                case "capGripperPos5ExtendGUItrue":
                                     System.out.println("capGripperPos5Extendtrue");
                                     messageLabels.get("gripCap").setText("Gripping Cap");
                                     break;
-                                case "capGripperPos5Extendfalse":
+                                case "capGripperPos5ExtendGUIfalse":
                                     System.out.println("capGripperPos5Extendfalse");
                                     messageLabels.get("gripCap").setText("Released Cap");
                                     break;
-                                case "cylClampBottleExtendtrue":
+                                case "cylClampBottleExtendGUItrue":
                                     System.out.println("cylClampBottleExtendtrue");
                                     messageLabels.get("gripBottle").setText("Clamping Bottle");
                                     break;
-                                case "cylClampBottleExtendfalse":
+                                case "cylClampBottleExtendGUIfalse":
                                     System.out.println("cylClampBottleExtendfalse");
                                     messageLabels.get("gripBottle").setText("Released Bottle");
                                     break;
-                                case "valveInjectorOnOfftrue":
+                                case "valveInjectorOnOffGUItrue":
                                     System.out.println("valveInjectorOnOfftrue");
                                     messageLabels.get("valveInjector").setText("Injector Valve On");
                                     break;
-                                case "valveInjectorOnOfffalse":
+                                case "valveInjectorOnOffGUIfalse":
                                     System.out.println("valveInjectorOnOfffalse");
                                     messageLabels.get("valveInjector").setText("Injector Valve Off");
                                     break;
-                                case "valveInletOnOfftrue":
+                                case "valveInletOnOffGUItrue":
                                     System.out.println("valveInletOnOfftrue");
                                     messageLabels.get("valveInlet").setText("Inlet Valve On");
                                     break;
-                                case "valveInletOnOfffalse":
+                                case "valveInletOnOffGUIfalse":
                                     System.out.println("valveInletOnOfffalse");
                                     messageLabels.get("valveInlet").setText("Inlet Valve Off");
                                     break;
-                                case "dosUnitValveRetracttrue":
+                                case "dosUnitValveRetractGUItrue":
                                     System.out.println("dosUnitValveRetracttrue");
                                     messageLabels.get("movingCanister").setText("Raising Canister");
                                     break;
-                                case "dosUnitValveRetractfalse":
+                                case "dosUnitValveRetractGUIfalse":
                                     System.out.println("dosUnitValveRetractfalse");
                                     // noop
                                     break;
-                                case "dosUnitValveExtendtrue":
+                                case "dosUnitValveExtendGUItrue":
                                     System.out.println("dosUnitValveExtendtrue");
                                     messageLabels.get("movingCanister").setText("Lowering Canister");
                                     break;
-                                case "dosUnitValveExtendfalse":
+                                case "dosUnitValveExtendGUIfalse":
                                     System.out.println("dosUnitValveExtendfalse");
                                     // noop
                                     break;
-                                case "bottleAtPos1true":
+                                case "bottleAtPos1GUItrue":
                                     imageLabels.get("bottlePos1.png").setVisible(true);
                                     break;
-                                case "bottleAtPos1false":
+                                case "bottleAtPos1GUIfalse":
                                     imageLabels.get("bottlePos1.png").setVisible(false);
                                     break;
-                                case "bottleLeftPos5true":
+                                case "bottleLeftPos5GUItrue":
                                     imageLabels.get("bottleLeaving.png").setVisible(true);
                                     break;
-                                case "bottleLeftPos5false":
+                                case "bottleLeftPos5GUIfalse":
                                     imageLabels.get("bottleLeaving.png").setVisible(false);
                                     break;
-                                case "tableAlignedWithSensortrue":
+                                case "tableAlignedWithSensorGUItrue":
                                     imageLabels.get("tableAlign.png").setVisible(true);
                                     imageLabels.get("tableUnalign.png").setVisible(false);
                                     break;
-                                case "tableAlignedWithSensorfalse":
+                                case "tableAlignedWithSensorGUIfalse":
                                     imageLabels.get("tableUnalign.png").setVisible(true);
                                     imageLabels.get("tableAlign.png").setVisible(false);
                                     break;
-                                case "bottleAtPos5true":
+                                case "bottleAtPos5GUItrue":
                                     imageLabels.get("bottlePos5.png").setVisible(true);
                                     break;
-                                case "bottleAtPos5false":
+                                case "bottleAtPos5GUIfalse":
                                     imageLabels.get("bottlePos5.png").setVisible(false);
                                     break;
-                                case "capOnBottleAtPos1true":
+                                case "capOnBottleAtPos1GUItrue":
                                     imageLabels.get("capPos1.png").setVisible(true);
                                     break;
-                                case "capOnBottleAtPos1false":
+                                case "capOnBottleAtPos1GUIfalse":
                                     imageLabels.get("capPos1.png").setVisible(false);
                                     break;
-                                case "bottleAtPos4true":
+                                case "bottleAtPos4GUItrue":
                                     imageLabels.get("bottlePos4.png").setVisible(true);
                                     break;
-                                case "bottleAtPos4false":
+                                case "bottleAtPos4GUIfalse":
                                     imageLabels.get("bottlePos4.png").setVisible(false);
                                     break;
-                                case "gripperZAxisLoweredtrue":
+                                case "gripperZAxisLoweredGUItrue":
                                     imageLabels.get("fullyLowered.png").setVisible(true);
                                     break;
-                                case "gripperZAxisLoweredfalse":
+                                case "gripperZAxisLoweredGUIfalse":
                                     imageLabels.get("fullyLowered.png").setVisible(false);
                                     break;
-                                case "gripperZAxisLiftedtrue":
+                                case "gripperZAxisLiftedGUItrue":
                                     imageLabels.get("fullyRaised.png").setVisible(true);
                                     break;
-                                case "gripperZAxisLiftedfalse":
+                                case "gripperZAxisLiftedGUIfalse":
                                     imageLabels.get("fullyRaised.png").setVisible(false);
                                     break;
-                                case "gripperTurnHomePostrue":
+                                case "gripperTurnHomePosGUItrue":
                                     messageLabels.get("gripperTurn").setText("Gripper Init");
                                     break;
-                                case "gripperTurnHomePosfalse":
+                                case "gripperTurnHomePosGUIfalse":
                                     messageLabels.get("gripperTurn").setText("");
                                     break;
-                                case "gripperTurnFinalPostrue":
+                                case "gripperTurnFinalPosGUItrue":
                                     messageLabels.get("gripperTurn").setText("Gripper Final");
                                     break;
-                                case "gripperTurnFinalPosfalse":
+                                case "gripperTurnFinalPosGUIfalse":
                                     messageLabels.get("gripperTurn").setText("");
                                     break;
-                                case "bottleAtPos2true":
+                                case "bottleAtPos2GUItrue":
                                     imageLabels.get("bottlePos2.png").setVisible(true);
                                     break;
-                                case "bottleAtPos2false":
+                                case "bottleAtPos2GUIfalse":
                                     imageLabels.get("bottlePos2.png").setVisible(false);
                                     break;
-                                case "dosUnitEvactrue":
+                                case "dosUnitEvacGUItrue":
                                     imageLabels.get("canisterBottom.png").setVisible(true);
                                     break;
-                                case "dosUnitEvacfalse":
+                                case "dosUnitEvacGUIfalse":
                                     imageLabels.get("canisterBottom.png").setVisible(false);
                                     break;
-                                case "dosUnitFilledtrue":
+                                case "dosUnitFilledGUItrue":
                                     imageLabels.get("canisterTop.png").setVisible(true);
                                     break;
-                                case "dosUnitFilledfalse":
+                                case "dosUnitFilledGUIfalse":
                                     imageLabels.get("canisterTop.png").setVisible(false);
                                     break;
                                 default:

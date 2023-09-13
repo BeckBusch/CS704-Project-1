@@ -1,30 +1,46 @@
 CD(
-	output signal bottleAtPos1, bottleLeftPos5;
-	output signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
-	output signal bottleAtPos4, gripperZAxisLowered, gripperZAxisLifted, gripperTurnHomePos, gripperTurnFinalPos;
-	output signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+	output signal bottleAtPos1GUI, bottleLeftPos5GUI;
+	output signal tableAlignedWithSensorGUI, bottleAtPos5GUI, capOnBottleAtPos1GUI;
+	output signal bottleAtPos4GUI, gripperZAxisLoweredGUI, gripperZAxisLiftedGUI, gripperTurnHomePosGUI, gripperTurnFinalPosGUI;
+	output signal bottleAtPos2GUI, dosUnitEvacGUI, dosUnitFilledGUI;
 	
-	output signal motConveyorOnOff;
-	output signal rotaryTableTrigger;
-	output signal cylPos5ZaxisExtend, gripperTurnRetract, gripperTurnExtend, capGripperPos5Extend, cylClampBottleExtend;
-	output signal valveInjectorOnOff, valveInletOnOff, dosUnitValveRetract, dosUnitValveExtend;
+	output signal motConveyorOnOffGUI;
+	output signal rotaryTableTriggerGUI;
+	output signal cylPos5ZaxisExtendGUI, gripperTurnRetractGUI, gripperTurnExtendGUI, capGripperPos5ExtendGUI, cylClampBottleExtendGUI;
+	output signal valveInjectorOnOffGUI, valveInletOnOffGUI, dosUnitValveRetractGUI, dosUnitValveExtendGUI;
 	
 )->{
 	{
 		signal A;
-		loop {
-			{
-				abort(A){
-					sustain bottleAtPos1;
-				}
-			}
-			||
-			{
-				waitl(1000 ms);
-				emit A;
-			}
+		emit dosUnitValveRetractGUI;
 		
-			System.out.println("received");
+		{
+			abort (A) {
+				sustain bottleAtPos1GUI;
 			}
-	}	
+		}
+		||
+		{
+			waitl(1500 ms);
+			emit A;
+		}
+		
+		emit dosUnitValveExtendGUI;
+		
+		{
+			abort (A) {
+				sustain motConveyorOnOffGUI;
+			}
+		}
+		||
+		{
+			waitl(1500 ms);
+			emit A;
+		}
+		halt;
+	}
+	||
+	{
+		pause;
+	}
 }
