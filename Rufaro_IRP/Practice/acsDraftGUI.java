@@ -11,10 +11,11 @@ import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Arrays;
+//import java.util.Arrays;
 
 //import javax.net.ServerSocketFactory;
 
@@ -32,50 +33,56 @@ public class acsDraftGUI{
     static int ABS_REGION_RIGHT = 680;
     static int ABS_REGION_TOP = 125;
 
-    static int ZONE1_REGION_BOTTOM = -1;
-    static int ZONE1_REGION_LEFT = -1;
-    static int ZONE1_REGION_RIGHT = -1;
-    static int ZONE1_REGION_TOP = -1;
+    static int ZONE1_REGION_BOTTOM = 415;
+    static int ZONE1_REGION_LEFT = 315;
+    static int ZONE1_REGION_RIGHT = 485;
+    static int ZONE1_REGION_TOP = 275;
 
-    static int ZONE2_REGION_BOTTOM = -1;
-    static int ZONE2_REGION_LEFT = -1;
-    static int ZONE2_REGION_RIGHT = -1;
-    static int ZONE2_REGION_TOP = -1;
+    static int ZONE2_REGION_BOTTOM = 415;
+    static int ZONE2_REGION_LEFT = 495;
+    static int ZONE2_REGION_RIGHT = 635;
+    static int ZONE2_REGION_TOP = 275;
 
-    static int ZONE3_REGION_BOTTOM = -1;
-    static int ZONE3_REGION_LEFT = -1;
-    static int ZONE3_REGION_RIGHT = -1;
-    static int ZONE3_REGION_TOP = -1;
+    static int ZONE3_REGION_BOTTOM = 415;
+    static int ZONE3_REGION_LEFT = 640;
+    static int ZONE3_REGION_RIGHT = 800;
+    static int ZONE3_REGION_TOP = 275;
 
-    static int ZONE4_REGION_BOTTOM = -1;
-    static int ZONE4_REGION_LEFT = -1;
-    static int ZONE4_REGION_RIGHT = -1;
-    static int ZONE4_REGION_TOP = -1;
+    static int ZONE4_REGION_BOTTOM = 265;
+    static int ZONE4_REGION_LEFT = 725;
+    static int ZONE4_REGION_RIGHT = 800;
+    static int ZONE4_REGION_TOP = 130;
 
-    static int ZONE5_REGION_BOTTOM = -1;
-    static int ZONE5_REGION_LEFT = -1;
-    static int ZONE5_REGION_RIGHT = -1;
-    static int ZONE5_REGION_TOP = -1;
+    static int ZONE5_REGION_BOTTOM = 265;
+    static int ZONE5_REGION_LEFT = 565;
+    static int ZONE5_REGION_RIGHT = 715;
+    static int ZONE5_REGION_TOP = 130;
 
-    static int ZONE6_REGION_BOTTOM = -1;
-    static int ZONE6_REGION_LEFT = -1;
-    static int ZONE6_REGION_RIGHT = -1;
-    static int ZONE6_REGION_TOP = -1;
+    static int ZONE6_REGION_BOTTOM = 265;
+    static int ZONE6_REGION_LEFT = 495;
+    static int ZONE6_REGION_RIGHT = 560;
+    static int ZONE6_REGION_TOP = 130;
+    
+    public static int ZONE7_REGION_BOTTOM = 260;
+    public static int ZONE7_REGION_LEFT = 315;
+    public static int ZONE7_REGION_RIGHT = 485;
+    public static int ZONE7_REGION_TOP = 130;
 
-    static int FRONT_DOOR_REGION_BOTTOM = -1;
-    static int FRONT_DOOR_REGION_LEFT = -1;
-    static int FRONT_DOOR_REGION_RIGHT = -1;
-    static int FRONT_DOOR_REGION_TOP = -1;
 
-    static int OFFICE_DOOR_REGION_BOTTOM = -1;
-    static int OFFICE_DOOR_REGION_LEFT = -1;
-    static int OFFICE_DOOR_REGION_RIGHT = -1;
-    static int OFFICE_DOOR_REGION_TOP = -1;
+    static int FRONT_DOOR_REGION_BOTTOM = 365;
+    static int FRONT_DOOR_REGION_LEFT = 300;
+    static int FRONT_DOOR_REGION_RIGHT = 325;
+    static int FRONT_DOOR_REGION_TOP = 310;
 
-    static int MANUFACTURE_DOOR_REGION_BOTTOM = -1;
-    static int MANUFACTURE_DOOR_REGION_LEFT = -1;
-    static int MANUFACTURE_DOOR_REGION_RIGHT = -1;
-    static int MANUFACTURE_DOOR_REGION_TOP = -1;
+    static int OFFICE_DOOR_REGION_BOTTOM = 280;
+    static int OFFICE_DOOR_REGION_LEFT = 360;
+    static int OFFICE_DOOR_REGION_RIGHT = 420;
+    static int OFFICE_DOOR_REGION_TOP = 265;
+
+    static int MANUFACTURE_DOOR_REGION_BOTTOM = 300;
+    static int MANUFACTURE_DOOR_REGION_LEFT = 600;
+    static int MANUFACTURE_DOOR_REGION_RIGHT = 675;
+    static int MANUFACTURE_DOOR_REGION_TOP = 260;
     
 
     static int PORT_NO = 4031;
@@ -84,13 +91,13 @@ public class acsDraftGUI{
     static int Xvalue = WINDOW_LENGTH/2;
     static int Yvalue = TOP_MARGIN+50;
 
+
     public static void main(String[] args) throws IOException {  
         JFrame f=new JFrame();//creating instance of JFrame  
         //
         //==BUTTONS==
 
         //Left Button 
-                 //TODO make these strings into icons for quality points
         JButton leftB=new JButton("left");//creating instance of JButton
         leftB.setBounds(12,(TOP_MARGIN+100),100, 40);//x axis(from left), y axis(from top), width, height
         leftB.setActionCommand("Move Left");
@@ -181,10 +188,10 @@ public class acsDraftGUI{
         while(true){
     
             avatar.setBounds(Xvalue, Yvalue, 500, 300);
-            System.out.printf("\n\nXvalue: %d | Yvalue: %d", Xvalue,Yvalue);
+            //\nSystem.out.printf("\n\nXvalue: %d | Yvalue: %d", Xvalue,Yvalue);
 
             //checking if in ABS region
-            if(getZone() == "ABS"){ 
+            if(getZone(Xvalue,Yvalue) == "ABS"){ 
                 /*Send Suspend signal to the sysj */
                 System.out.println("ABS SUSPENDED: IN ABS REGION");
                 absSuspend.setVisible(true); //show the message
@@ -209,32 +216,56 @@ public class acsDraftGUI{
     }
 
     //==SENDID()-HELPER-FUNCTION==
-    private void sendID(){
-        String[] outputArray = new String[]{String.valueOf(AVATAR_ID),getZone()};
+    static void sendID(){
 
-        System.out.println(Arrays.toString(outputArray)); /*Printing what will be sent*/
-
-        IdSend sender = new IdSend(String.join(",", outputArray));
+        acsSignalSender sender = new acsSignalSender(PORT_NO);
+        sender.setOutgoingID(AVATAR_ID);
+        sender.setOutgoingZone(getZone(Xvalue,Yvalue));
         sender.start();
-
     }
 
-    private class IdSend extends Thread{
-        String outgoing;
+    private static class acsSignalSender extends Thread {
+        ObjectOutputStream outputStream;
+        int outgoingID;
+        String outgoingZone;
+        String[] outgoingArray = new String[2];
+        
 
-        IdSend(String in){
-            this.outgoing = in;
+        acsSignalSender(int port) {
+            try {
+                outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
+        }
+
+        void setOutgoingID(int number) {
+            this.outgoingID = number;
+        }
+
+        void setOutgoingZone(String zone) {
+            this.outgoingZone = getZone(Xvalue,Yvalue);
         }
 
         @Override
-        public void run(){
-            
+        public void run() {
+            try {
+                outgoingArray[0] = String.valueOf(outgoingID);
+                outgoingArray[1] = outgoingZone;
+                System.out.printf("[%s,%s]",outgoingZone, outgoingID);
+                outputStream.writeObject(new Object[] { true, outgoingArray });
+                Thread.sleep(100);
+                outputStream.writeObject(new Object[] { false, outgoingArray });
+            } catch (IOException | InterruptedException aa) {
+                System.out.println(aa.getMessage());
+            }
         }
-    }
+}
+
 
 
     //==GET_ZONE-HELPER-FUNCTION==
-    private static String getZone(){ //If/Else statement in order of priority (Abs, doors, then zones)
+    private static String getZone(int Xvalue, int Yvalue){ //If/Else statement in order of priority (Abs, doors, then zones)
         if((ABS_REGION_LEFT<Xvalue && Xvalue<ABS_REGION_RIGHT) && (ABS_REGION_TOP<Yvalue && Yvalue<ABS_REGION_BOTTOM)){
             return (String)"ABS";
         }else if((OFFICE_DOOR_REGION_LEFT<Xvalue && Xvalue<OFFICE_DOOR_REGION_RIGHT) && (OFFICE_DOOR_REGION_TOP<Yvalue && Yvalue<OFFICE_DOOR_REGION_BOTTOM)){
@@ -255,6 +286,8 @@ public class acsDraftGUI{
             return "Zone 5";
         }else if((ZONE6_REGION_LEFT<Xvalue && Xvalue<ZONE6_REGION_RIGHT) && (ZONE6_REGION_TOP<Yvalue && Yvalue<ZONE6_REGION_BOTTOM)){
             return "Zone 6";
+        }else if((ZONE7_REGION_LEFT<Xvalue && Xvalue<ZONE7_REGION_RIGHT) && (ZONE7_REGION_TOP<Yvalue && Yvalue<ZONE7_REGION_BOTTOM)){
+            return "Zone 7";
         }else{
             return "OUTSIDE";
         }
@@ -266,25 +299,24 @@ public class acsDraftGUI{
             String command = e.getActionCommand();
 
             if (command.equals("Move Left")) {
-                System.out.println("MOVE LEFT pressed");
+                System.out.println("\nMOVE LEFT pressed");
                 Xvalue -= 5;
             
             } else if (command.equals("Move Right")) {
-                System.out.println("MOVE RIGHT pressed");
+                System.out.println("\nMOVE RIGHT pressed");
                 Xvalue += 5;
         
             } else if (command.equals("Move Down")) {
-                System.out.println("Move Down pressed");
+                System.out.println("\nMove Down pressed");
                 Yvalue += 5;
         
             } else if (command.equals("Move Up")) {
-                System.out.println("Move Up pressed");
+                System.out.println("\nMove Up pressed");
                 Yvalue -= 5;
             
             } else if (command.equals("Scan")) {
-                System.out.println("Scan pressed");
-                //ScanID()
-                //TODO: Implement ScanID() function
+                System.out.println("\nScan pressed");
+                sendID();
 
             } else if (command.equals("Reset")) {
                 System.out.println("Reset pressed");
@@ -316,6 +348,7 @@ public class acsDraftGUI{
             try {
 
                 clientSocket = serverSocket.accept();
+                System.out.println("connection made!");
                 out = new PrintWriter(clientSocket.getOutputStream(), true);
                 in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             
@@ -344,6 +377,5 @@ public class acsDraftGUI{
 /*
  * CHECKLIST of ToDo
  */
-//TODO:Implement ScanID()
     
 
