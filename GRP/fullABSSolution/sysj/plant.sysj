@@ -75,6 +75,7 @@ PlantRotaryCD
 	signal conveyorToPos1;
 	signal pos5ToConveyor;
 	signal pos12, pos23, pos34, pos45, pos56, pos61; // connections
+	signal pos1, pos2, pos3, pos4, pos5, pos6;
 	
 	// Simulate rotate the table
 	{
@@ -96,7 +97,7 @@ PlantRotaryCD
 	// Conveyor to index 1
 	{
 		while (true) {
-			present(!bottleAtPos1 && plantConveyorActive && plantConveyorBottleBeforePos1){
+			present(!pos1 && plantConveyorActive && plantConveyorBottleBeforePos1){
 				emit conveyorToPos1;
 			}
 			
@@ -108,7 +109,7 @@ PlantRotaryCD
 	{
 		while (true) {
 			// bottle comes out even if there's something there
-			present(bottleAtPos5 && plantConveyorActive){
+			present(pos5 && plantConveyorActive){
 				emit pos5ToConveyor;
 			}
 			
@@ -119,74 +120,85 @@ PlantRotaryCD
 	// Index 1
 	{
 		RotaryTableTracker(:
-			bottleAtPos6, 
+			pos6, 
 			finishedRotating, 
 			conveyorToPos1, 
 			pos61, 
 			deadSignal, 
-			bottleAtPos1, 
+			pos1, 
 			pos12);
 	}
 	||
 	// Index 2
 	{
 		RotaryTableTracker(:
-			bottleAtPos1, 
+			pos1, 
 			finishedRotating, 
 			deadSignal, 
 			pos12, 
 			deadSignal, 
-			bottleAtPos2, 
+			pos2, 
 			pos23);
 	}
 	||
 	// Index 3
 	{
 		RotaryTableTracker(:
-			bottleAtPos2, 
+			pos2, 
 			finishedRotating, 
 			deadSignal, 
 			pos23, 
 			deadSignal, 
-			bottleAtPos3, 
+			pos3, 
 			pos34);
 	}
 	||
 	// Index 4
 	{
 		RotaryTableTracker(:
-			bottleAtPos3, 
+			pos3, 
 			finishedRotating, 
 			deadSignal, 
 			pos34, 
 			deadSignal, 
-			bottleAtPos4, 
+			pos4, 
 			pos45);
 	}
 	||
 	// Index 5
 	{
 		RotaryTableTracker(:
-			bottleAtPos4, 
+			pos4, 
 			finishedRotating, 
 			deadSignal, 
 			pos45, 
 			pos5ToConveyor, 
-			bottleAtPos5, 
+			pos5, 
 			pos56);
 	}
 	||
 	// Index 6
 	{
 		RotaryTableTracker(:
-			bottleAtPos5, 
+			pos5, 
 			finishedRotating, 
 			deadSignal, 
 			pos56, 
 			deadSignal, 
-			bottleAtPos6, 
+			pos6, 
 			pos61);
 	}
-	
-	
+	||
+	// Trackers to output mapping
+	{while(true){present(pos1){emit bottleAtPos1;} pause;}}
+	||
+	{while(true){present(pos2){emit bottleAtPos2;} pause;}}
+	||
+	{while(true){present(pos3){emit bottleAtPos3;} pause;}}
+	||
+	{while(true){present(pos4){emit bottleAtPos4;} pause;}}
+	||
+	{while(true){present(pos5){emit bottleAtPos5;} pause;}}
+	||
+	{while(true){present(pos6){emit bottleAtPos6;} pause;}}
 }
