@@ -431,28 +431,93 @@ reaction PlantConveyor(
 
 
 reaction PlantCapper(
-		input signalcylPos5ZaxisExtend,gripperTurnRetract,gripperTurnExtend,capGripperPos5Extend,cylClampBottleExtend;
-
-		output signal bottleAtPos4, gripperZAxisLowered,gripperZAxisLifted,gripperTurnHomePos,gripperTurnFinalPos;
+		input signal cylPos5ZaxisExtend,gripperTurnRetract,gripperTurnExtend,capGripperPos5Extend,cylClampBottleExtend;
+		output signal gripperZAxisLowered,gripperZAxisLifted,gripperTurnHomePos,gripperTurnFinalPos;
 
 ) {
-	{//Simulation
-		await(tableAlignedWithSensorGUI);
-		pause;
-		{{emit gripperTurnHomePos;}||{emit gripperTurnHomePosGUI};}
-		pause;
-		{{emit gripperZAxisLifted;}||{emit gripperZAxisLifted};}
-		pause;
-		{{emit bottleAtPos4;}||{emit bottleAtPos4GUI};}
-	}
-	||
-	{//Indicating gripper turning as it retracts
-		loop{
-			present(gripperTurnRetract){
-				emit gripperTurnRetractGUI;
+	// for gripperZAxisLowered
+	{
+		signal cancelZ;
+		
+		loop {
+			
+			await(cylPos5ZaxisExtend);
+			
+			abort(cancelZ){
+				{
+					await (!cylPos5ZaxisExtend);
+					emit cancelZ;
+				}
+				||
+				{
+					waitl(1 s);
+					sustain gripperZAxisLowered;
+				}
 			}
 		}
 	}
-	
+	// gripperZAxisLifted only on when the other hasnt been on for 500 ms 
+	||
+	{
+		signal cancelUnZ;
+		
+		loop {
+			await (!gripperZAxisLowered);
+			
+			abort(cancelUnZ){
+				{
+					await (cylPos5ZaxisExtend);
+					emit cancelUnZ;
+				}
+				||
+				{
+					waitl(1 s);
+					sustain gripperZAxisLifted;
+				}
+			}
+		}
+	}
+	||
+	// untwisting
+	{
+		signal cancelUntwist;
+		
+		loop {
+			await (gripperTurnExtend && !gripperTurnRetract);
+			
+			abort(cancelUntwist){
+				{
+					await (!gripperTurnExtend || gripperTurnRetract);
+					emit cancelUntwist;
+				}
+				||
+				{
+					waitl(1 s);
+					sustain gripperTurnHomePos;
+				}
+			}
+		}
+	}
+	||
+	// twisting
+	{
+		signal cancelTwist;
+		
+		loop {
+			await (!gripperTurnExtend && gripperTurnRetract);
+			
+			abort(cancelTwist){
+				{
+					await (gripperTurnExtend || !gripperTurnRetract);
+					emit cancelTwist;
+				}
+				||
+				{
+					waitl(1 s);
+					sustain gripperTurnFinalPos;
+				}
+			}
+		}
+	}
 	
 }
