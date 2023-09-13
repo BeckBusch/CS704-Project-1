@@ -8,6 +8,15 @@ import java.awt.Font;
 import java.awt.event.*;  
 //import java.util.*;
 //import java.util.Date; 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Arrays;
+
+//import javax.net.ServerSocketFactory;
 
 
 public class acsDraftGUI{
@@ -16,6 +25,7 @@ public class acsDraftGUI{
     static int WINDOW_LENGTH = 800; //will be used for reactive window making
     static int WINDOW_HEIGHT = 700;
     static int TOP_MARGIN = 100;
+    static int AVATAR_ID = 0;
 
     static int ABS_REGION_BOTTOM = 205;
     static int ABS_REGION_LEFT = 591;
@@ -52,16 +62,29 @@ public class acsDraftGUI{
     static int ZONE6_REGION_RIGHT = -1;
     static int ZONE6_REGION_TOP = -1;
 
-    static int _REGION_BOTTOM = -1;
-    static int _REGION_LEFT = -1;
-    static int _REGION_RIGHT = -1;
-    static int _REGION_TOP = -1;
+    static int FRONT_DOOR_REGION_BOTTOM = -1;
+    static int FRONT_DOOR_REGION_LEFT = -1;
+    static int FRONT_DOOR_REGION_RIGHT = -1;
+    static int FRONT_DOOR_REGION_TOP = -1;
+
+    static int OFFICE_DOOR_REGION_BOTTOM = -1;
+    static int OFFICE_DOOR_REGION_LEFT = -1;
+    static int OFFICE_DOOR_REGION_RIGHT = -1;
+    static int OFFICE_DOOR_REGION_TOP = -1;
+
+    static int MANUFACTURE_DOOR_REGION_BOTTOM = -1;
+    static int MANUFACTURE_DOOR_REGION_LEFT = -1;
+    static int MANUFACTURE_DOOR_REGION_RIGHT = -1;
+    static int MANUFACTURE_DOOR_REGION_TOP = -1;
+    
+
+    static int PORT_NO = 4031;
 
     //==GLOBAL CLASS VARIABLES==
     static int Xvalue = WINDOW_LENGTH/2;
     static int Yvalue = TOP_MARGIN+50;
 
-    public static void main(String[] args) {  
+    public static void main(String[] args) throws IOException {  
         JFrame f=new JFrame();//creating instance of JFrame  
         //
         //==BUTTONS==
@@ -148,12 +171,14 @@ public class acsDraftGUI{
         //==SETTING FRAME==
         f.setSize(WINDOW_LENGTH,WINDOW_HEIGHT);//
         f.setLayout(null);//using no layout managers  
-        f.setVisible(true);//making the frame visible  
+        f.setVisible(true);//making the frame visible
 
+        //==SETTING UP CONNECTION==
+        EchoServer server = new EchoServer(PORT_NO);
+        server.start(); /*starts connection thread for connecting to SysJ*/
 
         //====LOOP CODE====
         while(true){
-            /*Delete later on - small code to see icon move */
     
             avatar.setBounds(Xvalue, Yvalue, 500, 300);
             System.out.printf("\n\nXvalue: %d | Yvalue: %d", Xvalue,Yvalue);
@@ -183,9 +208,41 @@ public class acsDraftGUI{
 
     }
 
-    private static String getZone(){
+    //==SENDID()-HELPER-FUNCTION==
+    private void sendID(){
+        String[] outputArray = new String[]{String.valueOf(AVATAR_ID),getZone()};
+
+        System.out.println(Arrays.toString(outputArray)); /*Printing what will be sent*/
+
+        IdSend sender = new IdSend(String.join(",", outputArray));
+        sender.start();
+
+    }
+
+    private class IdSend extends Thread{
+        String outgoing;
+
+        IdSend(String in){
+            this.outgoing = in;
+        }
+
+        @Override
+        public void run(){
+            
+        }
+    }
+
+
+    //==GET_ZONE-HELPER-FUNCTION==
+    private static String getZone(){ //If/Else statement in order of priority (Abs, doors, then zones)
         if((ABS_REGION_LEFT<Xvalue && Xvalue<ABS_REGION_RIGHT) && (ABS_REGION_TOP<Yvalue && Yvalue<ABS_REGION_BOTTOM)){
             return (String)"ABS";
+        }else if((OFFICE_DOOR_REGION_LEFT<Xvalue && Xvalue<OFFICE_DOOR_REGION_RIGHT) && (OFFICE_DOOR_REGION_TOP<Yvalue && Yvalue<OFFICE_DOOR_REGION_BOTTOM)){
+            return "Office Door";
+        }else if((MANUFACTURE_DOOR_REGION_LEFT<Xvalue && Xvalue<MANUFACTURE_DOOR_REGION_RIGHT) && (MANUFACTURE_DOOR_REGION_TOP<Yvalue && Yvalue<MANUFACTURE_DOOR_REGION_BOTTOM)){
+            return "Manufacture Door";
+        }else if((FRONT_DOOR_REGION_LEFT<Xvalue && Xvalue<FRONT_DOOR_REGION_RIGHT) && (FRONT_DOOR_REGION_TOP<Yvalue && Yvalue<FRONT_DOOR_REGION_BOTTOM)){
+            return "Front Door";
         }else if((ZONE1_REGION_LEFT<Xvalue && Xvalue<ZONE1_REGION_RIGHT) && (ZONE1_REGION_TOP<Yvalue && Yvalue<ZONE1_REGION_BOTTOM)){
             return "Zone 1";
         }else if((ZONE2_REGION_LEFT<Xvalue && Xvalue<ZONE2_REGION_RIGHT) && (ZONE2_REGION_TOP<Yvalue && Yvalue<ZONE2_REGION_BOTTOM)){
@@ -242,7 +299,47 @@ public class acsDraftGUI{
         }
     }
 
+    //TCP/IP CLASS
+    public static class EchoServer extends Thread{
+        private ServerSocket serverSocket;
+        private Socket clientSocket;
+        private PrintWriter out;
+        private BufferedReader in;
+
+        EchoServer(int port)throws IOException{ //will need to specify the port number
+            serverSocket = new ServerSocket(port);
+        }
+
+        @Override
+        public void run() { //call start() in main code
+
+            try {
+
+                clientSocket = serverSocket.accept();
+                out = new PrintWriter(clientSocket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            
+            String inputLine;
+            try{
+                while ((inputLine = in.readLine()) != null) {
+                if ("TERMINATE".equals(inputLine)) {
+                    out.println("good bye");
+                    break;
+                }
+                out.println(inputLine);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 }
+
 
 /*
  * CHECKLIST of ToDo
