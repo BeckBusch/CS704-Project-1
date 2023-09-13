@@ -1,8 +1,8 @@
 CD(
-	input signal bottleAtPos1, bottleLeftPos5;
-	input signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
-	input signal bottleAtPos4, gripperZAxisLowered, gripperZAxisLifted, gripperTurnHomePos, gripperTurnFinalPos;
-	input signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+	output signal bottleAtPos1, bottleLeftPos5;
+	output signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
+	output signal bottleAtPos4, gripperZAxisLowered, gripperZAxisLifted, gripperTurnHomePos, gripperTurnFinalPos;
+	output signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
 	
 	output signal motConveyorOnOff;
 	output signal rotaryTableTrigger;
@@ -11,13 +11,20 @@ CD(
 	
 )->{
 	{
+		signal A;
 		loop {
-		await(bottleAtPos1);
-		await(!bottleAtPos1);
+			{
+				abort(A){
+					sustain bottleAtPos1;
+				}
+			}
+			||
+			{
+				waitl(1000 ms);
+				emit A;
+			}
 		
-		
-		
-		System.out.println("received");
-		}
+			System.out.println("received");
+			}
 	}	
 }

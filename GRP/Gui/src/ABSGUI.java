@@ -1,5 +1,8 @@
 import javax.net.ServerSocketFactory;
 import javax.swing.*;
+import javax.swing.event.ChangeListener;
+import javax.xml.transform.Templates;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
@@ -10,36 +13,55 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ABSGUI {
-    HashMap<String, signalSender> signalSenders;
+    HashMap<String, signalSender> signalSendersMap;
     String[] signalNames = { "bottleAtPos1", "bottleLeftPos5", "tableAlignedWithSensor",
             "bottleAtPos5", "capOnBottleAtPos1", "bottleAtPos4",
             "gripperZAxisLowered", "gripperZAxisLifted", "gripperTurnHomePos",
             "gripperTurnFinalPos", "bottleAtPos2", "dosUnitEvac", "dosUnitFilled" };
 
+    HashMap<String, JLabel> imageLabels;
+    String[] imageNames = { "canisterBottom.png", "tableRotation.png", "conveyorOn.png",
+            "conveyorOff.png", "tableAlign.png", "tableUnalign.png", "bottleLeaving.png",
+            "bottlePos5.png", "bottlePos1.png", "capPos1.png", "canisterTop.png",
+            "fullyRaised.png", "bottlePos4.png", "fullyLowered.png", "bottlePos2.png" };
+
+    HashMap<String, JLabel> messageLabels;
+    String[] messageNames = { "gripperTurn", "gripperDown", "gripperTurning", "gripCap",
+            "gripBottle", "valveInjector", "valveInlet", "movingCanister" };
+    int[][] messageLocations = { { 1150, 20 }, { 1150, 60 }, { 1150, 100 }, { 1150, 140 }, { 1150, 180 }, { 700, 100 },
+            { 700, 140 }, { 700, 180 } };
+
     public static JFrame windowFrame;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        // ServerListener server = new ServerListener();
+        // server.start();
         ABSGUI daGUI = new ABSGUI();
-
     }
 
-    public ABSGUI() {
-        signalSenders = new HashMap<String, signalSender>();
-        int start = 4018;
+    public ABSGUI() throws IOException {
+        ServerListener server = new ServerListener();
+        server.start();
 
-        for (String name : signalNames) {
-            signalSender tempSender = new signalSender(start);
+        // signalSendersMap = new HashMap<String, signalSender>();
+        // int start = 4018;
 
-            signalSenders.put(name, tempSender);
-            start += 1;
-        }
+        // for (String name : signalNames) {
+        // signalSender tempSender = new signalSender(start);
+
+        // tempSender.setState(false);
+        // tempSender.start();
+
+        // signalSendersMap.put(name, tempSender);
+        // start += 1;
+        // }
 
         guiGenerator();
-
     }
 
     public void guiGenerator() {
@@ -58,12 +80,18 @@ public class ABSGUI {
         int xPos = 190;
         int yPos = 5;
 
+        JLabel warningLabel = new JLabel("Buttons Disabled");
+        warningLabel.setBounds(10, 10, 180, 45);
+        warningLabel.setFont(new Font("Verdana", Font.PLAIN, 20));
+        buttonPanel.add(warningLabel);
+
         for (String name : signalNames) {
             JToggleButton tempButton = new JToggleButton(name);
             tempButton.setFont(new Font("Verdana", Font.PLAIN, 12));
             tempButton.setBounds(xPos, yPos, 180, 45);
             tempButton.setActionCommand(name);
-            tempButton.addActionListener(new ButtonClickListener());
+            tempButton.addItemListener(new ButtonClickListener());
+            tempButton.setEnabled(false);
 
             buttonPanel.add(tempButton);
 
@@ -75,14 +103,52 @@ public class ABSGUI {
         }
         windowFrame.add(buttonPanel);
 
+        JPanel guiPanel = new JPanel(null);
+        guiPanel.setBounds(5, 115, 1375, 690);
+        guiPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+
+        imageLabels = new HashMap<String, JLabel>();
+        for (String name : imageNames) {
+            JLabel tempLabel = new JLabel(new ImageIcon(getClass().getResource("images/" + name)));
+            tempLabel.setBounds(0, 0, tempLabel.getPreferredSize().width, tempLabel.getPreferredSize().height);
+            tempLabel.setVisible(false);
+            imageLabels.put(name, tempLabel);
+            guiPanel.add(tempLabel);
+        }
+        imageLabels.get("conveyorOff.png").setVisible(true);
+
+        messageLabels = new HashMap<>();
+        for (String name : messageNames) {
+            JLabel tempLabel = new JLabel(name);
+            tempLabel.setFont(new Font("Verdana", Font.PLAIN, 24));
+            int index = Arrays.asList(messageNames).indexOf(name);
+            int[] location = messageLocations[index];
+            tempLabel.setBounds(location[0], location[1], 200, 50);
+            guiPanel.add(tempLabel);
+        }
+
+        JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("images/" + "Background.png")));
+        backgroundLabel.setBounds(0, 0, backgroundLabel.getPreferredSize().width,
+                backgroundLabel.getPreferredSize().height);
+        guiPanel.add(backgroundLabel);
+
+        windowFrame.add(guiPanel);
+
         windowFrame.setVisible(true);
     }
 
-    private class ButtonClickListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            JButton sourceButton = e.getSource();
+    private class ButtonClickListener implements ItemListener {
+        public void itemStateChanged(ItemEvent e) {
+            JToggleButton sourceButton = (JToggleButton) e.getSource();
             String buttonName = sourceButton.getText();
-            signalSender sendMe
+
+            int state = e.getStateChange();
+
+            if (state == ItemEvent.SELECTED) {
+                signalSendersMap.get(buttonName).setState(true);
+            } else {
+                signalSendersMap.get(buttonName).setState(false);
+            }
 
         }
     }
@@ -102,13 +168,14 @@ public class ABSGUI {
                     ClientHandler clientHandler = new ClientHandler(socketToClient);
                     clientHandler.start();
                 } catch (IOException e) {
+                    System.out.println("socket fail");
                     System.out.println(e.getMessage());
                 }
             }
         }
     }
 
-    static class ClientHandler extends Thread {
+    class ClientHandler extends Thread {
         private Socket socket;
         BufferedReader br;
 
@@ -120,7 +187,7 @@ public class ABSGUI {
         @Override
         public void run() {
             String line, inputName, inputStatus, switcher;
-            Pattern statusPattern = Pattern.compile("(?:\\\"value\\\":\\\")(.*?)(?:\\\"{1})",
+            Pattern statusPattern = Pattern.compile("(?:\\\"status\\\":)(.*?)(?:,\\\"{1})",
                     Pattern.CASE_INSENSITIVE);
             Pattern namePattern = Pattern.compile("(?:\\\"name\\\":\\\")(.*?)(?:\\\"{1})",
                     Pattern.CASE_INSENSITIVE);
@@ -135,74 +202,177 @@ public class ABSGUI {
                             inputName = nameMatcher.group(1);
                             inputStatus = statusMatcher.group(1);
 
-                            switcher = inputName + inputName;
+                            switcher = inputName + inputStatus;
+                             System.out.println(switcher);
 
                             switch (switcher) {
                                 case "motConveyorOnOfftrue":
-                                    // noop
+                                    System.out.println("motConveyorOnOfftrue");
+                                    imageLabels.get("conveyorOn.png").setVisible(true);
                                     break;
                                 case "motConveyorOnOfffalse":
-                                    // noop
+                                    System.out.println("motConveyorOnOfffalse");
+                                    imageLabels.get("conveyorOn.png").setVisible(false);
                                     break;
                                 case "rotaryTableTriggertrue":
-                                    // noop
+                                    System.out.println("rotaryTableTriggertrue");
+                                    imageLabels.get("tableRotation.png").setVisible(true);
                                     break;
                                 case "rotaryTableTriggerfalse":
-                                    // noop
+                                    System.out.println("rotaryTableTriggerfalse");
+                                    imageLabels.get("tableRotation.png").setVisible(false);
                                     break;
                                 case "cylPos5ZaxisExtendtrue":
-                                    // noop
+                                    System.out.println("cylPos5ZaxisExtendtrue");
+                                    messageLabels.get("gripperDown").setText("Lowering Gripper");
                                     break;
                                 case "cylPos5ZaxisExtendfalse":
-                                    // noop
+                                    System.out.println("cylPos5ZaxisExtendfalse");
+                                    messageLabels.get("gripperDown").setText("Raising Gripper");
                                     break;
                                 case "gripperTurnRetracttrue":
-                                    // noop
+                                    System.out.println("gripperTurnRetracttrue");
+                                    messageLabels.get("gripperTurn").setText("Untwisting Gripper");
                                     break;
                                 case "gripperTurnRetractfalse":
+                                    System.out.println("gripperTurnRetractfalse");
                                     // noop
                                     break;
                                 case "gripperTurnExtendtrue":
-                                    // noop
+                                    System.out.println("gripperTurnExtendtrue");
+                                    messageLabels.get("gripperTurn").setText("Twisting Gripper");
                                     break;
                                 case "gripperTurnExtendfalse":
+                                    System.out.println("gripperTurnExtendfalse");
                                     // noop
                                     break;
                                 case "capGripperPos5Extendtrue":
-                                    // noop
+                                    System.out.println("capGripperPos5Extendtrue");
+                                    messageLabels.get("gripCap").setText("Gripping Cap");
                                     break;
                                 case "capGripperPos5Extendfalse":
-                                    // noop
+                                    System.out.println("capGripperPos5Extendfalse");
+                                    messageLabels.get("gripCap").setText("Released Cap");
                                     break;
                                 case "cylClampBottleExtendtrue":
-                                    // noop
+                                    System.out.println("cylClampBottleExtendtrue");
+                                    messageLabels.get("gripBottle").setText("Clamping Bottle");
                                     break;
                                 case "cylClampBottleExtendfalse":
-                                    // noop
+                                    System.out.println("cylClampBottleExtendfalse");
+                                    messageLabels.get("gripBottle").setText("Released Bottle");
                                     break;
                                 case "valveInjectorOnOfftrue":
-                                    // noop
+                                    System.out.println("valveInjectorOnOfftrue");
+                                    messageLabels.get("valveInjector").setText("Injector Valve On");
                                     break;
                                 case "valveInjectorOnOfffalse":
-                                    // noop
+                                    System.out.println("valveInjectorOnOfffalse");
+                                    messageLabels.get("valveInjector").setText("Injector Valve Off");
                                     break;
                                 case "valveInletOnOfftrue":
-                                    // noop
+                                    System.out.println("valveInletOnOfftrue");
+                                    messageLabels.get("valveInlet").setText("Inlet Valve On");
                                     break;
                                 case "valveInletOnOfffalse":
-                                    // noop
+                                    System.out.println("valveInletOnOfffalse");
+                                    messageLabels.get("valveInlet").setText("Inlet Valve Off");
                                     break;
                                 case "dosUnitValveRetracttrue":
-                                    // noop
+                                    System.out.println("dosUnitValveRetracttrue");
+                                    messageLabels.get("movingCanister").setText("Raising Canister");
                                     break;
                                 case "dosUnitValveRetractfalse":
+                                    System.out.println("dosUnitValveRetractfalse");
                                     // noop
                                     break;
                                 case "dosUnitValveExtendtrue":
-                                    // noop
+                                    System.out.println("dosUnitValveExtendtrue");
+                                    messageLabels.get("movingCanister").setText("Lowering Canister");
                                     break;
                                 case "dosUnitValveExtendfalse":
+                                    System.out.println("dosUnitValveExtendfalse");
                                     // noop
+                                    break;
+                                case "bottleAtPos1true":
+                                    imageLabels.get("bottlePos1.png").setVisible(true);
+                                    break;
+                                case "bottleAtPos1false":
+                                    imageLabels.get("bottlePos1.png").setVisible(false);
+                                    break;
+                                case "bottleLeftPos5true":
+                                    imageLabels.get("bottleLeaving.png").setVisible(true);
+                                    break;
+                                case "bottleLeftPos5false":
+                                    imageLabels.get("bottleLeaving.png").setVisible(false);
+                                    break;
+                                case "tableAlignedWithSensortrue":
+                                    imageLabels.get("tableAlign.png").setVisible(true);
+                                    imageLabels.get("tableUnalign.png").setVisible(false);
+                                    break;
+                                case "tableAlignedWithSensorfalse":
+                                    imageLabels.get("tableUnalign.png").setVisible(true);
+                                    imageLabels.get("tableAlign.png").setVisible(false);
+                                    break;
+                                case "bottleAtPos5true":
+                                    imageLabels.get("bottlePos5.png").setVisible(true);
+                                    break;
+                                case "bottleAtPos5false":
+                                    imageLabels.get("bottlePos5.png").setVisible(false);
+                                    break;
+                                case "capOnBottleAtPos1true":
+                                    imageLabels.get("capPos1.png").setVisible(true);
+                                    break;
+                                case "capOnBottleAtPos1false":
+                                    imageLabels.get("capPos1.png").setVisible(false);
+                                    break;
+                                case "bottleAtPos4true":
+                                    imageLabels.get("bottlePos4.png").setVisible(true);
+                                    break;
+                                case "bottleAtPos4false":
+                                    imageLabels.get("bottlePos4.png").setVisible(false);
+                                    break;
+                                case "gripperZAxisLoweredtrue":
+                                    imageLabels.get("fullyLowered.png").setVisible(true);
+                                    break;
+                                case "gripperZAxisLoweredfalse":
+                                    imageLabels.get("fullyLowered.png").setVisible(false);
+                                    break;
+                                case "gripperZAxisLiftedtrue":
+                                    imageLabels.get("fullyRaised.png").setVisible(true);
+                                    break;
+                                case "gripperZAxisLiftedfalse":
+                                    imageLabels.get("fullyRaised.png").setVisible(false);
+                                    break;
+                                case "gripperTurnHomePostrue":
+                                    messageLabels.get("gripperTurn").setText("Gripper Init");
+                                    break;
+                                case "gripperTurnHomePosfalse":
+                                    messageLabels.get("gripperTurn").setText("");
+                                    break;
+                                case "gripperTurnFinalPostrue":
+                                    messageLabels.get("gripperTurn").setText("Gripper Final");
+                                    break;
+                                case "gripperTurnFinalPosfalse":
+                                    messageLabels.get("gripperTurn").setText("");
+                                    break;
+                                case "bottleAtPos2true":
+                                    imageLabels.get("bottlePos2.png").setVisible(true);
+                                    break;
+                                case "bottleAtPos2false":
+                                    imageLabels.get("bottlePos2.png").setVisible(false);
+                                    break;
+                                case "dosUnitEvactrue":
+                                    imageLabels.get("canisterBottom.png").setVisible(true);
+                                    break;
+                                case "dosUnitEvacfalse":
+                                    imageLabels.get("canisterBottom.png").setVisible(false);
+                                    break;
+                                case "dosUnitFilledtrue":
+                                    imageLabels.get("canisterTop.png").setVisible(true);
+                                    break;
+                                case "dosUnitFilledfalse":
+                                    imageLabels.get("canisterTop.png").setVisible(false);
                                     break;
                                 default:
                                     break;
@@ -210,6 +380,7 @@ public class ABSGUI {
                         }
                     }
                 } catch (IOException e) {
+                    System.out.println("fail1");
                     System.out.println(e.getMessage());
                 }
             }
@@ -218,6 +389,7 @@ public class ABSGUI {
 
     class signalSender extends Thread {
         ObjectOutputStream outputStream;
+        boolean state;
 
         signalSender(int port) {
             try {
@@ -226,14 +398,18 @@ public class ABSGUI {
                 System.out.println(err.getMessage());
             }
         }
-        
+
+        public void setState(boolean state) {
+            this.state = state;
+        }
 
         @Override
         public void run() {
             try {
-                outputStream.writeObject(new Object[] { true });
-                Thread.sleep(100);
-                outputStream.writeObject(new Object[] { false });
+                while (true) {
+                    outputStream.writeObject(new Object[] { state });
+                    Thread.sleep(100);
+                }
             } catch (IOException | InterruptedException aa) {
                 System.out.println(aa.getMessage());
             }

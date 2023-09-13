@@ -2,19 +2,19 @@
 	<SubSystem Name="POS" Local="true">
 		<ClockDomain Name="MyCD" Class="CD">
 			
-            <iSignal Name="bottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4018" />
-            <iSignal Name="bottleLeftPos5" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4019" />
-            <iSignal Name="tableAlignedWithSensor" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4020" />
-            <iSignal Name="bottleAtPos5" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4021" />
-            <iSignal Name="capOnBottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4022" />
-            <iSignal Name="bottleAtPos4" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4023" />
-            <iSignal Name="gripperZAxisLowered" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4024" />
-            <iSignal Name="gripperZAxisLifted" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4025" />
-            <iSignal Name="gripperTurnHomePos" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4026" />
-            <iSignal Name="gripperTurnFinalPos" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4027" />
-            <iSignal Name="bottleAtPos2" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4028" />
-            <iSignal Name="dosUnitEvac" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4029" />
-            <iSignal Name="dosUnitFilled" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4030" />
+            <oSignal Name="bottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="bottleLeftPos5" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="tableAlignedWithSensor" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="bottleAtPos5" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="capOnBottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="bottleAtPos4" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="gripperZAxisLowered" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="gripperZAxisLifted" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="gripperTurnHomePos" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="gripperTurnFinalPos" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="bottleAtPos2" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="dosUnitEvac" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+            <oSignal Name="dosUnitFilled" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
             
             <oSignal Name="motConveyorOnOff" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
             <oSignal Name="rotaryTableTrigger" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
