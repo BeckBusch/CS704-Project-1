@@ -9,11 +9,11 @@
 			<iSignal Name="gripperTurnHomePos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 			<iSignal Name="gripperTurnFinalPos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="10000" />
 
-			<oSignal Name="cylPos5ZaxisExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
-			<oSignal Name="gripperTurnRetract" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
-			<oSignal Name="gripperTurnExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
-			<oSignal Name="capGripperPos5Extend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
-			<oSignal Name="cylClampBottleExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleServer" Port=""/>
+			<oSignal Name="cylPos5ZaxisExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="gripperTurnRetract" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="gripperTurnExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="capGripperPos5Extend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="cylClampBottleExtend" To="" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
 		</ClockDomain>
 		
 	</SubSystem>

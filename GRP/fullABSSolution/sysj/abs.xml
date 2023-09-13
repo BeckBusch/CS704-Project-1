@@ -1,0 +1,64 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="ABS_SS" Local="true">
+		
+		<ClockDomain Name="CapperCD" Class="CapperCD"> <!-- TODO: Need to add this Java class-->
+
+			<iSignal Name="bottleAtPos4" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4060" />
+			<iSignal Name="gripperZAxisLowered" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4060" />
+			<iSignal Name="gripperZAxisLifted" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4060" />
+			<iSignal Name="gripperTurnHomePos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4060" />
+			<iSignal Name="gripperTurnFinalPos" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4060" />
+
+			<oSignal Name="cylPos5ZaxisExtend" To="PlantCD.cylPos5ZaxisExtend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="gripperTurnRetract" To="PlantCD.gripperTurnRetract" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="gripperTurnExtend" To="PlantCD.gripperTurnExtend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="capGripperPos5Extend" To="PlantCD.capGripperPos5Extend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="cylClampBottleExtend" To="PlantCD.cylClampBottleExtend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+		</ClockDomain>
+		
+		<ClockDomain Name="LidloaderCD" Class="LidloaderCD"> <!-- TODO: Need to add this Java class-->
+
+			<iSignal Name="pusherRetracted" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="pusherExtended" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="WPgripped" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="armAtSource" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="armAtDest" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="empty" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+			<iSignal Name="request" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4070" />
+
+			<oSignal Name="pusherExtend" To="PlantCD.pusherExtend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="vacOn" To="PlantCD.vacOn" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="armSource" To="PlantCD.armSource" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="armDest" To="PlantCD.armDest" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+		</ClockDomain>
+		
+		<ClockDomain Name="ConveyorCD" Class="ConveyorCD">
+			<iSignal Name="bottleAtPos1"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4080" />
+			<iSignal Name="bottleLeftPos5"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4080" />
+
+			<oSignal Name="motConveyorOnOff" To="PlantCD.motConveyorOnOff" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="1234" />
+
+		</ClockDomain>
+		
+		<ClockDomain Name="RotaryCD" Class="RotaryCD">
+			<iSignal Name="tableAlignedWithSensor"    Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4090" />
+			<iSignal Name="bottleAtPos5"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4090" />
+			<iSignal Name="capOnBottleAtPos1"  Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4090" />
+
+			<oSignal Name="rotaryTableTrigger" To="PlantCD.rotaryTableTrigger" Class="com.systemj.ipc.SimpleClient" IP="127.0.0.1" Port="1234" />
+
+		</ClockDomain>
+		
+		<ClockDomain Name="FillerCD" Class="FillerCD"> <!-- TODO: Need to add this Java class-->
+
+			<iSignal Name="bottleAtPos2" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4100" />
+			<iSignal Name="dosUnitEvac" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4100" />
+			<iSignal Name="dosUnitFilled" Class="com.systemj.ipc.SimpleServer" IP="127.0.0.1" Port="4100" />
+			
+			<oSignal Name="valveInjectorOnOff" To="PlantCD.valveInjectorOnOff" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="valveInletOnOff" To="PlantCD.valveInletOnOff" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="dosUnitValveRetract" To="PlantCD.dosUnitValveRetract" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+			<oSignal Name="dosUnitValveExtend" To="PlantCD.dosUnitValveExtend" IP="127.0.0.1" Class="com.systemj.ipc.SimpleClient" Port="1234"/>
+		</ClockDomain>
+	</SubSystem>
+</System>
