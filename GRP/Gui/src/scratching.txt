@@ -1,7 +1,99 @@
-<System xmlns="http://systemjtechnology.com">
-	<SubSystem Name="POS" Local="true">
-		<ClockDomain Name="MyCD" Class="CD">
-			
+bottleAtPos1
+bottleLeftPos5
+tableAlignedWithSensor
+bottleAtPos5
+capOnBottleAtPos1
+bottleAtPos4
+gripperZAxisLowered
+gripperZAxisLifted
+gripperTurnHomePos
+gripperTurnFinalPos
+bottleAtPos2
+dosUnitEvac
+dosUnitFilled
+
+input signal bottleAtPos1, bottleLeftPos5;
+input signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
+input signal bottleAtPos4, gripperZAxisLowered, gripperZAxisLifted, gripperTurnHomePos, gripperTurnFinalPos;
+input signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+
+output signal motConveyorOnOff;
+output signal rotaryTableTrigger;
+output signal cylPos5ZaxisExtend, gripperTurnRetract, gripperTurnExtend, capGripperPos5Extend, cylClampBottleExtend;
+output signal valveInjectorOnOff, valveInletOnOff, dosUnitValveRetract, dosUnitValveExtend;
+
+
+
+
+
+case "motConveyorOnOfftrue" :
+    //noop
+    break;
+case "motConveyorOnOfffalse" :
+    //noop
+    break;
+case "rotaryTableTriggertrue" :
+    //noop
+    break;
+case "rotaryTableTriggerfalse" :
+    //noop
+    break;
+case "cylPos5ZaxisExtendtrue" :
+    //noop
+    break;
+case "cylPos5ZaxisExtendfalse" :
+    //noop
+    break;
+case "gripperTurnRetracttrue" :
+    //noop
+    break;
+case "gripperTurnRetractfalse" :
+    //noop
+    break;
+case "gripperTurnExtendtrue" :
+    //noop
+    break;
+case "gripperTurnExtendfalse" :
+    //noop
+    break;
+case "capGripperPos5Extendtrue" :
+    //noop
+    break;
+case "capGripperPos5Extendfalse" :
+    //noop
+    break;
+case "cylClampBottleExtendtrue" :
+    //noop
+    break;
+case "cylClampBottleExtendfalse" :
+    //noop
+    break;
+case "valveInjectorOnOfftrue" :
+    //noop
+    break;
+case "valveInjectorOnOfffalse" :
+    //noop
+    break;
+case "valveInletOnOfftrue" :
+    //noop
+    break;
+case "valveInletOnOfffalse" :
+    //noop
+    break;
+case "dosUnitValveRetracttrue" :
+    //noop
+    break;
+case "dosUnitValveRetractfalse" :
+    //noop
+    break;
+case "dosUnitValveExtendtrue" :
+    //noop
+    break;
+case "dosUnitValveExtendfalse" :
+    //noop
+    break;
+
+
             <iSignal Name="bottleAtPos1" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4018" />
             <iSignal Name="bottleLeftPos5" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4019" />
             <iSignal Name="tableAlignedWithSensor" IP="127.0.0.1" Class="com.systemj.ipc.TCPReceiver" Port="4020" />
@@ -27,8 +119,3 @@
             <oSignal Name="valveInletOnOff" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
             <oSignal Name="dosUnitValveRetract" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
             <oSignal Name="dosUnitValveExtend" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
-			
-		</ClockDomain>
-	</SubSystem>
-</System>
-	

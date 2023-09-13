@@ -1,14 +1,20 @@
 import systemGUIs.posGUI;
 
+import javax.net.ServerSocketFactory;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ABSGUI {
-    JFrame windowFrame;
+    public static JFrame windowFrame;
 
     public static void main(String[] args) {
         intSignalSender send1 = new intSignalSender(4007);
@@ -41,6 +47,135 @@ public class ABSGUI {
         windowFrame.add(converyorGUI.f);
 
         windowFrame.setVisible(true);
+    }
+
+    class ServerListener extends Thread {
+        private ServerSocket serverSocket;
+
+        ServerListener() throws IOException {
+            serverSocket = ServerSocketFactory.getDefault().createServerSocket(4015);
+        }
+
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    final Socket socketToClient = serverSocket.accept();
+                    ClientHandler clientHandler = new ClientHandler(socketToClient);
+                    clientHandler.start();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
+    }
+
+    static class ClientHandler extends Thread {
+        private Socket socket;
+        BufferedReader br;
+
+        ClientHandler(Socket socket) throws IOException {
+            this.socket = socket;
+            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        }
+
+        @Override
+        public void run() {
+            String line, inputName, inputStatus, switcher;
+            Pattern statusPattern = Pattern.compile("(?:\\\"value\\\":\\\")(.*?)(?:\\\"{1})",
+                    Pattern.CASE_INSENSITIVE);
+            Pattern namePattern = Pattern.compile("(?:\\\"name\\\":\\\")(.*?)(?:\\\"{1})",
+                    Pattern.CASE_INSENSITIVE);
+
+            while (true) {
+                try {
+                    while ((line = br.readLine()) != null) {
+                        Matcher statusMatcher = statusPattern.matcher(line);
+                        Matcher nameMatcher = namePattern.matcher(line);
+
+                        if (statusMatcher.find() && nameMatcher.find()) {
+                            inputName = nameMatcher.group(1);
+                            inputStatus = statusMatcher.group(1);
+
+                            switcher = inputName + inputName;
+
+                            switch (switcher) {
+                                case "motConveyorOnOfftrue":
+                                    // noop
+                                    break;
+                                case "motConveyorOnOfffalse":
+                                    // noop
+                                    break;
+                                case "rotaryTableTriggertrue":
+                                    // noop
+                                    break;
+                                case "rotaryTableTriggerfalse":
+                                    // noop
+                                    break;
+                                case "cylPos5ZaxisExtendtrue":
+                                    // noop
+                                    break;
+                                case "cylPos5ZaxisExtendfalse":
+                                    // noop
+                                    break;
+                                case "gripperTurnRetracttrue":
+                                    // noop
+                                    break;
+                                case "gripperTurnRetractfalse":
+                                    // noop
+                                    break;
+                                case "gripperTurnExtendtrue":
+                                    // noop
+                                    break;
+                                case "gripperTurnExtendfalse":
+                                    // noop
+                                    break;
+                                case "capGripperPos5Extendtrue":
+                                    // noop
+                                    break;
+                                case "capGripperPos5Extendfalse":
+                                    // noop
+                                    break;
+                                case "cylClampBottleExtendtrue":
+                                    // noop
+                                    break;
+                                case "cylClampBottleExtendfalse":
+                                    // noop
+                                    break;
+                                case "valveInjectorOnOfftrue":
+                                    // noop
+                                    break;
+                                case "valveInjectorOnOfffalse":
+                                    // noop
+                                    break;
+                                case "valveInletOnOfftrue":
+                                    // noop
+                                    break;
+                                case "valveInletOnOfffalse":
+                                    // noop
+                                    break;
+                                case "dosUnitValveRetracttrue":
+                                    // noop
+                                    break;
+                                case "dosUnitValveRetractfalse":
+                                    // noop
+                                    break;
+                                case "dosUnitValveExtendtrue":
+                                    // noop
+                                    break;
+                                case "dosUnitValveExtendfalse":
+                                    // noop
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+        }
     }
 
 }
@@ -127,13 +262,13 @@ class stringSignalSender extends Thread {
 }
 
 // Sender Usage Example
-//    signalSender send1 = new signalSender(4007);
-//    send1.start();
+// signalSender send1 = new signalSender(4007);
+// send1.start();
 
-//    stringSignalSender send2 = new stringSignalSender(4008);
-//    send2.setOutgoingString("apple");
-//    send2.start();
+// stringSignalSender send2 = new stringSignalSender(4008);
+// send2.setOutgoingString("apple");
+// send2.start();
 
-//    intSignalSender send3 = new intSignalSender(4009);
-//    send3.setOutgoingInt(5);
-//    send3.start();
+// intSignalSender send3 = new intSignalSender(4009);
+// send3.setOutgoingInt(5);
+// send3.start();

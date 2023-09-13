@@ -1,5 +1,13 @@
 CD(
-	input int signal bottleAtPos1;
+	input signal bottleAtPos1, bottleLeftPos5;
+	input signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
+	input signal bottleAtPos4, gripperZAxisLowered, gripperZAxisLifted, gripperTurnHomePos, gripperTurnFinalPos;
+	input signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+	
+	output signal motConveyorOnOff;
+	output signal rotaryTableTrigger;
+	output signal cylPos5ZaxisExtend, gripperTurnRetract, gripperTurnExtend, capGripperPos5Extend, cylClampBottleExtend;
+	output signal valveInjectorOnOff, valveInletOnOff, dosUnitValveRetract, dosUnitValveExtend;
 	
 )->{
 	{
@@ -7,9 +15,7 @@ CD(
 		await(bottleAtPos1);
 		await(!bottleAtPos1);
 		
-		int test = #bottleAtPos1;
 		
-		System.out.println(test);
 		
 		System.out.println("received");
 		}
