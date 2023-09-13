@@ -1,5 +1,3 @@
-import systemGUIs.posGUI;
-
 import javax.net.ServerSocketFactory;
 import javax.swing.*;
 import java.awt.*;
@@ -12,26 +10,39 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ABSGUI {
+    HashMap<String, signalSender> signalSenders;
+    String[] signalNames = { "bottleAtPos1", "bottleLeftPos5", "tableAlignedWithSensor",
+            "bottleAtPos5", "capOnBottleAtPos1", "bottleAtPos4",
+            "gripperZAxisLowered", "gripperZAxisLifted", "gripperTurnHomePos",
+            "gripperTurnFinalPos", "bottleAtPos2", "dosUnitEvac", "dosUnitFilled" };
+
     public static JFrame windowFrame;
 
     public static void main(String[] args) {
-        intSignalSender send1 = new intSignalSender(4007);
-        send1.setOutgoingInt(5);
-        send1.start();
+        ABSGUI daGUI = new ABSGUI();
 
-        while (send1.isAlive()) {
-        }
-
-        System.out.println("done");
-        // ABSGUI mainWindow = new ABSGUI();
     }
 
     public ABSGUI() {
-        posGUI purchaseOrderGui = new posGUI();
-        ConveyorVisual converyorGUI = new ConveyorVisual();
+        signalSenders = new HashMap<String, signalSender>();
+        int start = 4018;
 
+        for (String name : signalNames) {
+            signalSender tempSender = new signalSender(start);
+
+            signalSenders.put(name, tempSender);
+            start += 1;
+        }
+
+        guiGenerator();
+
+    }
+
+    public void guiGenerator() {
         windowFrame = new JFrame();
         windowFrame.setLayout(null);
         windowFrame.addWindowListener(new WindowAdapter() {
@@ -39,14 +50,41 @@ public class ABSGUI {
                 System.exit(0);
             }
         });
-        windowFrame.setSize(new Dimension(1920, 1080));
-        purchaseOrderGui.guiFrame.setBounds(0, 0, 480, 800);
-        purchaseOrderGui.guiFrame.setBorder(BorderFactory.createLineBorder(Color.black));
-        windowFrame.add(purchaseOrderGui.guiFrame);
-        converyorGUI.f.setBounds(480, 0, 1000, 1000);
-        windowFrame.add(converyorGUI.f);
+        windowFrame.setSize(new Dimension(1400, 850));
+
+        JPanel buttonPanel = new JPanel(null);
+        buttonPanel.setBounds(5, 5, 1300, 105);
+        buttonPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        int xPos = 190;
+        int yPos = 5;
+
+        for (String name : signalNames) {
+            JToggleButton tempButton = new JToggleButton(name);
+            tempButton.setFont(new Font("Verdana", Font.PLAIN, 12));
+            tempButton.setBounds(xPos, yPos, 180, 45);
+            tempButton.setActionCommand(name);
+            tempButton.addActionListener(new ButtonClickListener());
+
+            buttonPanel.add(tempButton);
+
+            xPos += 185;
+            if (xPos > 1200) {
+                xPos = 5;
+                yPos += 50;
+            }
+        }
+        windowFrame.add(buttonPanel);
 
         windowFrame.setVisible(true);
+    }
+
+    private class ButtonClickListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            JButton sourceButton = e.getSource();
+            String buttonName = sourceButton.getText();
+            signalSender sendMe
+
+        }
     }
 
     class ServerListener extends Thread {
@@ -178,87 +216,88 @@ public class ABSGUI {
         }
     }
 
-}
+    class signalSender extends Thread {
+        ObjectOutputStream outputStream;
 
-class signalSender extends Thread {
-    ObjectOutputStream outputStream;
+        signalSender(int port) {
+            try {
+                outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
+        }
+        
 
-    signalSender(int port) {
-        try {
-            outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
-        } catch (IOException err) {
-            System.out.println(err.getMessage());
+        @Override
+        public void run() {
+            try {
+                outputStream.writeObject(new Object[] { true });
+                Thread.sleep(100);
+                outputStream.writeObject(new Object[] { false });
+            } catch (IOException | InterruptedException aa) {
+                System.out.println(aa.getMessage());
+            }
         }
     }
 
-    @Override
-    public void run() {
-        try {
-            outputStream.writeObject(new Object[] { true });
-            Thread.sleep(100);
-            outputStream.writeObject(new Object[] { false });
-        } catch (IOException | InterruptedException aa) {
-            System.out.println(aa.getMessage());
+    // int Typed Signal Sender
+    class intSignalSender extends Thread {
+        ObjectOutputStream outputStream;
+        int outgoingValue;
+
+        intSignalSender(int port) {
+            try {
+                outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
         }
-    }
-}
 
-// int Typed Signal Sender
-class intSignalSender extends Thread {
-    ObjectOutputStream outputStream;
-    int outgoingValue;
-
-    intSignalSender(int port) {
-        try {
-            outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
-        } catch (IOException err) {
-            System.out.println(err.getMessage());
+        void setOutgoingInt(int number) {
+            this.outgoingValue = number;
         }
-    }
 
-    void setOutgoingInt(int number) {
-        this.outgoingValue = number;
-    }
-
-    @Override
-    public void run() {
-        try {
-            outputStream.writeObject(new Object[] { true, outgoingValue });
-            Thread.sleep(100);
-            outputStream.writeObject(new Object[] { false, outgoingValue });
-        } catch (IOException | InterruptedException aa) {
-            System.out.println(aa.getMessage());
-        }
-    }
-}
-
-// String Typed Signal Sender
-class stringSignalSender extends Thread {
-    ObjectOutputStream outputStream;
-    String outgoingValue;
-
-    stringSignalSender(int port) {
-        try {
-            outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
-        } catch (IOException err) {
-            System.out.println(err.getMessage());
+        @Override
+        public void run() {
+            try {
+                outputStream.writeObject(new Object[] { true, outgoingValue });
+                Thread.sleep(100);
+                outputStream.writeObject(new Object[] { false, outgoingValue });
+            } catch (IOException | InterruptedException aa) {
+                System.out.println(aa.getMessage());
+            }
         }
     }
 
-    void setOutgoingString(String value) {
-        this.outgoingValue = value;
-    }
+    // String Typed Signal Sender
+    class stringSignalSender extends Thread {
+        ObjectOutputStream outputStream;
+        String outgoingValue;
 
-    @Override
-    public void run() {
-        try {
-            outputStream.writeObject(new Object[] { true, outgoingValue });
-            Thread.sleep(100);
-            outputStream.writeObject(new Object[] { false, outgoingValue });
-        } catch (IOException | InterruptedException aa) {
-            System.out.println(aa.getMessage());
+        stringSignalSender(int port) {
+            try {
+                outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
+        }
+
+        void setOutgoingString(String value) {
+            this.outgoingValue = value;
+        }
+
+        @Override
+        public void run() {
+            try {
+                outputStream.writeObject(new Object[] { true, outgoingValue });
+                Thread.sleep(100);
+                outputStream.writeObject(new Object[] { false, outgoingValue });
+            } catch (IOException | InterruptedException aa) {
+                System.out.println(aa.getMessage());
+            }
         }
     }
+
 }
 
 // Sender Usage Example
