@@ -451,6 +451,7 @@ reaction PlantCapper(
 				||
 				{
 					waitl(1 s);
+					//emit gripperZAxisLoweredGUI
 					sustain gripperZAxisLowered;
 				}
 			}
@@ -467,12 +468,14 @@ reaction PlantCapper(
 			abort(cancelUnZ){
 				{
 					await (cylPos5ZaxisExtend);
-					emit cancelUnZ;
+					emit cancelUnZ; //Ask Frank
 				}
 				||
 				{
 					waitl(1 s);
+					//emit gripperZAxisLiftedGUI
 					sustain gripperZAxisLifted;
+					
 				}
 			}
 		}
@@ -493,6 +496,7 @@ reaction PlantCapper(
 				||
 				{
 					waitl(1 s);
+					//emit gripperTurnHomePosGUI;
 					sustain gripperTurnHomePos;
 				}
 			}
@@ -514,6 +518,7 @@ reaction PlantCapper(
 				||
 				{
 					waitl(1 s);
+					//emit gripperTurnFinalPosGUI;
 					sustain gripperTurnFinalPos;
 				}
 			}
