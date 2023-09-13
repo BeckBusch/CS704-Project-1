@@ -411,17 +411,35 @@ reaction PlantFiller(
 }
 
 reaction PlantConveyor(
+		input signal motConveyorOnOff;
+		output signal bottleAtPos1, bottleLeftPos5;
 			
 ) {
-	
+	{
+		loop{
+			await(tableAlignedWithSensorGUI);
+			await(!motConveyorOnOff);
+			{{emit bottleLeftPos5;}||{emit bottleLeftPos5GUI};}
+			pause;
+			{{emit bottleAtPos1;}||{emit bottleAtPos1GUI};}
+			pause;
+			{{emit bottleLeftPos5;}||{emit bottleLeftPos5};}
+		}
+	}
 
 }
 
 
 reaction PlantCapper(
-		
+		input signalcylPos5ZaxisExtend,gripperTurnRetract,gripperTurnExtend,capGripperPos5Extend,cylClampBottleExtend;
+
+		output signal bottleAtPos4, gripperZAxisLowered,gripperZAxisLifted,gripperTurnHomePos,gripperTurnFinalPos;
+
 ) {
-	
+	{
+		await(tableAlignedWithSensorGUI);
+		
+	}
 	
 	
 }
