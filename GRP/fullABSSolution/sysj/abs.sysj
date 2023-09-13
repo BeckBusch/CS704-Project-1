@@ -176,6 +176,7 @@ FillerCD(
 			};
 			emit f1Done;
 			await(f4Done); //Waiting for the whole cycle for the filler to complete
+			send fillerReady(Boolean.TRUE); //notifying Plant and ABS that it is in fact not in use right now
 			await(!bottleAtPos2); //waits for odl bottle to moved onto the next stage
 		}
 		

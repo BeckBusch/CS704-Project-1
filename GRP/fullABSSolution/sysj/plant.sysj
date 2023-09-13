@@ -60,10 +60,10 @@ reaction RotaryTableTracker
 			}
 			
 		}
-	}
+	} 
 }
 
-PlantRotaryCD
+reaction RotaryPlant
 (
 	input signal rotaryTableTrigger;
 	input signal manualRemovePos1;
@@ -74,8 +74,8 @@ PlantRotaryCD
 	output signal tableAlignedWithSensor;
 	output signal capOnBottleAtPos1;
 	output boolean channel receivedPos1;
-	output boolean channel sentPos5;
-)->{
+	output signal sentPos5;
+){
 	signal rotationInProgress, finishedRotating;
 	signal deadSignal; // leave null
 	signal conveyorToPos1;
@@ -317,5 +317,111 @@ PlantRotaryCD
 	||
 	// Cap on bottle at pos 1
 	{while(true) {present(cap1){emit capOnBottleAtPos1;} pause;}}
+	
+}
+
+reaction PlantFiller(
+	output signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+	input signal valveInjectorOnOff, valveInletOnOff, dosUnitValveRetract,dosUnitValveExtend;
+	input boolean signal fillerReady;
+
+){
+	
+	signal f1Done; //internal signal to communcate first filler is done
+	signal f2Done; //internal signal to communcate second filler is done
+	signal f3Done; //internal signal to communcate third filler is done
+	signal f4Done; //internal signal to communcate fourth filler is done
+	
+
+
+	{//R1 - Filler 1 Simulation
+		loop{ 
+			await(tableAlignedWithSensorGUI);
+			/*signify it is in use*/
+			{{emit bottleAtPos2;}||{emit bottleAtPos2GUI}}
+			{
+				{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+				||
+				{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+			};
+			
+			{
+				{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+				||
+				{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+			};
+			emit f1Done;
+			await(f4Done);
+		}
+	}
+	||
+	{//R2 - Filler 2 Simulation
+		await(f1Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f2Done;
+	}
+	||
+	{//R3 - Filler 3 Simulation
+		await(f2Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f3Done;
+	}
+	||
+	{//R4 - Filler 4 Simulation
+		await(f3Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f4Done;
+	}
+}
+
+reaction PlantConveyor(
+			
+) {
+	
+
+}
+
+
+reaction PlantCapper(
+		
+) {
+	
+	
 	
 }
