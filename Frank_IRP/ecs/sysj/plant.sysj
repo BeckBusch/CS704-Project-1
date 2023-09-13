@@ -1,0 +1,185 @@
+import run.GUI;
+
+Plant(
+		output  double  signal  temp17, temp23, temp456, tempFire1;
+		output  double  signal  humd17, humd23, humd456;
+		output  int     signal  occu1, occuLight1;
+		output  int     signal  clock, clockLight;
+		input         signal  heat17, heat23, heat456;
+		input         signal  ac17,   ac23,   ac456;
+		input         signal  fan17,  fan23,  fan456;
+		output          signal  smoke1, smoke2, smoke3, smoke4, smoke5, smoke6, smoke7;
+		input         signal  emergency;
+		input int     signal  light1, light2, light3, light4, light5, light6, light7;
+		
+		
+		output signal lightHigh;
+		output signal lightLow;
+		output signal lightNone;
+		
+		output signal fire;
+		output signal fan;
+		output signal ac;
+		output signal heat;
+		
+		input Integer signal temp;
+		input signal humd;
+		input signal occu;
+		input signal smoke;
+		input signal working;
+		
+		
+		)
+->
+{
+	new Thread(new GUI()).start();
+
+	{
+		loop {
+			present(light1){
+				if (#light1 == 0) {
+					emit lightNone;
+				} else if (#light1 == 1){
+					emit lightLow;
+				} else {
+					emit lightHigh;
+				}
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present(fan17){
+				emit fan;
+			} 
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present(emergency){
+				emit fire;
+			} 
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present(ac17){
+				emit ac;
+			} 
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present(heat17){
+				emit heat;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop{
+			present(temp){
+					
+				switch(#temp) {
+				case 0:
+					emit temp17(0.0);
+					emit temp23(0.0);
+					emit temp456(0.0);
+					break;
+				case 1:
+					emit temp17(25.0);
+					emit temp23(25.0);
+					emit temp456(15.0);
+					break;
+				case 2:
+					emit temp17(30.0);
+					emit temp23(30.0);
+					emit temp456(30.0);
+					break;
+				case 3:
+					emit temp17(100.0);
+					emit temp23(300.0);
+					emit temp456(300.0);
+					emit tempFire1(100.0);
+					break;
+				default:
+					break;
+				}
+			}
+			
+			pause;
+	
+		}
+	}
+	||
+	{
+		loop {
+			present (humd){
+				emit humd17(0.0);
+				emit humd23(0.0);
+				emit humd456(0.0);
+				
+				
+			} else {
+
+				emit humd17(50.0);
+				emit humd23(50.0);
+				emit humd456(50.0);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (occu){
+				emit occu1(2);
+				emit occuLight1(2);
+			} else {
+				emit occu1(0);
+				emit occuLight1(0);
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (smoke){
+				emit smoke1;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		loop {
+			present (working){
+				emit clock(500);
+				emit clockLight(500);
+			} else {
+				emit clock(0);
+				emit clockLight(0);
+			}
+			
+			pause;
+		}
+	}
+	
+}
