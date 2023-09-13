@@ -66,24 +66,42 @@ reaction RotaryTableTracker
 PlantRotaryCD
 (
 	input signal rotaryTableTrigger;
-	input signal plantConveyorActive;
-	input signal plantConveyorBottleBeforePos1;
+	input signal manualRemovePos1;
+	input boolean channel plantConveyorActive;
+	input boolean channel plantConveyorBottleBeforePos1;
+	input boolean channel plantCapperPos4;
 	output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5, bottleAtPos6;
+	output signal tableAlignedWithSensor;
+	output signal capOnBottleAtPos1;
+	output boolean channel receivedPos1;
+	output boolean channel sentPos5;
 )->{
 	signal rotationInProgress, finishedRotating;
 	signal deadSignal; // leave null
 	signal conveyorToPos1;
 	signal pos5ToConveyor;
+	signal removePos1;
 	signal pos12, pos23, pos34, pos45, pos56, pos61; // connections
 	signal pos1, pos2, pos3, pos4, pos5, pos6;
+	signal cap1, cap2, cap3, cap4, cap5, cap6;
+	signal cap12, cap23, cap34, cap45, cap56, cap61;
+	signal conveyorActive, conveyorBottleBeforePos1;
+	signal capperPos4;
 	
+	// Read channels
+	{while (true) {receive plantConveyorActive; emit conveyorActive; pause;}}
+	||
+	{while (true) {receive plantConveyorBottleBeforePos1; emit conveyorBottleBeforePos1; pause;}}
+	||
+	{while (true) {receive plantCapperPos4; emit capperPos4; pause;}}
+	||
 	// Simulate rotate the table
 	{
 		await(rotaryTableTrigger);
 		
 		trap(R){
 			{
-				waitl(1 s);
+				await(!rotaryTableTrigger);
 				exit(R);
 			}
 			||
@@ -91,14 +109,36 @@ PlantRotaryCD
 				sustain rotationInProgress;
 			}
 		}
+		
 		emit finishedRotating;
+	}
+	||
+	{
+		while (true) {
+			present(!rotationInProgress){
+				emit tableAlignedWithSensor;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			present(manualRemovePos1){
+				emit removePos1;
+			}
+			
+			pause;
+		}
 	}
 	||
 	// Conveyor to index 1
 	{
 		while (true) {
-			present(!pos1 && plantConveyorActive && plantConveyorBottleBeforePos1){
+			present(!pos1 && conveyorActive && conveyorBottleBeforePos1 && !rotationInProgress){
 				emit conveyorToPos1;
+				send receivedPos1(true);
 			}
 			
 			pause;
@@ -109,8 +149,9 @@ PlantRotaryCD
 	{
 		while (true) {
 			// bottle comes out even if there's something there
-			present(pos5 && plantConveyorActive){
+			present(pos5 && conveyorActive){
 				emit pos5ToConveyor;
+				send sentPos5(true);
 			}
 			
 			pause;
@@ -124,7 +165,7 @@ PlantRotaryCD
 			finishedRotating, 
 			conveyorToPos1, 
 			pos61, 
-			deadSignal, 
+			removePos1, 
 			pos1, 
 			pos12);
 	}
@@ -158,7 +199,7 @@ PlantRotaryCD
 		RotaryTableTracker(:
 			pos3, 
 			finishedRotating, 
-			deadSignal, 
+			capperPos4, 
 			pos34, 
 			deadSignal, 
 			pos4, 
@@ -201,4 +242,80 @@ PlantRotaryCD
 	{while(true){present(pos5){emit bottleAtPos5;} pause;}}
 	||
 	{while(true){present(pos6){emit bottleAtPos6;} pause;}}
+	||
+	// Index 1
+	{
+		RotaryTableTracker(:
+			cap6, 
+			finishedRotating, 
+			deadSignal, 
+			cap61, 
+			removePos1, 
+			cap1, 
+			cap12);
+	}
+	||
+	// Index 2
+	{
+		RotaryTableTracker(:
+			cap1, 
+			finishedRotating, 
+			deadSignal, 
+			cap12, 
+			deadSignal, 
+			cap2, 
+			cap23);
+	}
+	||
+	// Index 3
+	{
+		RotaryTableTracker(:
+			cap2, 
+			finishedRotating, 
+			deadSignal, 
+			cap23, 
+			deadSignal, 
+			cap3, 
+			cap34);
+	}
+	||
+	// Index 4
+	{
+		RotaryTableTracker(:
+			cap3, 
+			finishedRotating, 
+			deadSignal, 
+			cap34, 
+			deadSignal, 
+			cap4, 
+			cap45);
+	}
+	||
+	// Index 5
+	{
+		RotaryTableTracker(:
+			cap4, 
+			finishedRotating, 
+			deadSignal, 
+			cap45, 
+			pos5ToConveyor, 
+			cap5, 
+			cap56);
+	}
+	||
+	// Index 6
+	{
+		RotaryTableTracker(:
+			cap5, 
+			finishedRotating, 
+			deadSignal, 
+			cap56, 
+			deadSignal, 
+			cap6, 
+			cap61);
+	}
+	||
+	// Cap on bottle at pos 1
+	{while(true) {present(cap1){emit capOnBottleAtPos1;} pause;}}
+	
 }
