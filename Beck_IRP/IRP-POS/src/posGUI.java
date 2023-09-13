@@ -23,6 +23,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 // == GUI Class ==
 public class posGUI {
     Integer xGrid = 24;
@@ -43,7 +46,7 @@ public class posGUI {
     JPasswordField passwordField;
     JComboBox<String> liquidSelectionCombo;
     JLabel priceLabel, remainingLabel;
-    JTextArea responseArea;
+    public static JTextArea responseArea;
     JSlider quantitySlider;
 
     // == Main Method ==
@@ -330,10 +333,10 @@ public class posGUI {
         String password = String.valueOf(pass);
 
         if (AccountList.get(name) == null) {
-            responseArea.setText("Invalid Username.");
+            responseArea.insert("Invalid Username." + "\n", 0);
             return;
         } else if (AccountList.get(name).equals(password)) {
-            responseArea.setText("Login Successful.");
+            responseArea.insert("Login Successful." + "\n", 0);
 
             orderPanel.setVisible(true);
 
@@ -343,7 +346,7 @@ public class posGUI {
 
             SwingUtilities.updateComponentTreeUI(guiFrame);
         } else {
-            responseArea.setText("Incorrect Password.");
+            responseArea.insert("Incorrect Password." + "\n", 0);
             return;
         }
     }
@@ -366,12 +369,12 @@ public class posGUI {
             i += 1;
         }
 
-        // for (Component componentI : orderPanel.getComponents()) {
-        // componentI.setEnabled(false);
-        // }
-        // for (Component componentI : submitPanel.getComponents()) {
-        // componentI.setEnabled(false);
-        // }
+        for (Component componentI : orderPanel.getComponents()) {
+        componentI.setEnabled(false);
+        }
+        for (Component componentI : submitPanel.getComponents()) {
+        componentI.setEnabled(false);
+        }
 
         SwingUtilities.updateComponentTreeUI(guiFrame);
 
@@ -406,10 +409,10 @@ public class posGUI {
                 sO.writeObject(transmitArray);
 
                 sO.close();
-                System.out.println("closed reached");
+                System.out.println("closed reached"); // PRINTER
 
             } catch (IOException | InterruptedException aa) {
-                //System.out.println(aa.getMessage());
+                // System.out.println(aa.getMessage());
             }
         }
 
@@ -448,7 +451,7 @@ public class posGUI {
                 try {
                     additionalQuantity = Integer.parseInt(quantitySelectionField.getText());
                 } catch (NumberFormatException exc) {
-                    responseArea.setText("Please enter a proportion using only numerical values.");
+                    responseArea.insert("Please enter a proportion using only numerical values." + "\n", 0);
                     return;
                 }
 
@@ -468,11 +471,11 @@ public class posGUI {
                 }
 
                 if (totalProportions != 100) {
-                    responseArea.setText("Proportions must add to 100%");
+                    responseArea.insert("Proportions must add to 100%" + "\n", 0);
                     return;
 
                 } else if (UserQuantity == 0) {
-                    responseArea.setText("Order Quantity must be more than 0");
+                    responseArea.insert("Order Quantity must be more than 0" + "\n", 0);
                     return;
 
                 } else {
@@ -502,11 +505,11 @@ public class posGUI {
             while (true) {
                 try {
                     final Socket socketToClient = serverSocket.accept();
-                    System.out.println("check");
+                    System.out.println("check"); // PRINTER
                     ClientHandler clientHandler = new ClientHandler(socketToClient);
                     clientHandler.start();
                 } catch (IOException e) {
-                    System.out.println("failure in ssocket server");
+                    System.out.println("failure in ssocket server"); // PRINTER
                     e.printStackTrace();
                 }
             }
@@ -525,14 +528,22 @@ public class posGUI {
         @Override
         public void run() {
             String line;
+            String inputMessage;
             while (true) {
                 try {
                     while ((line = br.readLine()) != null) {
-                        System.out.println(line);// ).contains("true"));
+                        Pattern pattern = Pattern.compile("(?:\\\"value\\\":\\\")(.*?)(?:\\\"{1})",
+                                Pattern.CASE_INSENSITIVE);
+                        Matcher matcher = pattern.matcher(line);
+                        System.out.println(line); // PRINTER
+                        if (matcher.find()) {
+                            inputMessage = matcher.group(1);
+                            responseArea.insert(inputMessage + "\n", 0);
+                        }
                     }
 
                 } catch (IOException e) {
-                    System.out.println("faileru in buffer");
+                    System.out.println("faileru in buffer"); // PRINTER
                     e.printStackTrace();
 
                 }

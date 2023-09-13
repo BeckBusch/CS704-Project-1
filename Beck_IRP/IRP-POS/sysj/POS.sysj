@@ -1,5 +1,4 @@
 import buffer.*;
-import java.util.ArrayList;
 
 CD(
 	input String signal incomingOrder;
@@ -10,41 +9,25 @@ CD(
 	Buffer signal orderBufferSignal;
 
 	{// First reaction - Waiting to receive from GUI		
-		//int[] inputOrderValues = new int[5];
 		String wholeInputString;
-		ArrayList<String> test = new ArrayList<String>();
-		//String[] splitInputString;
 		Buffer firstTempBuffer;
 		
 		await(orderBufferSignal); // wait for buffer to be init
 		
 		while(true) {
 			
-			await(incomingOrder);
+			await(incomingOrder); // Wait for an order to appear then stop sustaining
 			await(!incomingOrder);
 			
-			System.out.println("Got Order");
-			emit returnMSG("checking");
+			System.out.println("Got Order"); // PRINTER
 			
 			wholeInputString = #incomingOrder;
-			
-//			splitInputString = wholeInputString.split(",", 0);
-//			
-//			for (int i=0; i<5; i++) {
-//				inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
-//			}
-//			
-//			firstTempBuffer = #orderBufferSignal;
-//			firstTempBuffer.push(inputOrderValues);
-//			emit orderBufferSignal(firstTempBuffer);
 			
 			firstTempBuffer = #orderBufferSignal;
 			firstTempBuffer.push(wholeInputString);
 			emit orderBufferSignal(firstTempBuffer);
 			
-			waitl(500 ms);
-			
-			emit returnMSG("second tesh");
+			emit returnMSG("Order Received");
 		}
 	}
 	||
@@ -77,6 +60,8 @@ CD(
 			
 			emit outgoingOrder(sendingString); // send the order to the ABS
 			
+			emit returnMSG("Order Procesing");
+
 			emit orderBufferSignal(secondTempBuffer); // Update global buffer value
 			pause; // wait before continuing so we dont react to our own buffer update
 			}
@@ -86,12 +71,27 @@ CD(
 	{ // Third Reaction - Buffer Manager
 		Buffer orderBuffer = new Buffer(128);
 		emit orderBufferSignal(orderBuffer);
-
+		
+		emit returnMSG("POS Sub-System Ready");
+		
 		halt;
 	}	
 }
 
 
+// ----- Code for manipluating list
+//splitInputString = wholeInputString.split(",", 0);
+//
+//for (int i=0; i<5; i++) {
+//	inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
+//}
+//
+//firstTempBuffer = #orderBufferSignal;
+//firstTempBuffer.push(inputOrderValues);
+//emit orderBufferSignal(firstTempBuffer);
+
+
+// ----- First attempt at reactions -----
 //||
 //{// Second Reaction - Sending to ABS
 //	Buffer secondTempBuffer;

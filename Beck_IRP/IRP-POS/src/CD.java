@@ -18,28 +18,25 @@ public class CD extends ClockDomain{
   public Signal outgoingOrder = new Signal("outgoingOrder", Signal.OUTPUT);
   public Signal returnMSG = new Signal("returnMSG", Signal.OUTPUT);
   private Signal orderBufferSignal_1;
-  private String wholeInputString_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 13, column: 3
-  private .. test_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 14, column: 3
-  private Buffer firstTempBuffer_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 16, column: 3
-  private Buffer secondTempBuffer_thread_3;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 51, column: 3
-  private String sendingString_thread_3;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 52, column: 3
-  private Buffer orderBuffer_thread_4;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 86, column: 3
-  private long __start_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-  private int S612 = 1;
-  private int S324 = 1;
+  private String wholeInputString_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 12, column: 3
+  private Buffer firstTempBuffer_thread_2;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 13, column: 3
+  private Buffer secondTempBuffer_thread_3;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 35, column: 3
+  private String sendingString_thread_3;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 36, column: 3
+  private Buffer orderBuffer_thread_4;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 72, column: 3
+  private int S316 = 1;
+  private int S28 = 1;
   private int S1 = 1;
   private int S7 = 1;
-  private int S9 = 1;
-  private int S608 = 1;
-  private int S325 = 1;
-  private int S361 = 1;
-  private int S610 = 1;
+  private int S312 = 1;
+  private int S29 = 1;
+  private int S65 = 1;
+  private int S314 = 1;
   
   private int[] ends = new int[5];
   private int[] tdone = new int[5];
   
-  public void thread620(int [] tdone, int [] ends){
-        switch(S610){
+  public void thread324(int [] tdone, int [] ends){
+        switch(S314){
       case 0 : 
         active[4]=0;
         ends[4]=0;
@@ -55,8 +52,8 @@ public class CD extends ClockDomain{
     }
   }
 
-  public void thread619(int [] tdone, int [] ends){
-        switch(S608){
+  public void thread323(int [] tdone, int [] ends){
+        switch(S312){
       case 0 : 
         active[3]=0;
         ends[3]=0;
@@ -64,11 +61,11 @@ public class CD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S325){
+        switch(S29){
           case 0 : 
-            if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 54, column: 9
-              S325=1;
-              S361=0;
+            if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 38, column: 9
+              S29=1;
+              S65=0;
               active[3]=1;
               ends[3]=1;
               tdone[3]=1;
@@ -81,31 +78,35 @@ public class CD extends ClockDomain{
             break;
           
           case 1 : 
-            if(absFault.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 57, column: 10
-              S361=0;
+            if(absFault.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 41, column: 10
+              S65=0;
               active[3]=1;
               ends[3]=1;
               tdone[3]=1;
             }
             else {
-              switch(S361){
+              switch(S65){
                 case 0 : 
-                  if(absReady.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 58, column: 11
-                    S361=1;
-                    secondTempBuffer_thread_3 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 62, column: 7
-                    if(!secondTempBuffer_thread_3.isEmpty()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 64, column: 11
+                  if(absReady.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 42, column: 11
+                    S65=1;
+                    secondTempBuffer_thread_3 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 7
+                    if(!secondTempBuffer_thread_3.isEmpty()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 48, column: 11
                       ends[3]=2;
-                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 60, column: 5
-                      sendingString_thread_3 = (String)secondTempBuffer_thread_3.pop();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 75, column: 4
-                      outgoingOrder.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 77, column: 4
+                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 44, column: 5
+                      sendingString_thread_3 = (String)secondTempBuffer_thread_3.pop();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 59, column: 4
+                      outgoingOrder.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 61, column: 4
                       currsigs.addElement(outgoingOrder);
-                      outgoingOrder.setValue(sendingString_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 77, column: 4
+                      outgoingOrder.setValue(sendingString_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 61, column: 4
                       System.out.println("Emitted outgoingOrder");
-                      orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 79, column: 4
+                      returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 63, column: 4
+                      currsigs.addElement(returnMSG);
+                      returnMSG.setValue("Order Procesing");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 63, column: 4
+                      System.out.println("Emitted returnMSG");
+                      orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 65, column: 4
                       currsigs.addElement(orderBufferSignal_1);
-                      orderBufferSignal_1.setValue(secondTempBuffer_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 79, column: 4
+                      orderBufferSignal_1.setValue(secondTempBuffer_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 65, column: 4
                       System.out.println("Emitted orderBufferSignal_1");
-                      S361=2;
+                      S65=2;
                       active[3]=1;
                       ends[3]=1;
                       tdone[3]=1;
@@ -124,21 +125,25 @@ public class CD extends ClockDomain{
                   break;
                 
                 case 1 : 
-                  if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 67, column: 13
-                    secondTempBuffer_thread_3 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 62, column: 7
-                    if(!secondTempBuffer_thread_3.isEmpty()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 64, column: 11
+                  if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 51, column: 13
+                    secondTempBuffer_thread_3 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 7
+                    if(!secondTempBuffer_thread_3.isEmpty()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 48, column: 11
                       ends[3]=2;
-                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 60, column: 5
-                      sendingString_thread_3 = (String)secondTempBuffer_thread_3.pop();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 75, column: 4
-                      outgoingOrder.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 77, column: 4
+                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 44, column: 5
+                      sendingString_thread_3 = (String)secondTempBuffer_thread_3.pop();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 59, column: 4
+                      outgoingOrder.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 61, column: 4
                       currsigs.addElement(outgoingOrder);
-                      outgoingOrder.setValue(sendingString_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 77, column: 4
+                      outgoingOrder.setValue(sendingString_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 61, column: 4
                       System.out.println("Emitted outgoingOrder");
-                      orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 79, column: 4
+                      returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 63, column: 4
+                      currsigs.addElement(returnMSG);
+                      returnMSG.setValue("Order Procesing");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 63, column: 4
+                      System.out.println("Emitted returnMSG");
+                      orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 65, column: 4
                       currsigs.addElement(orderBufferSignal_1);
-                      orderBufferSignal_1.setValue(secondTempBuffer_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 79, column: 4
+                      orderBufferSignal_1.setValue(secondTempBuffer_thread_3);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 65, column: 4
                       System.out.println("Emitted orderBufferSignal_1");
-                      S361=2;
+                      S65=2;
                       active[3]=1;
                       ends[3]=1;
                       tdone[3]=1;
@@ -157,8 +162,8 @@ public class CD extends ClockDomain{
                   break;
                 
                 case 2 : 
-                  S361=2;
-                  S361=0;
+                  S65=2;
+                  S65=0;
                   active[3]=1;
                   ends[3]=1;
                   tdone[3]=1;
@@ -174,8 +179,8 @@ public class CD extends ClockDomain{
     }
   }
 
-  public void thread618(int [] tdone, int [] ends){
-        switch(S324){
+  public void thread322(int [] tdone, int [] ends){
+        switch(S28){
       case 0 : 
         active[2]=0;
         ends[2]=0;
@@ -185,7 +190,7 @@ public class CD extends ClockDomain{
       case 1 : 
         switch(S1){
           case 0 : 
-            if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 18, column: 9
+            if(orderBufferSignal_1.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 15, column: 9
               S1=1;
               S7=0;
               active[2]=1;
@@ -202,7 +207,7 @@ public class CD extends ClockDomain{
           case 1 : 
             switch(S7){
               case 0 : 
-                if(incomingOrder.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 22, column: 10
+                if(incomingOrder.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 19, column: 10
                   S7=1;
                   active[2]=1;
                   ends[2]=1;
@@ -216,95 +221,28 @@ public class CD extends ClockDomain{
                 break;
               
               case 1 : 
-                if(!incomingOrder.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 23, column: 10
-                  System.out.println("Got Order");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 25, column: 4
-                  returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 26, column: 4
-                  currsigs.addElement(returnMSG);
-                  returnMSG.setValue("checking");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 26, column: 4
-                  System.out.println("Emitted returnMSG");
-                  wholeInputString_thread_2 = (incomingOrder.getpreval() == null ? null : ((String)incomingOrder.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 28, column: 4
-                  firstTempBuffer_thread_2 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 40, column: 4
-                  firstTempBuffer_thread_2.push(wholeInputString_thread_2);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 41, column: 4
-                  orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 42, column: 4
+                if(!incomingOrder.getprestatus()){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 10
+                  System.out.println("Got Order");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 22, column: 4
+                  wholeInputString_thread_2 = (incomingOrder.getpreval() == null ? null : ((String)incomingOrder.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 24, column: 4
+                  firstTempBuffer_thread_2 = (orderBufferSignal_1.getpreval() == null ? null : ((Buffer)orderBufferSignal_1.getpreval()));//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 26, column: 4
+                  firstTempBuffer_thread_2.push(wholeInputString_thread_2);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 27, column: 4
+                  orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 28, column: 4
                   currsigs.addElement(orderBufferSignal_1);
-                  orderBufferSignal_1.setValue(firstTempBuffer_thread_2);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 42, column: 4
+                  orderBufferSignal_1.setValue(firstTempBuffer_thread_2);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 28, column: 4
                   System.out.println("Emitted orderBufferSignal_1");
-                  S7=2;
-                  __start_thread_2 = com.systemj.Timer.getMs();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                  S9=0;
-                  if(com.systemj.Timer.getMs() - __start_thread_2 >= 500){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                    ends[2]=2;
-                    ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                    returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                    currsigs.addElement(returnMSG);
-                    returnMSG.setValue("second tesh");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                    System.out.println("Emitted returnMSG");
-                    S7=0;
-                    active[2]=1;
-                    ends[2]=1;
-                    tdone[2]=1;
-                  }
-                  else {
-                    S9=1;
-                    active[2]=1;
-                    ends[2]=1;
-                    tdone[2]=1;
-                  }
+                  returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 30, column: 4
+                  currsigs.addElement(returnMSG);
+                  returnMSG.setValue("Order Received");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 30, column: 4
+                  System.out.println("Emitted returnMSG");
+                  S7=0;
+                  active[2]=1;
+                  ends[2]=1;
+                  tdone[2]=1;
                 }
                 else {
                   active[2]=1;
                   ends[2]=1;
                   tdone[2]=1;
-                }
-                break;
-              
-              case 2 : 
-                switch(S9){
-                  case 0 : 
-                    S9=0;
-                    if(com.systemj.Timer.getMs() - __start_thread_2 >= 500){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                      ends[2]=2;
-                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                      returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                      currsigs.addElement(returnMSG);
-                      returnMSG.setValue("second tesh");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                      System.out.println("Emitted returnMSG");
-                      S7=0;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S9=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    break;
-                  
-                  case 1 : 
-                    S9=1;
-                    S9=0;
-                    if(com.systemj.Timer.getMs() - __start_thread_2 >= 500){//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                      ends[2]=2;
-                      ;//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 20, column: 3
-                      returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                      currsigs.addElement(returnMSG);
-                      returnMSG.setValue("second tesh");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 46, column: 4
-                      System.out.println("Emitted returnMSG");
-                      S7=0;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    else {
-                      S9=1;
-                      active[2]=1;
-                      ends[2]=1;
-                      tdone[2]=1;
-                    }
-                    break;
-                  
                 }
                 break;
               
@@ -317,29 +255,33 @@ public class CD extends ClockDomain{
     }
   }
 
-  public void thread616(int [] tdone, int [] ends){
-        S610=1;
-    orderBuffer_thread_4 = new Buffer(128);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 86, column: 3
-    orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 87, column: 3
+  public void thread320(int [] tdone, int [] ends){
+        S314=1;
+    orderBuffer_thread_4 = new Buffer(128);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 72, column: 3
+    orderBufferSignal_1.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 73, column: 3
     currsigs.addElement(orderBufferSignal_1);
-    orderBufferSignal_1.setValue(orderBuffer_thread_4);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 87, column: 3
+    orderBufferSignal_1.setValue(orderBuffer_thread_4);//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 73, column: 3
     System.out.println("Emitted orderBufferSignal_1");
+    returnMSG.setPresent();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 75, column: 3
+    currsigs.addElement(returnMSG);
+    returnMSG.setValue("POS Sub-System Ready");//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 75, column: 3
+    System.out.println("Emitted returnMSG");
     active[4]=1;
     ends[4]=1;
     tdone[4]=1;
   }
 
-  public void thread615(int [] tdone, int [] ends){
-        S608=1;
-            S325=0;
+  public void thread319(int [] tdone, int [] ends){
+        S312=1;
+            S29=0;
     active[3]=1;
     ends[3]=1;
     tdone[3]=1;
   }
 
-  public void thread614(int [] tdone, int [] ends){
-        S324=1;
-                S1=0;
+  public void thread318(int [] tdone, int [] ends){
+        S28=1;
+            S1=0;
     active[2]=1;
     ends[2]=1;
     tdone[2]=1;
@@ -352,29 +294,29 @@ public class CD extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S612){
+      switch(S316){
         case 0 : 
-          S612=0;
+          S316=0;
           break RUN;
         
         case 1 : 
-          S612=2;
-          S612=2;
+          S316=2;
+          S316=2;
           orderBufferSignal_1.setClear();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 9, column: 2
-          thread614(tdone,ends);
-          thread615(tdone,ends);
-          thread616(tdone,ends);
-          int biggest617 = 0;
-          if(ends[2]>=biggest617){
-            biggest617=ends[2];
+          thread318(tdone,ends);
+          thread319(tdone,ends);
+          thread320(tdone,ends);
+          int biggest321 = 0;
+          if(ends[2]>=biggest321){
+            biggest321=ends[2];
           }
-          if(ends[3]>=biggest617){
-            biggest617=ends[3];
+          if(ends[3]>=biggest321){
+            biggest321=ends[3];
           }
-          if(ends[4]>=biggest617){
-            biggest617=ends[4];
+          if(ends[4]>=biggest321){
+            biggest321=ends[4];
           }
-          if(biggest617 == 1){
+          if(biggest321 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
@@ -382,30 +324,30 @@ public class CD extends ClockDomain{
         
         case 2 : 
           orderBufferSignal_1.setClear();//C:\Users\beckb\Documents\GitHub\CS704-Project-1\Beck_IRP\IRP-POS\sysj\POS.sysj line: 9, column: 2
-          thread618(tdone,ends);
-          thread619(tdone,ends);
-          thread620(tdone,ends);
-          int biggest621 = 0;
-          if(ends[2]>=biggest621){
-            biggest621=ends[2];
+          thread322(tdone,ends);
+          thread323(tdone,ends);
+          thread324(tdone,ends);
+          int biggest325 = 0;
+          if(ends[2]>=biggest325){
+            biggest325=ends[2];
           }
-          if(ends[3]>=biggest621){
-            biggest621=ends[3];
+          if(ends[3]>=biggest325){
+            biggest325=ends[3];
           }
-          if(ends[4]>=biggest621){
-            biggest621=ends[4];
+          if(ends[4]>=biggest325){
+            biggest325=ends[4];
           }
-          if(biggest621 == 1){
+          if(biggest325 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest621 == 0){
-            S612=0;
+          if(biggest325 == 0){
+            S316=0;
             active[1]=0;
             ends[1]=0;
-            S612=0;
+            S316=0;
             break RUN;
           }
         
