@@ -1,0 +1,192 @@
+reaction RotaryTableTracker
+(:
+	input signal previousSignal,
+	input signal rotate,
+	input signal externalSource,
+	input signal receivedFromPrevious,
+	input signal externalSink,
+	output signal currentSignal,
+	output signal sentToNext
+) {
+	signal beginSustain;
+	signal endSustain;
+	
+	{
+		while (true) {
+			present(externalSink){
+				emit endSustain;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			present(externalSource){
+				emit beginSustain;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			
+			await (rotate);
+			
+			present(currentSignal){
+				emit sentToNext;
+			}
+			
+			present(previousSignal && receivedFromPrevious){
+				emit beginSustain;
+			} else {
+				emit endSustain;
+			}
+			
+			await (!rotate);
+		}
+	}
+	||
+	{
+		while (true) {
+			// only one of these signals can happen per loop
+			await (beginSustain);
+			
+			abort(endSustain){
+				sustain currentSignal;
+			}
+			
+		}
+	}
+}
+
+PlantRotaryCD
+(
+	input signal rotaryTableTrigger;
+	input signal plantConveyorActive;
+	input signal plantConveyorBottleBeforePos1;
+	output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5, bottleAtPos6;
+)->{
+	signal rotationInProgress, finishedRotating;
+	signal deadSignal; // leave null
+	signal conveyorToPos1;
+	signal pos5ToConveyor;
+	signal pos12, pos23, pos34, pos45, pos56, pos61; // connections
+	
+	// Simulate rotate the table
+	{
+		await(rotaryTableTrigger);
+		
+		trap(R){
+			{
+				waitl(1 s);
+				exit(R);
+			}
+			||
+			{
+				sustain rotationInProgress;
+			}
+		}
+		emit finishedRotating;
+	}
+	||
+	// Conveyor to index 1
+	{
+		while (true) {
+			present(!bottleAtPos1 && plantConveyorActive && plantConveyorBottleBeforePos1){
+				emit conveyorToPos1;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Pos 5 to conveyor
+	{
+		while (true) {
+			// bottle comes out even if there's something there
+			present(bottleAtPos5 && plantConveyorActive){
+				emit pos5ToConveyor;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Index 1
+	{
+		RotaryTableTracker(:
+			bottleAtPos6, 
+			finishedRotating, 
+			conveyorToPos1, 
+			pos61, 
+			deadSignal, 
+			bottleAtPos1, 
+			pos12);
+	}
+	||
+	// Index 2
+	{
+		RotaryTableTracker(:
+			bottleAtPos1, 
+			finishedRotating, 
+			deadSignal, 
+			pos12, 
+			deadSignal, 
+			bottleAtPos2, 
+			pos23);
+	}
+	||
+	// Index 3
+	{
+		RotaryTableTracker(:
+			bottleAtPos2, 
+			finishedRotating, 
+			deadSignal, 
+			pos23, 
+			deadSignal, 
+			bottleAtPos3, 
+			pos34);
+	}
+	||
+	// Index 4
+	{
+		RotaryTableTracker(:
+			bottleAtPos3, 
+			finishedRotating, 
+			deadSignal, 
+			pos34, 
+			deadSignal, 
+			bottleAtPos4, 
+			pos45);
+	}
+	||
+	// Index 5
+	{
+		RotaryTableTracker(:
+			bottleAtPos4, 
+			finishedRotating, 
+			deadSignal, 
+			pos45, 
+			pos5ToConveyor, 
+			bottleAtPos5, 
+			pos56);
+	}
+	||
+	// Index 6
+	{
+		RotaryTableTracker(:
+			bottleAtPos5, 
+			finishedRotating, 
+			deadSignal, 
+			pos56, 
+			deadSignal, 
+			bottleAtPos6, 
+			pos61);
+	}
+	
+	
+}
