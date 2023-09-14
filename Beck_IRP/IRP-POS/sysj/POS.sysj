@@ -6,11 +6,13 @@ CD(
 	input signal absReady, absFault;
 	
 )->{
-	Buffer signal orderBufferSignal;
+	signal orderBufferSignal;
+	String signal addToBuffer, bufferOutput;
+	signal removeFromBuffer;
 
 	{// First reaction - Waiting to receive from GUI		
 		String wholeInputString;
-		Buffer firstTempBuffer;
+		// Buffer firstTempBuffer;
 		
 		await(orderBufferSignal); // wait for buffer to be init
 		
@@ -22,17 +24,19 @@ CD(
 			System.out.println("Got Order"); // PRINTER
 			
 			wholeInputString = #incomingOrder;
+
+			emit addToBuffer(wholeInputString);
 			
-			firstTempBuffer = #orderBufferSignal;
-			firstTempBuffer.push(wholeInputString);
-			emit orderBufferSignal(firstTempBuffer);
+			// firstTempBuffer = #orderBufferSignal;
+			// firstTempBuffer.push(wholeInputString);
+			// emit orderBufferSignal(firstTempBuffer);
 			
 			emit returnMSG("Order Received");
 		}
 	}
 	||
 	{// Second Readtion - Order Sender
-		Buffer secondTempBuffer;
+		// Buffer secondTempBuffer;
 		String sendingString;
 		
 		await(orderBufferSignal); // wait for buffer to be init
@@ -43,12 +47,15 @@ CD(
 				
 				trap(R) { // Begin waiting for the buffer to have contents
 					loop { // repeat the loop
-						secondTempBuffer = #orderBufferSignal; // read the global buffer signal
+						emit removeFromBuffer;
+						await(bufferOutput);
+						sendingString = #bufferOutput;
+						// secondTempBuffer = #orderBufferSignal; // read the global buffer signal
 						
-						if (!secondTempBuffer.isEmpty()) { // if the buffer has contents
+						if (!(sendingString = "")) { // if the buffer has contents
 							exit(R); // Exit the loop to SENT IT
 						}
-						await(orderBufferSignal); // if the buffer has no contents, wait for the global buffer signal to be updates
+						await(addToBuffer); // if the buffer has no contents, wait for the global buffer signal to be updates
 						// this cuts down on unnessacary reads and writes of the global buffer signal
 					}
 				}
@@ -56,25 +63,41 @@ CD(
 			// This code is inside the abort to ensure that a fault returns the code to the absReady at the start of the loop
 				// however a clash condition is created where is a fault arises during the manipluation of the buffer, 
 				// the buffer will become corrupted
-			sendingString = (String) secondTempBuffer.pop(); // get the next order to be sent
+			// sendingString = (String) secondTempBuffer.pop(); // get the next order to be sent
 			
 			emit outgoingOrder(sendingString); // send the order to the ABS
 			
 			emit returnMSG("Order Procesing");
 
-			emit orderBufferSignal(secondTempBuffer); // Update global buffer value
+			// emit orderBufferSignal(secondTempBuffer); // Update global buffer value
 			pause; // wait before continuing so we dont react to our own buffer update
 			}
 		}
 	}
 	||
 	{ // Third Reaction - Buffer Manager
+		String inputHolder, outputHolder;
 		Buffer orderBuffer = new Buffer(128);
-		emit orderBufferSignal(orderBuffer);
+		emit orderBufferSignal;
 		
 		emit returnMSG("POS Sub-System Ready");
 		
-		halt;
+		loop {
+			present(addToBuffer) {
+				inputHolder = #addToBuffer;
+				orderBuffer.push(inputHolder);
+			}
+
+			present(removeFromBuffer) {
+				if (outputBuffer.isEmpty()) {
+					outputHolder = "";
+					emit bufferOutput(outputHolder);
+				} else {
+					outputHolder = orderBuffer.pop();
+					emit bufferOutput(outputHolder);
+				}
+			}
+		}
 	}	
 }
 
