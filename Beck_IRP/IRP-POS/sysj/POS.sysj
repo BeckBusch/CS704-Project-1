@@ -12,31 +12,21 @@ CD(
 
 	{// First reaction - Waiting to receive from GUI		
 		String wholeInputString;
-		// Buffer firstTempBuffer;
 		
 		await(orderBufferSignal); // wait for buffer to be init
 		
 		while(true) {
-			
 			await(incomingOrder); // Wait for an order to appear then stop sustaining
 			await(!incomingOrder);
-			
-			System.out.println("Got Order"); // PRINTER
-			
-			wholeInputString = #incomingOrder;
-
-			emit addToBuffer(wholeInputString);
-			
-			// firstTempBuffer = #orderBufferSignal;
-			// firstTempBuffer.push(wholeInputString);
-			// emit orderBufferSignal(firstTempBuffer);
+						
+			wholeInputString = #incomingOrder; // Read incoming order into String
+			emit addToBuffer(wholeInputString); // request order be added to buffer
 			
 			emit returnMSG("Order Received");
 		}
 	}
 	||
 	{// Second Readtion - Order Sender
-		// Buffer secondTempBuffer;
 		String sendingString;
 		
 		await(orderBufferSignal); // wait for buffer to be init

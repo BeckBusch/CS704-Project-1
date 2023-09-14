@@ -49,6 +49,8 @@ public class posGUI {
     public static JTextArea responseArea;
     JSlider quantitySlider;
 
+    stringSignalSender sender = new stringSignalSender(4007);
+
     // == Main Method ==
     public static void main(String[] args) throws IOException {
         ServerListener server = new ServerListener();
@@ -380,43 +382,37 @@ public class posGUI {
 
         System.out.println(Arrays.toString(outputArray)); // PRINTER
 
-        orderSubmit sender = new orderSubmit(String.join(",", outputArray));
+        sender.setOutgoingString(String.join(",", outputArray));
         sender.start();
 
     }
 
-    private class orderSubmit extends Thread {
-        String outgoing;
+    class stringSignalSender extends Thread {
+        ObjectOutputStream outputStream;
+        String outgoingValue;
 
-        orderSubmit(String in) {
-            this.outgoing = in;
+        stringSignalSender(int port) {
+            try {
+                outputStream = new ObjectOutputStream(new Socket("127.0.0.1", port).getOutputStream());
+            } catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
+        }
+
+        void setOutgoingString(String value) {
+            this.outgoingValue = value;
         }
 
         @Override
         public void run() {
             try {
-                if (sO == null) {
-                    sO = new ObjectOutputStream(new Socket("127.0.0.1", 4007).getOutputStream());
-                }
-
-                Object[] transmitArray = new Object[] { true, outgoing };
-
-                sO.writeObject(transmitArray);
-
+                outputStream.writeObject(new Object[] { true, outgoingValue });
                 Thread.sleep(100);
-
-                transmitArray[0] = false;
-                sO.writeObject(transmitArray);
-
-                sO.close();
-                System.out.println("closed reached"); // PRINTER
-
+                outputStream.writeObject(new Object[] { false, outgoingValue });
             } catch (IOException | InterruptedException aa) {
-                System.out.println("fail");
-                // System.out.println(aa.getMessage());
+                System.out.println(aa.getMessage());
             }
         }
-
     }
 
     private class SliderChangeListener implements ChangeListener {
