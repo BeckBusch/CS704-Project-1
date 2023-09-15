@@ -10,37 +10,197 @@ CD(
 	output signal valveInjectorOnOffGUI, valveInletOnOffGUI, dosUnitValveRetractGUI, dosUnitValveExtendGUI;
 	
 )->{
+	signal tick;
 	{
-		signal A;
-		emit dosUnitValveRetractGUI;
-		
-		{
-			abort (A) {
-				sustain bottleAtPos1GUI;
+		loop {
+			// ---- INIT ----
+			abort (tick) {
+				{
+					sustain bottleAtPos1GUI;
+				}
+				||
+				{
+					sustain tableAlignedWithSensorGUI;
+				}
+				||
+				{
+					sustain bottleAtPos5GUI;
+				}
+				||
+				{
+					sustain bottleAtPos4GUI;
+				}
+				||
+				{
+					sustain bottleAtPos2GUI;
+				}
+				||
+				{
+					sustain gripperZAxisLiftedGUI;
+				}
+				||
+				{
+					sustain gripperTurnHomePosGUI;
+				}
+				||
+				{
+					sustain dosUnitEvacGUI;
+				}
+				||
+				{
+					sustain capGripperPos5ExtendGUI;
+				}
+				||
+				{
+					sustain cylClampBottleExtendGUI;
+				}
+			}
+
+			// 1
+			abort (tick) {
+				{
+					sustain bottleAtPos1GUI;
+				}
+				||
+				{
+					sustain tableAlignedWithSensorGUI;
+				}
+				||
+				{
+					sustain bottleAtPos5GUI;
+				}
+				||
+				{
+					sustain bottleAtPos4GUI;
+				}
+				||
+				{
+					sustain bottleAtPos2GUI;
+				}
+				||
+				{
+					sustain gripperZAxisLoweredGUI;
+				}
+				||
+				{
+					sustain gripperZAxisLiftedGUI;
+				}
+				||
+				{
+					sustain gripperTurnFinalPosGUI;
+				}
+				||
+				{
+					sustain dosUnitFilledGUI;
+				}
+				||
+				{
+					sustain cylPos5ZaxisExtendGUI;
+				}
+				||
+				{
+					sustain gripperTurnExtendGUI;
+				}
+				||
+				{
+					sustain capGripperPos5ExtendGUI;
+				}
+				||
+				{
+					sustain cylClampBottleExtendGUI;
+				}
+				||
+				{
+					sustain valveInletOnOffGUI;
+				}
+				||
+				{
+					sustain dosUnitValveRetractGUI;
+				}
+			}
+
+			// 2
+			abort (tick) {
+				{
+					sustain bottleAtPos1GUI;
+				}
+				||
+				{
+					sustain tableAlignedWithSensorGUI;
+				}
+				||
+				{
+					sustain bottleAtPos5GUI;
+				}
+				||
+				{
+					sustain bottleAtPos4GUI;
+				}
+				||
+				{
+					sustain bottleAtPos2GUI;
+				}
+				||
+				{
+					sustain gripperZAxisLiftedGUI;
+				}
+				||
+				{
+					sustain gripperTurnHomePosGUI;
+				}
+				||
+				{
+					sustain dosUnitEvacGUI;
+				}
+				||
+				{
+					sustain gripperTurnRetractGUI;
+				}
+				||
+				{
+					sustain valveInjectorOnOffGUI;
+				}
+				||
+				{
+					sustain dosUnitValveExtendGUI;
+				}
+			}
+
+			// MOVE
+			abort (tick) {
+				{
+					sustain bottleLeftPos5GUI;
+				}
+				||
+				{
+					sustain gripperZAxisLiftedGUI;
+				}
+				||
+				{
+					sustain gripperTurnHomePosGUI;
+				}
+				||
+				{
+					sustain dosUnitEvacGUI;
+				}
+				||
+				{
+					sustain motConveyorOnOffGUI;
+				}
+				||
+				{
+					sustain rotaryTableTriggerGUI;
+				}
 			}
 		}
-		||
-		{
-			waitl(1500 ms);
-			emit A;
-		}
-		
-		emit dosUnitValveExtendGUI;
-		
-		{
-			abort (A) {
-				sustain motConveyorOnOffGUI;
-			}
-		}
-		||
-		{
-			waitl(1500 ms);
-			emit A;
-		}
-		halt;
 	}
 	||
 	{
-		pause;
+		loop {
+			waitl(3000 ms);
+			pause;
+			emit tick;
+			pause;
+		}
 	}
 }
