@@ -20,7 +20,7 @@ import java.net.Socket;
 //import javax.net.ServerSocketFactory;
 
 
-public class acsDraftGUI{
+public class ACS_GUI{
 
     //==GLOBAL CONSTANTS==
     static int WINDOW_LENGTH = 800; //will be used for reactive window making

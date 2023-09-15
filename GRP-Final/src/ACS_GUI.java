@@ -20,7 +20,7 @@ import java.net.Socket;
 //import javax.net.ServerSocketFactory;
 
 
-public class acsDraftGUI{
+public class ACS_GUI{
 
     //==GLOBAL CONSTANTS==
     static int WINDOW_LENGTH = 800; //will be used for reactive window making
@@ -91,8 +91,59 @@ public class acsDraftGUI{
     static int Xvalue = WINDOW_LENGTH/2;
     static int Yvalue = TOP_MARGIN+50;
 
+    //==JAVA SWING==
+    static JLabel avatar = new JLabel( new ImageIcon("avatar.png"));
+    static JLabel absSuspend = new JLabel("ABS SUSPENDED");
 
-    public static void main(String[] args) throws IOException {  
+    
+
+    //==CONSTRUCTOR==
+    public ACS_GUI()throws IOException{
+        //==SETTING UP CONNECTION==
+        EchoServer server = new EchoServer(PORT_NO);
+        server.start(); /*starts connection thread for connecting to SysJ*/
+
+        //==SETTING UP GUI==
+        guiGenerator();
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        ACS_GUI gui = new ACS_GUI();
+
+        //====LOOP CODE====
+        while(true){
+
+            avatar.setBounds(Xvalue, Yvalue, 500, 300);
+            //\nSystem.out.printf("\n\nXvalue: %d | Yvalue: %d", Xvalue,Yvalue);
+
+            //checking if in ABS region
+            if(getZone(Xvalue,Yvalue) == "ABS"){ 
+                /*Send Suspend signal to the sysj */
+                System.out.println("ABS SUSPENDED: IN ABS REGION");
+                absSuspend.setVisible(true); //show the message
+            } else{
+                absSuspend.setVisible(false);
+            }
+
+            
+            try {
+                Thread.sleep(500);
+                //System.out.println("Running");   just to show its entering here
+        
+
+            }
+            catch(InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
+        
+        }
+
+    }
+
+
+    public void guiGenerator(){ 
         JFrame f=new JFrame();//creating instance of JFrame  
         //
         //==BUTTONS==
@@ -130,12 +181,13 @@ public class acsDraftGUI{
         //==LABELS AND IMAGES==
 
         //Map Image
-        JLabel map = new JLabel( new ImageIcon("map.png"));
+        JLabel map = new JLabel(new ImageIcon(getClass().getResource("images/map.png"))); //JLabel(new ImageIcon(getClass().getResource("images/" + name))) || JLabel( new ImageIcon("map.png"))
         map.setBounds((WINDOW_LENGTH/2), (TOP_MARGIN+20), 800, 600);
         map.setVisible(true);
         
         //Avatar Image
-        JLabel avatar = new JLabel( new ImageIcon("avatar.png"));
+        //JLabel avatar = new JLabel( new ImageIcon("avatar.png")); Hidden as declared statically
+        avatar.setIcon(new ImageIcon(getClass().getResource("images/avatar.png")));
         avatar.setBounds((WINDOW_LENGTH/2), (TOP_MARGIN+50), 500, 300);
         avatar.setVisible(true);
 
@@ -156,7 +208,7 @@ public class acsDraftGUI{
         map.setVisible(true);
 
         //ABS suspended Label
-        JLabel absSuspend = new JLabel("ABS SUSPENDED");
+        //JLabel absSuspend = new JLabel("ABS SUSPENDED");
         absSuspend.setBounds((WINDOW_LENGTH-50), (TOP_MARGIN),250, 100);
         absSuspend.setVisible(false); /*Starting hidden */
         absSuspend.setFont(new Font("Serif", Font.PLAIN, 30));
@@ -182,39 +234,7 @@ public class acsDraftGUI{
         f.setLayout(null);//using no layout managers  
         f.setVisible(true);//making the frame visible
 
-        //==SETTING UP CONNECTION==
-        EchoServer server = new EchoServer(PORT_NO);
-        server.start(); /*starts connection thread for connecting to SysJ*/
-
-        //====LOOP CODE====
-        while(true){
-    
-            avatar.setBounds(Xvalue, Yvalue, 500, 300);
-            //\nSystem.out.printf("\n\nXvalue: %d | Yvalue: %d", Xvalue,Yvalue);
-
-            //checking if in ABS region
-            if(getZone(Xvalue,Yvalue) == "ABS"){ 
-                /*Send Suspend signal to the sysj */
-                System.out.println("ABS SUSPENDED: IN ABS REGION");
-                absSuspend.setVisible(true); //show the message
-            } else{
-                absSuspend.setVisible(false);
-            }
-
-            
-            try {
-                Thread.sleep(500);
-                //System.out.println("Running");   just to show its entering here
         
-
-            }
-            catch(InterruptedException ex)
-            {
-                ex.printStackTrace();
-            }
-        
-        }
-
     }
 
     //==SENDID()-HELPER-FUNCTION==
