@@ -1,0 +1,53 @@
+rotary(
+		input signal tableAlignedWithSensor, bottleAtPos5, capOnBottleAtPos1;
+		output signal rotaryTableTrigger;
+		input Boolean channel fillerReady, capperReady, convReady, baxterReady;
+		output Boolean channel rotated;
+)->{
+	/*
+	Basic operation of the rotary clock-domain would be:
+		1. Check if a bottle at position 1 has already a cap on it. If so, wait until the bottle is manually removed from the 
+		table.
+		2. Rotate the table 60 degrees via sustaining signal rotaryTableTrigger for about 0.5 second
+		3. Ensure the table positions are aligned with the sensors via tableAlighnedWithSensor
+	*/
+	signal fR, cR, cvR, bR;
+	{
+		loop{
+			await(capOnBottleAtPos1); //checking first if a cap is already on and waiting for manual removal of cap
+			{await(fR);}||{await(cR);}||{await(cvR);}||{await(bR);} //TODO: Need to change and verify names
+			present(bottleAtPos5) {
+				await(!bottleAtPos5);
+			}
+			trap(T){
+				{sustain rotaryTableTrigger;}||{waitl(500 ms); exit(T);}
+			}
+			await(tableAlignedWithSensor);
+			send rotated(Boolean.TRUE);
+			waitl(500 ms);
+		}
+	}
+	||
+	{ //R2 calling function for checking
+	checkReady(:fillerReady, fR)
+	||
+	checkReady(:capperReady, cR)
+	||
+	checkReady(:convReady, cvR)
+	||
+	checkReady(:baxterReady, bR)
+	}
+	
+	//R3 function for checking signals TODO: need to verify and change names
+	reaction checkReady(: input Boolean channel ReadyIn, output signal ReadyOut) 
+	{
+		loop{
+			trap(T){
+				{receive ReadyIn; pause; pause; exit(T);} 
+				|| 
+				{ if(#ReadyIn){ sustain ReadyOut; } }
+			}
+			pause;
+		}
+	}
+}
