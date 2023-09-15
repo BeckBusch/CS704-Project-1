@@ -1,4 +1,4 @@
-import buffer.*;
+import buffer.Buffer;
 
 CD(
 	input String signal incomingOrder;
@@ -42,7 +42,7 @@ CD(
 						sendingString = #bufferOutput;
 						// secondTempBuffer = #orderBufferSignal; // read the global buffer signal
 						
-						if (!(sendingString = "")) { // if the buffer has contents
+						if (!(sendingString.isEmpty())) { // if the buffer has contents
 							exit(R); // Exit the loop to SENT IT
 						}
 						await(addToBuffer); // if the buffer has no contents, wait for the global buffer signal to be updates
@@ -79,14 +79,16 @@ CD(
 			}
 
 			present(removeFromBuffer) {
-				if (outputBuffer.isEmpty()) {
+				if (orderBuffer.isEmpty()) {
 					outputHolder = "";
 					emit bufferOutput(outputHolder);
 				} else {
-					outputHolder = orderBuffer.pop();
+					outputHolder = (String) orderBuffer.pop();
 					emit bufferOutput(outputHolder);
 				}
 			}
+			
+			pause;
 		}
 	}	
 }
