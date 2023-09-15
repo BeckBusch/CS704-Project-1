@@ -116,6 +116,14 @@ public class ABSGUI {
             guiPanel.add(tempLabel);
         }
         imageLabels.get("conveyorOff.png").setVisible(true);
+        // imageLabels.get("canisterTop.png").setVisible(true);
+        // imageLabels.get("tableAlign.png").setVisible(true);
+        // imageLabels.get("bottlePos1.png").setVisible(true);
+        // imageLabels.get("bottleLeaving.png").setVisible(true);
+        // imageLabels.get("bottlePos2.png").setVisible(true);
+        // imageLabels.get("fullyLowered.png").setVisible(true);
+        // imageLabels.get("bottlePos4.png").setVisible(true);
+        // imageLabels.get("conveyorOff.png").setVisible(true);
 
         messageLabels = new HashMap<>();
         for (String name : messageNames) {
@@ -127,6 +135,15 @@ public class ABSGUI {
             messageLabels.put(name, tempLabel);
             guiPanel.add(tempLabel);
         }
+        // messageLabels.get("gripperDown").setText("Lowering Gripper");
+        // messageLabels.get("gripperTurning").setText("Twisting Gripper");
+        // messageLabels.get("gripCap").setText("Gripping Cap");
+        // messageLabels.get("gripBottle").setText("Clamping Bottle");
+        // messageLabels.get("valveInjector").setText("Injector Valve On");
+        // messageLabels.get("valveInlet").setText("Inlet Valve On");
+        // messageLabels.get("movingCanister").setText("Lowering Canister");
+        // messageLabels.get("gripperTurn").setText("Gripper Init");
+
 
         JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("images/" + "Background.png")));
         backgroundLabel.setBounds(0, 0, backgroundLabel.getPreferredSize().width,
@@ -233,7 +250,7 @@ public class ABSGUI {
                                     break;
                                 case "gripperTurnRetractGUItrue":
                                     System.out.println("gripperTurnRetracttrue");
-                                    messageLabels.get("gripperTurn").setText("Untwisting Gripper");
+                                    messageLabels.get("gripperTurning").setText("Untwisting Gripper");
                                     break;
                                 case "gripperTurnRetractGUIfalse":
                                     System.out.println("gripperTurnRetractfalse");
@@ -241,7 +258,7 @@ public class ABSGUI {
                                     break;
                                 case "gripperTurnExtendGUItrue":
                                     System.out.println("gripperTurnExtendtrue");
-                                    messageLabels.get("gripperTurn").setText("Twisting Gripper");
+                                    messageLabels.get("gripperTurning").setText("Twisting Gripper");
                                     break;
                                 case "gripperTurnExtendGUIfalse":
                                     System.out.println("gripperTurnExtendfalse");
