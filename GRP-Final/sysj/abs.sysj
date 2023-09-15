@@ -665,7 +665,7 @@ FillerCD(
 					
 					//Storing new order values
 					int [] temp = (Integer) #order;
-					orderCount = temp[0]];
+					orderCount = temp[0];
 					f1Amount = temp[1];
 					f2Amount = temp[2];
 					f3Amount = temp[3];
