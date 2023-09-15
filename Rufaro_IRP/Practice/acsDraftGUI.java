@@ -141,17 +141,19 @@ public class acsDraftGUI{
 
         //Approved Label
         JLabel approved = new JLabel("APPROVED");
-        approved.setBounds((WINDOW_LENGTH-250), (TOP_MARGIN),200, 100);
+        approved.setBounds((WINDOW_LENGTH-350), (TOP_MARGIN),200, 100);
         approved.setVisible(true);
         approved.setFont(new Font("Serif", Font.PLAIN, 30));
         approved.setForeground(Color.GREEN);
+        map.setVisible(false);
 
         //Denied Label
         JLabel denied = new JLabel("DENIED");
-        denied.setBounds((WINDOW_LENGTH-250), (TOP_MARGIN),200, 100);
+        denied.setBounds((WINDOW_LENGTH-150), (TOP_MARGIN),200, 100);
         denied.setVisible(true);
         denied.setFont(new Font("Serif", Font.PLAIN, 30));
         denied.setForeground(Color.RED);
+        map.setVisible(true);
 
         //ABS suspended Label
         JLabel absSuspend = new JLabel("ABS SUSPENDED");
