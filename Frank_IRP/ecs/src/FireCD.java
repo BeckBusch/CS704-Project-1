@@ -22,26 +22,193 @@ public class FireCD extends ClockDomain{
   public Signal smoke6 = new Signal("smoke6", Signal.INPUT);
   public Signal smoke7 = new Signal("smoke7", Signal.INPUT);
   public Signal emergency = new Signal("emergency", Signal.OUTPUT);
+  public Signal absFault = new Signal("absFault", Signal.OUTPUT);
   public output_Channel fireHappening_o = new output_Channel();
   public output_Channel fireHappeningLight_o = new output_Channel();
   private Signal fire_12;
-  private double temperatureThreshold_thread_13;//sysj\ecs.sysj line: 296, column: 3
-  private int S678 = 1;
+  private double temperatureThreshold_thread_13;//sysj\ecs.sysj line: 297, column: 3
+  private int S804 = 1;
   private int S273 = 1;
   private int S281 = 1;
-  private int S676 = 1;
-  private int S412 = 1;
+  private int S802 = 1;
+  private int S454 = 1;
   private int S392 = 1;
   private int S288 = 1;
   private int S283 = 1;
   private int S310 = 1;
   private int S305 = 1;
+  private int S397 = 1;
+  private int S402 = 1;
   
-  private int[] ends = new int[56];
-  private int[] tdone = new int[56];
+  private int[] ends = new int[58];
+  private int[] tdone = new int[58];
   
-  public void thread1575(int [] tdone, int [] ends){
-        switch(S676){
+  public void thread1727(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1726(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1724(int [] tdone, int [] ends){
+        switch(S402){
+      case 0 : 
+        active[17]=0;
+        ends[17]=0;
+        tdone[17]=1;
+        break;
+      
+      case 1 : 
+        absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+        currsigs.addElement(absFault);
+        active[17]=1;
+        ends[17]=1;
+        tdone[17]=1;
+        break;
+      
+    }
+  }
+
+  public void thread1723(int [] tdone, int [] ends){
+        switch(S397){
+      case 0 : 
+        active[16]=0;
+        ends[16]=0;
+        tdone[16]=1;
+        break;
+      
+      case 1 : 
+        emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+        currsigs.addElement(emergency);
+        active[16]=1;
+        ends[16]=1;
+        tdone[16]=1;
+        break;
+      
+    }
+  }
+
+  public void thread1721(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1720(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1718(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1717(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1715(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1714(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1712(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1711(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1709(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1708(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1706(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1705(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1704(int [] tdone, int [] ends){
+        switch(S802){
       case 0 : 
         active[15]=0;
         ends[15]=0;
@@ -49,14 +216,14 @@ public class FireCD extends ClockDomain{
         break;
       
       case 1 : 
-        switch(S412){
+        switch(S454){
           case 0 : 
             switch(S392){
               case 0 : 
                 switch(S288){
                   case 0 : 
-                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
-                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                       S288=1;
                       active[15]=1;
                       ends[15]=1;
@@ -65,17 +232,17 @@ public class FireCD extends ClockDomain{
                     else {
                       switch(S283){
                         case 0 : 
-                          if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                            fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                          if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                            fireHappening_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
                             S283=1;
-                            if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                              fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                            if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                              fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                               ends[15]=2;
-                              ;//sysj\ecs.sysj line: 322, column: 5
+                              ;//sysj\ecs.sysj line: 323, column: 5
                               S392=1;
                               S310=0;
-                              if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                              if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                                 S310=1;
                                 active[15]=1;
                                 ends[15]=1;
@@ -83,19 +250,28 @@ public class FireCD extends ClockDomain{
                               }
                               else {
                                 S305=0;
-                                if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                                  fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                                if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                                  fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                                   S305=1;
-                                  if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                                    fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                  if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                                    fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                                     ends[15]=2;
-                                    ;//sysj\ecs.sysj line: 323, column: 5
+                                    ;//sysj\ecs.sysj line: 324, column: 5
                                     S392=2;
-                                    emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                                    currsigs.addElement(emergency);
-                                    active[15]=1;
-                                    ends[15]=1;
-                                    tdone[15]=1;
+                                    thread1705(tdone,ends);
+                                    thread1706(tdone,ends);
+                                    int biggest1707 = 0;
+                                    if(ends[16]>=biggest1707){
+                                      biggest1707=ends[16];
+                                    }
+                                    if(ends[17]>=biggest1707){
+                                      biggest1707=ends[17];
+                                    }
+                                    if(biggest1707 == 1){
+                                      active[15]=1;
+                                      ends[15]=1;
+                                      tdone[15]=1;
+                                    }
                                   }
                                   else {
                                     active[15]=1;
@@ -124,14 +300,14 @@ public class FireCD extends ClockDomain{
                           break;
                         
                         case 1 : 
-                          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                             ends[15]=2;
-                            ;//sysj\ecs.sysj line: 322, column: 5
+                            ;//sysj\ecs.sysj line: 323, column: 5
                             S392=1;
                             S310=0;
-                            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                               S310=1;
                               active[15]=1;
                               ends[15]=1;
@@ -139,19 +315,28 @@ public class FireCD extends ClockDomain{
                             }
                             else {
                               S305=0;
-                              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                                 S305=1;
-                                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                                   ends[15]=2;
-                                  ;//sysj\ecs.sysj line: 323, column: 5
+                                  ;//sysj\ecs.sysj line: 324, column: 5
                                   S392=2;
-                                  emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                                  currsigs.addElement(emergency);
-                                  active[15]=1;
-                                  ends[15]=1;
-                                  tdone[15]=1;
+                                  thread1708(tdone,ends);
+                                  thread1709(tdone,ends);
+                                  int biggest1710 = 0;
+                                  if(ends[16]>=biggest1710){
+                                    biggest1710=ends[16];
+                                  }
+                                  if(ends[17]>=biggest1710){
+                                    biggest1710=ends[17];
+                                  }
+                                  if(biggest1710 == 1){
+                                    active[15]=1;
+                                    ends[15]=1;
+                                    tdone[15]=1;
+                                  }
                                 }
                                 else {
                                   active[15]=1;
@@ -180,8 +365,8 @@ public class FireCD extends ClockDomain{
                   case 1 : 
                     S288=1;
                     S288=0;
-                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
-                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                    if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                      fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                       S288=1;
                       active[15]=1;
                       ends[15]=1;
@@ -189,17 +374,17 @@ public class FireCD extends ClockDomain{
                     }
                     else {
                       S283=0;
-                      if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                        fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                      if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                        fireHappening_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
                         S283=1;
-                        if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                          fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                        if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                          fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                           ends[15]=2;
-                          ;//sysj\ecs.sysj line: 322, column: 5
+                          ;//sysj\ecs.sysj line: 323, column: 5
                           S392=1;
                           S310=0;
-                          if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                          if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                             S310=1;
                             active[15]=1;
                             ends[15]=1;
@@ -207,19 +392,28 @@ public class FireCD extends ClockDomain{
                           }
                           else {
                             S305=0;
-                            if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                              fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                            if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                              fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                               S305=1;
-                              if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                              if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                                fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                                 ends[15]=2;
-                                ;//sysj\ecs.sysj line: 323, column: 5
+                                ;//sysj\ecs.sysj line: 324, column: 5
                                 S392=2;
-                                emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                                currsigs.addElement(emergency);
-                                active[15]=1;
-                                ends[15]=1;
-                                tdone[15]=1;
+                                thread1711(tdone,ends);
+                                thread1712(tdone,ends);
+                                int biggest1713 = 0;
+                                if(ends[16]>=biggest1713){
+                                  biggest1713=ends[16];
+                                }
+                                if(ends[17]>=biggest1713){
+                                  biggest1713=ends[17];
+                                }
+                                if(biggest1713 == 1){
+                                  active[15]=1;
+                                  ends[15]=1;
+                                  tdone[15]=1;
+                                }
                               }
                               else {
                                 active[15]=1;
@@ -254,8 +448,8 @@ public class FireCD extends ClockDomain{
               case 1 : 
                 switch(S310){
                   case 0 : 
-                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                       S310=1;
                       active[15]=1;
                       ends[15]=1;
@@ -264,19 +458,28 @@ public class FireCD extends ClockDomain{
                     else {
                       switch(S305){
                         case 0 : 
-                          if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                            fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                          if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                            fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                             S305=1;
-                            if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                            if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                               ends[15]=2;
-                              ;//sysj\ecs.sysj line: 323, column: 5
+                              ;//sysj\ecs.sysj line: 324, column: 5
                               S392=2;
-                              emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                              currsigs.addElement(emergency);
-                              active[15]=1;
-                              ends[15]=1;
-                              tdone[15]=1;
+                              thread1714(tdone,ends);
+                              thread1715(tdone,ends);
+                              int biggest1716 = 0;
+                              if(ends[16]>=biggest1716){
+                                biggest1716=ends[16];
+                              }
+                              if(ends[17]>=biggest1716){
+                                biggest1716=ends[17];
+                              }
+                              if(biggest1716 == 1){
+                                active[15]=1;
+                                ends[15]=1;
+                                tdone[15]=1;
+                              }
                             }
                             else {
                               active[15]=1;
@@ -292,16 +495,25 @@ public class FireCD extends ClockDomain{
                           break;
                         
                         case 1 : 
-                          if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                          if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                            fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                             ends[15]=2;
-                            ;//sysj\ecs.sysj line: 323, column: 5
+                            ;//sysj\ecs.sysj line: 324, column: 5
                             S392=2;
-                            emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                            currsigs.addElement(emergency);
-                            active[15]=1;
-                            ends[15]=1;
-                            tdone[15]=1;
+                            thread1717(tdone,ends);
+                            thread1718(tdone,ends);
+                            int biggest1719 = 0;
+                            if(ends[16]>=biggest1719){
+                              biggest1719=ends[16];
+                            }
+                            if(ends[17]>=biggest1719){
+                              biggest1719=ends[17];
+                            }
+                            if(biggest1719 == 1){
+                              active[15]=1;
+                              ends[15]=1;
+                              tdone[15]=1;
+                            }
                           }
                           else {
                             active[15]=1;
@@ -317,8 +529,8 @@ public class FireCD extends ClockDomain{
                   case 1 : 
                     S310=1;
                     S310=0;
-                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                       S310=1;
                       active[15]=1;
                       ends[15]=1;
@@ -326,19 +538,28 @@ public class FireCD extends ClockDomain{
                     }
                     else {
                       S305=0;
-                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                         S305=1;
-                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                           ends[15]=2;
-                          ;//sysj\ecs.sysj line: 323, column: 5
+                          ;//sysj\ecs.sysj line: 324, column: 5
                           S392=2;
-                          emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                          currsigs.addElement(emergency);
-                          active[15]=1;
-                          ends[15]=1;
-                          tdone[15]=1;
+                          thread1720(tdone,ends);
+                          thread1721(tdone,ends);
+                          int biggest1722 = 0;
+                          if(ends[16]>=biggest1722){
+                            biggest1722=ends[16];
+                          }
+                          if(ends[17]>=biggest1722){
+                            biggest1722=ends[17];
+                          }
+                          if(biggest1722 == 1){
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
                         }
                         else {
                           active[15]=1;
@@ -358,24 +579,40 @@ public class FireCD extends ClockDomain{
                 break;
               
               case 2 : 
-                emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                currsigs.addElement(emergency);
-                active[15]=1;
-                ends[15]=1;
-                tdone[15]=1;
+                thread1723(tdone,ends);
+                thread1724(tdone,ends);
+                int biggest1725 = 0;
+                if(ends[16]>=biggest1725){
+                  biggest1725=ends[16];
+                }
+                if(ends[17]>=biggest1725){
+                  biggest1725=ends[17];
+                }
+                if(biggest1725 == 1){
+                  active[15]=1;
+                  ends[15]=1;
+                  tdone[15]=1;
+                }
+                //FINXME code
+                if(biggest1725 == 0){
+                  S454=1;
+                  active[15]=1;
+                  ends[15]=1;
+                  tdone[15]=1;
+                }
                 break;
               
             }
             break;
           
           case 1 : 
-            S412=1;
-            S412=0;
-            if(fire_12.getprestatus()){//sysj\ecs.sysj line: 321, column: 12
+            S454=1;
+            S454=0;
+            if(fire_12.getprestatus()){//sysj\ecs.sysj line: 322, column: 12
               S392=0;
               S288=0;
-              if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
-                fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+              if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+                fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                 S288=1;
                 active[15]=1;
                 ends[15]=1;
@@ -383,17 +620,17 @@ public class FireCD extends ClockDomain{
               }
               else {
                 S283=0;
-                if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                  fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+                if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                  fireHappening_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
                   S283=1;
-                  if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-                    fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+                  if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+                    fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
                     ends[15]=2;
-                    ;//sysj\ecs.sysj line: 322, column: 5
+                    ;//sysj\ecs.sysj line: 323, column: 5
                     S392=1;
                     S310=0;
-                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                    if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+                      fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                       S310=1;
                       active[15]=1;
                       ends[15]=1;
@@ -401,19 +638,28 @@ public class FireCD extends ClockDomain{
                     }
                     else {
                       S305=0;
-                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+                      if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                        fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                         S305=1;
-                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                        if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                          fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                           ends[15]=2;
-                          ;//sysj\ecs.sysj line: 323, column: 5
+                          ;//sysj\ecs.sysj line: 324, column: 5
                           S392=2;
-                          emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                          currsigs.addElement(emergency);
-                          active[15]=1;
-                          ends[15]=1;
-                          tdone[15]=1;
+                          thread1726(tdone,ends);
+                          thread1727(tdone,ends);
+                          int biggest1728 = 0;
+                          if(ends[16]>=biggest1728){
+                            biggest1728=ends[16];
+                          }
+                          if(ends[17]>=biggest1728){
+                            biggest1728=ends[17];
+                          }
+                          if(biggest1728 == 1){
+                            active[15]=1;
+                            ends[15]=1;
+                            tdone[15]=1;
+                          }
                         }
                         else {
                           active[15]=1;
@@ -442,7 +688,7 @@ public class FireCD extends ClockDomain{
               }
             }
             else {
-              S412=1;
+              S454=1;
               active[15]=1;
               ends[15]=1;
               tdone[15]=1;
@@ -455,7 +701,7 @@ public class FireCD extends ClockDomain{
     }
   }
 
-  public void thread1574(int [] tdone, int [] ends){
+  public void thread1703(int [] tdone, int [] ends){
         switch(S281){
       case 0 : 
         active[14]=0;
@@ -464,8 +710,8 @@ public class FireCD extends ClockDomain{
         break;
       
       case 1 : 
-        if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 310, column: 12
-          fire_12.setPresent();//sysj\ecs.sysj line: 311, column: 5
+        if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 311, column: 12
+          fire_12.setPresent();//sysj\ecs.sysj line: 312, column: 5
           currsigs.addElement(fire_12);
           active[14]=1;
           ends[14]=1;
@@ -481,7 +727,7 @@ public class FireCD extends ClockDomain{
     }
   }
 
-  public void thread1573(int [] tdone, int [] ends){
+  public void thread1702(int [] tdone, int [] ends){
         switch(S273){
       case 0 : 
         active[13]=0;
@@ -490,8 +736,8 @@ public class FireCD extends ClockDomain{
         break;
       
       case 1 : 
-        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 299, column: 8
-          fire_12.setPresent();//sysj\ecs.sysj line: 300, column: 5
+        if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 300, column: 8
+          fire_12.setPresent();//sysj\ecs.sysj line: 301, column: 5
           currsigs.addElement(fire_12);
           active[13]=1;
           ends[13]=1;
@@ -507,14 +753,32 @@ public class FireCD extends ClockDomain{
     }
   }
 
-  public void thread1571(int [] tdone, int [] ends){
-        S676=1;
-    S412=0;
-    if(fire_12.getprestatus()){//sysj\ecs.sysj line: 321, column: 12
+  public void thread1699(int [] tdone, int [] ends){
+        S402=1;
+    absFault.setPresent();//sysj\ecs.sysj line: 327, column: 6
+    currsigs.addElement(absFault);
+    active[17]=1;
+    ends[17]=1;
+    tdone[17]=1;
+  }
+
+  public void thread1698(int [] tdone, int [] ends){
+        S397=1;
+    emergency.setPresent();//sysj\ecs.sysj line: 325, column: 6
+    currsigs.addElement(emergency);
+    active[16]=1;
+    ends[16]=1;
+    tdone[16]=1;
+  }
+
+  public void thread1697(int [] tdone, int [] ends){
+        S802=1;
+    S454=0;
+    if(fire_12.getprestatus()){//sysj\ecs.sysj line: 322, column: 12
       S392=0;
       S288=0;
-      if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 322, column: 5
-        fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+      if(!fireHappening_o.isPartnerPresent() || fireHappening_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
+        fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
         S288=1;
         active[15]=1;
         ends[15]=1;
@@ -522,17 +786,17 @@ public class FireCD extends ClockDomain{
       }
       else {
         S283=0;
-        if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-          fireHappening_o.setVal(true);//sysj\ecs.sysj line: 322, column: 5
+        if(fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+          fireHappening_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
           S283=1;
-          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 322, column: 5
-            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 322, column: 5
+          if(!fireHappening_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
+            fireHappening_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
             ends[15]=2;
-            ;//sysj\ecs.sysj line: 322, column: 5
+            ;//sysj\ecs.sysj line: 323, column: 5
             S392=1;
             S310=0;
-            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 323, column: 5
-              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+            if(!fireHappeningLight_o.isPartnerPresent() || fireHappeningLight_o.isPartnerPreempted()){//sysj\ecs.sysj line: 324, column: 5
+              fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
               S310=1;
               active[15]=1;
               ends[15]=1;
@@ -540,19 +804,28 @@ public class FireCD extends ClockDomain{
             }
             else {
               S305=0;
-              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 323, column: 5
+              if(fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                fireHappeningLight_o.setVal(true);//sysj\ecs.sysj line: 324, column: 5
                 S305=1;
-                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 323, column: 5
-                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 323, column: 5
+                if(!fireHappeningLight_o.isACK()){//sysj\ecs.sysj line: 324, column: 5
+                  fireHappeningLight_o.setREQ(false);//sysj\ecs.sysj line: 324, column: 5
                   ends[15]=2;
-                  ;//sysj\ecs.sysj line: 323, column: 5
+                  ;//sysj\ecs.sysj line: 324, column: 5
                   S392=2;
-                  emergency.setPresent();//sysj\ecs.sysj line: 324, column: 5
-                  currsigs.addElement(emergency);
-                  active[15]=1;
-                  ends[15]=1;
-                  tdone[15]=1;
+                  thread1698(tdone,ends);
+                  thread1699(tdone,ends);
+                  int biggest1700 = 0;
+                  if(ends[16]>=biggest1700){
+                    biggest1700=ends[16];
+                  }
+                  if(ends[17]>=biggest1700){
+                    biggest1700=ends[17];
+                  }
+                  if(biggest1700 == 1){
+                    active[15]=1;
+                    ends[15]=1;
+                    tdone[15]=1;
+                  }
                 }
                 else {
                   active[15]=1;
@@ -581,17 +854,17 @@ public class FireCD extends ClockDomain{
       }
     }
     else {
-      S412=1;
+      S454=1;
       active[15]=1;
       ends[15]=1;
       tdone[15]=1;
     }
   }
 
-  public void thread1570(int [] tdone, int [] ends){
+  public void thread1696(int [] tdone, int [] ends){
         S281=1;
-    if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 310, column: 12
-      fire_12.setPresent();//sysj\ecs.sysj line: 311, column: 5
+    if(smoke1.getprestatus() || smoke2.getprestatus() || smoke3.getprestatus() || smoke4.getprestatus() || smoke5.getprestatus() || smoke6.getprestatus() || smoke7.getprestatus()){//sysj\ecs.sysj line: 311, column: 12
+      fire_12.setPresent();//sysj\ecs.sysj line: 312, column: 5
       currsigs.addElement(fire_12);
       active[14]=1;
       ends[14]=1;
@@ -604,11 +877,11 @@ public class FireCD extends ClockDomain{
     }
   }
 
-  public void thread1569(int [] tdone, int [] ends){
+  public void thread1695(int [] tdone, int [] ends){
         S273=1;
-    temperatureThreshold_thread_13 = 50.0;//sysj\ecs.sysj line: 296, column: 3
-    if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 299, column: 8
-      fire_12.setPresent();//sysj\ecs.sysj line: 300, column: 5
+    temperatureThreshold_thread_13 = 50.0;//sysj\ecs.sysj line: 297, column: 3
+    if((temp17.getpreval() == null ? 0.0d : ((Double)temp17.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp23.getpreval() == null ? 0.0d : ((Double)temp23.getpreval()).doubleValue()) > temperatureThreshold_thread_13 || (temp456.getpreval() == null ? 0.0d : ((Double)temp456.getpreval()).doubleValue()) > temperatureThreshold_thread_13){//sysj\ecs.sysj line: 300, column: 8
+      fire_12.setPresent();//sysj\ecs.sysj line: 301, column: 5
       currsigs.addElement(fire_12);
       active[13]=1;
       ends[13]=1;
@@ -628,60 +901,60 @@ public class FireCD extends ClockDomain{
     }
     
     RUN: while(true){
-      switch(S678){
+      switch(S804){
         case 0 : 
-          S678=0;
+          S804=0;
           break RUN;
         
         case 1 : 
-          S678=2;
-          S678=2;
-          fire_12.setClear();//sysj\ecs.sysj line: 292, column: 2
-          thread1569(tdone,ends);
-          thread1570(tdone,ends);
-          thread1571(tdone,ends);
-          int biggest1572 = 0;
-          if(ends[13]>=biggest1572){
-            biggest1572=ends[13];
+          S804=2;
+          S804=2;
+          fire_12.setClear();//sysj\ecs.sysj line: 293, column: 2
+          thread1695(tdone,ends);
+          thread1696(tdone,ends);
+          thread1697(tdone,ends);
+          int biggest1701 = 0;
+          if(ends[13]>=biggest1701){
+            biggest1701=ends[13];
           }
-          if(ends[14]>=biggest1572){
-            biggest1572=ends[14];
+          if(ends[14]>=biggest1701){
+            biggest1701=ends[14];
           }
-          if(ends[15]>=biggest1572){
-            biggest1572=ends[15];
+          if(ends[15]>=biggest1701){
+            biggest1701=ends[15];
           }
-          if(biggest1572 == 1){
+          if(biggest1701 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
         
         case 2 : 
-          fire_12.setClear();//sysj\ecs.sysj line: 292, column: 2
-          thread1573(tdone,ends);
-          thread1574(tdone,ends);
-          thread1575(tdone,ends);
-          int biggest1576 = 0;
-          if(ends[13]>=biggest1576){
-            biggest1576=ends[13];
+          fire_12.setClear();//sysj\ecs.sysj line: 293, column: 2
+          thread1702(tdone,ends);
+          thread1703(tdone,ends);
+          thread1704(tdone,ends);
+          int biggest1729 = 0;
+          if(ends[13]>=biggest1729){
+            biggest1729=ends[13];
           }
-          if(ends[14]>=biggest1576){
-            biggest1576=ends[14];
+          if(ends[14]>=biggest1729){
+            biggest1729=ends[14];
           }
-          if(ends[15]>=biggest1576){
-            biggest1576=ends[15];
+          if(ends[15]>=biggest1729){
+            biggest1729=ends[15];
           }
-          if(biggest1576 == 1){
+          if(biggest1729 == 1){
             active[12]=1;
             ends[12]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest1576 == 0){
-            S678=0;
+          if(biggest1729 == 0){
+            S804=0;
             active[12]=0;
             ends[12]=0;
-            S678=0;
+            S804=0;
             break RUN;
           }
         
@@ -690,9 +963,9 @@ public class FireCD extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;
@@ -739,6 +1012,7 @@ public class FireCD extends ClockDomain{
       smoke6.setpreclear();
       smoke7.setpreclear();
       emergency.setpreclear();
+      absFault.setpreclear();
       fire_12.setpreclear();
       int dummyint = 0;
       for(int qw=0;qw<currsigs.size();++qw){
@@ -778,6 +1052,8 @@ public class FireCD extends ClockDomain{
       smoke7.setClear();
       emergency.sethook();
       emergency.setClear();
+      absFault.sethook();
+      absFault.setClear();
       fire_12.setClear();
       fireHappening_o.sethook();
       fireHappeningLight_o.sethook();

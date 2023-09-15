@@ -285,6 +285,7 @@ FireCD(
 		output boolean channel fireHappening;
 		output boolean channel fireHappeningLight;
 		output         signal  emergency;
+		output         signal  absFault;
 
 	  )
 ->{
@@ -321,7 +322,9 @@ FireCD(
 			present(fire){
 				send fireHappening(true);
 				send fireHappeningLight(true);
-				sustain emergency;
+				{sustain emergency;}
+				||
+				{sustain absFault;}
 			}
 			
 			pause;

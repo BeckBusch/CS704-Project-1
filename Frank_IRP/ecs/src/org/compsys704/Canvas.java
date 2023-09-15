@@ -24,6 +24,7 @@ public class Canvas extends JPanel {
 	BufferedImage fire;
 	BufferedImage ac;
 	BufferedImage fan;
+	BufferedImage heat;
 	
 	public Canvas(){
 		
@@ -32,6 +33,8 @@ public class Canvas extends JPanel {
 			fire = ImageIO.read(new File("res/fire.jpg"));
 			ac = ImageIO.read(new File("res/ac.jpg"));
 			fan = ImageIO.read(new File("res/fan.jpg"));
+			heat = ImageIO.read(new File("res/heat.jpg"));
+
 			
 			
 		} catch (IOException e) {
@@ -82,7 +85,7 @@ public class Canvas extends JPanel {
 		}
 		
 		if (States.FAN) {
-			g.drawImage(fan, 500, 500, null);
+			g.drawImage(heat, 500, 500, null);
 			
 		} else {
 			
@@ -102,6 +105,7 @@ public class Canvas extends JPanel {
 		}
 		
 		if (States.HEAT) {
+			g.drawImage(fan, 600, 500, null);
 			
 		} else {
 			

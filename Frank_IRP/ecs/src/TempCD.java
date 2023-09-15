@@ -68,10 +68,10 @@ public class TempCD extends ClockDomain{
   private int S227 = 1;
   private int S222 = 1;
   
-  private int[] ends = new int[56];
-  private int[] tdone = new int[56];
+  private int[] ends = new int[58];
+  private int[] tdone = new int[58];
   
-  public void thread1567(int [] tdone, int [] ends){
+  public void thread1693(int [] tdone, int [] ends){
         switch(S256){
       case 0 : 
         active[11]=0;
@@ -209,7 +209,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1566(int [] tdone, int [] ends){
+  public void thread1692(int [] tdone, int [] ends){
         switch(S220){
       case 0 : 
         active[10]=0;
@@ -242,7 +242,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1565(int [] tdone, int [] ends){
+  public void thread1691(int [] tdone, int [] ends){
         switch(S200){
       case 0 : 
         active[9]=0;
@@ -293,7 +293,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1564(int [] tdone, int [] ends){
+  public void thread1690(int [] tdone, int [] ends){
         switch(S156){
       case 0 : 
         active[8]=0;
@@ -326,7 +326,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1563(int [] tdone, int [] ends){
+  public void thread1689(int [] tdone, int [] ends){
         switch(S136){
       case 0 : 
         active[7]=0;
@@ -377,7 +377,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1562(int [] tdone, int [] ends){
+  public void thread1688(int [] tdone, int [] ends){
         switch(S92){
       case 0 : 
         active[6]=0;
@@ -403,7 +403,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1561(int [] tdone, int [] ends){
+  public void thread1687(int [] tdone, int [] ends){
         switch(S84){
       case 0 : 
         active[5]=0;
@@ -436,7 +436,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1560(int [] tdone, int [] ends){
+  public void thread1686(int [] tdone, int [] ends){
         switch(S64){
       case 0 : 
         active[4]=0;
@@ -487,7 +487,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1559(int [] tdone, int [] ends){
+  public void thread1685(int [] tdone, int [] ends){
         switch(S20){
       case 0 : 
         active[3]=0;
@@ -513,7 +513,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1558(int [] tdone, int [] ends){
+  public void thread1684(int [] tdone, int [] ends){
         switch(S12){
       case 0 : 
         active[2]=0;
@@ -566,7 +566,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1556(int [] tdone, int [] ends){
+  public void thread1682(int [] tdone, int [] ends){
         S256=1;
     S255=0;
     S227=0;
@@ -607,7 +607,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1555(int [] tdone, int [] ends){
+  public void thread1681(int [] tdone, int [] ends){
         S220=1;
     factoryHumidity_thread_10 = 55.0;//sysj\ecs.sysj line: 259, column: 3
     humidityTolerance_thread_10 = 5.0;//sysj\ecs.sysj line: 260, column: 3
@@ -632,7 +632,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1554(int [] tdone, int [] ends){
+  public void thread1680(int [] tdone, int [] ends){
         S200=1;
     manufacturingTemp_thread_9 = 15.0;//sysj\ecs.sysj line: 239, column: 3
     temperatureTolerance_thread_9 = 0.1;//sysj\ecs.sysj line: 240, column: 3
@@ -675,7 +675,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1553(int [] tdone, int [] ends){
+  public void thread1679(int [] tdone, int [] ends){
         S156=1;
     officeHumidity_thread_8 = 50.0;//sysj\ecs.sysj line: 223, column: 3
     humidityTolerance_thread_8 = 10.0;//sysj\ecs.sysj line: 224, column: 3
@@ -700,7 +700,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1552(int [] tdone, int [] ends){
+  public void thread1678(int [] tdone, int [] ends){
         S136=1;
     officeTemp_thread_7 = 25.0;//sysj\ecs.sysj line: 203, column: 3
     temperatureTolerance_thread_7 = 1.0;//sysj\ecs.sysj line: 204, column: 3
@@ -743,7 +743,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1551(int [] tdone, int [] ends){
+  public void thread1677(int [] tdone, int [] ends){
         S92=1;
     if((occu2.getpreval() == null ? 0 : ((Integer)occu2.getpreval()).intValue()) + (occu3.getpreval() == null ? 0 : ((Integer)occu3.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 193, column: 8
       occu23_1.setPresent();//sysj\ecs.sysj line: 194, column: 5
@@ -759,7 +759,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1550(int [] tdone, int [] ends){
+  public void thread1676(int [] tdone, int [] ends){
         S84=1;
     officeHumidity_thread_5 = 50.0;//sysj\ecs.sysj line: 176, column: 3
     humidityTolerance_thread_5 = 10.0;//sysj\ecs.sysj line: 177, column: 3
@@ -784,7 +784,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1549(int [] tdone, int [] ends){
+  public void thread1675(int [] tdone, int [] ends){
         S64=1;
     officeTemp_thread_4 = 25.0;//sysj\ecs.sysj line: 156, column: 3
     temperatureTolerance_thread_4 = 1.0;//sysj\ecs.sysj line: 157, column: 3
@@ -827,7 +827,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1548(int [] tdone, int [] ends){
+  public void thread1674(int [] tdone, int [] ends){
         S20=1;
     if((occu1.getpreval() == null ? 0 : ((Integer)occu1.getpreval()).intValue()) + (occu7.getpreval() == null ? 0 : ((Integer)occu7.getpreval()).intValue()) > 0){//sysj\ecs.sysj line: 146, column: 8
       occu17_1.setPresent();//sysj\ecs.sysj line: 147, column: 5
@@ -843,7 +843,7 @@ public class TempCD extends ClockDomain{
     }
   }
 
-  public void thread1547(int [] tdone, int [] ends){
+  public void thread1673(int [] tdone, int [] ends){
         S12=1;
     S6=0;
     if((clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) >= 480 && (clock.getpreval() == null ? 0 : ((Integer)clock.getpreval()).intValue()) <= 1080){//sysj\ecs.sysj line: 135, column: 8
@@ -882,48 +882,48 @@ public class TempCD extends ClockDomain{
           occu23_1.setClear();//sysj\ecs.sysj line: 128, column: 2
           occu456_1.setClear();//sysj\ecs.sysj line: 128, column: 2
           fire_1.setClear();//sysj\ecs.sysj line: 129, column: 2
-          thread1547(tdone,ends);
-          thread1548(tdone,ends);
-          thread1549(tdone,ends);
-          thread1550(tdone,ends);
-          thread1551(tdone,ends);
-          thread1552(tdone,ends);
-          thread1553(tdone,ends);
-          thread1554(tdone,ends);
-          thread1555(tdone,ends);
-          thread1556(tdone,ends);
-          int biggest1557 = 0;
-          if(ends[2]>=biggest1557){
-            biggest1557=ends[2];
+          thread1673(tdone,ends);
+          thread1674(tdone,ends);
+          thread1675(tdone,ends);
+          thread1676(tdone,ends);
+          thread1677(tdone,ends);
+          thread1678(tdone,ends);
+          thread1679(tdone,ends);
+          thread1680(tdone,ends);
+          thread1681(tdone,ends);
+          thread1682(tdone,ends);
+          int biggest1683 = 0;
+          if(ends[2]>=biggest1683){
+            biggest1683=ends[2];
           }
-          if(ends[3]>=biggest1557){
-            biggest1557=ends[3];
+          if(ends[3]>=biggest1683){
+            biggest1683=ends[3];
           }
-          if(ends[4]>=biggest1557){
-            biggest1557=ends[4];
+          if(ends[4]>=biggest1683){
+            biggest1683=ends[4];
           }
-          if(ends[5]>=biggest1557){
-            biggest1557=ends[5];
+          if(ends[5]>=biggest1683){
+            biggest1683=ends[5];
           }
-          if(ends[6]>=biggest1557){
-            biggest1557=ends[6];
+          if(ends[6]>=biggest1683){
+            biggest1683=ends[6];
           }
-          if(ends[7]>=biggest1557){
-            biggest1557=ends[7];
+          if(ends[7]>=biggest1683){
+            biggest1683=ends[7];
           }
-          if(ends[8]>=biggest1557){
-            biggest1557=ends[8];
+          if(ends[8]>=biggest1683){
+            biggest1683=ends[8];
           }
-          if(ends[9]>=biggest1557){
-            biggest1557=ends[9];
+          if(ends[9]>=biggest1683){
+            biggest1683=ends[9];
           }
-          if(ends[10]>=biggest1557){
-            biggest1557=ends[10];
+          if(ends[10]>=biggest1683){
+            biggest1683=ends[10];
           }
-          if(ends[11]>=biggest1557){
-            biggest1557=ends[11];
+          if(ends[11]>=biggest1683){
+            biggest1683=ends[11];
           }
-          if(biggest1557 == 1){
+          if(biggest1683 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
@@ -935,54 +935,54 @@ public class TempCD extends ClockDomain{
           occu23_1.setClear();//sysj\ecs.sysj line: 128, column: 2
           occu456_1.setClear();//sysj\ecs.sysj line: 128, column: 2
           fire_1.setClear();//sysj\ecs.sysj line: 129, column: 2
-          thread1558(tdone,ends);
-          thread1559(tdone,ends);
-          thread1560(tdone,ends);
-          thread1561(tdone,ends);
-          thread1562(tdone,ends);
-          thread1563(tdone,ends);
-          thread1564(tdone,ends);
-          thread1565(tdone,ends);
-          thread1566(tdone,ends);
-          thread1567(tdone,ends);
-          int biggest1568 = 0;
-          if(ends[2]>=biggest1568){
-            biggest1568=ends[2];
+          thread1684(tdone,ends);
+          thread1685(tdone,ends);
+          thread1686(tdone,ends);
+          thread1687(tdone,ends);
+          thread1688(tdone,ends);
+          thread1689(tdone,ends);
+          thread1690(tdone,ends);
+          thread1691(tdone,ends);
+          thread1692(tdone,ends);
+          thread1693(tdone,ends);
+          int biggest1694 = 0;
+          if(ends[2]>=biggest1694){
+            biggest1694=ends[2];
           }
-          if(ends[3]>=biggest1568){
-            biggest1568=ends[3];
+          if(ends[3]>=biggest1694){
+            biggest1694=ends[3];
           }
-          if(ends[4]>=biggest1568){
-            biggest1568=ends[4];
+          if(ends[4]>=biggest1694){
+            biggest1694=ends[4];
           }
-          if(ends[5]>=biggest1568){
-            biggest1568=ends[5];
+          if(ends[5]>=biggest1694){
+            biggest1694=ends[5];
           }
-          if(ends[6]>=biggest1568){
-            biggest1568=ends[6];
+          if(ends[6]>=biggest1694){
+            biggest1694=ends[6];
           }
-          if(ends[7]>=biggest1568){
-            biggest1568=ends[7];
+          if(ends[7]>=biggest1694){
+            biggest1694=ends[7];
           }
-          if(ends[8]>=biggest1568){
-            biggest1568=ends[8];
+          if(ends[8]>=biggest1694){
+            biggest1694=ends[8];
           }
-          if(ends[9]>=biggest1568){
-            biggest1568=ends[9];
+          if(ends[9]>=biggest1694){
+            biggest1694=ends[9];
           }
-          if(ends[10]>=biggest1568){
-            biggest1568=ends[10];
+          if(ends[10]>=biggest1694){
+            biggest1694=ends[10];
           }
-          if(ends[11]>=biggest1568){
-            biggest1568=ends[11];
+          if(ends[11]>=biggest1694){
+            biggest1694=ends[11];
           }
-          if(biggest1568 == 1){
+          if(biggest1694 == 1){
             active[1]=1;
             ends[1]=1;
             break RUN;
           }
           //FINXME code
-          if(biggest1568 == 0){
+          if(biggest1694 == 0){
             S258=0;
             active[1]=0;
             ends[1]=0;
@@ -995,9 +995,9 @@ public class TempCD extends ClockDomain{
   }
 
   public void init(){
-    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
-    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] active1 = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+    char [] paused1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    char [] suspended1 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     paused = paused1;
     active = active1;
     suspended = suspended1;

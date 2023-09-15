@@ -1,28 +1,28 @@
 import buffer.Buffer;
 
 CD(
-	input String signal incomingOrder;
-	output String signal outgoingOrder, returnMSG;
-	input signal absReady, absFault;
+	input String signal incomingOrder; // used to receive orders from the gui
+	output String signal outgoingOrder, returnMSG; // used to send orders to the ABS, and respond to the GUI
+	input signal absReady, absFault; // used to coordinate with the ABS
 	
 )->{
-	signal orderBufferSignal;
-	String signal addToBuffer, bufferOutput;
-	signal removeFromBuffer;
+	signal orderBufferSignal; // used to coordinate the ready state of the buffer between reactions
+	String signal addToBuffer, bufferOutput; // used to send and retrive values with the buffer
+	signal removeFromBuffer; // used to request a value from the buffer
 
-	{// First reaction - Waiting to receive from GUI		
-		String wholeInputString;
+	{// First reaction - Receiving values from the GUI
+		String wholeInputString; // Storage value for the incoming order
 		
 		await(orderBufferSignal); // wait for buffer to be init
 		
 		while(true) {
 			await(incomingOrder); // Wait for an order to appear then stop sustaining
 			await(!incomingOrder);
-						
+
 			wholeInputString = #incomingOrder; // Read incoming order into String
 			emit addToBuffer(wholeInputString); // request order be added to buffer
-			
-			emit returnMSG("Order Received");
+
+			emit returnMSG("Order Received"); // return a response to the GUI
 		}
 	}
 	||
@@ -37,12 +37,11 @@ CD(
 				
 				trap(R) { // Begin waiting for the buffer to have contents
 					loop { // repeat the loop
-						emit removeFromBuffer;
-						await(bufferOutput);
-						sendingString = #bufferOutput;
-						// secondTempBuffer = #orderBufferSignal; // read the global buffer signal
+						emit removeFromBuffer; // request value from buffer
+						await(bufferOutput); // await the value from buffer
+						sendingString = #bufferOutput; // store the returned value
 						
-						if (!(sendingString.isEmpty())) { // if the buffer has contents
+						if (!(sendingString.isEmpty())) { // if the value returned from the buffer is not blank
 							exit(R); // Exit the loop to SENT IT
 						}
 						await(addToBuffer); // if the buffer has no contents, wait for the global buffer signal to be updates
@@ -53,79 +52,42 @@ CD(
 			// This code is inside the abort to ensure that a fault returns the code to the absReady at the start of the loop
 				// however a clash condition is created where is a fault arises during the manipluation of the buffer, 
 				// the buffer will become corrupted
-			// sendingString = (String) secondTempBuffer.pop(); // get the next order to be sent
 			
 			emit outgoingOrder(sendingString); // send the order to the ABS
 			
-			emit returnMSG("Order Procesing");
+			emit returnMSG("Order Procesing"); // return a response to the GUI
 
-			// emit orderBufferSignal(secondTempBuffer); // Update global buffer value
 			pause; // wait before continuing so we dont react to our own buffer update
 			}
 		}
 	}
 	||
 	{ // Third Reaction - Buffer Manager
-		String inputHolder, outputHolder;
-		Buffer orderBuffer = new Buffer(128);
-		emit orderBufferSignal;
+		String inputHolder, outputHolder; // storage values for the orders
+		Buffer orderBuffer = new Buffer(128); // declare the storage buffer
 		
-		emit returnMSG("POS Sub-System Ready");
+		emit returnMSG("POS Sub-System Ready"); // inform the GUI that the subsystem is ready
+
+		emit orderBufferSignal; // declare buffer ready
 		
-		loop {
-			present(addToBuffer) {
-				inputHolder = #addToBuffer;
-				orderBuffer.push(inputHolder);
+		loop { // loop forever
+			present(addToBuffer) { // if a value addition has been requested
+				inputHolder = #addToBuffer; // retrive the value
+				orderBuffer.push(inputHolder); // add to back of buffer
 			}
 
-			present(removeFromBuffer) {
-				if (orderBuffer.isEmpty()) {
-					outputHolder = "";
-					emit bufferOutput(outputHolder);
-				} else {
-					outputHolder = (String) orderBuffer.pop();
-					emit bufferOutput(outputHolder);
+			present(removeFromBuffer) { // if a value removal has been requested
+				if (orderBuffer.isEmpty()) { // check if the buffer is empty
+					outputHolder = ""; // if so, ready a blank string
+					emit bufferOutput(outputHolder); // then return the blank string
+				} else { // if buffer not empty
+					outputHolder = (String) orderBuffer.pop(); // take value from top of buffer
+					emit bufferOutput(outputHolder); // return the value
 				}
 			}
 			
-			pause;
+			pause; // wait for a tick boundary to avoid unbounded loop and properly sync with other reactions
 		}
 	}	
 }
-
-
-// ----- Code for manipluating list
-//splitInputString = wholeInputString.split(",", 0);
-//
-//for (int i=0; i<5; i++) {
-//	inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
-//}
-//
-//firstTempBuffer = #orderBufferSignal;
-//firstTempBuffer.push(inputOrderValues);
-//emit orderBufferSignal(firstTempBuffer);
-
-
-// ----- First attempt at reactions -----
-//||
-//{// Second Reaction - Sending to ABS
-//	Buffer secondTempBuffer;
-//	int[] numbers = new int[5];
-//	
-//	while(true) {
-//		await(orderBufferSignal);
-//		secondTempBuffer = #orderBufferSignal;
-//		if (!secondTempBuffer.isEmpty()) {
-//			numbers = secondTempBuffer.pop();
-//			System.out.println(numbers[1]);
-//		}
-//	}
-//}
-//||
-//{// Fourth Reaction - ABS Busy/Ready Detection
-//	// This reaction awaits the READY signal form the ABS, and then sustains an internal signal for ABSREADY
-//	// When the POS sends a new order to the ABS, this internal signal is halted
-//	
-//	await(a)
-//}
 
