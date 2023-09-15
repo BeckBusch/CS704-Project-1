@@ -1,0 +1,129 @@
+import buffer.*;
+
+CD(
+	input String signal incomingOrder;
+	output String signal outgoingOrder, returnMSG;
+	input signal absReady, absFault;
+	
+)->{
+	signal orderBufferSignal;
+	String signal addToBuffer, bufferOutput;
+	signal removeFromBuffer;
+
+	{// First reaction - Waiting to receive from GUI		
+		String wholeInputString;
+		
+		await(orderBufferSignal); // wait for buffer to be init
+		
+		while(true) {
+			await(incomingOrder); // Wait for an order to appear then stop sustaining
+			await(!incomingOrder);
+						
+			wholeInputString = #incomingOrder; // Read incoming order into String
+			emit addToBuffer(wholeInputString); // request order be added to buffer
+			
+			emit returnMSG("Order Received");
+		}
+	}
+	||
+	{// Second Readtion - Order Sender
+		String sendingString;
+		
+		await(orderBufferSignal); // wait for buffer to be init
+		
+		while(true) { // repeat loop
+			abort(absFault) { // exit on abs ERROR, incase one occurs while waiting on the buffer
+				await(absReady); // Wait for ABS to enter ready state, and assume it will stay like this forever
+				
+				trap(R) { // Begin waiting for the buffer to have contents
+					loop { // repeat the loop
+						emit removeFromBuffer;
+						await(bufferOutput);
+						sendingString = #bufferOutput;
+						// secondTempBuffer = #orderBufferSignal; // read the global buffer signal
+						
+						if (!(sendingString = "")) { // if the buffer has contents
+							exit(R); // Exit the loop to SENT IT
+						}
+						await(addToBuffer); // if the buffer has no contents, wait for the global buffer signal to be updates
+						// this cuts down on unnessacary reads and writes of the global buffer signal
+					}
+				}
+			// SEND IT!
+			// This code is inside the abort to ensure that a fault returns the code to the absReady at the start of the loop
+				// however a clash condition is created where is a fault arises during the manipluation of the buffer, 
+				// the buffer will become corrupted
+			// sendingString = (String) secondTempBuffer.pop(); // get the next order to be sent
+			
+			emit outgoingOrder(sendingString); // send the order to the ABS
+			
+			emit returnMSG("Order Procesing");
+
+			// emit orderBufferSignal(secondTempBuffer); // Update global buffer value
+			pause; // wait before continuing so we dont react to our own buffer update
+			}
+		}
+	}
+	||
+	{ // Third Reaction - Buffer Manager
+		String inputHolder, outputHolder;
+		Buffer orderBuffer = new Buffer(128);
+		emit orderBufferSignal;
+		
+		emit returnMSG("POS Sub-System Ready");
+		
+		loop {
+			present(addToBuffer) {
+				inputHolder = #addToBuffer;
+				orderBuffer.push(inputHolder);
+			}
+
+			present(removeFromBuffer) {
+				if (outputBuffer.isEmpty()) {
+					outputHolder = "";
+					emit bufferOutput(outputHolder);
+				} else {
+					outputHolder = orderBuffer.pop();
+					emit bufferOutput(outputHolder);
+				}
+			}
+		}
+	}	
+}
+
+
+// ----- Code for manipluating list
+//splitInputString = wholeInputString.split(",", 0);
+//
+//for (int i=0; i<5; i++) {
+//	inputOrderValues[i] = Integer.parseInt(splitInputString[i]);
+//}
+//
+//firstTempBuffer = #orderBufferSignal;
+//firstTempBuffer.push(inputOrderValues);
+//emit orderBufferSignal(firstTempBuffer);
+
+
+// ----- First attempt at reactions -----
+//||
+//{// Second Reaction - Sending to ABS
+//	Buffer secondTempBuffer;
+//	int[] numbers = new int[5];
+//	
+//	while(true) {
+//		await(orderBufferSignal);
+//		secondTempBuffer = #orderBufferSignal;
+//		if (!secondTempBuffer.isEmpty()) {
+//			numbers = secondTempBuffer.pop();
+//			System.out.println(numbers[1]);
+//		}
+//	}
+//}
+//||
+//{// Fourth Reaction - ABS Busy/Ready Detection
+//	// This reaction awaits the READY signal form the ABS, and then sustains an internal signal for ABSREADY
+//	// When the POS sends a new order to the ABS, this internal signal is halted
+//	
+//	await(a)
+//}
+

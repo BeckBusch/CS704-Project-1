@@ -1,0 +1,528 @@
+reaction RotaryTableTracker
+(:
+	input signal previousSignal,
+	input signal rotate,
+	input signal externalSource,
+	input signal receivedFromPrevious,
+	input signal externalSink,
+	output signal currentSignal,
+	output signal sentToNext
+) {
+	signal beginSustain;
+	signal endSustain;
+	
+	{
+		while (true) {
+			present(externalSink){
+				emit endSustain;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			present(externalSource){
+				emit beginSustain;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			
+			await (rotate);
+			
+			present(currentSignal){
+				emit sentToNext;
+			}
+			
+			present(previousSignal && receivedFromPrevious){
+				emit beginSustain;
+			} else {
+				emit endSustain;
+			}
+			
+			await (!rotate);
+		}
+	}
+	||
+	{
+		while (true) {
+			// only one of these signals can happen per loop
+			await (beginSustain);
+			
+			abort(endSustain){
+				sustain currentSignal;
+			}
+			
+		}
+	} 
+}
+
+reaction RotaryPlant
+(
+	input signal rotaryTableTrigger;
+	input signal manualRemovePos1;
+	input boolean channel plantConveyorActive;
+	input boolean channel plantConveyorBottleBeforePos1;
+	input boolean channel plantCapperPos4;
+	output signal bottleAtPos1, bottleAtPos2, bottleAtPos3, bottleAtPos4, bottleAtPos5, bottleAtPos6;
+	output signal tableAlignedWithSensor;
+	output signal capOnBottleAtPos1;
+	output boolean channel receivedPos1;
+	output signal sentPos5;
+){
+	signal rotationInProgress, finishedRotating;
+	signal deadSignal; // leave null
+	signal conveyorToPos1;
+	signal pos5ToConveyor;
+	signal removePos1;
+	signal pos12, pos23, pos34, pos45, pos56, pos61; // connections
+	signal pos1, pos2, pos3, pos4, pos5, pos6;
+	signal cap1, cap2, cap3, cap4, cap5, cap6;
+	signal cap12, cap23, cap34, cap45, cap56, cap61;
+	signal conveyorActive, conveyorBottleBeforePos1;
+	signal capperPos4;
+	
+	// Read channels
+	{while (true) {receive plantConveyorActive; emit conveyorActive; pause;}}
+	||
+	{while (true) {receive plantConveyorBottleBeforePos1; emit conveyorBottleBeforePos1; pause;}}
+	||
+	{while (true) {receive plantCapperPos4; emit capperPos4; pause;}}
+	||
+	// Simulate rotate the table
+	{
+		await(rotaryTableTrigger);
+		
+		trap(R){
+			{
+				await(!rotaryTableTrigger);
+				exit(R);
+			}
+			||
+			{
+				sustain rotationInProgress;
+			}
+		}
+		
+		emit finishedRotating;
+	}
+	||
+	{
+		while (true) {
+			present(!rotationInProgress){
+				emit tableAlignedWithSensor;
+			}
+			
+			pause;
+		}
+	}
+	||
+	{
+		while (true) {
+			present(manualRemovePos1){
+				emit removePos1;
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Conveyor to index 1
+	{
+		while (true) {
+			present(!pos1 && conveyorActive && conveyorBottleBeforePos1 && !rotationInProgress){
+				emit conveyorToPos1;
+				send receivedPos1(true);
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Pos 5 to conveyor
+	{
+		while (true) {
+			// bottle comes out even if there's something there
+			present(pos5 && conveyorActive){
+				emit pos5ToConveyor;
+				send sentPos5(true);
+			}
+			
+			pause;
+		}
+	}
+	||
+	// Index 1
+	{
+		RotaryTableTracker(:
+			pos6, 
+			finishedRotating, 
+			conveyorToPos1, 
+			pos61, 
+			removePos1, 
+			pos1, 
+			pos12);
+	}
+	||
+	// Index 2
+	{
+		RotaryTableTracker(:
+			pos1, 
+			finishedRotating, 
+			deadSignal, 
+			pos12, 
+			deadSignal, 
+			pos2, 
+			pos23);
+	}
+	||
+	// Index 3
+	{
+		RotaryTableTracker(:
+			pos2, 
+			finishedRotating, 
+			deadSignal, 
+			pos23, 
+			deadSignal, 
+			pos3, 
+			pos34);
+	}
+	||
+	// Index 4
+	{
+		RotaryTableTracker(:
+			pos3, 
+			finishedRotating, 
+			capperPos4, 
+			pos34, 
+			deadSignal, 
+			pos4, 
+			pos45);
+	}
+	||
+	// Index 5
+	{
+		RotaryTableTracker(:
+			pos4, 
+			finishedRotating, 
+			deadSignal, 
+			pos45, 
+			pos5ToConveyor, 
+			pos5, 
+			pos56);
+	}
+	||
+	// Index 6
+	{
+		RotaryTableTracker(:
+			pos5, 
+			finishedRotating, 
+			deadSignal, 
+			pos56, 
+			deadSignal, 
+			pos6, 
+			pos61);
+	}
+	||
+	// Trackers to output mapping
+	{while(true){present(pos1){emit bottleAtPos1;} pause;}}
+	||
+	{while(true){present(pos2){emit bottleAtPos2;} pause;}}
+	||
+	{while(true){present(pos3){emit bottleAtPos3;} pause;}}
+	||
+	{while(true){present(pos4){emit bottleAtPos4;} pause;}}
+	||
+	{while(true){present(pos5){emit bottleAtPos5;} pause;}}
+	||
+	{while(true){present(pos6){emit bottleAtPos6;} pause;}}
+	||
+	// Index 1
+	{
+		RotaryTableTracker(:
+			cap6, 
+			finishedRotating, 
+			deadSignal, 
+			cap61, 
+			removePos1, 
+			cap1, 
+			cap12);
+	}
+	||
+	// Index 2
+	{
+		RotaryTableTracker(:
+			cap1, 
+			finishedRotating, 
+			deadSignal, 
+			cap12, 
+			deadSignal, 
+			cap2, 
+			cap23);
+	}
+	||
+	// Index 3
+	{
+		RotaryTableTracker(:
+			cap2, 
+			finishedRotating, 
+			deadSignal, 
+			cap23, 
+			deadSignal, 
+			cap3, 
+			cap34);
+	}
+	||
+	// Index 4
+	{
+		RotaryTableTracker(:
+			cap3, 
+			finishedRotating, 
+			deadSignal, 
+			cap34, 
+			deadSignal, 
+			cap4, 
+			cap45);
+	}
+	||
+	// Index 5
+	{
+		RotaryTableTracker(:
+			cap4, 
+			finishedRotating, 
+			deadSignal, 
+			cap45, 
+			pos5ToConveyor, 
+			cap5, 
+			cap56);
+	}
+	||
+	// Index 6
+	{
+		RotaryTableTracker(:
+			cap5, 
+			finishedRotating, 
+			deadSignal, 
+			cap56, 
+			deadSignal, 
+			cap6, 
+			cap61);
+	}
+	||
+	// Cap on bottle at pos 1
+	{while(true) {present(cap1){emit capOnBottleAtPos1;} pause;}}
+	
+}
+
+reaction PlantFiller(
+	output signal bottleAtPos2, dosUnitEvac, dosUnitFilled;
+	input signal valveInjectorOnOff, valveInletOnOff, dosUnitValveRetract,dosUnitValveExtend;
+	input boolean signal fillerReady;
+
+){
+	
+	signal f1Done; //internal signal to communcate first filler is done
+	signal f2Done; //internal signal to communcate second filler is done
+	signal f3Done; //internal signal to communcate third filler is done
+	signal f4Done; //internal signal to communcate fourth filler is done
+	
+
+
+	{//R1 - Filler 1 Simulation
+		loop{ 
+			await(tableAlignedWithSensorGUI);
+			/*signify it is in use*/
+			{{emit bottleAtPos2;}||{emit bottleAtPos2GUI}}
+			{
+				{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+				||
+				{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+			};
+			
+			{
+				{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+				||
+				{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+			};
+			emit f1Done;
+			await(f4Done);
+		}
+	}
+	||
+	{//R2 - Filler 2 Simulation
+		await(f1Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f2Done;
+	}
+	||
+	{//R3 - Filler 3 Simulation
+		await(f2Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f3Done;
+	}
+	||
+	{//R4 - Filler 4 Simulation
+		await(f3Done);
+		/*signify it is in use*/
+		
+		{
+			{present(valveInjectorOnOff){emit valveInjectorOnOffGUI;/*signal for GUI to show valve on*/}}
+			||
+			{present(dosUnitValveRetracts){emit dosUnitValveRetractGUI;/*signal for GUI to show cylinder is being pulled up*/}}
+		};
+		
+		{
+			{present(valveInletOnOff){emit valveInletOnOffGUI;/*signal for GUI to show inlet open*/}}
+			||
+			{present(dosUnitValveExtend){emit dosUnitValveExtendGUI;/*signal for GUI to show cylinder is being pushed down*/}}
+		};
+		emit f4Done;
+	}
+}
+
+reaction PlantConveyor(
+		input signal motConveyorOnOff;
+		output signal bottleAtPos1, bottleLeftPos5;
+			
+) {
+	{
+		loop{
+			await(tableAlignedWithSensorGUI);
+			await(!motConveyorOnOff);
+			{{emit bottleLeftPos5;}||{emit bottleLeftPos5GUI};}
+			pause;
+			{{emit bottleAtPos1;}||{emit bottleAtPos1GUI};}
+			pause;
+			{{emit bottleLeftPos5;}||{emit bottleLeftPos5GUI};}
+		}
+	}
+
+}
+
+
+reaction PlantCapper(
+		input signal cylPos5ZaxisExtend,gripperTurnRetract,gripperTurnExtend,capGripperPos5Extend,cylClampBottleExtend;
+		output signal gripperZAxisLowered,gripperZAxisLifted,gripperTurnHomePos,gripperTurnFinalPos;
+
+) {
+	// for gripperZAxisLowered
+	{
+		signal cancelZ;
+		
+		loop {
+			
+			await(cylPos5ZaxisExtend);
+			
+			abort(cancelZ){
+				{
+					await (!cylPos5ZaxisExtend);
+					emit cancelZ;
+				}
+				||
+				{
+					waitl(1 s);
+					//emit gripperZAxisLoweredGUI
+					sustain gripperZAxisLowered;
+				}
+			}
+		}
+	}
+	// gripperZAxisLifted only on when the other hasnt been on for 500 ms 
+	||
+	{
+		signal cancelUnZ;
+		
+		loop {
+			await (!gripperZAxisLowered);
+			
+			abort(cancelUnZ){
+				{
+					await (cylPos5ZaxisExtend);
+					emit cancelUnZ; //Ask Frank
+				}
+				||
+				{
+					waitl(1 s);
+					//emit gripperZAxisLiftedGUI
+					sustain gripperZAxisLifted;
+					
+				}
+			}
+		}
+	}
+	||
+	// untwisting
+	{
+		signal cancelUntwist;
+		
+		loop {
+			await (gripperTurnExtend && !gripperTurnRetract);
+			
+			abort(cancelUntwist){
+				{
+					await (!gripperTurnExtend || gripperTurnRetract);
+					emit cancelUntwist;
+				}
+				||
+				{
+					waitl(1 s);
+					//emit gripperTurnHomePosGUI;
+					sustain gripperTurnHomePos;
+				}
+			}
+		}
+	}
+	||
+	// twisting
+	{
+		signal cancelTwist;
+		
+		loop {
+			await (!gripperTurnExtend && gripperTurnRetract);
+			
+			abort(cancelTwist){
+				{
+					await (gripperTurnExtend || !gripperTurnRetract);
+					emit cancelTwist;
+				}
+				||
+				{
+					waitl(1 s);
+					//emit gripperTurnFinalPosGUI;
+					sustain gripperTurnFinalPos;
+				}
+			}
+		}
+	}
+	
+}

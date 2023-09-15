@@ -1,0 +1,33 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="POS" Local="true">
+		<ClockDomain Name="MyCD" Class="CD">
+			
+            <oSignal Name="bottleAtPos1GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="bottleLeftPos5GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="tableAlignedWithSensorGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="bottleAtPos5GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="capOnBottleAtPos1GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="bottleAtPos4GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperZAxisLoweredGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperZAxisLiftedGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperTurnHomePosGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperTurnFinalPosGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="bottleAtPos2GUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="dosUnitEvacGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="dosUnitFilledGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="motConveyorOnOffGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="rotaryTableTriggerGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="cylPos5ZaxisExtendGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperTurnRetractGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="gripperTurnExtendGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="capGripperPos5ExtendGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="cylClampBottleExtendGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="valveInjectorOnOffGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="valveInletOnOffGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="dosUnitValveRetractGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+<oSignal Name="dosUnitValveExtendGUI" IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			
+		</ClockDomain>
+	</SubSystem>
+</System>
+	
