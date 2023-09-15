@@ -1,0 +1,69 @@
+<System xmlns="http://systemjtechnology.com">
+	<SubSystem Name="Plant" Local="true">
+		<ClockDomain Name="PlantCD" Class="PlantCD">
+
+			<oSignal Name="bottleAtPos4"            Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4060" To="" />
+			<oSignal Name="gripperZAxisLowered"     Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4060" To="" />
+			<oSignal Name="gripperZAxisLifted"      Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4060" To="" />
+			<oSignal Name="gripperTurnHomePos"      Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4060" To="" />
+			<oSignal Name="gripperTurnFinalPos"     Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4060" To="" />
+			<iSignal Name="cylPos5ZaxisExtend"      Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="gripperTurnRetract"      Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="gripperTurnExtend"       Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="capGripperPos5Extend"    Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="cylClampBottleExtend"    Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<oSignal Name="pusherRetracted"         Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="pusherExtended"          Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="WPgripped"               Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="armAtSource"             Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="armAtDest"               Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="empty"                   Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<oSignal Name="request"                 Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4070" To="" />
+			<iSignal Name="pusherExtend"            Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="vacOn"                   Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="armSource"               Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="armDest"                 Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<oSignal Name="bottleAtPos1"            Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4080" To="" />
+			<oSignal Name="bottleLeftPos5"          Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4080" To="" />
+			<iSignal Name="motConveyorOnOff"        Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<oSignal Name="tableAlignedWithSensor"  Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4090" To="" />
+			<oSignal Name="bottleAtPos5"            Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4090" To="" />
+			<oSignal Name="capOnBottleAtPos1"       Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4090" To="" />
+			<iSignal Name="rotaryTableTrigger"      Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<oSignal Name="bottleAtPos2"            Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4100" To="" />
+			<oSignal Name="dosUnitEvac"             Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4100" To="" />
+			<oSignal Name="dosUnitFilled"           Class="com.systemj.ipc.SimpleClient"    IP="127.0.0.1" Port="4100" To="" />
+			<iSignal Name="valveInjectorOnOff"      Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="valveInletOnOff"         Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="dosUnitValveRetract"     Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+			<iSignal Name="dosUnitValveExtend"      Class="com.systemj.ipc.SimpleServer"    IP="127.0.0.1" Port="1234" />
+
+			<oSignal Name="bottleAtPos1GUI"				IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="bottleLeftPos5GUI"			IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="tableAlignedWithSensorGUI"	IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="bottleAtPos5GUI"				IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="capOnBottleAtPos1GUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="bottleAtPos4GUI"				IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperZAxisLoweredGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperZAxisLiftedGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperTurnHomePosGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperTurnFinalPosGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="bottleAtPos2GUI"				IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="dosUnitEvacGUI"				IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="dosUnitFilledGUI"			IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="motConveyorOnOffGUI"			IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="rotaryTableTriggerGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="cylPos5ZaxisExtendGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperTurnRetractGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="gripperTurnExtendGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="capGripperPos5ExtendGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="cylClampBottleExtendGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="valveInjectorOnOffGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="valveInletOnOffGUI"			IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="dosUnitValveRetractGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+			<oSignal Name="dosUnitValveExtendGUI"		IP="127.0.0.1" Class="com.systemj.ipc.OutputJSON" Port="4015" />
+
+		</ClockDomain>
+	</SubSystem>
+</System>
+
